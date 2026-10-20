@@ -1,0 +1,415 @@
+/*
+    This file is part of Ansel.
+    Copyright (C) 2026 Juscelino Be.
+
+    Ansel is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+*/
+
+/**
+ * "revelar" -- a dark, flat, photo-first theme.
+ *
+ * Layout idea: the classic desktop photo-catalogue look -- near-black chrome,
+ * charcoal side panels, flat full-width module headers separated by hairlines,
+ * thin neutral sliders and one cool-blue accent for whatever is active.
+ *
+ * It is built on top of ansel.css: everything structural stays there, this
+ * file only redefines the palette and flattens the module chrome.
+ */
+
+@import url("ansel.css");
+
+/*======================================
+  1. PALETTE
+  ======================================*/
+
+/* chrome & panels */
+@define-color rv_chrome     #141414;   /* top bar, toolboxes          */
+@define-color rv_panel      #232323;   /* side panels                 */
+@define-color rv_panel_alt  #2a2a2a;   /* module headers              */
+@define-color rv_body       #262626;   /* expanded module body        */
+@define-color rv_line       #161616;   /* hairlines between modules   */
+@define-color rv_center     #1b1b1b;   /* behind the photo            */
+
+/* text */
+@define-color rv_text       #c4c4c4;
+@define-color rv_text_hi    #f0f0f0;
+@define-color rv_text_dim   #8a8a8a;
+@define-color rv_text_off   #5c5c5c;
+
+/* accent */
+@define-color rv_accent     #3d8ee8;
+@define-color rv_accent_hi  #6aaaf2;
+
+/* general */
+@define-color selected_bg_color alpha(@rv_accent, 0.35);
+@define-color border_color @rv_line;
+@define-color bg_color @rv_panel;
+@define-color fg_color @rv_text;
+@define-color base_color @rv_text;
+@define-color text_color @rv_text;
+@define-color placeholder_text_color @rv_text_off;
+@define-color disabled_fg_color @rv_text_off;
+
+@define-color recessed_color_bg alpha(black, 0.30);
+@define-color recessed_color_border alpha(white, 0.06);
+
+@define-color scroll_bar_inactive #3a3a3a;
+@define-color scroll_bar_active #5a5a5a;
+@define-color scroll_bar_bg @rv_panel;
+
+@define-color toolbar_color @rv_chrome;
+
+@define-color plugin_header_color @rv_panel_alt;
+@define-color plugin_bg_color @rv_body;
+@define-color section_label @rv_text_dim;
+@define-color plugin_label_color @rv_text;
+@define-color collapsible_bg_color #2e2e2e;
+
+/* the shared accent (was orange) */
+@define-color orange_dark @rv_accent;
+@define-color orange_light @rv_accent_hi;
+
+/* sliders: dark track, neutral fill, light value text */
+@define-color bauhaus_bg #1a1a1a;
+@define-color bauhaus_fg @rv_text;
+@define-color bauhaus_border alpha(white, 0.05);
+@define-color bauhaus_indicator_border #101010;
+@define-color bauhaus_fill #4a4a4a;
+@define-color bauhaus_value #d8d8d8;
+@define-color bauhaus_value_text @rv_text_hi;
+@define-color bauhaus_bg_hover #3a3a3a;
+@define-color bauhaus_bg_focus #3a3a3a;
+@define-color bauhaus_fg_hover @rv_text_hi;
+@define-color bauhaus_fg_selected @rv_text_hi;
+
+/* buttons & fields */
+@define-color button_bg #303030;
+@define-color button_fg @rv_text;
+@define-color button_border #3a3a3a;
+@define-color button_hover_bg #3c3c3c;
+@define-color button_hover_fg @rv_text_hi;
+
+@define-color field_fg @rv_text;
+@define-color field_active_bg #1a1a1a;
+@define-color field_active_fg @rv_text_hi;
+@define-color field_selected_bg alpha(@rv_accent, 0.45);
+@define-color field_selected_fg @rv_text_hi;
+@define-color field_hover_bg #333333;
+@define-color field_hover_fg @rv_text_hi;
+
+@define-color tooltip_bg_color #0e0e0e;
+@define-color tooltip_fg_color @rv_text;
+@define-color log_fg_color @rv_text_hi;
+
+/* views */
+@define-color darkroom_bg_color @rv_center;
+@define-color darkroom_preview_bg_color @rv_center;
+@define-color print_bg_color @rv_center;
+@define-color lighttable_bg_color @rv_center;
+@define-color lighttable_preview_bg_color @rv_center;
+@define-color lighttable_bg_font_color @rv_text_dim;
+
+/* thumbnails: grey cells that lighten on hover, light on selection */
+@define-color thumbnail_font_color #9a9a9a;
+@define-color thumbnail_bg_color #2c2c2c;
+@define-color thumbnail_selected_bg_color #575757;
+@define-color thumbnail_hover_bg_color #3a3a3a;
+@define-color filmstrip_bg_color @rv_chrome;
+
+/* graphs */
+@define-color graph_bg #1d1d1d;
+@define-color graph_exterior #1a1a1a;
+@define-color graph_border #101010;
+@define-color graph_fg #d0d0d0;
+@define-color graph_fg_active @rv_text_hi;
+@define-color graph_grid #333333;
+@define-color graph_overlay #3a3a3a;
+@define-color graph_scope_restricted #2a2a2a;
+@define-color inset_histogram alpha(white, 0.35);
+
+
+/*======================================
+  2. TYPOGRAPHY
+  ======================================*/
+
+* {
+  font-weight: 400;
+}
+
+#iop-panel-label,
+#lib-panel-label {
+  font-family: "Roboto", "Segoe UI", "SF Pro Text", "Ubuntu", "Cantarell", sans-serif;
+  font-stretch: normal;
+  font-weight: 500;
+  font-size: 1em;
+  letter-spacing: 0.04em;
+}
+
+
+/*======================================
+  3. CHROME
+  ======================================*/
+
+#top,
+#left,
+#right,
+#bottom,
+#main-widget {
+  box-shadow: none;
+}
+
+#top-first-line {
+  background-color: @rv_chrome;
+  border-bottom: 1px solid #000000;
+}
+
+#top-second-line {
+  background-color: @rv_chrome;
+  border-bottom: 1px solid #000000;
+}
+
+#menu-bar menuitem label {
+  color: @rv_text_dim;
+}
+
+#menu-bar menuitem:hover label,
+#menu-bar menuitem.menu-active label,
+menuitem.menu-active label {
+  color: @rv_text_hi;
+}
+
+#left  { border-right: 1px solid #000000; }
+#right { border-left:  1px solid #000000; }
+
+.dt-module-toolbox {
+  background-color: @rv_chrome;
+}
+
+
+/*======================================
+  4. PANELS & MODULES -- flat, full width
+  ======================================*/
+
+.module-groups-container {
+  padding: 0;
+}
+
+.dt_iop_module.dt_module_frame {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid @rv_line;
+}
+
+.dt_iop_module.dt_module_focus,
+.dt_iop_module.dt_module_frame:focus {
+  margin: 0;
+  border: none;
+  border-left: 2px solid @rv_accent;
+  border-bottom: 1px solid @rv_line;
+}
+
+#module-header,
+.dt_iop_module #module-header,
+.dt_iop_module.expanded #module-header,
+.expanded #module-header {
+  border-radius: 0;
+  border: none;
+  background-color: @rv_panel_alt;
+  padding: 0.55em 0.75em;
+}
+
+.dt_lib_module #module-header,
+.dt_lib_module:first-child #module-header {
+  border-top: 1px solid @rv_line;
+}
+
+#module-header:hover {
+  background-color: #313131;
+}
+
+.expanded #module-header #iop-panel-label,
+.expanded #module-header #lib-panel-label,
+.dt_module_focus #iop-panel-label,
+.dt_module_frame:focus #iop-panel-label {
+  color: @rv_text_hi;
+}
+
+#module-header .dt_module_btn.dt_iop_enable_button {
+  color: @rv_text_off;
+}
+
+#module-header .dt_iop_enable_button:checked {
+  color: @rv_text;
+}
+
+#module-header .dt_iop_enable_button:hover,
+#module-header .dt_iop_enable_button:active,
+#module-header .dt_iop_enable_button:selected,
+#module-header .dt_iop_enable_button.dt_iop_enable_forced_on {
+  color: @rv_text_hi;
+}
+
+.dt_plugin_ui_main {
+  padding: 0.75em 0.9em;
+  background-color: @rv_body;
+}
+
+#bauhaus-slider,
+#background-job-eventbox {
+  background-color: transparent;
+}
+
+/* section labels ("tones", "color"...) read as quiet group titles */
+#pref_section,
+.dt_section_label,
+#plugins_box .dt_plugin_ui_main .dt_section_label {
+  color: @rv_text_dim;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+#plugins_box .dt_section_label {
+  color: @rv_text_dim;
+  border-bottom-color: #3a3a3a;
+  margin: 0.9em 0.75em 0.3em;
+}
+
+#collapsible,
+#collapsible #bauhaus-slider,
+.dt_section_expander,
+.dt_section_expander label {
+  background-color: @collapsible_bg_color;
+}
+
+
+/*======================================
+  5. MODULE TABS -- text tabs, underline on the active one
+  ======================================*/
+
+#modules-tabs notebook header,
+#modules-tabs notebook header tabs {
+  background-color: @rv_panel;
+  border-bottom: 1px solid @rv_line;
+}
+
+#modules-tabs notebook tab {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+}
+
+#modules-tabs notebook tab label,
+#modules-tabs notebook tab label.dt_modulegroups_tab_label {
+  color: @rv_text_dim;
+}
+
+#modules-tabs notebook tab:hover {
+  background-color: transparent;
+}
+
+#modules-tabs notebook tab:hover label,
+#modules-tabs notebook tab:hover label.dt_modulegroups_tab_label {
+  color: @rv_text_hi;
+}
+
+#modules-tabs notebook tab:checked {
+  background-color: transparent;
+  border-bottom: 2px solid @rv_accent;
+}
+
+#modules-tabs notebook tab:checked label,
+#modules-tabs notebook tab:checked label.dt_modulegroups_tab_label {
+  color: @rv_text_hi;
+}
+
+notebook tab:checked label {
+  color: @rv_text_hi;
+}
+
+
+/*======================================
+  6. CONTROLS
+  ======================================*/
+
+button,
+.dt_module_btn {
+  border-radius: 3px;
+}
+
+entry,
+spinbutton,
+#search-box entry {
+  background-color: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 3px;
+  color: @rv_text;
+}
+
+entry:focus,
+#search-box entry:focus {
+  border-color: @rv_accent;
+}
+
+scrollbar slider {
+  border-radius: 6px;
+}
+
+scale highlight {
+  background-color: @rv_accent;
+}
+
+progressbar progress {
+  background-color: @rv_accent;
+}
+
+tooltip,
+tooltip * {
+  background-color: @tooltip_bg_color;
+  color: @tooltip_fg_color;
+}
+
+tooltip {
+  border: 1px solid #333333;
+  border-radius: 4px;
+}
+
+menu,
+.popup,
+popover,
+context-menu {
+  background-color: #1e1e1e;
+  border: 1px solid #333333;
+}
+
+menu menuitem:hover,
+popover modelbutton:hover {
+  background-color: alpha(@rv_accent, 0.35);
+}
+
+
+/*======================================
+  7. THUMBNAILS & FILMSTRIP
+  ======================================*/
+
+.dt_thumbtable,
+#thumbtable-filmstrip {
+  background-color: @rv_center;
+}
+
+#thumbtable-filmstrip {
+  background-color: @rv_chrome;
+}
+
+.thumb-main:selected .thumb-background,
+.thumb-main:active .thumb-background,
+#thumbtable-filmstrip .thumb-main:selected .thumb-background {
+  background-color: @thumbnail_selected_bg_color;
+}
+
+#thumbtable-filmstrip .thumb-main:selected .thumb-cursor {
+  border-color: @rv_text_hi;
+}

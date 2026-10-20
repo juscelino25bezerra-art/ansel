@@ -20272,50 +20272,44 @@ msgstr ""
 "se configurações diferentes forem necessárias, use predefinições"
 
 #: ../src/libs/modulegroups.c:385
-#, fuzzy
 msgid "film"
-msgstr "fílmico"
+msgstr "filme"
 
 #: ../src/libs/modulegroups.c:388
-#, fuzzy
 msgid "tones"
-msgstr "meios-tons"
+msgstr "tons"
 
 #: ../src/libs/modulegroups.c:673
 msgid "modulegroups"
 msgstr "grupos de módulos"
 
 #: ../src/libs/modulegroups.c:1016
-#, fuzzy
 msgid "Pipeline"
-msgstr "linha"
+msgstr "Ativos"
 
 #: ../src/libs/modulegroups.c:1016
-#, fuzzy
 msgid "Basic"
-msgstr "básico"
+msgstr "Básico"
 
 #: ../src/libs/modulegroups.c:1016
 msgid "Repair"
-msgstr ""
+msgstr "Reparar"
 
 #: ../src/libs/modulegroups.c:1016
-#, fuzzy
 msgid "Sharpness"
-msgstr "nitidez"
+msgstr "Detalhe"
 
 #: ../src/libs/modulegroups.c:1016
 msgid "Effects"
-msgstr ""
+msgstr "Efeitos"
 
 #: ../src/libs/modulegroups.c:1016
 msgid "Technics"
-msgstr ""
+msgstr "Técnico"
 
 #: ../src/libs/modulegroups.c:1016
-#, fuzzy
 msgid "All"
-msgstr "tudo"
+msgstr "Todos"
 
 #: ../src/libs/modulegroups.c:1018
 msgid ""

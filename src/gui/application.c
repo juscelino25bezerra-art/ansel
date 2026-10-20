@@ -1215,10 +1215,10 @@ int dt_gui_gtk_init(dt_gui_gtk_t *gui)
   dt_loc_get_user_config_dir(configdir, sizeof(configdir));
 
   const char *css_theme = dt_conf_get_string_const("ui_last/theme");
-  if(css_theme)
+  if(css_theme && css_theme[0])
     g_strlcpy(gui->gtkrc, css_theme, sizeof(gui->gtkrc));
   else
-    g_snprintf(gui->gtkrc, sizeof(gui->gtkrc), "ansel");
+    g_snprintf(gui->gtkrc, sizeof(gui->gtkrc), "revelar");
 
 #ifdef MAC_INTEGRATION
 #ifdef GTK_TYPE_OSX_APPLICATION
