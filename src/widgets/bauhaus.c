@@ -1506,7 +1506,9 @@ void dt_bauhaus_widget_set_label(GtkWidget *widget, const char *label)
   struct dt_bauhaus_widget_t *w = DT_BAUHAUS_WIDGET(widget);
   if(label)
   {
-    g_strlcpy(w->label, label, sizeof(w->label));
+    // Most callers pass N_() strings or introspection descriptions (also N_()-marked),
+    // so the label is translated here, once, for display and for the accel path.
+    g_strlcpy(w->label, _(label), sizeof(w->label));
     dt_capitalize_label(w->label);
   }
 
@@ -1528,7 +1530,10 @@ void dt_bauhaus_widget_set_label(GtkWidget *widget, const char *label)
       // slash is not allowed in control names because that makes accel pathes fail
       assert(g_strrstr(label, "/") == NULL);
 
-      gchar *plugin_name = g_strdup_printf("%s/%s", m->name, w->label);
+      // a translated label may contain a slash, which would add a level to the accel path
+      gchar *path_label = g_strdelimit(g_strdup(w->label), "/", '-');
+      gchar *plugin_name = g_strdup_printf("%s/%s", m->name, path_label);
+      dt_free(path_label);
       dt_capitalize_label(plugin_name);
 
       gchar *scope = g_strdup_printf("%s/Modules", m->view);
