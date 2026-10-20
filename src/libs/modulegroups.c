@@ -706,7 +706,8 @@ int expandable(dt_lib_module_t *self)
 
 int position()
 {
-  return 999;
+  // under the essentials panel (999)
+  return 998;
 }
 
 

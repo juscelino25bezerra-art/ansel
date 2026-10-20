@@ -650,7 +650,7 @@ msgid_plural "%d shapes used"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/views/darkroom.c:1829
+#: src/views/darkroom.c:1830
 #, c-format
 msgid "%d star"
 msgid_plural "%d stars"
@@ -1785,7 +1785,7 @@ msgstr ""
 msgid "African-american"
 msgstr ""
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "All"
 msgstr ""
 
@@ -1793,7 +1793,7 @@ msgstr ""
 msgid "All image files"
 msgstr ""
 
-#: src/libs/modulegroups.c:1037
+#: src/libs/modulegroups.c:1038
 msgid "All modules available in the software."
 msgstr ""
 
@@ -1942,6 +1942,10 @@ msgstr ""
 msgid "Attach to the group"
 msgstr ""
 
+#: src/libs/essentials.c:289
+msgid "Auto"
+msgstr ""
+
 #: src/libs/studio_import.c:71
 msgid "Auto import"
 msgstr ""
@@ -1974,6 +1978,7 @@ msgid "B"
 msgstr ""
 
 #: build/src/iop/introspection_crystgrain.c:203 src/iop/channelmixerrgb.c:5662
+#: src/libs/essentials.c:292
 msgid "B&W"
 msgstr ""
 
@@ -2126,7 +2131,7 @@ msgstr ""
 msgid "Based on Ansel by Aurélien Pierre and on darktable."
 msgstr ""
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "Basic"
 msgstr ""
 
@@ -2149,6 +2154,10 @@ msgstr ""
 
 #: build/src/iop/introspection_retouch.c:470
 msgid "Bilateral"
+msgstr ""
+
+#: src/libs/essentials.c:93
+msgid "Blacks"
 msgstr ""
 
 #: src/develop/blend_gui.c:4977
@@ -2428,15 +2437,15 @@ msgstr ""
 msgid "Check to enable the global slideshow view. (needs a restart)"
 msgstr ""
 
-#: src/views/darkroom.c:2016
+#: src/views/darkroom.c:2018
 msgid "Checkerboard color 1"
 msgstr ""
 
-#: src/views/darkroom.c:2033
+#: src/views/darkroom.c:2035
 msgid "Checkerboard color 2"
 msgstr ""
 
-#: src/views/darkroom.c:2051
+#: src/views/darkroom.c:2053
 msgid "Checkerboard size"
 msgstr ""
 
@@ -2459,7 +2468,7 @@ msgid ""
 "in which the image will be proportionnaly fitted.\n"
 msgstr ""
 
-#: src/views/darkroom.c:1982
+#: src/views/darkroom.c:1984
 msgid ""
 "Choose at what size the main preview is rendered.\n"
 "Full resolution renders the pipeline at the raw original resolution.\n"
@@ -2468,7 +2477,7 @@ msgid ""
 "Pixel-level accuracy is guaranteed only when zoomed-in at 100%."
 msgstr ""
 
-#: src/views/darkroom.c:2001
+#: src/views/darkroom.c:2003
 #, c-format
 msgid ""
 "Choose how finely brush and polygon masks are drawn in the darkroom.\n"
@@ -2573,6 +2582,7 @@ msgid "Collections"
 msgstr ""
 
 #: build/src/iop/introspection_retouch.c:475 src/iop/drawlayer.c:2935
+#: src/libs/essentials.c:305
 msgid "Color"
 msgstr ""
 
@@ -2652,6 +2662,10 @@ msgstr ""
 
 #: src/develop/blend_gui.c:5138
 msgid "Contours"
+msgstr ""
+
+#: src/libs/essentials.c:85
+msgid "Contrast"
 msgstr ""
 
 #: src/gui/splash.c:135
@@ -2903,11 +2917,11 @@ msgctxt "job type"
 msgid "Darkroom rendering"
 msgstr ""
 
-#: src/libs/modulegroups.c:1081 src/libs/modulegroups.c:1083
-#: src/libs/modulegroups.c:1087 src/libs/modulegroups.c:1089
-#: src/libs/modulegroups.c:1092 src/libs/modulegroups.c:1094
-#: src/views/darkroom.c:1874 src/views/darkroom.c:1876
-#: src/views/darkroom.c:1879
+#: src/libs/modulegroups.c:1082 src/libs/modulegroups.c:1084
+#: src/libs/modulegroups.c:1088 src/libs/modulegroups.c:1090
+#: src/libs/modulegroups.c:1093 src/libs/modulegroups.c:1095
+#: src/views/darkroom.c:1876 src/views/darkroom.c:1878
+#: src/views/darkroom.c:1881
 msgid "Darkroom/Actions"
 msgstr ""
 
@@ -2928,14 +2942,14 @@ msgstr ""
 msgid "Darkroom/Filmstrip"
 msgstr ""
 
-#: src/views/darkroom.c:1884 src/views/darkroom.c:1889
-#: src/views/darkroom.c:1894 src/views/darkroom.c:1899
-#: src/views/darkroom.c:1904 src/views/darkroom.c:1909
-#: src/views/darkroom.c:1914 src/views/darkroom.c:1919
-#: src/views/darkroom.c:1924 src/views/darkroom.c:1929
-#: src/views/darkroom.c:1934 src/views/darkroom.c:1939
-#: src/views/darkroom.c:1944 src/views/darkroom.c:1949
-#: src/views/darkroom.c:1954 src/views/darkroom.c:1957
+#: src/views/darkroom.c:1886 src/views/darkroom.c:1891
+#: src/views/darkroom.c:1896 src/views/darkroom.c:1901
+#: src/views/darkroom.c:1906 src/views/darkroom.c:1911
+#: src/views/darkroom.c:1916 src/views/darkroom.c:1921
+#: src/views/darkroom.c:1926 src/views/darkroom.c:1931
+#: src/views/darkroom.c:1936 src/views/darkroom.c:1941
+#: src/views/darkroom.c:1946 src/views/darkroom.c:1951
+#: src/views/darkroom.c:1956 src/views/darkroom.c:1959
 msgid "Darkroom/Main image"
 msgstr ""
 
@@ -2948,8 +2962,8 @@ msgstr ""
 msgid "Darkroom/Modules/Instances"
 msgstr ""
 
-#: src/views/darkroom.c:1969 src/views/darkroom.c:2073
-#: src/views/darkroom.c:2095 src/views/darkroom.c:2099
+#: src/views/darkroom.c:1971 src/views/darkroom.c:2075
+#: src/views/darkroom.c:2097 src/views/darkroom.c:2101
 msgid "Darkroom/Toolbox"
 msgstr ""
 
@@ -3413,7 +3427,7 @@ msgstr ""
 msgid "Edit current module's group name"
 msgstr ""
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "Effects"
 msgstr ""
 
@@ -3491,6 +3505,10 @@ msgstr ""
 msgid "Error: No color data available for the selected chart."
 msgstr ""
 
+#: src/libs/essentials.c:122
+msgid "Essentials"
+msgstr ""
+
 #: src/gui/actions/supervisor_window.c:1447
 msgid "Event supervisor"
 msgstr ""
@@ -3561,6 +3579,10 @@ msgstr ""
 
 #: src/gui/actions/file.c:358
 msgid "Export:"
+msgstr ""
+
+#: src/libs/essentials.c:83
+msgid "Exposure"
 msgstr ""
 
 #: build/src/iop/introspection_channelmixerrgb.c:511
@@ -3656,7 +3678,7 @@ msgstr ""
 msgid "Fall-off"
 msgstr ""
 
-#: src/views/darkroom.c:2000
+#: src/views/darkroom.c:2002
 msgid "Fast drawn mask rasterization"
 msgstr ""
 
@@ -3779,23 +3801,23 @@ msgstr ""
 msgid "Focus gamut checking options"
 msgstr ""
 
-#: src/views/darkroom.c:2100
+#: src/views/darkroom.c:2102
 msgid "Focus guide lines options"
 msgstr ""
 
-#: src/libs/modulegroups.c:1088
+#: src/libs/modulegroups.c:1089
 msgid "Focus on the next module"
 msgstr ""
 
-#: src/libs/modulegroups.c:1093
+#: src/libs/modulegroups.c:1094
 msgid "Focus on the next module control"
 msgstr ""
 
-#: src/libs/modulegroups.c:1090
+#: src/libs/modulegroups.c:1091
 msgid "Focus on the previous module"
 msgstr ""
 
-#: src/libs/modulegroups.c:1095
+#: src/libs/modulegroups.c:1096
 msgid "Focus on the previous module control"
 msgstr ""
 
@@ -3811,7 +3833,7 @@ msgstr ""
 msgid "Focus softproof options"
 msgstr ""
 
-#: src/libs/tools/filter.c:765 src/widgets/bauhaus.c:1552
+#: src/libs/tools/filter.c:765 src/widgets/bauhaus.c:1581
 msgid "Focuses the control"
 msgstr ""
 
@@ -3957,7 +3979,7 @@ msgstr ""
 msgid "Geometry"
 msgstr ""
 
-#: src/views/darkroom.c:1879
+#: src/views/darkroom.c:1881
 msgid "Give focus to the main image"
 msgstr ""
 
@@ -4102,6 +4124,10 @@ msgstr ""
 #: build/src/conf_gen.h:647
 msgctxt "preferences"
 msgid "Hex"
+msgstr ""
+
+#: src/libs/essentials.c:87
+msgid "Highlights"
 msgstr ""
 
 #: src/libs/histogram.c:3051
@@ -4593,6 +4619,10 @@ msgstr ""
 msgid "Library"
 msgstr ""
 
+#: src/libs/essentials.c:305
+msgid "Light"
+msgstr ""
+
 #: build/src/preferences_gen.h:2489 src/libs/lib.c:699
 #: src/views/lighttable.c:118
 msgid "Lighttable"
@@ -4628,7 +4658,7 @@ msgstr ""
 msgid "List"
 msgstr ""
 
-#: src/libs/modulegroups.c:1031
+#: src/libs/modulegroups.c:1032
 msgid ""
 "List all modules currently enabled in the reverse order of application in "
 "the pipeline."
@@ -4795,7 +4825,7 @@ msgstr ""
 msgid "Mask opacity"
 msgstr ""
 
-#: src/views/darkroom.c:2013
+#: src/views/darkroom.c:2015
 msgid "Mask preview settings"
 msgstr ""
 
@@ -4879,21 +4909,21 @@ msgid ""
 "\n"
 msgstr ""
 
-#: src/libs/modulegroups.c:1035
+#: src/libs/modulegroups.c:1036
 msgid "Modules applying special effects."
 msgstr ""
 
-#: src/libs/modulegroups.c:1032
+#: src/libs/modulegroups.c:1033
 msgid ""
 "Modules destined to adjust brightness, contrast and dynamic range, work with"
 " film scans, and perform color-grading."
 msgstr ""
 
-#: src/libs/modulegroups.c:1034
+#: src/libs/modulegroups.c:1035
 msgid "Modules destined to manipulate local contrast, sharpness and blur."
 msgstr ""
 
-#: src/libs/modulegroups.c:1033
+#: src/libs/modulegroups.c:1034
 msgid "Modules destined to repair and reconstruct noisy or missing pixels."
 msgstr ""
 
@@ -4934,15 +4964,15 @@ msgid "Move Up"
 msgstr ""
 
 #: src/develop/masks/masks_gui.c:1055 src/gui/dtgtk/thumbtable.c:2138
-#: src/libs/shape_manager.c:1793 src/views/darkroom.c:1899
+#: src/libs/shape_manager.c:1793 src/views/darkroom.c:1901
 msgid "Move down"
 msgstr ""
 
-#: src/views/darkroom.c:1904
+#: src/views/darkroom.c:1906
 msgid "Move down (coarse step)"
 msgstr ""
 
-#: src/views/darkroom.c:1909
+#: src/views/darkroom.c:1911
 msgid "Move down (fine step)"
 msgstr ""
 
@@ -4950,40 +4980,40 @@ msgstr ""
 msgid "Move files on disk..."
 msgstr ""
 
-#: src/gui/dtgtk/thumbtable.c:2142 src/views/darkroom.c:1914
+#: src/gui/dtgtk/thumbtable.c:2142 src/views/darkroom.c:1916
 msgid "Move left"
 msgstr ""
 
-#: src/views/darkroom.c:1919
+#: src/views/darkroom.c:1921
 msgid "Move left (coarse step)"
 msgstr ""
 
-#: src/views/darkroom.c:1924
+#: src/views/darkroom.c:1926
 msgid "Move left (fine step)"
 msgstr ""
 
-#: src/gui/dtgtk/thumbtable.c:2146 src/views/darkroom.c:1929
+#: src/gui/dtgtk/thumbtable.c:2146 src/views/darkroom.c:1931
 msgid "Move right"
 msgstr ""
 
-#: src/views/darkroom.c:1934
+#: src/views/darkroom.c:1936
 msgid "Move right (coarse step)"
 msgstr ""
 
-#: src/views/darkroom.c:1939
+#: src/views/darkroom.c:1941
 msgid "Move right (fine step)"
 msgstr ""
 
 #: src/develop/masks/masks_gui.c:1053 src/gui/dtgtk/thumbtable.c:2134
-#: src/libs/shape_manager.c:1790 src/views/darkroom.c:1884
+#: src/libs/shape_manager.c:1790 src/views/darkroom.c:1886
 msgid "Move up"
 msgstr ""
 
-#: src/views/darkroom.c:1889
+#: src/views/darkroom.c:1891
 msgid "Move up (coarse step)"
 msgstr ""
 
-#: src/views/darkroom.c:1894
+#: src/views/darkroom.c:1896
 msgid "Move up (fine step)"
 msgstr ""
 
@@ -5452,7 +5482,7 @@ msgstr ""
 msgid "Pipe recompute timeout (milliseconds)"
 msgstr ""
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "Pipeline"
 msgstr ""
 
@@ -5858,7 +5888,7 @@ msgid ""
 "and don't match the current filters anymore."
 msgstr ""
 
-#: src/gui/actions/image.c:280 src/views/darkroom.c:1840
+#: src/gui/actions/image.c:280 src/views/darkroom.c:1842
 msgid "Reject"
 msgstr ""
 
@@ -5918,11 +5948,11 @@ msgstr ""
 msgid "Rename drawing layer"
 msgstr ""
 
-#: src/views/darkroom.c:1981
+#: src/views/darkroom.c:1983
 msgid "Rendering size"
 msgstr ""
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "Repair"
 msgstr ""
 
@@ -6004,7 +6034,7 @@ msgstr ""
 msgid "Rotation: %3.2f°"
 msgstr ""
 
-#: src/views/darkroom.c:216 src/views/darkroom.c:2112
+#: src/views/darkroom.c:216 src/views/darkroom.c:2114
 msgid ""
 "Run autoset on selected modules\n"
 "Right click for options"
@@ -6072,6 +6102,10 @@ msgstr ""
 #: src/gui/application.c:1948
 #, c-format
 msgid "Sans %s"
+msgstr ""
+
+#: src/libs/essentials.c:101
+msgid "Saturation"
 msgstr ""
 
 #: src/gui/actions/display.c:484
@@ -6173,7 +6207,7 @@ msgstr ""
 msgid "Select all filters"
 msgstr ""
 
-#: src/views/darkroom.c:2027 src/views/darkroom.c:2041
+#: src/views/darkroom.c:2029 src/views/darkroom.c:2043
 msgid "Select color of the checkerboard from a swatch"
 msgstr ""
 
@@ -6247,6 +6281,10 @@ msgstr ""
 msgid "Set the opacity on the selected shape"
 msgstr ""
 
+#: src/libs/essentials.c:89
+msgid "Shadows"
+msgstr ""
+
 #: src/libs/shape_manager.c:173 src/libs/shape_manager.c:3343
 msgid "Shape Manager"
 msgstr ""
@@ -6261,7 +6299,7 @@ msgid ""
 "hardware)"
 msgstr ""
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "Sharpness"
 msgstr ""
 
@@ -6285,7 +6323,7 @@ msgstr ""
 msgid "Shot:"
 msgstr ""
 
-#: src/views/darkroom.c:2056
+#: src/views/darkroom.c:2058
 msgid "Show a greyscaled mask image"
 msgstr ""
 
@@ -6319,11 +6357,11 @@ msgstr ""
 msgid "Show system tags"
 msgstr ""
 
-#: src/views/darkroom.c:2074
+#: src/views/darkroom.c:2076
 msgid "Show the pipeline node graph"
 msgstr ""
 
-#: src/views/darkroom.c:2101 src/views/dev_toolbox.c:224
+#: src/views/darkroom.c:2103 src/views/dev_toolbox.c:224
 msgid "Shows the options popover"
 msgstr ""
 
@@ -6508,11 +6546,11 @@ msgstr ""
 msgid "Switch to %s node"
 msgstr ""
 
-#: src/views/darkroom.c:1875
+#: src/views/darkroom.c:1877
 msgid "Switch to the next picture"
 msgstr ""
 
-#: src/views/darkroom.c:1877
+#: src/views/darkroom.c:1879
 msgid "Switch to the previous picture"
 msgstr ""
 
@@ -6589,12 +6627,16 @@ msgstr ""
 msgid "Tasks are still running"
 msgstr ""
 
-#: src/libs/modulegroups.c:1036
+#: src/libs/modulegroups.c:1037
 msgid "Technical modules that can be ignored in most situations."
 msgstr ""
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "Technics"
+msgstr ""
+
+#: src/libs/essentials.c:95
+msgid "Temperature"
 msgstr ""
 
 #: src/iop/retouch.c:2421
@@ -6902,6 +6944,10 @@ msgid ""
 "module change."
 msgstr ""
 
+#: src/libs/essentials.c:97
+msgid "Tint"
+msgstr ""
+
 #: src/iop/retouch.c:2304
 msgid ""
 "To add a shape select an algorithm and a shape type and click on the image.\n"
@@ -6992,7 +7038,7 @@ msgstr ""
 msgid "Toggle gamut checking"
 msgstr ""
 
-#: src/views/darkroom.c:2096
+#: src/views/darkroom.c:2098
 msgid "Toggle guide lines"
 msgstr ""
 
@@ -7050,12 +7096,12 @@ msgid "Trigger the action"
 msgstr ""
 
 #: src/gui/actions/display.c:546 src/gui/actions/menu.c:389
-#: src/libs/modulegroups.c:1082 src/libs/modulegroups.c:1085
-#: src/libs/modulegroups.c:1088 src/libs/modulegroups.c:1090
-#: src/libs/modulegroups.c:1093 src/libs/modulegroups.c:1095
+#: src/libs/modulegroups.c:1083 src/libs/modulegroups.c:1086
+#: src/libs/modulegroups.c:1089 src/libs/modulegroups.c:1091
+#: src/libs/modulegroups.c:1094 src/libs/modulegroups.c:1096
 #: src/libs/tools/lighttable.c:305 src/libs/tools/lighttable.c:307
-#: src/views/darkroom.c:1875 src/views/darkroom.c:1877
-#: src/views/darkroom.c:2075 src/views/darkroom.c:2097
+#: src/views/darkroom.c:1877 src/views/darkroom.c:1879
+#: src/views/darkroom.c:2077 src/views/darkroom.c:2099
 #: src/views/dev_toolbox.c:221
 msgid "Triggers the action"
 msgstr ""
@@ -7167,6 +7213,10 @@ msgstr ""
 msgid "Vectorscope"
 msgstr ""
 
+#: src/libs/essentials.c:99
+msgid "Vibrance"
+msgstr ""
+
 #: src/libs/collect.c:2709 src/libs/collect.c:2720
 msgid "View"
 msgstr ""
@@ -7244,6 +7294,10 @@ msgstr ""
 
 #: src/iop/channelmixerrgb.c:5398 src/iop/splittoningrgb.c:1524
 msgid "White-preserving"
+msgstr ""
+
+#: src/libs/essentials.c:91
+msgid "Whites"
 msgstr ""
 
 #: src/gui/actions/doc_screenshot.c:1335
@@ -7339,7 +7393,7 @@ msgstr ""
 msgid "Zoom"
 msgstr ""
 
-#: src/views/darkroom.c:1944
+#: src/views/darkroom.c:1946
 msgid "Zoom in"
 msgstr ""
 
@@ -7347,7 +7401,7 @@ msgstr ""
 msgid "Zoom in the thumbtable grid"
 msgstr ""
 
-#: src/views/darkroom.c:1949
+#: src/views/darkroom.c:1951
 msgid "Zoom out"
 msgstr ""
 
@@ -7355,19 +7409,19 @@ msgstr ""
 msgid "Zoom out the thumbtable grid"
 msgstr ""
 
-#: src/views/darkroom.c:1957
+#: src/views/darkroom.c:1959
 msgid "Zoom to 100%"
 msgstr ""
 
-#: src/views/darkroom.c:1954
+#: src/views/darkroom.c:1956
 msgid "Zoom to fit"
 msgstr ""
 
-#: src/views/darkroom.c:1819 src/views/darkroom.c:1959
+#: src/views/darkroom.c:1819 src/views/darkroom.c:1961
 msgid "Zooms the main image to 100%"
 msgstr ""
 
-#: src/views/darkroom.c:1816 src/views/darkroom.c:1956
+#: src/views/darkroom.c:1816 src/views/darkroom.c:1958
 msgid "Zooms the main image to fit the window"
 msgstr ""
 
@@ -8485,7 +8539,7 @@ msgctxt "preferences"
 msgid "auto"
 msgstr ""
 
-#: src/views/darkroom.c:2008
+#: src/views/darkroom.c:2010
 msgid "auto (default)"
 msgstr ""
 
@@ -8840,6 +8894,10 @@ msgstr ""
 msgid "black and white film"
 msgstr ""
 
+#: src/libs/essentials.c:293
+msgid "black and white: remove all chroma (color balance rgb)"
+msgstr ""
+
 #: build/src/iop/introspection_rawprepare.c:94
 #: build/src/iop/introspection_rawprepare.c:100
 #: build/src/iop/introspection_rawprepare.c:171
@@ -9078,6 +9136,22 @@ msgstr ""
 msgid "brighten only"
 msgstr ""
 
+#: src/libs/essentials.c:88
+msgid "brighten or darken the bright areas (tone equalizer, -2 EV band)"
+msgstr ""
+
+#: src/libs/essentials.c:92
+msgid "brighten or darken the brightest tones (tone equalizer, -1 EV band)"
+msgstr ""
+
+#: src/libs/essentials.c:90
+msgid "brighten or darken the dark areas (tone equalizer, -5 EV band)"
+msgstr ""
+
+#: src/libs/essentials.c:94
+msgid "brighten or darken the darkest tones (tone equalizer, -6 EV band)"
+msgstr ""
+
 #: build/src/iop/introspection_colorprimaries.c:155
 #: build/src/iop/introspection_colorprimaries.c:161
 #: build/src/iop/introspection_colorprimaries.c:248
@@ -9099,6 +9173,10 @@ msgstr ""
 
 #: src/iop/invert.c:355
 msgid "brightness of film material"
+msgstr ""
+
+#: src/libs/essentials.c:84
+msgid "brightness of the whole picture, in EV (exposure module)"
 msgstr ""
 
 #: build/src/iop/introspection_colorequal.c:89
@@ -13243,7 +13321,7 @@ msgstr ""
 msgid "full path"
 msgstr ""
 
-#: src/views/darkroom.c:1989
+#: src/views/darkroom.c:1991
 msgid "full resolution (slow)"
 msgstr ""
 
@@ -14884,6 +14962,10 @@ msgstr ""
 msgid "lens shift only"
 msgstr ""
 
+#: src/libs/essentials.c:290
+msgid "let each module adjust itself to the picture"
+msgstr ""
+
 #: src/common/pdf.h:112
 msgid "letter"
 msgstr ""
@@ -15476,6 +15558,10 @@ msgstr ""
 
 #: src/iop/atrous.c:1670 src/iop/colorzones.c:2377
 msgid "make effect stronger or weaker"
+msgstr ""
+
+#: src/libs/essentials.c:96
+msgid "make the picture warmer or cooler (white balance)"
 msgstr ""
 
 #: src/gui/preferences.c:1037 src/gui/presets.c:478
@@ -16127,11 +16213,11 @@ msgstr[1] ""
 msgid "move images"
 msgstr ""
 
-#: src/libs/modulegroups.c:1082
+#: src/libs/modulegroups.c:1083
 msgid "move to the next modules tab"
 msgstr ""
 
-#: src/libs/modulegroups.c:1084
+#: src/libs/modulegroups.c:1085
 msgid "move to the previous modules tab"
 msgstr ""
 
@@ -16263,7 +16349,7 @@ msgstr ""
 msgid "neutralize colors from patches"
 msgstr ""
 
-#: src/views/darkroom.c:2009
+#: src/views/darkroom.c:2011
 msgid "never"
 msgstr ""
 
@@ -18822,7 +18908,7 @@ msgid ""
 "-100% collapses it onto the white, +100% doubles it."
 msgstr ""
 
-#: src/views/darkroom.c:1990
+#: src/views/darkroom.c:1992
 msgid "scaled (default)"
 msgstr ""
 
@@ -19175,6 +19261,11 @@ msgid ""
 "supports it"
 msgstr ""
 
+#: src/libs/essentials.c:86
+msgid ""
+"separation between darks and lights around middle gray (color balance rgb)"
+msgstr ""
+
 #: src/control/jobs/control_jobs.c:718
 #, c-format
 msgid "set %d color image"
@@ -19469,6 +19560,10 @@ msgstr ""
 msgid "shear the image along one diagonal"
 msgstr ""
 
+#: src/libs/essentials.c:98
+msgid "shift colors between magenta and green (white balance)"
+msgstr ""
+
 #: src/iop/shadhi.c:560
 msgid "shift white point"
 msgstr ""
@@ -19533,7 +19628,7 @@ msgstr ""
 msgid "show the attached tags as a flat list or as a hierarchical tree"
 msgstr ""
 
-#: src/views/darkroom.c:2068
+#: src/views/darkroom.c:2070
 msgid "show the pipeline node graph"
 msgstr ""
 
@@ -20102,6 +20197,14 @@ msgstr ""
 msgid "strength of the sharpen"
 msgstr ""
 
+#: src/libs/essentials.c:102
+msgid "strengthen or mute all colors (color balance rgb)"
+msgstr ""
+
+#: src/libs/essentials.c:100
+msgid "strengthen the least saturated colors first (color balance rgb)"
+msgstr ""
+
 #: src/iop/colorequal.c:232
 msgid ""
 "stretch RGB colors around the achromatic axis from editable dt UCS hue nodes"
@@ -20405,7 +20508,7 @@ msgstr ""
 #: build/src/iop/introspection_splittoningrgb.c:199
 #: build/src/iop/introspection_splittoningrgb.c:203
 #: src/iop/channelmixerrgb.c:5280 src/iop/splittoningrgb.c:1512
-#: src/iop/temperature.c:1613
+#: src/iop/temperature.c:1613 src/libs/essentials.c:95
 msgid "temperature"
 msgstr ""
 
@@ -20969,7 +21072,7 @@ msgstr ""
 msgid "time offset"
 msgstr ""
 
-#: src/iop/temperature.c:1619
+#: src/iop/temperature.c:1619 src/libs/essentials.c:97
 msgid "tint"
 msgstr ""
 
@@ -21006,7 +21109,7 @@ msgid ""
 "right click for profile options"
 msgstr ""
 
-#: src/views/darkroom.c:2083
+#: src/views/darkroom.c:2085
 msgid ""
 "toggle guide lines\n"
 "right click for guides options"

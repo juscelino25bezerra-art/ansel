@@ -369,6 +369,9 @@ void dt_bauhaus_slider_set_offset(GtkWidget *w, float offset);
 void dt_bauhaus_slider_set_stop(GtkWidget *widget, float stop, float r, float g, float b);
 void dt_bauhaus_slider_clear_stops(GtkWidget *widget);
 void dt_bauhaus_slider_set_default(GtkWidget *widget, float def);
+/** Give `dst` the same scale as `src`: range, step, digits, unit, default and color stops,
+ *  so a remote control shows the same number as the slider it drives. */
+void dt_bauhaus_slider_copy_scale(GtkWidget *dst, GtkWidget *src);
 
 // combobox:
 void dt_bauhaus_combobox_from_widget(dt_bauhaus_t *bh, dt_bauhaus_widget_t* widget,dt_gui_module_t *self);

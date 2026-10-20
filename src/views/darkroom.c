@@ -2116,6 +2116,8 @@ void gui_init(dt_view_t *self)
                     G_CALLBACK(_darkroom_autoset_quickbutton_clicked), dev);
     /* Ensure autoset button is placed first in the toolbox. */
     g_object_set_data(G_OBJECT(_darkroom_autoset_button), "dt-toolbox-priority", GINT_TO_POINTER(1));
+    /* Published on the main window so the Essentials panel's "Auto" button can run it too. */
+    g_object_set_data(G_OBJECT(dt_gui_main_window()), "lumivell-autoset-button", _darkroom_autoset_button);
     dt_view_manager_module_toolbox_add(dt_view_manager_get_global(), _darkroom_autoset_button, DT_VIEW_DARKROOM);
 
     _darkroom_autoset_popover = gtk_popover_new(_darkroom_autoset_button);

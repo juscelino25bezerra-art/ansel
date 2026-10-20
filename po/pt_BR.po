@@ -1945,7 +1945,7 @@ msgstr "Adobe RGB (compatível)"
 msgid "African-american"
 msgstr "Afro-americano"
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "All"
 msgstr "Todos"
 
@@ -1953,7 +1953,7 @@ msgstr "Todos"
 msgid "All image files"
 msgstr "Todos os arquivos de imagem"
 
-#: src/libs/modulegroups.c:1037
+#: src/libs/modulegroups.c:1038
 msgid "All modules available in the software."
 msgstr "Todos os módulos disponíveis no programa."
 
@@ -2225,6 +2225,7 @@ msgid "B"
 msgstr "B"
 
 #: build/src/iop/introspection_crystgrain.c:203 src/iop/channelmixerrgb.c:5662
+#: src/libs/essentials.c:292
 msgid "B&W"
 msgstr "P&B"
 
@@ -2373,7 +2374,7 @@ msgstr "Diretório base"
 msgid "Base directory of all projects"
 msgstr "Diretório base de todos os projetos"
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "Basic"
 msgstr "Básico"
 
@@ -2704,15 +2705,15 @@ msgstr ""
 "Marque para ativar a visualização global de apresentação de slides. (requer "
 "reinício)"
 
-#: src/views/darkroom.c:2016
+#: src/views/darkroom.c:2018
 msgid "Checkerboard color 1"
 msgstr "Cor 1 do quadriculado"
 
-#: src/views/darkroom.c:2033
+#: src/views/darkroom.c:2035
 msgid "Checkerboard color 2"
 msgstr "Cor 2 do quadriculado"
 
-#: src/views/darkroom.c:2051
+#: src/views/darkroom.c:2053
 msgid "Checkerboard size"
 msgstr "Tamanho do quadriculado"
 
@@ -2738,7 +2739,7 @@ msgstr ""
 "A largura e a altura especificadas definem o retângulo\n"
 "em que a imagem será encaixada proporcionalmente.\n"
 
-#: src/views/darkroom.c:1982
+#: src/views/darkroom.c:1984
 msgid ""
 "Choose at what size the main preview is rendered.\n"
 "Full resolution renders the pipeline at the raw original resolution.\n"
@@ -2752,7 +2753,7 @@ msgstr ""
 "Em escala renderiza na resolução da tela e é o melhor equilíbrio.\n"
 "A precisão no nível do pixel só é garantida com zoom de 100%."
 
-#: src/views/darkroom.c:2001
+#: src/views/darkroom.c:2003
 #, c-format
 msgid ""
 "Choose how finely brush and polygon masks are drawn in the darkroom.\n"
@@ -2870,6 +2871,7 @@ msgid "Collections"
 msgstr "Coleções"
 
 #: build/src/iop/introspection_retouch.c:475 src/iop/drawlayer.c:2935
+#: src/libs/essentials.c:305
 msgid "Color"
 msgstr "Cor"
 
@@ -3210,11 +3212,11 @@ msgctxt "job type"
 msgid "Darkroom rendering"
 msgstr "Renderização da sala escura"
 
-#: src/libs/modulegroups.c:1081 src/libs/modulegroups.c:1083
-#: src/libs/modulegroups.c:1087 src/libs/modulegroups.c:1089
-#: src/libs/modulegroups.c:1092 src/libs/modulegroups.c:1094
-#: src/views/darkroom.c:1874 src/views/darkroom.c:1876
-#: src/views/darkroom.c:1879
+#: src/libs/modulegroups.c:1082 src/libs/modulegroups.c:1084
+#: src/libs/modulegroups.c:1088 src/libs/modulegroups.c:1090
+#: src/libs/modulegroups.c:1093 src/libs/modulegroups.c:1095
+#: src/views/darkroom.c:1876 src/views/darkroom.c:1878
+#: src/views/darkroom.c:1881
 msgid "Darkroom/Actions"
 msgstr "Darkroom/Actions"
 
@@ -3235,14 +3237,14 @@ msgstr "Darkroom/Controls/Sliders"
 msgid "Darkroom/Filmstrip"
 msgstr "Darkroom/Filmstrip"
 
-#: src/views/darkroom.c:1884 src/views/darkroom.c:1889
-#: src/views/darkroom.c:1894 src/views/darkroom.c:1899
-#: src/views/darkroom.c:1904 src/views/darkroom.c:1909
-#: src/views/darkroom.c:1914 src/views/darkroom.c:1919
-#: src/views/darkroom.c:1924 src/views/darkroom.c:1929
-#: src/views/darkroom.c:1934 src/views/darkroom.c:1939
-#: src/views/darkroom.c:1944 src/views/darkroom.c:1949
-#: src/views/darkroom.c:1954 src/views/darkroom.c:1957
+#: src/views/darkroom.c:1886 src/views/darkroom.c:1891
+#: src/views/darkroom.c:1896 src/views/darkroom.c:1901
+#: src/views/darkroom.c:1906 src/views/darkroom.c:1911
+#: src/views/darkroom.c:1916 src/views/darkroom.c:1921
+#: src/views/darkroom.c:1926 src/views/darkroom.c:1931
+#: src/views/darkroom.c:1936 src/views/darkroom.c:1941
+#: src/views/darkroom.c:1946 src/views/darkroom.c:1951
+#: src/views/darkroom.c:1956 src/views/darkroom.c:1959
 msgid "Darkroom/Main image"
 msgstr "Darkroom/Main image"
 
@@ -3255,8 +3257,8 @@ msgstr "Darkroom/Modules"
 msgid "Darkroom/Modules/Instances"
 msgstr "Darkroom/Modules/Instances"
 
-#: src/views/darkroom.c:1969 src/views/darkroom.c:2073
-#: src/views/darkroom.c:2095 src/views/darkroom.c:2099
+#: src/views/darkroom.c:1971 src/views/darkroom.c:2075
+#: src/views/darkroom.c:2097 src/views/darkroom.c:2101
 msgid "Darkroom/Toolbox"
 msgstr "Darkroom/Toolbox"
 
@@ -3737,7 +3739,7 @@ msgstr "Editar"
 msgid "Edit current module's group name"
 msgstr "Editar o nome do grupo do módulo atual"
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "Effects"
 msgstr "Efeitos"
 
@@ -3978,7 +3980,7 @@ msgstr "Falha ao gravar o arquivo auxiliar da camada de desenho."
 msgid "Fall-off"
 msgstr "Atenuação"
 
-#: src/views/darkroom.c:2000
+#: src/views/darkroom.c:2002
 msgid "Fast drawn mask rasterization"
 msgstr "Rasterização rápida de máscaras desenhadas"
 
@@ -4101,23 +4103,23 @@ msgstr "Opções de indicação de recorte (foco)"
 msgid "Focus gamut checking options"
 msgstr "Opções de verificação de gama (foco)"
 
-#: src/views/darkroom.c:2100
+#: src/views/darkroom.c:2102
 msgid "Focus guide lines options"
 msgstr "Opções de linhas-guia (foco)"
 
-#: src/libs/modulegroups.c:1088
+#: src/libs/modulegroups.c:1089
 msgid "Focus on the next module"
 msgstr "Focar no próximo módulo"
 
-#: src/libs/modulegroups.c:1093
+#: src/libs/modulegroups.c:1094
 msgid "Focus on the next module control"
 msgstr "Focar no próximo controle do módulo"
 
-#: src/libs/modulegroups.c:1090
+#: src/libs/modulegroups.c:1091
 msgid "Focus on the previous module"
 msgstr "Focar no módulo anterior"
 
-#: src/libs/modulegroups.c:1095
+#: src/libs/modulegroups.c:1096
 msgid "Focus on the previous module control"
 msgstr "Focar no controle anterior do módulo"
 
@@ -4133,7 +4135,7 @@ msgstr "Opções de indicação de superexposição raw (foco)"
 msgid "Focus softproof options"
 msgstr "Opções de prova suave (foco)"
 
-#: src/libs/tools/filter.c:765 src/widgets/bauhaus.c:1552
+#: src/libs/tools/filter.c:765 src/widgets/bauhaus.c:1581
 msgid "Focuses the control"
 msgstr "Coloca o foco no controle"
 
@@ -4295,7 +4297,7 @@ msgstr "Gaussiano"
 msgid "Geometry"
 msgstr "Geometria"
 
-#: src/views/darkroom.c:1879
+#: src/views/darkroom.c:1881
 msgid "Give focus to the main image"
 msgstr "Colocar o foco na imagem principal"
 
@@ -5001,7 +5003,7 @@ msgstr "Escala linear"
 msgid "List"
 msgstr "Lista"
 
-#: src/libs/modulegroups.c:1031
+#: src/libs/modulegroups.c:1032
 msgid ""
 "List all modules currently enabled in the reverse order of application in the"
 " pipeline."
@@ -5096,7 +5098,7 @@ msgstr "Markesteijn 3-passos + VNG"
 msgid "Mask opacity"
 msgstr "Opacidade da máscara"
 
-#: src/views/darkroom.c:2013
+#: src/views/darkroom.c:2015
 msgid "Mask preview settings"
 msgstr "Configurações de pré-visualização da máscara"
 
@@ -5186,11 +5188,11 @@ msgstr ""
 "Ciclo:\n"
 "\n"
 
-#: src/libs/modulegroups.c:1035
+#: src/libs/modulegroups.c:1036
 msgid "Modules applying special effects."
 msgstr "Módulos que aplicam efeitos especiais."
 
-#: src/libs/modulegroups.c:1032
+#: src/libs/modulegroups.c:1033
 msgid ""
 "Modules destined to adjust brightness, contrast and dynamic range, work with "
 "film scans, and perform color-grading."
@@ -5198,11 +5200,11 @@ msgstr ""
 "Módulos para ajustar brilho, contraste e faixa dinâmica, trabalhar com "
 "digitalizações de filme e fazer gradação de cor."
 
-#: src/libs/modulegroups.c:1034
+#: src/libs/modulegroups.c:1035
 msgid "Modules destined to manipulate local contrast, sharpness and blur."
 msgstr "Módulos para trabalhar contraste local, nitidez e desfoque."
 
-#: src/libs/modulegroups.c:1033
+#: src/libs/modulegroups.c:1034
 msgid "Modules destined to repair and reconstruct noisy or missing pixels."
 msgstr "Módulos para reparar e reconstruir pixels ruidosos ou ausentes."
 
@@ -5245,15 +5247,15 @@ msgid "Move Up"
 msgstr "Mover para cima"
 
 #: src/develop/masks/masks_gui.c:1055 src/gui/dtgtk/thumbtable.c:2138
-#: src/libs/shape_manager.c:1793 src/views/darkroom.c:1899
+#: src/libs/shape_manager.c:1793 src/views/darkroom.c:1901
 msgid "Move down"
 msgstr "Mover para baixo"
 
-#: src/views/darkroom.c:1904
+#: src/views/darkroom.c:1906
 msgid "Move down (coarse step)"
 msgstr "Mover para baixo (passo grande)"
 
-#: src/views/darkroom.c:1909
+#: src/views/darkroom.c:1911
 msgid "Move down (fine step)"
 msgstr "Mover para baixo (passo fino)"
 
@@ -5261,40 +5263,40 @@ msgstr "Mover para baixo (passo fino)"
 msgid "Move files on disk..."
 msgstr "Mover arquivos no disco..."
 
-#: src/gui/dtgtk/thumbtable.c:2142 src/views/darkroom.c:1914
+#: src/gui/dtgtk/thumbtable.c:2142 src/views/darkroom.c:1916
 msgid "Move left"
 msgstr "Mover para a esquerda"
 
-#: src/views/darkroom.c:1919
+#: src/views/darkroom.c:1921
 msgid "Move left (coarse step)"
 msgstr "Mover para a esquerda (passo grande)"
 
-#: src/views/darkroom.c:1924
+#: src/views/darkroom.c:1926
 msgid "Move left (fine step)"
 msgstr "Mover para a esquerda (passo fino)"
 
-#: src/gui/dtgtk/thumbtable.c:2146 src/views/darkroom.c:1929
+#: src/gui/dtgtk/thumbtable.c:2146 src/views/darkroom.c:1931
 msgid "Move right"
 msgstr "Mover para a direita"
 
-#: src/views/darkroom.c:1934
+#: src/views/darkroom.c:1936
 msgid "Move right (coarse step)"
 msgstr "Mover para a direita (passo grande)"
 
-#: src/views/darkroom.c:1939
+#: src/views/darkroom.c:1941
 msgid "Move right (fine step)"
 msgstr "Mover para a direita (passo fino)"
 
 #: src/develop/masks/masks_gui.c:1053 src/gui/dtgtk/thumbtable.c:2134
-#: src/libs/shape_manager.c:1790 src/views/darkroom.c:1884
+#: src/libs/shape_manager.c:1790 src/views/darkroom.c:1886
 msgid "Move up"
 msgstr "Mover para cima"
 
-#: src/views/darkroom.c:1889
+#: src/views/darkroom.c:1891
 msgid "Move up (coarse step)"
 msgstr "Mover para cima (passo grande)"
 
-#: src/views/darkroom.c:1894
+#: src/views/darkroom.c:1896
 msgid "Move up (fine step)"
 msgstr "Mover para cima (passo fino)"
 
@@ -5792,7 +5794,7 @@ msgstr "Margens da imagem"
 msgid "Pipe recompute timeout (milliseconds)"
 msgstr "Tempo limite para recalcular o pipeline (milissegundos)"
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "Pipeline"
 msgstr "Ativos"
 
@@ -6212,7 +6214,7 @@ msgstr ""
 "cujas propriedades foram alteradas\n"
 "e não correspondem mais aos filtros atuais."
 
-#: src/gui/actions/image.c:280 src/views/darkroom.c:1840
+#: src/gui/actions/image.c:280 src/views/darkroom.c:1842
 msgid "Reject"
 msgstr "Rejeitar"
 
@@ -6272,11 +6274,11 @@ msgstr "Renomear"
 msgid "Rename drawing layer"
 msgstr "Renomear camada de desenho"
 
-#: src/views/darkroom.c:1981
+#: src/views/darkroom.c:1983
 msgid "Rendering size"
 msgstr "Tamanho de renderização"
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "Repair"
 msgstr "Reparar"
 
@@ -6358,7 +6360,7 @@ msgstr "Rotação"
 msgid "Rotation: %3.2f°"
 msgstr "Rotação: %3.2f°"
 
-#: src/views/darkroom.c:216 src/views/darkroom.c:2112
+#: src/views/darkroom.c:216 src/views/darkroom.c:2114
 msgid ""
 "Run autoset on selected modules\n"
 "Right click for options"
@@ -6534,7 +6536,7 @@ msgstr "Selecionar tudo"
 msgid "Select all filters"
 msgstr "Selecionar todos os filtros"
 
-#: src/views/darkroom.c:2027 src/views/darkroom.c:2041
+#: src/views/darkroom.c:2029 src/views/darkroom.c:2043
 msgid "Select color of the checkerboard from a swatch"
 msgstr "Selecionar a cor do quadriculado em uma amostra"
 
@@ -6636,7 +6638,7 @@ msgstr ""
 "Compartilhar estatísticas de uso anônimas (recursos usados, tipos de arquivo,"
 " sistema e hardware)"
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "Sharpness"
 msgstr "Detalhe"
 
@@ -6660,7 +6662,7 @@ msgstr "Atalho"
 msgid "Shot:"
 msgstr "Disparo:"
 
-#: src/views/darkroom.c:2056
+#: src/views/darkroom.c:2058
 msgid "Show a greyscaled mask image"
 msgstr "Mostrar a máscara em tons de cinza"
 
@@ -6696,11 +6698,11 @@ msgstr "Mostrar ao passar o cursor"
 msgid "Show system tags"
 msgstr "Mostrar etiquetas do sistema"
 
-#: src/views/darkroom.c:2074
+#: src/views/darkroom.c:2076
 msgid "Show the pipeline node graph"
 msgstr "Mostrar o grafo de nós do pipeline"
 
-#: src/views/darkroom.c:2101 src/views/dev_toolbox.c:224
+#: src/views/darkroom.c:2103 src/views/dev_toolbox.c:224
 msgid "Shows the options popover"
 msgstr "Mostra o menu de opções"
 
@@ -6897,11 +6899,11 @@ msgstr "Estilos"
 msgid "Switch to %s node"
 msgstr "Mudar para nó %s"
 
-#: src/views/darkroom.c:1875
+#: src/views/darkroom.c:1877
 msgid "Switch to the next picture"
 msgstr "Ir para a próxima foto"
 
-#: src/views/darkroom.c:1877
+#: src/views/darkroom.c:1879
 msgid "Switch to the previous picture"
 msgstr "Ir para a foto anterior"
 
@@ -6979,11 +6981,11 @@ msgstr "Armazenamento de destino"
 msgid "Tasks are still running"
 msgstr "Ainda há tarefas em execução"
 
-#: src/libs/modulegroups.c:1036
+#: src/libs/modulegroups.c:1037
 msgid "Technical modules that can be ignored in most situations."
 msgstr "Módulos técnicos que podem ser ignorados na maioria das situações."
 
-#: src/libs/modulegroups.c:1029
+#: src/libs/modulegroups.c:1030
 msgid "Technics"
 msgstr "Técnico"
 
@@ -7442,7 +7444,7 @@ msgstr "Alternar filtro de imagens sem classificação (0 estrela)"
 msgid "Toggle gamut checking"
 msgstr "Alternar verificação de gama"
 
-#: src/views/darkroom.c:2096
+#: src/views/darkroom.c:2098
 msgid "Toggle guide lines"
 msgstr "Alternar linhas-guia"
 
@@ -7505,12 +7507,12 @@ msgid "Trigger the action"
 msgstr "Disparar a ação"
 
 #: src/gui/actions/display.c:546 src/gui/actions/menu.c:389
-#: src/libs/modulegroups.c:1082 src/libs/modulegroups.c:1085
-#: src/libs/modulegroups.c:1088 src/libs/modulegroups.c:1090
-#: src/libs/modulegroups.c:1093 src/libs/modulegroups.c:1095
+#: src/libs/modulegroups.c:1083 src/libs/modulegroups.c:1086
+#: src/libs/modulegroups.c:1089 src/libs/modulegroups.c:1091
+#: src/libs/modulegroups.c:1094 src/libs/modulegroups.c:1096
 #: src/libs/tools/lighttable.c:305 src/libs/tools/lighttable.c:307
-#: src/views/darkroom.c:1875 src/views/darkroom.c:1877
-#: src/views/darkroom.c:2075 src/views/darkroom.c:2097
+#: src/views/darkroom.c:1877 src/views/darkroom.c:1879
+#: src/views/darkroom.c:2077 src/views/darkroom.c:2099
 #: src/views/dev_toolbox.c:221
 msgid "Triggers the action"
 msgstr "Dispara a ação"
@@ -7826,7 +7828,7 @@ msgstr "ZIPS"
 msgid "Zoom"
 msgstr "Zoom"
 
-#: src/views/darkroom.c:1944
+#: src/views/darkroom.c:1946
 msgid "Zoom in"
 msgstr "Aumentar zoom"
 
@@ -7834,7 +7836,7 @@ msgstr "Aumentar zoom"
 msgid "Zoom in the thumbtable grid"
 msgstr "Aumentar o zoom da grade de miniaturas"
 
-#: src/views/darkroom.c:1949
+#: src/views/darkroom.c:1951
 msgid "Zoom out"
 msgstr "Diminuir zoom"
 
@@ -7842,19 +7844,19 @@ msgstr "Diminuir zoom"
 msgid "Zoom out the thumbtable grid"
 msgstr "Diminuir o zoom da grade de miniaturas"
 
-#: src/views/darkroom.c:1957
+#: src/views/darkroom.c:1959
 msgid "Zoom to 100%"
 msgstr "Zoom em 100%"
 
-#: src/views/darkroom.c:1954
+#: src/views/darkroom.c:1956
 msgid "Zoom to fit"
 msgstr "Zoom para caber"
 
-#: src/views/darkroom.c:1819 src/views/darkroom.c:1959
+#: src/views/darkroom.c:1819 src/views/darkroom.c:1961
 msgid "Zooms the main image to 100%"
 msgstr "Ajusta o zoom da imagem principal para 100%"
 
-#: src/views/darkroom.c:1816 src/views/darkroom.c:1956
+#: src/views/darkroom.c:1816 src/views/darkroom.c:1958
 msgid "Zooms the main image to fit the window"
 msgstr "Ajusta o zoom da imagem principal para caber na janela"
 
@@ -9099,7 +9101,7 @@ msgctxt "preferences"
 msgid "auto"
 msgstr "automático"
 
-#: src/views/darkroom.c:2008
+#: src/views/darkroom.c:2010
 msgid "auto (default)"
 msgstr "automático (padrão)"
 
@@ -14251,7 +14253,7 @@ msgstr "gama completo"
 msgid "full path"
 msgstr "caminho completo"
 
-#: src/views/darkroom.c:1989
+#: src/views/darkroom.c:1991
 msgid "full resolution (slow)"
 msgstr "resolução total (lento)"
 
@@ -17310,11 +17312,11 @@ msgstr[1] "mover imagens?"
 msgid "move images"
 msgstr "mover imagens"
 
-#: src/libs/modulegroups.c:1082
+#: src/libs/modulegroups.c:1083
 msgid "move to the next modules tab"
 msgstr "ir para a próxima aba de módulos"
 
-#: src/libs/modulegroups.c:1084
+#: src/libs/modulegroups.c:1085
 msgid "move to the previous modules tab"
 msgstr "ir para a aba de módulos anterior"
 
@@ -17454,7 +17456,7 @@ msgstr "neutralizar cores"
 msgid "neutralize colors from patches"
 msgstr "neutralizar cores dos patches"
 
-#: src/views/darkroom.c:2009
+#: src/views/darkroom.c:2011
 msgid "never"
 msgstr "nunca"
 
@@ -20169,7 +20171,7 @@ msgstr ""
 "escala a distância da primária vermelha até o branco da base atual do misturador.\n"
 "-100% colapsa-a no branco, +100% dobra-a."
 
-#: src/views/darkroom.c:1990
+#: src/views/darkroom.c:1992
 msgid "scaled (default)"
 msgstr "em escala (padrão)"
 
@@ -20955,7 +20957,7 @@ msgid "show the attached tags as a flat list or as a hierarchical tree"
 msgstr ""
 "mostra as etiquetas anexadas como lista simples ou como árvore hierárquica"
 
-#: src/views/darkroom.c:2068
+#: src/views/darkroom.c:2070
 msgid "show the pipeline node graph"
 msgstr "mostrar o grafo de nós do pipeline"
 
@@ -21890,7 +21892,7 @@ msgstr "verde-azulado"
 #: build/src/iop/introspection_splittoningrgb.c:199
 #: build/src/iop/introspection_splittoningrgb.c:203
 #: src/iop/channelmixerrgb.c:5280 src/iop/splittoningrgb.c:1512
-#: src/iop/temperature.c:1613
+#: src/iop/temperature.c:1613 src/libs/essentials.c:95
 msgid "temperature"
 msgstr "temperatura"
 
@@ -22543,7 +22545,7 @@ msgstr "diferença de tempo"
 msgid "time offset"
 msgstr "intervalo de tempo"
 
-#: src/iop/temperature.c:1619
+#: src/iop/temperature.c:1619 src/libs/essentials.c:97
 msgid "tint"
 msgstr "tonalidade"
 
@@ -22584,7 +22586,7 @@ msgstr ""
 "alterna verificação de gama\n"
 "clique-direito para opções"
 
-#: src/views/darkroom.c:2083
+#: src/views/darkroom.c:2085
 msgid ""
 "toggle guide lines\n"
 "right click for guides options"
@@ -23929,7 +23931,7 @@ msgstr "Mesa de Luz, mostrando uma coleção"
 msgid "Based on Ansel by Aurélien Pierre and on darktable."
 msgstr "Baseado no Ansel, de Aurélien Pierre, e no darktable."
 
-#: src/views/darkroom.c:1829
+#: src/views/darkroom.c:1830
 #, c-format
 msgid "%d star"
 msgid_plural "%d stars"
@@ -23955,6 +23957,113 @@ msgstr "Exportar as fotos selecionadas"
 #: src/gui/window_manager.c:731
 msgid "Organize, rate and select your pictures"
 msgstr "Organize, classifique e escolha suas fotos"
+
+#: src/libs/essentials.c:93
+msgid "Blacks"
+msgstr "Pretos"
+
+#: src/libs/essentials.c:85
+msgid "Contrast"
+msgstr "Contraste"
+
+#: src/libs/essentials.c:122
+msgid "Essentials"
+msgstr "Essenciais"
+
+#: src/libs/essentials.c:83
+msgid "Exposure"
+msgstr "Exposição"
+
+#: src/libs/essentials.c:87
+msgid "Highlights"
+msgstr "Realces"
+
+#: src/libs/essentials.c:305
+msgid "Light"
+msgstr "Luz"
+
+#: src/libs/essentials.c:101
+msgid "Saturation"
+msgstr "Saturação"
+
+#: src/libs/essentials.c:89
+msgid "Shadows"
+msgstr "Sombras"
+
+#: src/libs/essentials.c:95
+msgid "Temperature"
+msgstr "Temperatura"
+
+#: src/libs/essentials.c:97
+msgid "Tint"
+msgstr "Matiz"
+
+#: src/libs/essentials.c:99
+msgid "Vibrance"
+msgstr "Vibração"
+
+#: src/libs/essentials.c:91
+msgid "Whites"
+msgstr "Brancos"
+
+#: src/libs/essentials.c:88
+msgid "brighten or darken the bright areas (tone equalizer, -2 EV band)"
+msgstr ""
+"clareia ou escurece as áreas claras (equalizador de tons, faixa de -2 EV)"
+
+#: src/libs/essentials.c:92
+msgid "brighten or darken the brightest tones (tone equalizer, -1 EV band)"
+msgstr ""
+"clareia ou escurece os tons mais claros (equalizador de tons, faixa de -1 EV)"
+
+#: src/libs/essentials.c:90
+msgid "brighten or darken the dark areas (tone equalizer, -5 EV band)"
+msgstr ""
+"clareia ou escurece as áreas escuras (equalizador de tons, faixa de -5 EV)"
+
+#: src/libs/essentials.c:94
+msgid "brighten or darken the darkest tones (tone equalizer, -6 EV band)"
+msgstr ""
+"clareia ou escurece os tons mais escuros (equalizador de tons, faixa de -6 "
+"EV)"
+
+#: src/libs/essentials.c:84
+msgid "brightness of the whole picture, in EV (exposure module)"
+msgstr "brilho da foto inteira, em EV (módulo de exposição)"
+
+#: src/libs/essentials.c:96
+msgid "make the picture warmer or cooler (white balance)"
+msgstr "deixa a foto mais quente ou mais fria (balanço de branco)"
+
+#: src/libs/essentials.c:86
+msgid ""
+"separation between darks and lights around middle gray (color balance rgb)"
+msgstr ""
+"separação entre escuros e claros em torno do cinza médio (balanço de cor RGB)"
+
+#: src/libs/essentials.c:98
+msgid "shift colors between magenta and green (white balance)"
+msgstr "desloca as cores entre magenta e verde (balanço de branco)"
+
+#: src/libs/essentials.c:102
+msgid "strengthen or mute all colors (color balance rgb)"
+msgstr "reforça ou suaviza todas as cores (balanço de cor RGB)"
+
+#: src/libs/essentials.c:100
+msgid "strengthen the least saturated colors first (color balance rgb)"
+msgstr "reforça primeiro as cores menos saturadas (balanço de cor RGB)"
+
+#: src/libs/essentials.c:289
+msgid "Auto"
+msgstr "Auto"
+
+#: src/libs/essentials.c:293
+msgid "black and white: remove all chroma (color balance rgb)"
+msgstr "preto e branco: remove todo o croma (balanço de cor RGB)"
+
+#: src/libs/essentials.c:290
+msgid "let each module adjust itself to the picture"
+msgstr "deixa cada módulo se ajustar sozinho à foto"
 
 #~ msgctxt "preferences"
 #~ msgid "libsecret"

@@ -1506,6 +1506,35 @@ void dt_bauhaus_slider_set_default(GtkWidget *widget, float def)
   d->defpos = def;
 }
 
+void dt_bauhaus_slider_copy_scale(GtkWidget *dst, GtkWidget *src)
+{
+  struct dt_bauhaus_widget_t *ws = DT_BAUHAUS_WIDGET(src);
+  struct dt_bauhaus_widget_t *wd = DT_BAUHAUS_WIDGET(dst);
+  if(ws->type != DT_BAUHAUS_SLIDER || wd->type != DT_BAUHAUS_SLIDER) return;
+  const dt_bauhaus_slider_data_t *s = &ws->data.slider;
+  dt_bauhaus_slider_data_t *d = &wd->data.slider;
+
+  d->hard_min = s->hard_min;
+  d->hard_max = s->hard_max;
+  d->soft_min = s->soft_min;
+  d->soft_max = s->soft_max;
+  d->min = s->min;
+  d->max = s->max;
+  d->step = s->step;
+  d->digits = s->digits;
+  d->defpos = s->defpos;
+  d->factor = s->factor;
+  d->offset = s->offset;
+  d->format = s->format; // interned by dt_bauhaus_slider_set_format(): shared safely
+  d->fill_feedback = s->fill_feedback;
+
+  dt_bauhaus_slider_clear_stops(dst);
+  for(int k = 0; k < s->grad_cnt; k++)
+    dt_bauhaus_slider_set_stop(dst, s->grad_pos[k], s->grad_col[k][0], s->grad_col[k][1], s->grad_col[k][2]);
+
+  gtk_widget_queue_draw(dst);
+}
+
 void dt_bauhaus_slider_set_soft_range(GtkWidget *widget, float soft_min, float soft_max)
 {
   dt_bauhaus_slider_set_soft_min(widget, soft_min);
