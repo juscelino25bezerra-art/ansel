@@ -182,6 +182,9 @@ gboolean _is_lighttable();
 gboolean has_active_image_in_lighttable();
 
 
+/** Open (or raise) the export dialog, as File > Export... does. */
+void dt_gui_open_export_dialog(void);
+
 void append_display(GtkWidget **menus, GList **lists, const dt_menus_t index);
 void append_edit(GtkWidget **menus, GList **lists, const dt_menus_t index);
 void append_file(GtkWidget **menus, GList **lists, const dt_menus_t index);

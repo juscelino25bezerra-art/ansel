@@ -676,6 +676,77 @@ void _open_accel_search_callback(GtkWidget *w, gpointer data)
   dt_accels_search(dt_gui_get_accels(), GTK_WINDOW(dt_gui_get_ui()->main_window), w);
 }
 
+/* ---------------------------------------------------------------------------
+ * Mode switcher: the segmented "Library | Develop" pill in the middle of the
+ * top bar. It mirrors the current view and switches views on click.
+ * ------------------------------------------------------------------------- */
+
+typedef struct dt_ui_mode_switcher_t
+{
+  GtkWidget *library;
+  GtkWidget *develop;
+  gboolean syncing;
+} dt_ui_mode_switcher_t;
+
+static dt_ui_mode_switcher_t _mode_switcher = { NULL, NULL, FALSE };
+
+static void _mode_switcher_sync(void)
+{
+  if(IS_NULL_PTR(_mode_switcher.library) || IS_NULL_PTR(_mode_switcher.develop)) return;
+  const dt_view_t *view = dt_view_manager_get_current_view(dt_view_manager_get_global());
+  const char *name = view ? view->module_name : "";
+  _mode_switcher.syncing = TRUE;
+  gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(_mode_switcher.library), !g_strcmp0(name, "lighttable"));
+  gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(_mode_switcher.develop), !g_strcmp0(name, "darkroom"));
+  _mode_switcher.syncing = FALSE;
+}
+
+static void _mode_switcher_view_changed(gpointer instance, gpointer old_view, gpointer new_view, gpointer user_data)
+{
+  _mode_switcher_sync();
+}
+
+static void _mode_switcher_toggled(GtkToggleButton *button, gpointer user_data)
+{
+  if(_mode_switcher.syncing) return;
+  const char *target = (const char *)user_data;
+  const dt_view_t *view = dt_view_manager_get_current_view(dt_view_manager_get_global());
+  // clicking the mode we are already in does nothing (dt_ctl_switch_mode_to() would leave it)
+  if(gtk_toggle_button_get_active(button) && !(view && !g_strcmp0(view->module_name, target)))
+    dt_ctl_switch_mode_to(target);
+  // the switch may be refused (no picture to develop): always show the real state
+  _mode_switcher_sync();
+}
+
+static GtkWidget *_mode_switcher_new(void)
+{
+  GtkWidget *box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_widget_set_name(box, "mode-switcher");
+  gtk_widget_set_halign(box, GTK_ALIGN_CENTER);
+  gtk_widget_set_valign(box, GTK_ALIGN_CENTER);
+  gtk_widget_set_hexpand(box, TRUE);
+
+  _mode_switcher.library = gtk_toggle_button_new_with_label(_("Library"));
+  _mode_switcher.develop = gtk_toggle_button_new_with_label(_("Develop"));
+  gtk_widget_set_tooltip_text(_mode_switcher.library, _("Organize, rate and select your pictures"));
+  gtk_widget_set_tooltip_text(_mode_switcher.develop, _("Develop the selected picture"));
+  g_signal_connect(G_OBJECT(_mode_switcher.library), "toggled", G_CALLBACK(_mode_switcher_toggled), "lighttable");
+  g_signal_connect(G_OBJECT(_mode_switcher.develop), "toggled", G_CALLBACK(_mode_switcher_toggled), "darkroom");
+  gtk_box_pack_start(GTK_BOX(box), _mode_switcher.library, FALSE, FALSE, 0);
+  gtk_box_pack_start(GTK_BOX(box), _mode_switcher.develop, FALSE, FALSE, 0);
+
+  DT_DEBUG_CONTROL_SIGNAL_CONNECT(dt_control_signal_get_global(), DT_SIGNAL_VIEWMANAGER_VIEW_CHANGED,
+                                  G_CALLBACK(_mode_switcher_view_changed), NULL);
+  DT_DEBUG_CONTROL_SIGNAL_CONNECT(dt_control_signal_get_global(), DT_SIGNAL_VIEWMANAGER_VIEW_CANNOT_CHANGE,
+                                  G_CALLBACK(_mode_switcher_view_changed), NULL);
+  return box;
+}
+
+static void _export_button_clicked(GtkWidget *w, gpointer data)
+{
+  dt_gui_open_export_dialog();
+}
+
 void dt_ui_init_global_menu(dt_ui_t *ui)
 {
   /* if user_pref != merge menubar in titlebar */
@@ -707,18 +778,26 @@ void dt_ui_init_global_menu(dt_ui_t *ui)
   append_views(ui->header->menus, &ui->header->item_lists[DT_MENU_ATELIERS], DT_MENU_ATELIERS);
   append_help(ui->header->menus, &ui->header->item_lists[DT_MENU_HELP], DT_MENU_HELP);
 
+  // brand: app icon and name, left of the menus
+  GtkWidget *brand = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_widget_set_name(brand, "brand");
+  GtkWidget *brand_icon = gtk_image_new_from_icon_name("lumivell", GTK_ICON_SIZE_LARGE_TOOLBAR);
+  gtk_image_set_pixel_size(GTK_IMAGE(brand_icon), DT_PIXEL_APPLY_DPI(24));
+  GtkWidget *brand_label = gtk_label_new("Lumivell");
+  gtk_widget_set_name(brand_label, "brand-label");
+  gtk_box_pack_start(GTK_BOX(brand), brand_icon, FALSE, FALSE, 0);
+  gtk_box_pack_start(GTK_BOX(brand), brand_label, FALSE, FALSE, 0);
+  dt_ui_titlebar_pack_start(ui, brand);
+  gtk_widget_show_all(brand);
+
   dt_ui_titlebar_pack_start(ui, ui->header->menu_bar);
   gtk_widget_show_all(ui->header->menu_bar);
 
-  GtkWidget *search_button = gtk_button_new_from_icon_name("edit-find", GTK_ICON_SIZE_SMALL_TOOLBAR);
-  gtk_button_set_label (GTK_BUTTON(search_button), _("Search actions..."));
-  gtk_widget_set_halign(search_button, GTK_ALIGN_CENTER);
-  gtk_widget_set_valign(search_button, GTK_ALIGN_CENTER);
-  gtk_widget_set_hexpand(search_button, TRUE);
-  gtk_widget_set_name(search_button, "search-button");
-  g_signal_connect(G_OBJECT(search_button), "clicked", G_CALLBACK(_open_accel_search_callback), NULL);
-  dt_ui_titlebar_pack_start(ui, search_button);
-  gtk_widget_show(search_button);
+  // the mode switcher takes the middle of the bar
+  GtkWidget *modes = _mode_switcher_new();
+  dt_ui_titlebar_pack_start(ui, modes);
+  gtk_widget_show_all(modes);
+  _mode_switcher_sync();
 
   // From there, we pack_end meaning it should be done in reverse order of appearance
   ui->header->close = gtk_button_new_from_icon_name("window-close", GTK_ICON_SIZE_LARGE_TOOLBAR);
@@ -733,13 +812,31 @@ void dt_ui_init_global_menu(dt_ui_t *ui)
   dt_gui_add_class(ui->header->iconify, "window-button");
   dt_ui_titlebar_pack_end(ui, ui->header->iconify);
 
+  // "Export" is the one primary action of the bar
+  GtkWidget *export_button = gtk_button_new_with_label(_("Export"));
+  gtk_widget_set_name(export_button, "export-button");
+  gtk_widget_set_valign(export_button, GTK_ALIGN_CENTER);
+  gtk_widget_set_tooltip_text(export_button, _("Export the selected pictures"));
+  g_signal_connect(G_OBJECT(export_button), "clicked", G_CALLBACK(_export_button_clicked), NULL);
+  dt_ui_titlebar_pack_end(ui, export_button);
+  gtk_widget_show(export_button);
+
+  GtkWidget *search_button = gtk_button_new_from_icon_name("edit-find", GTK_ICON_SIZE_SMALL_TOOLBAR);
+  gtk_widget_set_tooltip_text(search_button, _("Search actions..."));
+  gtk_widget_set_valign(search_button, GTK_ALIGN_CENTER);
+  gtk_widget_set_name(search_button, "search-button");
+  g_signal_connect(G_OBJECT(search_button), "clicked", G_CALLBACK(_open_accel_search_callback), NULL);
+  dt_ui_titlebar_pack_end(ui, search_button);
+  gtk_widget_show(search_button);
+
+  // The mode switcher replaces the home button; it is kept, hidden, for code that expects it.
   ui->header->home = gtk_button_new_from_icon_name("go-home", GTK_ICON_SIZE_LARGE_TOOLBAR);
   gtk_widget_set_tooltip_text(ui->header->home, _("Go back to lighttable"));
   g_signal_connect(G_OBJECT(ui->header->home), "clicked", _home_callback, NULL);
   gtk_widget_set_size_request(ui->header->home, 24, 24);
   dt_gui_add_class(ui->header->home, "window-button");
   dt_ui_titlebar_pack_end(ui, ui->header->home);
-  gtk_widget_show(ui->header->home);
+  gtk_widget_set_no_show_all(ui->header->home, TRUE);
 
   GtkWidget *spacer = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
   dt_ui_titlebar_pack_end(ui, spacer);

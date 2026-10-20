@@ -142,6 +142,8 @@
 #include "gui/screen_metrics.h"
 #include "widgets/togglebutton.h"
 #include "control/signal.h"
+#include "metadata/ratings.h"
+#include "widgets/paint.h"
 
 #ifndef G_SOURCE_FUNC // Defined for glib >= 2.58
 #define G_SOURCE_FUNC(f) ((GSourceFunc) (void (*)(void)) (f))
@@ -1731,9 +1733,132 @@ static void _darkroom_autoset_popover_refresh(gpointer instance, gpointer user_d
   _darkroom_autoset_popover_rebuild((dt_develop_t *)user_data);
 }
 
+/* ---------------------------------------------------------------------------
+ * Floating bar over the picture: zoom, rating and reject for the image being
+ * developed, so the most frequent actions sit next to the photo instead of in
+ * the menus. It lives in the center overlay and is shown only in this view.
+ * ------------------------------------------------------------------------- */
+
+typedef struct dt_darkroom_floatbar_t
+{
+  GtkWidget *box;
+  GtkWidget *stars[5];
+  GtkWidget *reject;
+  dt_develop_t *dev;
+  GdkRGBA star_fill;
+} dt_darkroom_floatbar_t;
+
+static dt_darkroom_floatbar_t _floatbar = { 0 };
+
+static void _floatbar_refresh(void)
+{
+  if(IS_NULL_PTR(_floatbar.box) || IS_NULL_PTR(_floatbar.dev)) return;
+  const int32_t imgid = _floatbar.dev->image_storage.id;
+  const int rating = imgid > 0 ? dt_ratings_get(imgid) : 0;
+  const gboolean rejected = (rating == DT_VIEW_REJECT);
+  _floatbar.star_fill = dt_bauhaus_get_global()->color_value;
+  for(int i = 0; i < 5; i++)
+  {
+    dtgtk_button_set_paint(DTGTK_BUTTON(_floatbar.stars[i]), dtgtk_cairo_paint_star, 0,
+                           (!rejected && i < rating) ? &_floatbar.star_fill : NULL);
+    gtk_widget_queue_draw(_floatbar.stars[i]);
+  }
+  dtgtk_button_set_active(DTGTK_BUTTON(_floatbar.reject), rejected);
+  gtk_widget_queue_draw(_floatbar.reject);
+}
+
+static void _floatbar_image_info_changed(gpointer instance, gpointer imgs, gpointer user_data)
+{
+  _floatbar_refresh();
+}
+
+static void _floatbar_star_clicked(GtkWidget *widget, gpointer user_data)
+{
+  if(IS_NULL_PTR(_floatbar.dev)) return;
+  // clicking the current rating again clears it, as on thumbnails
+  dt_ratings_apply_on_image(_floatbar.dev->image_storage.id, GPOINTER_TO_INT(user_data), TRUE, TRUE, TRUE);
+  _floatbar_refresh();
+}
+
+static void _floatbar_reject_clicked(GtkWidget *widget, gpointer user_data)
+{
+  if(IS_NULL_PTR(_floatbar.dev)) return;
+  dt_ratings_apply_on_image(_floatbar.dev->image_storage.id, DT_VIEW_REJECT, TRUE, TRUE, TRUE);
+  _floatbar_refresh();
+}
+
+static void _floatbar_fit_clicked(GtkWidget *widget, gpointer user_data)
+{
+  _zoom_to_fit(NULL, NULL, 0, 0, user_data);
+}
+
+static void _floatbar_100_clicked(GtkWidget *widget, gpointer user_data)
+{
+  _zoom_to_100(NULL, NULL, 0, 0, user_data);
+}
+
+static GtkWidget *_floatbar_separator(void)
+{
+  GtkWidget *sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
+  gtk_widget_set_name(sep, "floatbar-separator");
+  return sep;
+}
+
+static void _floatbar_create(dt_develop_t *dev)
+{
+  _floatbar.dev = dev;
+  _floatbar.box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_widget_set_name(_floatbar.box, "floatbar");
+  gtk_widget_set_halign(_floatbar.box, GTK_ALIGN_CENTER);
+  gtk_widget_set_valign(_floatbar.box, GTK_ALIGN_END);
+
+  GtkWidget *fit = gtk_button_new_with_label(_("Fit"));
+  gtk_widget_set_tooltip_text(fit, _("Zooms the main image to fit the window"));
+  g_signal_connect(G_OBJECT(fit), "clicked", G_CALLBACK(_floatbar_fit_clicked), dev);
+  GtkWidget *full = gtk_button_new_with_label("100%");
+  gtk_widget_set_tooltip_text(full, _("Zooms the main image to 100%"));
+  g_signal_connect(G_OBJECT(full), "clicked", G_CALLBACK(_floatbar_100_clicked), dev);
+  gtk_box_pack_start(GTK_BOX(_floatbar.box), fit, FALSE, FALSE, 0);
+  gtk_box_pack_start(GTK_BOX(_floatbar.box), full, FALSE, FALSE, 0);
+  gtk_box_pack_start(GTK_BOX(_floatbar.box), _floatbar_separator(), FALSE, FALSE, 0);
+
+  for(int i = 0; i < 5; i++)
+  {
+    _floatbar.stars[i] = dtgtk_button_new(dtgtk_cairo_paint_star, 0, NULL);
+    gtk_widget_set_name(_floatbar.stars[i], "floatbar-star");
+    gtk_widget_set_size_request(_floatbar.stars[i], DT_PIXEL_APPLY_DPI(30), DT_PIXEL_APPLY_DPI(30));
+    gchar *tip = g_strdup_printf(ngettext("%d star", "%d stars", i + 1), i + 1);
+    gtk_widget_set_tooltip_text(_floatbar.stars[i], tip);
+    dt_free(tip);
+    g_signal_connect(G_OBJECT(_floatbar.stars[i]), "clicked", G_CALLBACK(_floatbar_star_clicked),
+                     GINT_TO_POINTER(i + 1));
+    gtk_box_pack_start(GTK_BOX(_floatbar.box), _floatbar.stars[i], FALSE, FALSE, 0);
+  }
+  gtk_box_pack_start(GTK_BOX(_floatbar.box), _floatbar_separator(), FALSE, FALSE, 0);
+
+  _floatbar.reject = dtgtk_button_new(dtgtk_cairo_paint_reject, 0, NULL);
+  gtk_widget_set_name(_floatbar.reject, "floatbar-reject");
+  gtk_widget_set_size_request(_floatbar.reject, DT_PIXEL_APPLY_DPI(30), DT_PIXEL_APPLY_DPI(30));
+  gtk_widget_set_tooltip_text(_floatbar.reject, _("Reject"));
+  g_signal_connect(G_OBJECT(_floatbar.reject), "clicked", G_CALLBACK(_floatbar_reject_clicked), NULL);
+  gtk_box_pack_start(GTK_BOX(_floatbar.box), _floatbar.reject, FALSE, FALSE, 0);
+
+  gtk_overlay_add_overlay(GTK_OVERLAY(dt_ui_center_base(dt_gui_get_ui())), _floatbar.box);
+  gtk_widget_show_all(_floatbar.box);
+  gtk_widget_set_no_show_all(_floatbar.box, TRUE);
+  gtk_widget_hide(_floatbar.box);
+
+  DT_DEBUG_CONTROL_SIGNAL_CONNECT(dt_control_signal_get_global(), DT_SIGNAL_IMAGE_INFO_CHANGED,
+                                  G_CALLBACK(_floatbar_image_info_changed), NULL);
+  DT_DEBUG_CONTROL_SIGNAL_CONNECT(dt_control_signal_get_global(), DT_SIGNAL_DEVELOP_IMAGE_CHANGED,
+                                  G_CALLBACK(_floatbar_image_info_changed), NULL);
+}
+
 void gui_init(dt_view_t *self)
 {
   dt_develop_t *dev = (dt_develop_t *)self->data;
+
+  _floatbar_create(dev);
 
   // Register the GTK-driving handlers for history commits and undo restores (the inverted
   // dependency dev_history.c exposes). Done here, not in dt_init(): the call sites
@@ -2120,6 +2245,11 @@ void enter(dt_view_t *self)
   dt_thumbtable_show(dt_gui_get_ui()->thumbtable_filmstrip);
   gtk_widget_show(dt_gui_center_widget());
   dt_thumbtable_update_parent(dt_gui_get_ui()->thumbtable_filmstrip);
+  if(_floatbar.box)
+  {
+    gtk_widget_show(_floatbar.box);
+    _floatbar_refresh();
+  }
 
   /* connect signal for filmstrip image activate */
   DT_DEBUG_CONTROL_SIGNAL_CONNECT(dt_control_signal_get_global(), DT_SIGNAL_VIEWMANAGER_THUMBTABLE_ACTIVATE,
@@ -2139,6 +2269,7 @@ void enter(dt_view_t *self)
 void leave(dt_view_t *self)
 {
   dt_develop_t *dev = (dt_develop_t *)self->data;
+  if(_floatbar.box) gtk_widget_hide(_floatbar.box);
   if(!IS_NULL_PTR(_autoset_manager) && !IS_NULL_PTR(_autoset_manager->input_wait))
     dt_dev_pixelpipe_cache_wait_cleanup((dt_dev_pixelpipe_cache_wait_t *)_autoset_manager->input_wait,
                                         "darkroom-leave-autoset");

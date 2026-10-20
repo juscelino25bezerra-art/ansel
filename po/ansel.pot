@@ -650,6 +650,13 @@ msgid_plural "%d shapes used"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/views/darkroom.c:1829
+#, c-format
+msgid "%d star"
+msgid_plural "%d stars"
+msgstr[0] ""
+msgstr[1] ""
+
 #: src/libs/tagging.c:1544
 #, c-format
 msgid "%d tags removed"
@@ -1951,7 +1958,7 @@ msgstr ""
 msgid "Automatic cropping failed. Keeping previous margins."
 msgstr ""
 
-#: src/views/darkroom.c:213
+#: src/views/darkroom.c:215
 msgid "Autoset is running on selected modules"
 msgstr ""
 
@@ -2271,7 +2278,7 @@ msgstr ""
 msgid "CPU cores"
 msgstr ""
 
-#: src/darktable.c:2544
+#: src/darktable.c:2558
 msgid ""
 "CRITICAL WARNING: Lumivell will not be able to use the RAM you allocated it.\n"
 "Review your memory settings or add more RAM to your system."
@@ -2421,15 +2428,15 @@ msgstr ""
 msgid "Check to enable the global slideshow view. (needs a restart)"
 msgstr ""
 
-#: src/views/darkroom.c:1893
+#: src/views/darkroom.c:2016
 msgid "Checkerboard color 1"
 msgstr ""
 
-#: src/views/darkroom.c:1910
+#: src/views/darkroom.c:2033
 msgid "Checkerboard color 2"
 msgstr ""
 
-#: src/views/darkroom.c:1928
+#: src/views/darkroom.c:2051
 msgid "Checkerboard size"
 msgstr ""
 
@@ -2452,7 +2459,7 @@ msgid ""
 "in which the image will be proportionnaly fitted.\n"
 msgstr ""
 
-#: src/views/darkroom.c:1859
+#: src/views/darkroom.c:1982
 msgid ""
 "Choose at what size the main preview is rendered.\n"
 "Full resolution renders the pipeline at the raw original resolution.\n"
@@ -2461,7 +2468,7 @@ msgid ""
 "Pixel-level accuracy is guaranteed only when zoomed-in at 100%."
 msgstr ""
 
-#: src/views/darkroom.c:1878
+#: src/views/darkroom.c:2001
 #, c-format
 msgid ""
 "Choose how finely brush and polygon masks are drawn in the darkroom.\n"
@@ -2537,7 +2544,7 @@ msgstr ""
 msgid "Clone"
 msgstr ""
 
-#: src/gui/actions/file.c:339
+#: src/gui/actions/file.c:344
 msgid "Close"
 msgstr ""
 
@@ -2657,11 +2664,11 @@ msgid ""
 "is set in the export module or in the display preferences. "
 msgstr ""
 
-#: src/gui/actions/file.c:440
+#: src/gui/actions/file.c:445
 msgid "Copy distant images locally"
 msgstr ""
 
-#: src/gui/actions/file.c:429
+#: src/gui/actions/file.c:434
 msgid "Copy files on disk..."
 msgstr ""
 
@@ -2681,7 +2688,7 @@ msgstr ""
 msgid "Copy module order"
 msgstr ""
 
-#: src/gui/actions/file.c:337
+#: src/gui/actions/file.c:342
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -2705,7 +2712,7 @@ msgstr ""
 msgid "Corrupted file"
 msgstr ""
 
-#: src/views/darkroom.c:1232
+#: src/views/darkroom.c:1234
 msgid "Could not load the image source data."
 msgstr ""
 
@@ -2725,11 +2732,11 @@ msgid ""
 "with this image's current module order."
 msgstr ""
 
-#: src/views/darkroom.c:1236
+#: src/views/darkroom.c:1238
 msgid "Could not read image information from the database."
 msgstr ""
 
-#: src/gui/actions/file.c:293 src/libs/textnotes.c:1846
+#: src/gui/actions/file.c:298 src/libs/textnotes.c:1846
 msgid "Could not save"
 msgstr ""
 
@@ -2738,7 +2745,7 @@ msgstr ""
 msgid "Could not start the import job."
 msgstr ""
 
-#: src/gui/actions/file.c:435
+#: src/gui/actions/file.c:440
 msgid "Create a blended HDR"
 msgstr ""
 
@@ -2883,7 +2890,7 @@ msgid "DWAB"
 msgstr ""
 
 #: build/src/preferences_gen.h:2569 src/develop/imageop.c:580
-#: src/views/darkroom.c:224
+#: src/views/darkroom.c:226
 msgid "Darkroom"
 msgstr ""
 
@@ -2899,21 +2906,21 @@ msgstr ""
 #: src/libs/modulegroups.c:1081 src/libs/modulegroups.c:1083
 #: src/libs/modulegroups.c:1087 src/libs/modulegroups.c:1089
 #: src/libs/modulegroups.c:1092 src/libs/modulegroups.c:1094
-#: src/views/darkroom.c:1751 src/views/darkroom.c:1753
-#: src/views/darkroom.c:1756
+#: src/views/darkroom.c:1874 src/views/darkroom.c:1876
+#: src/views/darkroom.c:1879
 msgid "Darkroom/Actions"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1321 src/widgets/bauhaus.c:1325
-#: src/widgets/bauhaus.c:1329 src/widgets/bauhaus.c:1333
-#: src/widgets/bauhaus.c:1337 src/widgets/bauhaus.c:1341
+#: src/widgets/bauhaus.c:1332 src/widgets/bauhaus.c:1336
+#: src/widgets/bauhaus.c:1340 src/widgets/bauhaus.c:1344
+#: src/widgets/bauhaus.c:1348 src/widgets/bauhaus.c:1352
 msgid "Darkroom/Controls/Comboboxes"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1292 src/widgets/bauhaus.c:1296
-#: src/widgets/bauhaus.c:1300 src/widgets/bauhaus.c:1304
-#: src/widgets/bauhaus.c:1308 src/widgets/bauhaus.c:1312
-#: src/widgets/bauhaus.c:1316
+#: src/widgets/bauhaus.c:1303 src/widgets/bauhaus.c:1307
+#: src/widgets/bauhaus.c:1311 src/widgets/bauhaus.c:1315
+#: src/widgets/bauhaus.c:1319 src/widgets/bauhaus.c:1323
+#: src/widgets/bauhaus.c:1327
 msgid "Darkroom/Controls/Sliders"
 msgstr ""
 
@@ -2921,14 +2928,14 @@ msgstr ""
 msgid "Darkroom/Filmstrip"
 msgstr ""
 
-#: src/views/darkroom.c:1761 src/views/darkroom.c:1766
-#: src/views/darkroom.c:1771 src/views/darkroom.c:1776
-#: src/views/darkroom.c:1781 src/views/darkroom.c:1786
-#: src/views/darkroom.c:1791 src/views/darkroom.c:1796
-#: src/views/darkroom.c:1801 src/views/darkroom.c:1806
-#: src/views/darkroom.c:1811 src/views/darkroom.c:1816
-#: src/views/darkroom.c:1821 src/views/darkroom.c:1826
-#: src/views/darkroom.c:1831 src/views/darkroom.c:1834
+#: src/views/darkroom.c:1884 src/views/darkroom.c:1889
+#: src/views/darkroom.c:1894 src/views/darkroom.c:1899
+#: src/views/darkroom.c:1904 src/views/darkroom.c:1909
+#: src/views/darkroom.c:1914 src/views/darkroom.c:1919
+#: src/views/darkroom.c:1924 src/views/darkroom.c:1929
+#: src/views/darkroom.c:1934 src/views/darkroom.c:1939
+#: src/views/darkroom.c:1944 src/views/darkroom.c:1949
+#: src/views/darkroom.c:1954 src/views/darkroom.c:1957
 msgid "Darkroom/Main image"
 msgstr ""
 
@@ -2941,8 +2948,8 @@ msgstr ""
 msgid "Darkroom/Modules/Instances"
 msgstr ""
 
-#: src/views/darkroom.c:1846 src/views/darkroom.c:1950
-#: src/views/darkroom.c:1972 src/views/darkroom.c:1976
+#: src/views/darkroom.c:1969 src/views/darkroom.c:2073
+#: src/views/darkroom.c:2095 src/views/darkroom.c:2099
 msgid "Darkroom/Toolbox"
 msgstr ""
 
@@ -2967,15 +2974,15 @@ msgstr ""
 msgid "Date : "
 msgstr ""
 
-#: src/widgets/bauhaus.c:1312
+#: src/widgets/bauhaus.c:1323
 msgid "Decrease value (coarse step)"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1304
+#: src/widgets/bauhaus.c:1315
 msgid "Decrease value (fine step)"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1296
+#: src/widgets/bauhaus.c:1307
 msgid "Decrease value (normal step)"
 msgstr ""
 
@@ -3007,7 +3014,7 @@ msgstr[1] ""
 msgid "Delete database lock files and try again"
 msgstr ""
 
-#: src/gui/actions/file.c:451
+#: src/gui/actions/file.c:456
 msgid "Delete from disk"
 msgstr ""
 
@@ -3131,6 +3138,14 @@ msgstr ""
 #: src/gui/import.c:968
 #, c-format
 msgid "Detection in progress... (%i raw files found so far)"
+msgstr ""
+
+#: src/gui/window_manager.c:730
+msgid "Develop"
+msgstr ""
+
+#: src/gui/window_manager.c:732
+msgid "Develop the selected picture"
 msgstr ""
 
 #: src/develop/blend_gui.c:2350 src/develop/masks/masks_gui.c:1043
@@ -3495,7 +3510,7 @@ msgstr ""
 msgid "Exclusion"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1325
+#: src/widgets/bauhaus.c:1336
 msgid "Exit editing mode"
 msgstr ""
 
@@ -3515,6 +3530,10 @@ msgid ""
 "already exists"
 msgstr ""
 
+#: src/gui/window_manager.c:816
+msgid "Export"
+msgstr ""
+
 #: src/gui/closing.c:195
 msgctxt "job type"
 msgid "Export"
@@ -3528,15 +3547,19 @@ msgstr ""
 msgid "Export failed"
 msgstr ""
 
-#: src/gui/actions/file.c:403
+#: src/gui/actions/file.c:408
 msgid "Export image list..."
 msgstr ""
 
-#: src/gui/actions/file.c:400
+#: src/gui/window_manager.c:819
+msgid "Export the selected pictures"
+msgstr ""
+
+#: src/gui/actions/file.c:405
 msgid "Export..."
 msgstr ""
 
-#: src/gui/actions/file.c:353
+#: src/gui/actions/file.c:358
 msgid "Export:"
 msgstr ""
 
@@ -3633,7 +3656,7 @@ msgstr ""
 msgid "Fall-off"
 msgstr ""
 
-#: src/views/darkroom.c:1877
+#: src/views/darkroom.c:2000
 msgid "Fast drawn mask rasterization"
 msgstr ""
 
@@ -3692,6 +3715,7 @@ msgid "Finishing drawing"
 msgstr ""
 
 #: src/libs/navigation.c:420 src/libs/tools/lighttable.c:259
+#: src/views/darkroom.c:1815
 msgid "Fit"
 msgstr ""
 
@@ -3755,7 +3779,7 @@ msgstr ""
 msgid "Focus gamut checking options"
 msgstr ""
 
-#: src/views/darkroom.c:1977
+#: src/views/darkroom.c:2100
 msgid "Focus guide lines options"
 msgstr ""
 
@@ -3787,7 +3811,7 @@ msgstr ""
 msgid "Focus softproof options"
 msgstr ""
 
-#: src/libs/tools/filter.c:765 src/widgets/bauhaus.c:1541
+#: src/libs/tools/filter.c:765 src/widgets/bauhaus.c:1552
 msgid "Focuses the control"
 msgstr ""
 
@@ -3933,7 +3957,7 @@ msgstr ""
 msgid "Geometry"
 msgstr ""
 
-#: src/views/darkroom.c:1756
+#: src/views/darkroom.c:1879
 msgid "Give focus to the main image"
 msgstr ""
 
@@ -3949,7 +3973,7 @@ msgstr ""
 msgid "Go back"
 msgstr ""
 
-#: src/gui/window_manager.c:737
+#: src/gui/window_manager.c:834
 msgid "Go back to lighttable"
 msgstr ""
 
@@ -4145,7 +4169,7 @@ msgstr ""
 msgid "Image %s is already in library and will not be re-imported.\n"
 msgstr ""
 
-#: src/gui/actions/file.c:349
+#: src/gui/actions/file.c:354
 msgid "Image ID"
 msgstr ""
 
@@ -4154,12 +4178,12 @@ msgstr ""
 msgid "Image cache — %u items"
 msgstr ""
 
-#: src/views/darkroom.c:1232 src/views/darkroom.c:1235
-#: src/views/darkroom.c:1239
+#: src/views/darkroom.c:1234 src/views/darkroom.c:1237
+#: src/views/darkroom.c:1241
 msgid "Image could not be opened"
 msgstr ""
 
-#: src/gui/actions/file.c:350
+#: src/gui/actions/file.c:355
 msgid "Image filename"
 msgstr ""
 
@@ -4208,7 +4232,7 @@ msgstr ""
 msgid "Import problem"
 msgstr ""
 
-#: src/gui/actions/file.c:397
+#: src/gui/actions/file.c:402
 msgid "Import..."
 msgstr ""
 
@@ -4278,15 +4302,15 @@ msgstr ""
 msgid "Incompatible module ordering constraints"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1308
+#: src/widgets/bauhaus.c:1319
 msgid "Increase value (coarse step)"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1300
+#: src/widgets/bauhaus.c:1311
 msgid "Increase value (fine step)"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1292
+#: src/widgets/bauhaus.c:1303
 msgid "Increase value (normal step)"
 msgstr ""
 
@@ -4565,7 +4589,7 @@ msgstr ""
 msgid "Let the OS mask Lumivell shortcuts"
 msgstr ""
 
-#: src/libs/collect.c:379
+#: src/gui/window_manager.c:729 src/libs/collect.c:379
 msgid "Library"
 msgstr ""
 
@@ -4637,7 +4661,7 @@ msgstr ""
 msgid "Lumivell - Database is read-only"
 msgstr ""
 
-#: src/gui/actions/file.c:334
+#: src/gui/actions/file.c:339
 msgid "Lumivell - Export image list"
 msgstr ""
 
@@ -4658,7 +4682,7 @@ msgstr ""
 msgid "Lumivell - Preview : %s"
 msgstr ""
 
-#: src/gui/actions/file.c:279
+#: src/gui/actions/file.c:284
 msgid "Lumivell - Save image list"
 msgstr ""
 
@@ -4771,7 +4795,7 @@ msgstr ""
 msgid "Mask opacity"
 msgstr ""
 
-#: src/views/darkroom.c:1890
+#: src/views/darkroom.c:2013
 msgid "Mask preview settings"
 msgstr ""
 
@@ -4841,7 +4865,7 @@ msgstr ""
 msgid "Module groups"
 msgstr ""
 
-#: src/views/darkroom.c:1708
+#: src/views/darkroom.c:1710
 msgid "Module instances to autoset"
 msgstr ""
 
@@ -4892,7 +4916,7 @@ msgid ""
 "The first scan records the existing images as a baseline: only images arriving afterwards are imported."
 msgstr ""
 
-#: src/gui/actions/file.c:414
+#: src/gui/actions/file.c:419
 #, c-format
 msgid "Most recent collection #%i"
 msgstr ""
@@ -4910,56 +4934,56 @@ msgid "Move Up"
 msgstr ""
 
 #: src/develop/masks/masks_gui.c:1055 src/gui/dtgtk/thumbtable.c:2138
-#: src/libs/shape_manager.c:1793 src/views/darkroom.c:1776
+#: src/libs/shape_manager.c:1793 src/views/darkroom.c:1899
 msgid "Move down"
 msgstr ""
 
-#: src/views/darkroom.c:1781
+#: src/views/darkroom.c:1904
 msgid "Move down (coarse step)"
 msgstr ""
 
-#: src/views/darkroom.c:1786
+#: src/views/darkroom.c:1909
 msgid "Move down (fine step)"
 msgstr ""
 
-#: src/gui/actions/file.c:432
+#: src/gui/actions/file.c:437
 msgid "Move files on disk..."
 msgstr ""
 
-#: src/gui/dtgtk/thumbtable.c:2142 src/views/darkroom.c:1791
+#: src/gui/dtgtk/thumbtable.c:2142 src/views/darkroom.c:1914
 msgid "Move left"
 msgstr ""
 
-#: src/views/darkroom.c:1796
+#: src/views/darkroom.c:1919
 msgid "Move left (coarse step)"
 msgstr ""
 
-#: src/views/darkroom.c:1801
+#: src/views/darkroom.c:1924
 msgid "Move left (fine step)"
 msgstr ""
 
-#: src/gui/dtgtk/thumbtable.c:2146 src/views/darkroom.c:1806
+#: src/gui/dtgtk/thumbtable.c:2146 src/views/darkroom.c:1929
 msgid "Move right"
 msgstr ""
 
-#: src/views/darkroom.c:1811
+#: src/views/darkroom.c:1934
 msgid "Move right (coarse step)"
 msgstr ""
 
-#: src/views/darkroom.c:1816
+#: src/views/darkroom.c:1939
 msgid "Move right (fine step)"
 msgstr ""
 
 #: src/develop/masks/masks_gui.c:1053 src/gui/dtgtk/thumbtable.c:2134
-#: src/libs/shape_manager.c:1790 src/views/darkroom.c:1761
+#: src/libs/shape_manager.c:1790 src/views/darkroom.c:1884
 msgid "Move up"
 msgstr ""
 
-#: src/views/darkroom.c:1766
+#: src/views/darkroom.c:1889
 msgid "Move up (coarse step)"
 msgstr ""
 
-#: src/views/darkroom.c:1771
+#: src/views/darkroom.c:1894
 msgid "Move up (fine step)"
 msgstr ""
 
@@ -5019,7 +5043,7 @@ msgstr ""
 msgid "No image is displayed."
 msgstr ""
 
-#: src/views/darkroom.c:1334
+#: src/views/darkroom.c:1336
 msgid "No image to open !"
 msgstr ""
 
@@ -5067,7 +5091,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: src/darktable.c:2544 src/develop/blend.c:791 src/develop/blend.c:831
+#: src/darktable.c:2558 src/develop/blend.c:791 src/develop/blend.c:831
 #: src/develop/blend.c:1251 src/gui/application.c:1106
 #: src/imageio/imageio_core.c:1103 src/iop/demosaic/dual.c:60
 msgid "Not enough memory"
@@ -5146,7 +5170,7 @@ msgstr ""
 msgid "Open contextual help"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1321
+#: src/widgets/bauhaus.c:1332
 msgid "Open editing mode"
 msgstr ""
 
@@ -5197,6 +5221,10 @@ msgstr ""
 
 #: src/gui/actions/help.c:49
 msgid "Organize and develop images from digital cameras"
+msgstr ""
+
+#: src/gui/window_manager.c:731
+msgid "Organize, rate and select your pictures"
 msgstr ""
 
 #: src/gui/import.c:1751
@@ -5597,7 +5625,7 @@ msgstr ""
 msgid "Queries"
 msgstr ""
 
-#: src/gui/actions/file.c:456 src/gui/common/database_gui.c:74
+#: src/gui/actions/file.c:461 src/gui/common/database_gui.c:74
 #: src/gui/common/database_gui.c:89 src/gui/common/database_gui.c:110
 msgid "Quit"
 msgstr ""
@@ -5801,7 +5829,7 @@ msgstr ""
 msgid "Rec709 RGB"
 msgstr ""
 
-#: src/gui/actions/file.c:408
+#: src/gui/actions/file.c:413
 msgid "Recent collections"
 msgstr ""
 
@@ -5830,7 +5858,7 @@ msgid ""
 "and don't match the current filters anymore."
 msgstr ""
 
-#: src/gui/actions/image.c:280
+#: src/gui/actions/image.c:280 src/views/darkroom.c:1840
 msgid "Reject"
 msgstr ""
 
@@ -5846,7 +5874,7 @@ msgstr ""
 msgid "Reload current collection"
 msgstr ""
 
-#: src/gui/actions/file.c:448
+#: src/gui/actions/file.c:453
 msgid "Remove from library"
 msgstr ""
 
@@ -5890,7 +5918,7 @@ msgstr ""
 msgid "Rename drawing layer"
 msgstr ""
 
-#: src/views/darkroom.c:1858
+#: src/views/darkroom.c:1981
 msgid "Rendering size"
 msgstr ""
 
@@ -5934,7 +5962,7 @@ msgstr ""
 msgid "Restricted"
 msgstr ""
 
-#: src/gui/actions/file.c:443
+#: src/gui/actions/file.c:448
 msgid "Resynchronize distant images"
 msgstr ""
 
@@ -5976,7 +6004,7 @@ msgstr ""
 msgid "Rotation: %3.2f°"
 msgstr ""
 
-#: src/views/darkroom.c:214 src/views/darkroom.c:1989
+#: src/views/darkroom.c:216 src/views/darkroom.c:2112
 msgid ""
 "Run autoset on selected modules\n"
 "Right click for options"
@@ -6055,7 +6083,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: src/gui/actions/file.c:338
+#: src/gui/actions/file.c:343
 msgid "Save as file..."
 msgstr ""
 
@@ -6095,7 +6123,7 @@ msgstr ""
 msgid "Search a picture"
 msgstr ""
 
-#: src/gui/actions/help.c:261 src/gui/window_manager.c:714
+#: src/gui/actions/help.c:261 src/gui/window_manager.c:825
 msgid "Search actions..."
 msgstr ""
 
@@ -6145,7 +6173,7 @@ msgstr ""
 msgid "Select all filters"
 msgstr ""
 
-#: src/views/darkroom.c:1904 src/views/darkroom.c:1918
+#: src/views/darkroom.c:2027 src/views/darkroom.c:2041
 msgid "Select color of the checkerboard from a swatch"
 msgstr ""
 
@@ -6169,7 +6197,7 @@ msgstr ""
 msgid "Select new"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1333
+#: src/widgets/bauhaus.c:1344
 msgid "Select next (in editing mode)"
 msgstr ""
 
@@ -6177,7 +6205,7 @@ msgstr ""
 msgid "Select none"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1329
+#: src/widgets/bauhaus.c:1340
 msgid "Select previous (in editing mode)"
 msgstr ""
 
@@ -6257,7 +6285,7 @@ msgstr ""
 msgid "Shot:"
 msgstr ""
 
-#: src/views/darkroom.c:1933
+#: src/views/darkroom.c:2056
 msgid "Show a greyscaled mask image"
 msgstr ""
 
@@ -6291,11 +6319,11 @@ msgstr ""
 msgid "Show system tags"
 msgstr ""
 
-#: src/views/darkroom.c:1951
+#: src/views/darkroom.c:2074
 msgid "Show the pipeline node graph"
 msgstr ""
 
-#: src/views/darkroom.c:1978 src/views/dev_toolbox.c:224
+#: src/views/darkroom.c:2101 src/views/dev_toolbox.c:224
 msgid "Shows the options popover"
 msgstr ""
 
@@ -6480,11 +6508,11 @@ msgstr ""
 msgid "Switch to %s node"
 msgstr ""
 
-#: src/views/darkroom.c:1752
+#: src/views/darkroom.c:1875
 msgid "Switch to the next picture"
 msgstr ""
 
-#: src/views/darkroom.c:1754
+#: src/views/darkroom.c:1877
 msgid "Switch to the previous picture"
 msgstr ""
 
@@ -6619,7 +6647,7 @@ msgstr ""
 msgid "The current in-memory layer has been written to the sidecar TIFF."
 msgstr ""
 
-#: src/views/darkroom.c:1313
+#: src/views/darkroom.c:1315
 msgid ""
 "The current selection contains more than one image, which is ambiguous.\n"
 "Select exactly one image to enter the darkroom."
@@ -6745,7 +6773,7 @@ msgstr ""
 msgid "The target widget of the action does not exist anymore"
 msgstr ""
 
-#: src/views/darkroom.c:1319
+#: src/views/darkroom.c:1321
 msgid ""
 "There is no image selected.\n"
 "Select exactly one image to enter the darkroom."
@@ -6892,7 +6920,7 @@ msgstr ""
 msgid "Toggle clipping indication"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1316 src/widgets/bauhaus.c:1341
+#: src/widgets/bauhaus.c:1327 src/widgets/bauhaus.c:1352
 msgid "Toggle color-picker"
 msgstr ""
 
@@ -6964,7 +6992,7 @@ msgstr ""
 msgid "Toggle gamut checking"
 msgstr ""
 
-#: src/views/darkroom.c:1973
+#: src/views/darkroom.c:2096
 msgid "Toggle guide lines"
 msgstr ""
 
@@ -7026,8 +7054,8 @@ msgstr ""
 #: src/libs/modulegroups.c:1088 src/libs/modulegroups.c:1090
 #: src/libs/modulegroups.c:1093 src/libs/modulegroups.c:1095
 #: src/libs/tools/lighttable.c:305 src/libs/tools/lighttable.c:307
-#: src/views/darkroom.c:1752 src/views/darkroom.c:1754
-#: src/views/darkroom.c:1952 src/views/darkroom.c:1974
+#: src/views/darkroom.c:1875 src/views/darkroom.c:1877
+#: src/views/darkroom.c:2075 src/views/darkroom.c:2097
 #: src/views/dev_toolbox.c:221
 msgid "Triggers the action"
 msgstr ""
@@ -7131,7 +7159,7 @@ msgstr ""
 msgid "VNG4"
 msgstr ""
 
-#: src/widgets/bauhaus.c:1337
+#: src/widgets/bauhaus.c:1348
 msgid "Validate result (in editing mode)"
 msgstr ""
 
@@ -7167,7 +7195,7 @@ msgstr ""
 msgid "Waveform (vertical)"
 msgstr ""
 
-#: src/views/darkroom.c:1239
+#: src/views/darkroom.c:1241
 msgid "We could not load the image."
 msgstr ""
 
@@ -7311,7 +7339,7 @@ msgstr ""
 msgid "Zoom"
 msgstr ""
 
-#: src/views/darkroom.c:1821
+#: src/views/darkroom.c:1944
 msgid "Zoom in"
 msgstr ""
 
@@ -7319,7 +7347,7 @@ msgstr ""
 msgid "Zoom in the thumbtable grid"
 msgstr ""
 
-#: src/views/darkroom.c:1826
+#: src/views/darkroom.c:1949
 msgid "Zoom out"
 msgstr ""
 
@@ -7327,19 +7355,19 @@ msgstr ""
 msgid "Zoom out the thumbtable grid"
 msgstr ""
 
-#: src/views/darkroom.c:1834
+#: src/views/darkroom.c:1957
 msgid "Zoom to 100%"
 msgstr ""
 
-#: src/views/darkroom.c:1831
+#: src/views/darkroom.c:1954
 msgid "Zoom to fit"
 msgstr ""
 
-#: src/views/darkroom.c:1836
+#: src/views/darkroom.c:1819 src/views/darkroom.c:1959
 msgid "Zooms the main image to 100%"
 msgstr ""
 
-#: src/views/darkroom.c:1833
+#: src/views/darkroom.c:1816 src/views/darkroom.c:1956
 msgid "Zooms the main image to fit the window"
 msgstr ""
 
@@ -7351,27 +7379,27 @@ msgstr ""
 msgid "[1D cube lut is not supported"
 msgstr ""
 
-#: src/darktable.c:2532
+#: src/darktable.c:2546
 msgid "[MEMORY CONFIGURATION] Lightable thumbnails cache size: %"
 msgstr ""
 
-#: src/darktable.c:2529
+#: src/darktable.c:2543
 msgid "[MEMORY CONFIGURATION] OS & Apps RAM headroom: %"
 msgstr ""
 
-#: src/darktable.c:2535
+#: src/darktable.c:2549
 msgid "[MEMORY CONFIGURATION] Pixelpipe cache size: %"
 msgstr ""
 
-#: src/darktable.c:2538
+#: src/darktable.c:2552
 msgid "[MEMORY CONFIGURATION] System memory pressure floor: %"
 msgstr ""
 
-#: src/darktable.c:2526
+#: src/darktable.c:2540
 msgid "[MEMORY CONFIGURATION] Total system RAM: %"
 msgstr ""
 
-#: src/darktable.c:2541
+#: src/darktable.c:2555
 #, c-format
 msgid "[MEMORY CONFIGURATION] Worker threads: %i\n"
 msgstr ""
@@ -7400,11 +7428,11 @@ msgstr ""
 msgid "_Apply"
 msgstr ""
 
-#: src/gui/window_manager.c:689
+#: src/gui/window_manager.c:760
 msgid "_Ateliers"
 msgstr ""
 
-#: src/gui/actions/file.c:280 src/gui/develop/history_merge_gui.c:150
+#: src/gui/actions/file.c:285 src/gui/develop/history_merge_gui.c:150
 #: src/gui/develop/history_merge_gui.c:1675
 msgid "_Cancel"
 msgstr ""
@@ -7421,23 +7449,23 @@ msgstr ""
 msgid "_Continue"
 msgstr ""
 
-#: src/gui/window_manager.c:689
+#: src/gui/window_manager.c:760
 msgid "_Display"
 msgstr ""
 
-#: src/gui/window_manager.c:689
+#: src/gui/window_manager.c:760
 msgid "_Edit"
 msgstr ""
 
-#: src/gui/window_manager.c:689
+#: src/gui/window_manager.c:760
 msgid "_File"
 msgstr ""
 
-#: src/gui/window_manager.c:689
+#: src/gui/window_manager.c:760
 msgid "_Help"
 msgstr ""
 
-#: src/gui/window_manager.c:689
+#: src/gui/window_manager.c:760
 msgid "_Image"
 msgstr ""
 
@@ -7449,19 +7477,19 @@ msgstr ""
 msgid "_Revert"
 msgstr ""
 
-#: src/gui/window_manager.c:689
+#: src/gui/window_manager.c:760
 msgid "_Run"
 msgstr ""
 
-#: src/gui/actions/file.c:280
+#: src/gui/actions/file.c:285
 msgid "_Save"
 msgstr ""
 
-#: src/gui/window_manager.c:689
+#: src/gui/window_manager.c:760
 msgid "_Selection"
 msgstr ""
 
-#: src/gui/window_manager.c:689
+#: src/gui/window_manager.c:760
 msgid "_Styles"
 msgstr ""
 
@@ -8457,7 +8485,7 @@ msgctxt "preferences"
 msgid "auto"
 msgstr ""
 
-#: src/views/darkroom.c:1885
+#: src/views/darkroom.c:2008
 msgid "auto (default)"
 msgstr ""
 
@@ -10485,7 +10513,7 @@ msgstr ""
 msgid "could not run outlier removal"
 msgstr ""
 
-#: src/gui/actions/file.c:293
+#: src/gui/actions/file.c:298
 msgid "could not save the image list"
 msgstr ""
 
@@ -13215,7 +13243,7 @@ msgstr ""
 msgid "full path"
 msgstr ""
 
-#: src/views/darkroom.c:1866
+#: src/views/darkroom.c:1989
 msgid "full resolution (slow)"
 msgstr ""
 
@@ -16235,7 +16263,7 @@ msgstr ""
 msgid "neutralize colors from patches"
 msgstr ""
 
-#: src/views/darkroom.c:1886
+#: src/views/darkroom.c:2009
 msgid "never"
 msgstr ""
 
@@ -18794,7 +18822,7 @@ msgid ""
 "-100% collapses it onto the white, +100% doubles it."
 msgstr ""
 
-#: src/views/darkroom.c:1867
+#: src/views/darkroom.c:1990
 msgid "scaled (default)"
 msgstr ""
 
@@ -19505,7 +19533,7 @@ msgstr ""
 msgid "show the attached tags as a flat list or as a hierarchical tree"
 msgstr ""
 
-#: src/views/darkroom.c:1945
+#: src/views/darkroom.c:2068
 msgid "show the pipeline node graph"
 msgstr ""
 
@@ -20978,7 +21006,7 @@ msgid ""
 "right click for profile options"
 msgstr ""
 
-#: src/views/darkroom.c:1960
+#: src/views/darkroom.c:2083
 msgid ""
 "toggle guide lines\n"
 "right click for guides options"

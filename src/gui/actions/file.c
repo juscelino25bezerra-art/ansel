@@ -216,6 +216,11 @@ static gboolean export_files_callback(GtkAccelGroup *group, GObject *acceleratab
 }
 
 
+void dt_gui_open_export_dialog(void)
+{
+  export_files_callback(NULL, NULL, 0, 0, NULL);
+}
+
 typedef enum dt_export_list_mode_t
 {
   DT_EXPORT_LIST_IDS = 0,

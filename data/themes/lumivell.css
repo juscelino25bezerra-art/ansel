@@ -587,3 +587,137 @@ menu menuitem:hover label {
 #thumbtable-filmstrip .thumb-main:selected .thumb-cursor {
   opacity: 0;
 }
+
+
+/*======================================
+  8. TOP BAR -- brand, mode switcher, primary action
+  ======================================*/
+
+#brand {
+  margin: 0 14px 0 6px;
+}
+
+#brand image {
+  margin-right: 8px;
+}
+
+#brand-label {
+  font-weight: 600;
+  font-size: 1.1em;
+  color: @rv_text_hi;
+}
+
+#mode-switcher {
+  padding: 3px;
+  background-color: @rv_panel;
+  border: 1px solid #222226;
+  border-radius: 999px;
+}
+
+#mode-switcher button {
+  min-height: 0;
+  padding: 5px 18px;
+  border: none;
+  border-radius: 999px;
+  background-color: transparent;
+}
+
+#mode-switcher button label {
+  color: @rv_text_dim;
+  font-weight: 500;
+}
+
+#mode-switcher button:hover label {
+  color: @rv_text_hi;
+}
+
+#mode-switcher button:checked {
+  background-color: @rv_selected;
+}
+
+#mode-switcher button:checked label {
+  color: @rv_text_hi;
+}
+
+#search-button {
+  border: none;
+  border-radius: 10px;
+  padding: 6px;
+  background-color: transparent;
+}
+
+#search-button:hover {
+  background-color: @rv_panel_alt;
+}
+
+#export-button {
+  margin: 0 8px;
+  padding: 5px 18px;
+  border: none;
+  border-radius: 999px;
+  background-color: @rv_accent;
+}
+
+#export-button:hover {
+  background-color: @rv_accent_hi;
+}
+
+#export-button label {
+  color: #1A1408;
+  font-weight: 600;
+}
+
+#hinter,
+#image-info {
+  color: @rv_text_dim;
+  font-size: 0.92em;
+}
+
+
+/*======================================
+  9. FLOATING BAR over the picture (darkroom)
+  ======================================*/
+
+#floatbar {
+  margin-bottom: 18px;
+  padding: 4px;
+  background-color: alpha(@rv_panel, 0.94);
+  border: 1px solid @rv_selected;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px alpha(black, 0.5);
+}
+
+#floatbar button {
+  min-height: 0;
+  min-width: 0;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+#floatbar button:hover {
+  background-color: @rv_panel_alt;
+}
+
+#floatbar button label {
+  color: @rv_text;
+  font-weight: 500;
+}
+
+#floatbar #floatbar-star,
+#floatbar #floatbar-reject {
+  padding: 6px;
+  color: @rv_text_dim;
+}
+
+#floatbar #floatbar-star:hover,
+#floatbar #floatbar-reject:hover {
+  color: @rv_accent;
+}
+
+#floatbar-separator {
+  margin: 6px 6px;
+  min-width: 1px;
+  background-color: @rv_line;
+}
