@@ -49,28 +49,28 @@ gboolean dt_database_show_error(void)
     // clang-format off
     char *label_text = g_markup_printf_escaped(
         _("\n"
-          "  Sorry, Ansel could not be started because the database is locked.\n"
+          "  Sorry, Lumivell could not be started because the database is locked.\n"
           "\n"
           "  How to solve this problem?\n"
           "\n"
-          "  1 - If another Ansel instance is already running, \n"
-          "      click \"Quit\" and either use that instance or close it before trying to start Ansel again. \n"
+          "  1 - If another Lumivell instance is already running, \n"
+          "      click \"Quit\" and either use that instance or close it before trying to start Lumivell again. \n"
           "      (process ID <i><b>%d</b></i> created the database lock files)\n"
           "\n"
-          "  2 - If you cannot find any running instance of Ansel, try restarting your session or your computer. \n"
+          "  2 - If you cannot find any running instance of Lumivell, try restarting your session or your computer. \n"
           "      This will close all running programs and should release any database locks. \n"
           "\n"
-            "  3 - If you have already tried the above steps, or you are certain that no other instances of Ansel are running, \n"
+            "  3 - If you have already tried the above steps, or you are certain that no other instances of Lumivell are running, \n"
             "      this likely means the previous instance ended unexpectedly. \n"
             "      Click the \"Delete database lock files\" button to remove <i>data.db.lock</i> and <i>library.db.lock</i>. \n"
-            "      Ansel will then attempt to load the database again. \n"
+            "      Lumivell will then attempt to load the database again. \n"
           "\n\n"
           "      <i><u>Caution!</u> Do not delete these files without first undertaking the above checks, \n"
           "      otherwise you risk generating serious inconsistencies in your database.</i>\n"),
       err.other_pid);
     // clang-format on
 
-    const int choice = dt_gui_show_standalone_three_choice_dialog(_("Error starting Ansel"), label_text,
+    const int choice = dt_gui_show_standalone_three_choice_dialog(_("Error starting Lumivell"), label_text,
                                         _("Quit"), _("Retry"), _("Delete database lock files and try again"));
 
     if(choice == 1)
@@ -86,7 +86,7 @@ gboolean dt_database_show_error(void)
         dt_gui_show_standalone_yes_no_dialog
         (_("Confirmation"),
          _("\n<u>Caution!</u> Are you sure you want to delete the database lock files?\n"
-          "This action should only be performed if you are certain no other Ansel instances are running.\n"), _("Quit"), _("Yes"));
+          "This action should only be performed if you are certain no other Lumivell instances are running.\n"), _("Quit"), _("Yes"));
       if(really_delete_lockfiles)
       {
         // deleting files is the backend's job; this module only obtained consent
@@ -133,8 +133,8 @@ static dt_database_response_t _prompt_upgrade(const dt_database_prompt_context_t
                                              context->dbfilename);
 
   const gboolean proceed =
-    dt_gui_show_standalone_yes_no_dialog(_("ansel - schema migration"), label_text,
-                                         _("close Ansel"), _("upgrade database"));
+    dt_gui_show_standalone_yes_no_dialog(_("lumivell - schema migration"), label_text,
+                                         _("close Lumivell"), _("upgrade database"));
 
   dt_free(label_text);
   return proceed ? DT_DATABASE_RESPONSE_PROCEED : DT_DATABASE_RESPONSE_CLOSE;
@@ -149,9 +149,9 @@ static dt_database_response_t _prompt_maintenance(const dt_database_prompt_conte
   if(context->ask_on_startup)
     later_info = _("click later to be asked on next startup");
   else if(context->ask_on_close && !context->at_close)
-    later_info = _("click later to be asked when closing Ansel");
+    later_info = _("click later to be asked when closing Lumivell");
   else if(context->ask_on_close)
-    later_info = _("click later to be asked next time when closing Ansel");
+    later_info = _("click later to be asked next time when closing Lumivell");
 
   char *size_info = g_format_size(context->reclaimable_bytes);
   char *label_text = g_markup_printf_escaped(_("the database could use some maintenance\n"
@@ -164,7 +164,7 @@ static dt_database_response_t _prompt_maintenance(const dt_database_prompt_conte
                                              size_info, later_info);
 
   const gboolean proceed =
-    dt_gui_show_standalone_yes_no_dialog(_("ansel - schema maintenance"), label_text,
+    dt_gui_show_standalone_yes_no_dialog(_("lumivell - schema maintenance"), label_text,
                                          _("later"), _("yes"));
 
   dt_free(label_text);
@@ -193,10 +193,10 @@ static dt_database_response_t _database_prompt(const dt_database_prompt_context_
 
   if(context->prompt == DT_DATABASE_PROMPT_READONLY)
   {
-    dialog = gtk_dialog_new_with_buttons(_("Ansel - Database is read-only"), NULL, dflags,
-                                         _("Close Ansel"), GTK_RESPONSE_CLOSE, NULL);
+    dialog = gtk_dialog_new_with_buttons(_("Lumivell - Database is read-only"), NULL, dflags,
+                                         _("Close Lumivell"), GTK_RESPONSE_CLOSE, NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_CLOSE);
-    label_text = g_markup_printf_escaped(_("<span weight='bold'>Ansel library database is read-only</span>\n\n"
+    label_text = g_markup_printf_escaped(_("<span weight='bold'>Lumivell library database is read-only</span>\n\n"
                                            "This happens if you don't have permissions to write on the filesystem\n"
                                            "or if you have restored a write-protected backup snapshot.\n\n"
                                            "Please change the filesystem access permissions for:\n\n"
@@ -208,23 +208,23 @@ static dt_database_response_t _database_prompt(const dt_database_prompt_context_
     const char *label_options;
     if(snapshot_available)
     {
-      dialog = gtk_dialog_new_with_buttons(_("ansel - error opening database"), NULL, dflags,
-                                           _("close Ansel"), GTK_RESPONSE_CLOSE,
+      dialog = gtk_dialog_new_with_buttons(_("lumivell - error opening database"), NULL, dflags,
+                                           _("close Lumivell"), GTK_RESPONSE_CLOSE,
                                            _("attempt restore"), GTK_RESPONSE_ACCEPT,
                                            _("delete database"), GTK_RESPONSE_REJECT, NULL);
       gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
-      label_options = _("do you want to close Ansel now to manually restore\n"
+      label_options = _("do you want to close Lumivell now to manually restore\n"
                         "the database from a backup, attempt an automatic restore\n"
                         "from the most recent snapshot or delete the corrupted database\n"
                         "and start with a new one?");
     }
     else
     {
-      dialog = gtk_dialog_new_with_buttons(_("ansel - error opening database"), NULL, dflags,
-                                           _("close Ansel"), GTK_RESPONSE_CLOSE,
+      dialog = gtk_dialog_new_with_buttons(_("lumivell - error opening database"), NULL, dflags,
+                                           _("close Lumivell"), GTK_RESPONSE_CLOSE,
                                            _("delete database"), GTK_RESPONSE_REJECT, NULL);
       gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_CLOSE);
-      label_options = _("do you want to close Ansel now to manually restore\n"
+      label_options = _("do you want to close Lumivell now to manually restore\n"
                         "the database from a backup or delete the corrupted database\n"
                         "and start with a new one?");
     }

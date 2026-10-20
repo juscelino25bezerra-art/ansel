@@ -52,7 +52,7 @@ static gboolean full_screen_callback(GtkAccelGroup *group, GObject *acceleratabl
 
 #ifdef GDK_WINDOWING_QUARTZ
     // workaround for GTK Quartz backend bug
-    gtk_window_set_title(GTK_WINDOW(window), "Ansel");
+    gtk_window_set_title(GTK_WINDOW(window), "Lumivell");
 #endif
 
     // Hide window controls
@@ -64,7 +64,7 @@ static gboolean full_screen_callback(GtkAccelGroup *group, GObject *acceleratabl
 
 #ifdef GDK_WINDOWING_QUARTZ
     // workaround for GTK Quartz backend bug
-    gtk_window_set_title(GTK_WINDOW(window), "Ansel Preview");
+    gtk_window_set_title(GTK_WINDOW(window), "Lumivell Preview");
 #endif
 
     // Show window controls

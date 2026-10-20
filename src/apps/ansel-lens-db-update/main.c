@@ -77,11 +77,11 @@ static void usage(const char *progname)
   fprintf(stderr,
           "usage: %s [options]\n"
           "\n"
-          "Rebuilds Ansel's lens-correction database from the lensfun profiles installed\n"
+          "Rebuilds Lumivell's lens-correction database from the lensfun profiles installed\n"
           "on THIS machine, including any you wrote yourself. The result is written to\n"
-          "your configuration directory, where Ansel looks before the one it shipped with.\n"
+          "your configuration directory, where Lumivell looks before the one it shipped with.\n"
           "\n"
-          "Close Ansel before running this: a running instance keeps its database open and\n"
+          "Close Lumivell before running this: a running instance keeps its database open and\n"
           "would not see the new file until restarted.\n"
           "\n"
           "options:\n"
@@ -92,7 +92,7 @@ static void usage(const char *progname)
           "  --schema <path>    the SQL schema; defaults to the installed one\n"
           "  --configdir <dir>  use this configuration directory\n"
           "  --datadir <dir>    use this data directory\n"
-          "  --no-baseline      do not start from the calibrations Ansel shipped with, so\n"
+          "  --no-baseline      do not start from the calibrations Lumivell shipped with, so\n"
           "                     the result holds only what lensfun finds on this machine\n"
           "  -h, --help         this text\n"
           "\n"
@@ -190,7 +190,7 @@ int main(int argc, char *argv[])
   {
     fprintf(stderr,
             "%s: no schema at `%s'.\n"
-            "This file is installed with Ansel; if it is missing, the installation is\n"
+            "This file is installed with Lumivell; if it is missing, the installation is\n"
             "incomplete. Pass --schema to point at one explicitly.\n",
             argv[0], schema_path);
     return 1;
@@ -216,7 +216,7 @@ int main(int argc, char *argv[])
       fprintf(stderr,
               "warning: no shipped calibrations at `%s'.\n"
               "The result will hold ONLY what lensfun finds on this machine, which may be\n"
-              "far less than Ansel came with.\n",
+              "far less than Lumivell came with.\n",
               base_dir);
   }
 
@@ -262,7 +262,7 @@ int main(int argc, char *argv[])
   }
 
   printf("\nWrote `%s'.\n"
-         "Ansel reads this in preference to the database it shipped with, so the new\n"
+         "Lumivell reads this in preference to the database it shipped with, so the new\n"
          "profiles are available next time you start it. Delete this file to go back to\n"
          "the shipped one.\n",
          out_path);

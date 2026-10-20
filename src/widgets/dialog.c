@@ -87,7 +87,7 @@ gboolean dt_gui_show_standalone_yes_no_dialog(const char *title, const char *mar
   // before the CSS theme is loaded there is no styling at all, so pad by hand
   const int padding = dt_widget_theme_loaded() ? 0 : 5;
 
-  gtk_window_set_icon_name(GTK_WINDOW(window), "ansel");
+  gtk_window_set_icon_name(GTK_WINDOW(window), "lumivell");
   gtk_window_set_title(GTK_WINDOW(window), title);
   g_signal_connect(window, "destroy", G_CALLBACK(_gtk_main_quit_safe), NULL);
 
@@ -184,7 +184,7 @@ int dt_gui_show_standalone_three_choice_dialog(const char *title, const char *ma
   // before the CSS theme is loaded there is no styling at all, so pad by hand
   const int padding = dt_widget_theme_loaded() ? 0 : 5;
 
-  gtk_window_set_icon_name(GTK_WINDOW(window), "ansel");
+  gtk_window_set_icon_name(GTK_WINDOW(window), "lumivell");
   gtk_window_set_title(GTK_WINDOW(window), title);
   g_signal_connect(window, "destroy", G_CALLBACK(_gtk_main_quit_safe), NULL);
 
@@ -271,7 +271,7 @@ char *dt_gui_show_standalone_string_dialog(const char *title, const char *markup
   dt_osx_disallow_fullscreen(window);
 #endif
 
-  gtk_window_set_icon_name(GTK_WINDOW(window), "ansel");
+  gtk_window_set_icon_name(GTK_WINDOW(window), "lumivell");
   gtk_window_set_title(GTK_WINDOW(window), title);
   g_signal_connect(window, "destroy", G_CALLBACK(_gtk_main_quit_safe), NULL);
 

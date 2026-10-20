@@ -28,12 +28,12 @@ if(NOT WIN32)
   # If we are not installing ansel to `/usr`, we use absolute path so it could
   # find the correct binary and icon. Otherwise, use general name to let system
   # find the correct file.
-  set(DESKTOP_ANSEL_BINARY "ansel")
-  set(DESKTOP_ANSEL_ICON "ansel")
+  set(DESKTOP_ANSEL_BINARY "lumivell")
+  set(DESKTOP_ANSEL_ICON "lumivell")
   if(NOT CMAKE_INSTALL_PREFIX STREQUAL "/usr")
-    set(DESKTOP_ANSEL_BINARY "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ansel")
+    set(DESKTOP_ANSEL_BINARY "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/lumivell")
     # `hicolor` is always available.
-    set(DESKTOP_ANSEL_ICON "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps/ansel.svg")
+    set(DESKTOP_ANSEL_ICON "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps/lumivell.svg")
   endif()
 
   # Append supported MIME types dynamically.
@@ -56,53 +56,53 @@ if(NOT WIN32)
     list(APPEND DESKTOP_MIME_TYPES image/webp)
   endif()
 
-  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/photos.ansel.Ansel.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.desktop.in)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/photos.lumivell.Lumivell.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.desktop.in)
 
   file(GLOB PO_FILES "${CMAKE_SOURCE_DIR}/po/*.po")
   add_custom_command(
-    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.desktop
-    SOURCE ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.desktop.in
-    COMMAND sh -c "${intltool_merge_BIN} --desktop-style ${CMAKE_SOURCE_DIR}/po ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.desktop"
-    MAIN_DEPENDENCY ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.desktop.in
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.desktop
+    SOURCE ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.desktop.in
+    COMMAND sh -c "${intltool_merge_BIN} --desktop-style ${CMAKE_SOURCE_DIR}/po ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.desktop"
+    MAIN_DEPENDENCY ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.desktop.in
     DEPENDS ${PO_FILES}
   )
-  add_custom_target(ansel.desktop_file ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.desktop)
+  add_custom_target(ansel.desktop_file ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.desktop)
 
   if(VALIDATE_DESKTOP_FILE)
     add_custom_target(
       validate_ansel.desktop_file ALL
-      COMMAND ${desktop_file_validate_BIN} --warn-kde ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.desktop
-      DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.desktop
+      COMMAND ${desktop_file_validate_BIN} --warn-kde ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.desktop
+      DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.desktop
       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-      COMMENT "Checking validity of photos.ansel.Ansel.desktop"
+      COMMENT "Checking validity of photos.lumivell.Lumivell.desktop"
     )
     add_dependencies(ansel.desktop_file validate_ansel.desktop_file)
   endif()
 
-  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications COMPONENT DTApplication)
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications COMPONENT DTApplication)
 endif(NOT WIN32)
 
 
 if(VALIDATE_APPDATA_FILE)
   add_custom_command(
-    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.appdata.xml
-    COMMAND sh -c "${intltool_merge_BIN} --xml-style ${CMAKE_SOURCE_DIR}/po ${CMAKE_CURRENT_SOURCE_DIR}/photos.ansel.Ansel.appdata.xml.in ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.appdata.xml"
-    COMMAND ${appstream_util_BIN} validate --nonet ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.appdata.xml
-    MAIN_DEPENDENCY ${CMAKE_CURRENT_SOURCE_DIR}/photos.ansel.Ansel.appdata.xml.in
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.appdata.xml
+    COMMAND sh -c "${intltool_merge_BIN} --xml-style ${CMAKE_SOURCE_DIR}/po ${CMAKE_CURRENT_SOURCE_DIR}/photos.lumivell.Lumivell.appdata.xml.in ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.appdata.xml"
+    COMMAND ${appstream_util_BIN} validate --nonet ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.appdata.xml
+    MAIN_DEPENDENCY ${CMAKE_CURRENT_SOURCE_DIR}/photos.lumivell.Lumivell.appdata.xml.in
     DEPENDS ${PO_FILES}
   )
 else()
   add_custom_command(
-    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.appdata.xml
-    COMMAND sh -c "${intltool_merge_BIN} --xml-style ${CMAKE_SOURCE_DIR}/po ${CMAKE_CURRENT_SOURCE_DIR}/photos.ansel.Ansel.appdata.xml.in ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.appdata.xml"
-    MAIN_DEPENDENCY ${CMAKE_CURRENT_SOURCE_DIR}/photos.ansel.Ansel.appdata.xml.in
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.appdata.xml
+    COMMAND sh -c "${intltool_merge_BIN} --xml-style ${CMAKE_SOURCE_DIR}/po ${CMAKE_CURRENT_SOURCE_DIR}/photos.lumivell.Lumivell.appdata.xml.in ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.appdata.xml"
+    MAIN_DEPENDENCY ${CMAKE_CURRENT_SOURCE_DIR}/photos.lumivell.Lumivell.appdata.xml.in
     DEPENDS ${PO_FILES}
   )
 endif()
 
-add_custom_target(ansel.appdata_file ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.appdata.xml)
+add_custom_target(ansel.appdata_file ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.appdata.xml)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/photos.ansel.Ansel.appdata.xml DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/metainfo COMPONENT DTApplication)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/photos.lumivell.Lumivell.appdata.xml DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/metainfo COMPONENT DTApplication)
 
 #
 # Install watermarks

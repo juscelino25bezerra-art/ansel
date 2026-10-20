@@ -82,7 +82,7 @@ gboolean dt_folder_survey_propose_resume()
 
   GtkWidget *dialog = gtk_message_dialog_new(
       parent, GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL, GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO,
-      _("A studio capture session was monitoring `%s` when Ansel was last closed.\n"
+      _("A studio capture session was monitoring `%s` when Lumivell was last closed.\n"
         "Resume the session?"),
       folder ? folder : "");
   const int resume = gtk_dialog_run(GTK_DIALOG(dialog));

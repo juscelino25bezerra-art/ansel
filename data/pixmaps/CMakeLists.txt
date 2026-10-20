@@ -1,7 +1,7 @@
 #
 # Install fixed sized icons
 #
-set(FIXED_SIZES "16x16" "22x22" "24x24" "32x32" "48x48" "64x64" "256x256" "scalable")
+set(FIXED_SIZES "16x16" "22x22" "24x24" "32x32" "48x48" "64x64" "128x128" "256x256" "scalable")
 set(THEME hicolor)
 foreach(PIXMAP_SIZE ${FIXED_SIZES})
   # install apps icons

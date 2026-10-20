@@ -170,7 +170,7 @@ void dt_preview_window_spawn(const int32_t imgid)
   GtkWidget *dialog = gtk_dialog_new();
 
   const dt_image_t *img = dt_image_cache_get(imgid, 'r');
-  gchar *name = g_strdup_printf(_("Ansel - Preview : %s"), img->filename);
+  gchar *name = g_strdup_printf(_("Lumivell - Preview : %s"), img->filename);
   dt_image_cache_read_release(img);
   gtk_window_set_title(GTK_WINDOW(dialog), name);
   dt_free(name);

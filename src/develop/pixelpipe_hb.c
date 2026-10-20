@@ -1368,12 +1368,12 @@ static void _print_opencl_errors(int error, dt_dev_pixelpipe_t *pipe)
   {
     case 1:
       dt_print(DT_DEBUG_OPENCL, "[opencl] Opencl errors; disabling opencl for %s pipeline!\n", dt_pixelpipe_get_pipe_name(pipe->type));
-      dt_pipeline_message(_("Ansel discovered problems with your OpenCL setup; disabling OpenCL for %s pipeline!"), dt_pixelpipe_get_pipe_name(pipe->type));
+      dt_pipeline_message(_("Lumivell discovered problems with your OpenCL setup; disabling OpenCL for %s pipeline!"), dt_pixelpipe_get_pipe_name(pipe->type));
       break;
     case 2:
       dt_print(DT_DEBUG_OPENCL,
                  "[opencl] Too many opencl errors; disabling opencl for this session!\n");
-      dt_pipeline_message(_("Ansel discovered problems with your OpenCL setup; disabling OpenCL for this session!"));
+      dt_pipeline_message(_("Lumivell discovered problems with your OpenCL setup; disabling OpenCL for this session!"));
       break;
     default:
       break;

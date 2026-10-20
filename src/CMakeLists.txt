@@ -1029,7 +1029,7 @@ target_link_libraries(help_menu PRIVATE ansel_deps)
 # build ansel executable
 #
 add_executable(ansel ${SUBSYSTEM_MACOSX} ${SUBSYSTEM_WIN32} apps/ansel/main.c ${RESOURCE_OBJECT})
-set_target_properties(ansel PROPERTIES LINKER_LANGUAGE C)
+set_target_properties(ansel PROPERTIES LINKER_LANGUAGE C OUTPUT_NAME lumivell)
 target_link_libraries(ansel PRIVATE lib_ansel)
 
 if(APPLE)

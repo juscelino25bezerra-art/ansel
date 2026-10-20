@@ -63,7 +63,7 @@ void dt_privacy_ask_consent(const gboolean have_gui)
   GtkWidget *parent = (dt_gui_get_global() && dt_gui_get_ui()) ? dt_gui_main_window() : NULL;
 
   GtkWidget *dialog = gtk_dialog_new_with_buttons(
-      _("Help us improve Ansel"), GTK_WINDOW(parent),
+      _("Help us improve Lumivell"), GTK_WINDOW(parent),
       GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
       _("Confirm choices"), GTK_RESPONSE_ACCEPT, NULL);
   gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
@@ -73,7 +73,7 @@ void dt_privacy_ask_consent(const gboolean have_gui)
   gtk_container_set_border_width(GTK_CONTAINER(content), DT_PIXEL_APPLY_DPI(12));
 
   GtkWidget *intro = gtk_label_new(
-      _("Ansel can share anonymous data with its developers to help fix bugs and "
+      _("Lumivell can share anonymous data with its developers to help fix bugs and "
         "decide what to work on. This is entirely optional, separate for each purpose, "
         "and can be changed any time in Preferences ▸ Storage ▸ Privacy.\n\n"
         "We never send your images, file names or any personal data."));

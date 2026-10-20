@@ -1864,7 +1864,7 @@ void dt_accels_window(dt_accels_t *accels, GtkWindow *main_window)
 
   // Set dialog window properties
   GtkWidget *dialog = gtk_dialog_new();
-  gtk_window_set_title(GTK_WINDOW(dialog), _("Ansel - Keyboard shortcuts"));
+  gtk_window_set_title(GTK_WINDOW(dialog), _("Lumivell - Keyboard shortcuts"));
 
 #ifdef GDK_WINDOWING_QUARTZ
   dt_osx_disallow_fullscreen(dialog);
@@ -3155,7 +3155,7 @@ static void _shortcut_search_destroy(GtkWidget *widget, gpointer user_data)
 void dt_accels_search(dt_accels_t *accels, GtkWindow *main_window, GtkWidget *anchor)
 {
   GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_title(GTK_WINDOW(window), _("Ansel - Search accelerators"));
+  gtk_window_set_title(GTK_WINDOW(window), _("Lumivell - Search accelerators"));
 
 #ifdef GDK_WINDOWING_QUARTZ
   dt_osx_disallow_fullscreen(window);

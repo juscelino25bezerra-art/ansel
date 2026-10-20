@@ -100,9 +100,9 @@ static void _closing_window_new(dt_closing_t *closing)
   const gboolean confirm = closing->mode == DT_CLOSING_CONFIRM;
   // Before the quit, a question over the main window. During it, a progress, which the user cannot
   // close: closing it would stop nothing.
-  closing->alert = confirm ? dt_gui_alert_new(DT_GUI_ALERT_QUESTION, _("Quit Ansel?"), _("Tasks are still running"))
-                           : dt_gui_alert_new(DT_GUI_ALERT_PROGRESS, _("Closing Ansel..."),
-                                              _("Ansel is finishing its work before closing"));
+  closing->alert = confirm ? dt_gui_alert_new(DT_GUI_ALERT_QUESTION, _("Quit Lumivell?"), _("Tasks are still running"))
+                           : dt_gui_alert_new(DT_GUI_ALERT_PROGRESS, _("Closing Lumivell..."),
+                                              _("Lumivell is finishing its work before closing"));
   if(confirm) dt_gui_alert_set_cancel(closing->alert, _closing_back_clicked, closing);
 
   closing->count = dt_gui_alert_add_text(closing->alert, NULL);
@@ -111,7 +111,7 @@ static void _closing_window_new(dt_closing_t *closing)
   gtk_widget_set_no_show_all(closing->names, TRUE);
 
   // Nothing is cancelled by a quit: a running job is finished, a queued one is dropped.
-  dt_gui_alert_add_text(closing->alert, confirm ? _("If you quit now, the tasks not started yet are dropped, and Ansel "
+  dt_gui_alert_add_text(closing->alert, confirm ? _("If you quit now, the tasks not started yet are dropped, and Lumivell "
                                                     "closes once the running ones are done.")
                                                 : _("This window closes by itself as soon as it is done."));
 

@@ -82,9 +82,9 @@ build/src/iop/introspection_vignette.c
 build/src/iop/introspection_watermark.c
 build/src/iop/introspection_zonesystem.c
 build/src/tools/darktable_authors.h
-build/data/photos.ansel.Ansel.desktop.in
-data/photos.ansel.Ansel.appdata.xml.in
-data/photos.ansel.Ansel.desktop.in
+build/data/photos.lumivell.Lumivell.desktop.in
+data/photos.lumivell.Lumivell.appdata.xml.in
+data/photos.lumivell.Lumivell.desktop.in
 data/anselconfig.dtd
 data/anselconfig.xml.in
 src/widgets/bauhaus.c

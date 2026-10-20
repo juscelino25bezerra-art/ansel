@@ -3102,7 +3102,7 @@ void gui_init(dt_lib_module_t *self)
   // notebook: only its tab-bar is used; the content below is shared and reconfigured per tab
   d->notebook = GTK_WIDGET(dt_ui_notebook_new());
   dt_gui_add_class(d->notebook, "empty");
-  dt_ui_notebook_page(GTK_NOTEBOOK(d->notebook), _("Folders"), _("Browse and manage the folders known to Ansel"));
+  dt_ui_notebook_page(GTK_NOTEBOOK(d->notebook), _("Folders"), _("Browse and manage the folders known to Lumivell"));
   dt_ui_notebook_page(GTK_NOTEBOOK(d->notebook), _("Collections"), _("Browse and manage tags"));
   dt_ui_notebook_page(GTK_NOTEBOOK(d->notebook), _("Queries"), _("Build arbitrary collections"));
   gtk_widget_show_all(d->notebook);

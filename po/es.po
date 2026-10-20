@@ -717,7 +717,7 @@ msgstr ""
 
 #: ../build/src/preferences_gen.h:3190
 msgid ""
-"This is the amount of memory that Ansel will leave to the operating system "
+"This is the amount of memory that Lumivell will leave to the operating system "
 "and other applications"
 msgstr ""
 
@@ -728,7 +728,7 @@ msgstr "Creando toda la caché de miniaturas de la mesa de luz\n"
 
 #: ../build/src/preferences_gen.h:3235
 msgid ""
-"This is the amount of memory that Ansel will use to keep lighttable "
+"This is the amount of memory that Lumivell will use to keep lighttable "
 "thumbnails quickly accessible when scrolling back"
 msgstr ""
 
@@ -752,14 +752,14 @@ msgstr "Almacenar en disco una 2ª caché de miniaturas"
 
 #: ../build/src/preferences_gen.h:3316
 msgid ""
-"if enabled, write thumbnails to disk (.cache/ansel/) when evicted from the "
+"if enabled, write thumbnails to disk (.cache/lumivell/) when evicted from the "
 "memory cache. note that this can take a lot of memory (several gigabytes for "
 "20k images) and will never delete cached thumbnails again. it's safe though "
 "to delete these manually, if you want. light table performance will be "
 "increased greatly when browsing a lot. to generate all thumbnails of your "
 "entire collection offline, run 'ansel-generate-cache'."
 msgstr ""
-"Si se activa, guarda las miniaturas en disco (.cache/ansel/) cuando se "
+"Si se activa, guarda las miniaturas en disco (.cache/lumivell/) cuando se "
 "eliminan de la memoria en caché. Tome en cuenta que esto puede consumir "
 "mucha memoria (varios gigabytes por imágenes de 20k) y nunca volverá a "
 "eliminar las miniaturas almacenadas en caché. Sin embargo, es seguro "
@@ -773,7 +773,7 @@ msgstr ""
 
 #: ../build/src/preferences_gen.h:3356
 msgid ""
-"OpenCL runtime library is normally detected automatically by ansel. if your "
+"OpenCL runtime library is normally detected automatically by lumivell. if your "
 "OpenCL runtime is at an unusual place and cannot be detected, enter the full "
 "pathname here. leave empty for default behavior."
 msgstr ""
@@ -808,12 +808,12 @@ msgstr "Extensiones de archivos RAW para cargar a través de Libraw"
 msgid ""
 "Force Libraw use to decode the defined coma-separated file extensions. "
 "Otherwise, they are loaded through Rawspeed if it supports them, which is "
-"better integrated into Ansel. Use this if your camera is not properly "
+"better integrated into Lumivell. Use this if your camera is not properly "
 "supported by Rawspeed."
 msgstr ""
 "Fuerza el uso de Libraw para decodificar las extensiones de archivo "
 "definidas separadas por comas. De lo contrario, se cargan a través de "
-"Rawspeed si es compatible con ellos, que está mejor integrado en Ansel. Usa "
+"Rawspeed si es compatible con ellos, que está mejor integrado en Lumivell. Usa "
 "esto si tu cámara no es soportada adecuadamente por Rawspeed."
 
 #: ../build/src/preferences_gen.h:3437
@@ -824,13 +824,13 @@ msgstr "Modelos de cámara para cargar a través de Libraw"
 msgid ""
 "Force Libraw use to decode the defined coma-separated camera models, "
 "described by the EXIF model field. Otherwise, they are loaded through "
-"Rawspeed if it supports them, which is better integrated into Ansel. Use "
+"Rawspeed if it supports them, which is better integrated into Lumivell. Use "
 "this if your camera is not properly supported by Rawspeed."
 msgstr ""
 "Fuerza el uso de Libraw para decodificar los modelos de cámara definidos "
 "separados por coma, descritos por el campo de modelo EXIF. De lo contrario, "
 "se cargan a través de Rawspeed si los soporta, que está mejor integrado en "
-"Ansel. Usa esto si tu cámara no está soportada adecuadamente por Rawspeed."
+"Lumivell. Usa esto si tu cámara no está soportada adecuadamente por Rawspeed."
 
 #: ../build/src/preferences_gen.h:3477
 msgid "Camera makers to load through Libraw"
@@ -840,13 +840,13 @@ msgstr "Fabricantes de cámaras para cargar a través de Libraw"
 msgid ""
 "Force Libraw use to decode the defined coma-separated camera vendors, "
 "described by the EXIF maker field. Otherwise, they are loaded through "
-"Rawspeed if it supports them, which is better integrated into Ansel. Use "
+"Rawspeed if it supports them, which is better integrated into Lumivell. Use "
 "this if your camera is not properly supported by Rawspeed."
 msgstr ""
 "Fuerza el uso de Libraw para decodificar los proveedores de cámara definidos "
 "separados por comas, descritos por el campo EXIF maker. De lo contrario, se "
 "cargan a través de Rawspeed si es compatible con ellos, que está mejor "
-"integrado en Ansel. Usa esto si tu cámara no está soportada adecuadamente "
+"integrado en Lumivell. Usa esto si tu cámara no está soportada adecuadamente "
 "por Rawspeed."
 
 #: ../build/src/preferences_gen.h:3523 ../tools/generate_prefs.xsl:329
@@ -994,10 +994,10 @@ msgstr "ubicación de la base de datos"
 
 #: ../build/src/preferences_gen.h:4107
 msgid ""
-"filename relative to ~/.config/ansel or starting with a slash (needs a "
+"filename relative to ~/.config/lumivell or starting with a slash (needs a "
 "restart)."
 msgstr ""
-"nombre de archivo relativo a ~/.config/ansel o que empiece por una barra "
+"nombre de archivo relativo a ~/.config/lumivell o que empiece por una barra "
 "(necesita un reinicio)."
 
 #: ../build/src/preferences_gen.h:4129
@@ -1030,23 +1030,23 @@ msgstr "Crear instantánea de la base de datos"
 
 #: ../build/src/preferences_gen.h:4312
 msgid ""
-"database snapshots are created right before closing ansel. options allow you "
+"database snapshots are created right before closing lumivell. options allow you "
 "to choose how often to make snapshots:\n"
 "never - simply don't do snapshots. that way the only snapshots done are "
 "mandatory version-upgrade snapshots\n"
 "once a month - create snapshot if a month has passed since last snapshot\n"
 "once a week - create snapshot if 7 days had passed since last snapshot\n"
 "once a day - create snapshot if over 24h passed since last snapshot\n"
-"on close - create snapshot every time ansel is closed"
+"on close - create snapshot every time lumivell is closed"
 msgstr ""
-"Las instantáneas de la base de datos se crean justo antes de cerrar Ansel. "
+"Las instantáneas de la base de datos se crean justo antes de cerrar Lumivell. "
 "Las opciones de frecuencia son las siguientes:\n"
 "Nunca: No crea ninguna instantánea a excepción de las que se generan al "
-"actualizar la versión de Ansel.\n"
+"actualizar la versión de Lumivell.\n"
 "Una vez por mes: Se crea un mes después de la última instantánea.\n"
 "Una vez por semana: Se crea 7 días después de la última instantánea.\n"
 "Una vez al día: Se crea 24 horas después de la última instantánea. \n"
-"Al cerrar: Se crea con cada cierre de Ansel."
+"Al cerrar: Se crea con cada cierre de Lumivell."
 
 #: ../build/src/preferences_gen.h:4334
 msgid "how many snapshots to keep"
@@ -1130,8 +1130,8 @@ msgstr ""
 
 #: ../build/src/preferences_gen.h:4570
 msgid ""
-"When Ansel crashes, automatically upload the backtrace, your operating "
-"system and hardware specs (CPU, RAM, GPU), the Ansel version and crash-free "
+"When Lumivell crashes, automatically upload the backtrace, your operating "
+"system and hardware specs (CPU, RAM, GPU), the Lumivell version and crash-free "
 "session statistics to the developers (via sentry.io) so the bug can be "
 "fixed. No images, file names or personal data are sent. Default off; you are "
 "asked once on first launch."
@@ -1176,13 +1176,13 @@ msgstr ""
 "no afecta al desplazamiento vertical."
 
 #: ../build/src/preferences_gen.h:4693
-msgid "Let the OS mask Ansel shortcuts"
+msgid "Let the OS mask Lumivell shortcuts"
 msgstr ""
 
 #: ../build/src/preferences_gen.h:4707
 msgid ""
 "Check this if you want your OS to process keyboard shortcuts first, and "
-"dispatch only the ones it didn't use to Ansel. Otherwise, Ansel will capture "
+"dispatch only the ones it didn't use to Lumivell. Otherwise, Lumivell will capture "
 "all key strokes as long as it is active, which may prevent system-wide "
 "shortcuts from working at all on some OS."
 msgstr ""
@@ -1236,12 +1236,12 @@ msgstr "Ignorar la jerarquía en listas de etiquetas simples"
 msgid ""
 "when creating XMP file the hierarchical tags are also added as a simple list "
 "of non-hierarchical ones to make them visible to some other programs. when "
-"this option is checked ansel will only include their last part and ignore "
+"this option is checked lumivell will only include their last part and ignore "
 "the rest. so 'foo|bar|baz' will only add 'baz'."
 msgstr ""
 "Cuando se crea el fichero XMP, las etiquetas jerárquicas se agregan también "
 "como una lista sencilla sin jerarquía para que sea visible por otros "
-"programas. Si está marcada esta opción, Ansel solo incluirá la última parte "
+"programas. Si está marcada esta opción, Lumivell solo incluirá la última parte "
 "de la lista e ignorará el resto, por lo que \"foo|bar|baz\" solo añadirá "
 "\"baz\"."
 
@@ -3654,11 +3654,11 @@ msgstr "gráficos;fotografía;raw;"
 
 #: ../data/photos.ansel.Ansel.appdata.xml.in.h:2
 msgid ""
-"Ansel manages your digital negatives in a database and lets you view them "
+"Lumivell manages your digital negatives in a database and lets you view them "
 "through a lighttable. It also enables you to develop raw images and enhance "
 "them in a darkroom."
 msgstr ""
-"Ansel gestiona los negativos digitales mediante una base de datos y permite "
+"Lumivell gestiona los negativos digitales mediante una base de datos y permite "
 "visualizarlos en la mesa de luz. También posee herramientas para revelar y "
 "mejorar las imágenes en bruto a través del cuarto oscuro."
 
@@ -4616,7 +4616,7 @@ msgstr ""
 
 #: ../src/darktable.c:2541
 msgid ""
-"CRITICAL WARNING: Ansel will not be able to use the RAM you allocated it.\n"
+"CRITICAL WARNING: Lumivell will not be able to use the RAM you allocated it.\n"
 "Review your memory settings or add more RAM to your system."
 msgstr ""
 
@@ -4624,26 +4624,26 @@ msgstr ""
 #, fuzzy, c-format
 msgid ""
 "\n"
-"  Sorry, Ansel could not be started because the database is locked.\n"
+"  Sorry, Lumivell could not be started because the database is locked.\n"
 "\n"
 "  How to solve this problem?\n"
 "\n"
-"  1 - If another Ansel instance is already running, \n"
+"  1 - If another Lumivell instance is already running, \n"
 "      click \"Quit\" and either use that instance or close it before trying "
-"to start Ansel again. \n"
+"to start Lumivell again. \n"
 "      (process ID <i><b>%d</b></i> created the database lock files)\n"
 "\n"
-"  2 - If you cannot find any running instance of Ansel, try restarting your "
+"  2 - If you cannot find any running instance of Lumivell, try restarting your "
 "session or your computer. \n"
 "      This will close all running programs and should release any database "
 "locks. \n"
 "\n"
 "  3 - If you have already tried the above steps, or you are certain that no "
-"other instances of Ansel are running, \n"
+"other instances of Lumivell are running, \n"
 "      this likely means the previous instance ended unexpectedly. \n"
 "      Click the \"Delete database lock files\" button to remove <i>data.db."
 "lock</i> and <i>library.db.lock</i>. \n"
-"      Ansel will then attempt to load the database again. \n"
+"      Lumivell will then attempt to load the database again. \n"
 "\n"
 "\n"
 "      <i><u>Caution!</u> Do not delete these files without first undertaking "
@@ -4652,23 +4652,23 @@ msgid ""
 "</i>\n"
 msgstr ""
 "\n"
-"Lo sentimos, Ansel no se ha podido iniciar (la base de datos está "
+"Lo sentimos, Lumivell no se ha podido iniciar (la base de datos está "
 "bloqueada)\n"
 "\n"
 " ¿Cómo resolver este problema?\n"
 "\n"
-"  1 - Si ya hay otra instancia de Ansel abierta, \n"
+"  1 - Si ya hay otra instancia de Lumivell abierta, \n"
 "      haga clic en Cancelar y utilice esa instancia o ciérrela antes de "
-"intentar voler a ejecutar Ansel \n"
+"intentar voler a ejecutar Lumivell \n"
 "      (process ID <i><b>%d</b></i> created the database locks)\n"
 "\n"
-"  2 - Si no puede encontrar una instancia de Ansel en ejecución, intente "
+"  2 - Si no puede encontrar una instancia de Lumivell en ejecución, intente "
 "reiniciar su sesión o su ordenador. \n"
 "      Esto cerrará todos los programas en ejecución y, con suerte, cerrará "
 "las bases de datos correctamente. \n"
 "\n"
 "  3 - Si ha hecho esto o está seguro de que no se están ejecutando otras "
-"instancias de Ansel, \n"
+"instancias de Lumivell, \n"
 "      probablemente significa que la última instancia finalizó de forma "
 "anormal. \n"
 "      Haga clic en el botón \"eliminar archivos de bloque de base de datos\" "
@@ -4683,8 +4683,8 @@ msgstr ""
 #. clang-format on
 #: ../src/common/database.c:2686
 #, fuzzy
-msgid "Error starting Ansel"
-msgstr "error al iniciar Ansel"
+msgid "Error starting Lumivell"
+msgstr "error al iniciar Lumivell"
 
 #: ../src/common/database.c:2687 ../src/common/database.c:2695
 #: ../src/common/database.c:2723 ../src/gui/actions/file.c:272
@@ -4705,7 +4705,7 @@ msgstr "iteraciones"
 msgid ""
 "\n"
 "<u>Caution!</u> Are you sure you want to delete the database lock files?\n"
-"This action should only be performed if you are certain no other Ansel "
+"This action should only be performed if you are certain no other Lumivell "
 "instances are running.\n"
 msgstr ""
 
@@ -4796,32 +4796,32 @@ msgstr ""
 "¿Desea continuar o salir ahora para hacer una copia de seguridad?\n"
 
 #: ../src/common/database.c:2911
-msgid "ansel - schema migration"
-msgstr "Migración de esquemas de Ansel"
+msgid "lumivell - schema migration"
+msgstr "Migración de esquemas de Lumivell"
 
 #: ../src/common/database.c:2912 ../src/common/database.c:3265
 #: ../src/common/database.c:3283 ../src/common/database.c:3443
 #: ../src/common/database.c:3461
-msgid "close Ansel"
-msgstr "cerrar Ansel"
+msgid "close Lumivell"
+msgstr "cerrar Lumivell"
 
 #: ../src/common/database.c:2912
 msgid "upgrade database"
 msgstr "Actualizar la base de datos"
 
 #: ../src/common/database.c:3132
-msgid "Ansel - Database is read-only"
+msgid "Lumivell - Database is read-only"
 msgstr ""
 
 #: ../src/common/database.c:3134
 #, fuzzy
-msgid "Close Ansel"
-msgstr "cerrar Ansel"
+msgid "Close Lumivell"
+msgstr "cerrar Lumivell"
 
 #: ../src/common/database.c:3137
 #, c-format
 msgid ""
-"<span weight='bold'>Ansel library database is read-only</span>\n"
+"<span weight='bold'>Lumivell library database is read-only</span>\n"
 "\n"
 "This happens if you don't have permissions to write on the filesystem\n"
 "or if you have restored a write-protected backup snapshot.\n"
@@ -4842,8 +4842,8 @@ msgstr ""
 
 #: ../src/common/database.c:3262 ../src/common/database.c:3280
 #: ../src/common/database.c:3440 ../src/common/database.c:3458
-msgid "ansel - error opening database"
-msgstr "Error en Ansel al abrir la base de datos"
+msgid "lumivell - error opening database"
+msgstr "Error en Lumivell al abrir la base de datos"
 
 #: ../src/common/database.c:3267 ../src/common/database.c:3445
 msgid "attempt restore"
@@ -4856,12 +4856,12 @@ msgstr "borrar base de datos"
 
 #: ../src/common/database.c:3273 ../src/common/database.c:3451
 msgid ""
-"do you want to close Ansel now to manually restore\n"
+"do you want to close Lumivell now to manually restore\n"
 "the database from a backup, attempt an automatic restore\n"
 "from the most recent snapshot or delete the corrupted database\n"
 "and start with a new one?"
 msgstr ""
-"¿Quiere cerrar Ansel ahora para restaurar manualmente\n"
+"¿Quiere cerrar Lumivell ahora para restaurar manualmente\n"
 "la base de datos desde una copia de seguridad, intentar una restauración "
 "automática\n"
 "de la instantánea más reciente o eliminar la base de datos dañada\n"
@@ -4869,11 +4869,11 @@ msgstr ""
 
 #: ../src/common/database.c:3289 ../src/common/database.c:3467
 msgid ""
-"do you want to close Ansel now to manually restore\n"
+"do you want to close Lumivell now to manually restore\n"
 "the database from a backup or delete the corrupted database\n"
 "and start with a new one?"
 msgstr ""
-"¿Quiere cerrar Ansel ahora para restaurar manualmente\n"
+"¿Quiere cerrar Lumivell ahora para restaurar manualmente\n"
 "la base de datos de una copia de seguridad o eliminar la base de datos "
 "dañada\n"
 "y empezar con una nueva?"
@@ -4900,12 +4900,12 @@ msgid "click later to be asked on next startup"
 msgstr "Pulse 'Después' para que se le pregunte en el próximo reinicio."
 
 #: ../src/common/database.c:3798
-msgid "click later to be asked when closing Ansel"
-msgstr "pulse más tarde para que se le pregunte al cerrar Ansel"
+msgid "click later to be asked when closing Lumivell"
+msgstr "pulse más tarde para que se le pregunte al cerrar Lumivell"
 
 #: ../src/common/database.c:3802
-msgid "click later to be asked next time when closing Ansel"
-msgstr "pulse más tarde para que se le pregunte la próxima vez al cerrar Ansel"
+msgid "click later to be asked next time when closing Lumivell"
+msgstr "pulse más tarde para que se le pregunte la próxima vez al cerrar Lumivell"
 
 #: ../src/common/database.c:3805
 #, c-format
@@ -4929,8 +4929,8 @@ msgstr ""
 "principales."
 
 #: ../src/common/database.c:3815
-msgid "ansel - schema maintenance"
-msgstr "Mantenimiento del esquema de Ansel"
+msgid "lumivell - schema maintenance"
+msgstr "Mantenimiento del esquema de Lumivell"
 
 #: ../src/common/database.c:3816
 msgid "later"
@@ -5298,8 +5298,8 @@ msgstr ""
 
 #: ../src/common/http_server.c:111 ../src/common/http_server.c:160
 #, c-format
-msgid "ansel >> %s"
-msgstr "ansel >> %s"
+msgid "lumivell >> %s"
+msgstr "lumivell >> %s"
 
 #: ../src/common/http_server.c:113 ../src/common/http_server.c:158
 msgid "<h1>Sorry,</h1><p>something went wrong. Please try again.</p>"
@@ -5309,10 +5309,10 @@ msgstr ""
 #: ../src/common/http_server.c:118 ../src/common/http_server.c:156
 msgid ""
 "<h1>Thank you,</h1><p>everything should have worked, you can <b>close</b> "
-"your browser now and <b>go back</b> to Ansel.</p>"
+"your browser now and <b>go back</b> to Lumivell.</p>"
 msgstr ""
 "<h1>Gracias,</h1><p>todo debería haber funcionado, puede <b>cerrar</b> su "
-"navegador ahora y <b>volver</b> a Ansel.</p>"
+"navegador ahora y <b>volver</b> a Lumivell.</p>"
 
 #: ../src/common/image_cache.c:603 ../src/common/image.c:570
 #: ../src/common/image.c:586
@@ -5603,8 +5603,8 @@ msgid "No files to import. Check your selection."
 msgstr "No hay archivos para importar. Compruebe su selección."
 
 #: ../src/common/import.c:1052
-msgid "Ansel - Open pictures"
-msgstr "Ansel - Abrir fotos"
+msgid "Lumivell - Open pictures"
+msgstr "Lumivell - Abrir fotos"
 
 #: ../src/common/import.c:1053 ../src/develop/blend_gui.c:2380
 #: ../src/develop/masks/masks_gui.c:454 ../src/iop/ashift.c:5344
@@ -5673,7 +5673,7 @@ msgid ""
 "Remove them from the library first, or use the menu `Run → Resynchronize "
 "library and XMP` to update the local database from distant XMP.\n"
 "\n"
-"Ansel indexes images by their filename and parent folder (full path), not by "
+"Lumivell indexes images by their filename and parent folder (full path), not by "
 "their content. Therefore, renaming or moving images on the filesystem, or "
 "changing the mounting point of their external drive will make them look like "
 "new (unknown) images.\n"
@@ -5687,7 +5687,7 @@ msgstr ""
 "`Ejecutar → Resincronizar biblioteca y XMP` para actualizar la base de datos "
 "local desde XMP remoto.\n"
 "\n"
-"Ansel indexa las imágenes por su nombre de archivo y carpeta padre (ruta "
+"Lumivell indexa las imágenes por su nombre de archivo y carpeta padre (ruta "
 "completa), no por su contenido. Por lo tanto, renombrar o mover imágenes en "
 "el sistema de archivos, o cambiar el punto de montaje de su unidad externa "
 "hará que parezcan nuevas imágenes (desconocidas).\n"
@@ -5903,18 +5903,18 @@ msgid "no images selected to apply rating"
 msgstr "No se ha seleccionado ninguna imagen para puntuar"
 
 #: ../src/common/sentry.c:104
-msgid "Help us make Ansel more stable?"
+msgid "Help us make Lumivell more stable?"
 msgstr ""
 
 #: ../src/common/sentry.c:108
 msgid ""
-"Ansel can automatically report crashes to its developers so they can be "
+"Lumivell can automatically report crashes to its developers so they can be "
 "fixed.\n"
 "\n"
 "If you agree, we send:\n"
-"  • the crash backtrace (where the program failed) when Ansel crashes,\n"
+"  • the crash backtrace (where the program failed) when Lumivell crashes,\n"
 "  • your operating system, and hardware specs (CPU, RAM, GPU),\n"
-"  • the Ansel version, and crash-free session statistics.\n"
+"  • the Lumivell version, and crash-free session statistics.\n"
 "\n"
 "We never send your images, file names, or any personal data.\n"
 "\n"
@@ -6379,16 +6379,16 @@ msgstr "Eliminar imágenes"
 #: ../src/control/jobs/control_jobs.c:1638
 #, c-format
 msgid ""
-"Do you really want to remove %d image from Ansel library ?\n"
+"Do you really want to remove %d image from Lumivell library ?\n"
 "The files will not be deleted on disk."
 msgid_plural ""
-"Do you really want to remove %d images from Ansel library ?\n"
+"Do you really want to remove %d images from Lumivell library ?\n"
 "The files will not be deletetd on disk."
 msgstr[0] ""
-"¿Realmente desea quitar de Ansel %d imagen?\n"
+"¿Realmente desea quitar de Lumivell %d imagen?\n"
 "(El archivo no se eliminará del disco)"
 msgstr[1] ""
-"¿Realmente desea quitar de Ansel %d imágenes?\n"
+"¿Realmente desea quitar de Lumivell %d imágenes?\n"
 "(Los archivos no eliminarán del disco)"
 
 #: ../src/control/jobs/control_jobs.c:1645
@@ -8216,7 +8216,7 @@ msgstr ""
 #: ../src/develop/pixelpipe_hb.c:1207
 #, fuzzy, c-format
 msgid ""
-"Ansel discovered problems with your OpenCL setup; disabling OpenCL for %s "
+"Lumivell discovered problems with your OpenCL setup; disabling OpenCL for %s "
 "pipeline!"
 msgstr ""
 "Darktable ha descubierto un problema con la configuración OpenCL: desactive "
@@ -8224,7 +8224,7 @@ msgstr ""
 
 #: ../src/develop/pixelpipe_hb.c:1212
 msgid ""
-"Ansel discovered problems with your OpenCL setup; disabling OpenCL for this "
+"Lumivell discovered problems with your OpenCL setup; disabling OpenCL for this "
 "session!"
 msgstr ""
 "Darktable ha descubierto un problema con la configuración OpenCL: desactive "
@@ -8243,7 +8243,7 @@ msgstr "Pulsación doble para reiniciar"
 
 #: ../src/dtgtk/preview_window.c:163
 #, c-format
-msgid "Ansel - Preview : %s"
+msgid "Lumivell - Preview : %s"
 msgstr ""
 
 #: ../src/dtgtk/thumbnail.c:105 ../src/dtgtk/thumbnail.c:132
@@ -8467,13 +8467,13 @@ msgstr "Advertencia: ¿desea cambiar los límites?\n"
 #, c-format
 msgid ""
 "warning: disk backend for thumbnail cache is disabled (cache_disk_backend)\n"
-"if you want to pre-generate thumbnails and for Ansel to use them, you need "
+"if you want to pre-generate thumbnails and for Lumivell to use them, you need "
 "to enable disk backend for thumbnail cache\n"
 "no thumbnails to be generated, done.\n"
 msgstr ""
 "advertencia: el backend de disco para la caché de miniaturas está "
 "deshabilitado (cache_disk_backend)\n"
-"si quieres pre-generar miniaturas y que Ansel las use, necesitas habilitar "
+"si quieres pre-generar miniaturas y que Lumivell las use, necesitas habilitar "
 "el backend de disco para la caché de miniaturas\n"
 "no se generarán miniaturas, hecho.\n"
 
@@ -8559,7 +8559,7 @@ msgid ""
 msgstr ""
 
 #: ../src/gui/accelerators.c:1711
-msgid "Ansel - Keyboard shortcuts"
+msgid "Lumivell - Keyboard shortcuts"
 msgstr ""
 
 #. Add tree view columns
@@ -8590,12 +8590,12 @@ msgid "Search by keys : "
 msgstr ""
 
 #: ../src/gui/accelerators.c:2987
-msgid "Ansel - Search accelerators"
+msgid "Lumivell - Search accelerators"
 msgstr ""
 
 #: ../src/gui/gtk.c:458
-msgid "closing Ansel..."
-msgstr "cerrando Ansel..."
+msgid "closing Lumivell..."
+msgstr "cerrando Lumivell..."
 
 #. font name can only use period as decimal separator
 #. but printf format strings use comma for some locales, so replace comma with period
@@ -8947,12 +8947,12 @@ msgstr "$(TAGS) → etiquetas establecidas en la configuración de metadatos"
 
 #: ../src/gui/gtkentry.c:280
 #, fuzzy
-msgid "$(ANSEL.NAME) - Ansel name"
+msgid "$(ANSEL.NAME) - Lumivell name"
 msgstr "$(USERNAME) → nombre de acceso"
 
 #: ../src/gui/gtkentry.c:281
 #, fuzzy
-msgid "$(ANSEL.VERSION) - current Ansel version"
+msgid "$(ANSEL.VERSION) - current Lumivell version"
 msgstr "$(VERSION) → duplicar versión"
 
 #: ../src/gui/guides.c:45
@@ -9181,7 +9181,7 @@ msgid "Enter CSS theme tweaks here"
 msgstr "Incorpore las modificaciones al tema CSS aquí"
 
 #: ../src/gui/preferences.c:545
-msgid "Ansel preferences"
+msgid "Lumivell preferences"
 msgstr "Preferencias"
 
 #: ../src/gui/preferences.c:689
@@ -9205,8 +9205,8 @@ msgid "GPU memory reserved for the system and other applications"
 msgstr ""
 
 #: ../src/gui/preferences.c:744
-msgid "Ansel needs to be restarted for settings to take effect"
-msgstr "Se necesita reiniciar Ansel para que los cambios surtan efecto"
+msgid "Lumivell needs to be restarted for settings to take effect"
+msgstr "Se necesita reiniciar Lumivell para que los cambios surtan efecto"
 
 #. Adding the outer container
 #: ../src/gui/preferences.c:961
@@ -9267,8 +9267,8 @@ msgid "_open"
 msgstr "_abrir"
 
 #: ../src/gui/preferences.c:1194
-msgid "Ansel preset files"
-msgstr "Archivos predefinidos de Ansel"
+msgid "Lumivell preset files"
+msgstr "Archivos predefinidos de Lumivell"
 
 #: ../src/gui/preferences.c:1199 ../src/gui/actions/edit.c:342
 #: ../src/iop/lut3d.c:1371 ../src/libs/geotagging.c:975
@@ -9876,8 +9876,8 @@ msgid " but not "
 msgstr " pero no "
 
 #: ../src/gui/actions/file.c:182
-msgid "Ansel - Export images"
-msgstr "Ansel - Exportar imágenes"
+msgid "Lumivell - Export images"
+msgstr "Lumivell - Exportar imágenes"
 
 #: ../src/gui/actions/file.c:216
 msgid "Import..."
@@ -10244,8 +10244,8 @@ msgstr ""
 
 #: ../src/gui/actions/styles.c:138
 #, fuzzy
-msgid "Ansel - Styles"
-msgstr "Archivos predefinidos de Ansel"
+msgid "Lumivell - Styles"
+msgstr "Archivos predefinidos de Lumivell"
 
 #: ../src/gui/actions/styles.c:352
 #, fuzzy
@@ -11013,8 +11013,8 @@ msgid "send as email"
 msgstr "enviar como correo electrónico"
 
 #: ../src/imageio/storage/example.c:217
-msgid "images exported from Ansel"
-msgstr "imágenes exportadas desde Ansel"
+msgid "images exported from Lumivell"
+msgstr "imágenes exportadas desde Lumivell"
 
 #: ../src/imageio/storage/example.c:270
 msgid "could not launch email client!"
@@ -16865,8 +16865,8 @@ msgid "invalid level in png file %d %d"
 msgstr "Nivel inválido en el archivo PNG %d %d"
 
 #: ../src/iop/lut3d.c:306
-msgid "this Ansel build is not compatible with compressed clut"
-msgstr "esta compilación de Ansel no es compatible con el clut comprimido"
+msgid "this Lumivell build is not compatible with compressed clut"
+msgstr "esta compilación de Lumivell no es compatible con el clut comprimido"
 
 #: ../src/iop/lut3d.c:323 ../src/iop/lut3d.c:572
 #, c-format
@@ -19077,8 +19077,8 @@ msgstr "Carpetas"
 
 #: ../src/libs/collect.c:2936
 #, fuzzy
-msgid "Browse and manage the folders known to Ansel"
-msgstr "Examinar el contenido de las carpetas conocidas por Ansel"
+msgid "Browse and manage the folders known to Lumivell"
+msgstr "Examinar el contenido de las carpetas conocidas por Lumivell"
 
 #: ../src/libs/collect.c:2937
 msgid "Browse and manage tags"
@@ -19436,7 +19436,7 @@ msgstr "metadatos"
 
 #: ../src/libs/export_metadata.c:326
 msgid "export dt xmp metadata (from metadata editor module)"
-msgstr "Exportar metadatos XMP de Ansel (desde el módulo editor de metadatos)"
+msgstr "Exportar metadatos XMP de Lumivell (desde el módulo editor de metadatos)"
 
 #: ../src/libs/export_metadata.c:336
 msgid "only embedded"
@@ -19453,8 +19453,8 @@ msgstr ""
 "De manera predeterminada, la interfaz envía algunos metadatos (limitados) "
 "con la imagen al almacenamiento remoto.\n"
 "Marcar si se desea evitar la opción predeterminada y dejar la imagen "
-"únicamente con metadatos incrustados XMP de Ansel.\n"
-"Si el almacenamiento remoto no comprende los metadatos XMP de Ansel, puede "
+"únicamente con metadatos incrustados XMP de Lumivell.\n"
+"Si el almacenamiento remoto no comprende los metadatos XMP de Lumivell, puede "
 "usar en su lugar metadatos calculados."
 
 #: ../src/libs/export_metadata.c:343
@@ -19514,7 +19514,7 @@ msgid ""
 "export dt development data (recovery purpose in case of loss of database or "
 "xmp file)"
 msgstr ""
-"Exportar la información de revelado de Ansel (si se pierde la base de datos "
+"Exportar la información de revelado de Lumivell (si se pierde la base de datos "
 "o el archivo XMP, podría usarse para restauración)."
 
 #: ../src/libs/export_metadata.c:376
@@ -21143,8 +21143,8 @@ msgstr "seleccionar estilo"
 
 #: ../src/libs/styles.c:561
 #, fuzzy
-msgid "Ansel style files"
-msgstr "Archivos predefinidos de Ansel"
+msgid "Lumivell style files"
+msgstr "Archivos predefinidos de Lumivell"
 
 #: ../src/libs/styles.c:833
 msgid ""
@@ -21575,7 +21575,7 @@ msgstr "sistema antiguo"
 
 #: ../src/libs/tagging.c:3396
 msgid ""
-"show the tags automatically attached by Ansel (names starting with “Ansel|”)"
+"show the tags automatically attached by Lumivell (names starting with “Ansel|”)"
 msgstr ""
 
 #: ../src/libs/tagging.c:3424 ../src/libs/tagging.c:3428

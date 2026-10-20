@@ -275,7 +275,7 @@ void dt_gui_gtk_quit()
 {
   GtkWidget *win = dt_ui_main_window(darktable.gui->ui);
   dt_gui_add_class(win, "dt_gui_quit");
-  gtk_window_set_title(GTK_WINDOW(win), _("Closing Ansel..."));
+  gtk_window_set_title(GTK_WINDOW(win), _("Closing Lumivell..."));
 
   dt_ui_cleanup_titlebar(darktable.gui->ui);
 
@@ -1218,7 +1218,7 @@ int dt_gui_gtk_init(dt_gui_gtk_t *gui)
   if(css_theme && css_theme[0])
     g_strlcpy(gui->gtkrc, css_theme, sizeof(gui->gtkrc));
   else
-    g_snprintf(gui->gtkrc, sizeof(gui->gtkrc), "revelar");
+    g_snprintf(gui->gtkrc, sizeof(gui->gtkrc), "lumivell");
 
 #ifdef MAC_INTEGRATION
 #ifdef GTK_TYPE_OSX_APPLICATION
@@ -1627,8 +1627,8 @@ static void _init_widgets(dt_gui_gtk_t *gui)
   gui->ui->main_window  = gtk_window_new(GTK_WINDOW_TOPLEVEL);
   gtk_widget_set_name(gui->ui->main_window , "main_window");
   gtk_window_set_role(GTK_WINDOW(gui->ui->main_window ), "main-app");
-  gtk_window_set_icon_name(GTK_WINDOW(gui->ui->main_window ), "ansel");
-  gtk_window_set_title(GTK_WINDOW(gui->ui->main_window ), "Ansel");
+  gtk_window_set_icon_name(GTK_WINDOW(gui->ui->main_window ), "lumivell");
+  gtk_window_set_title(GTK_WINDOW(gui->ui->main_window ), "Lumivell");
 
   // Init the titlebar ASAP because we replace the desktop titlebar & decoration with ours
   dt_ui_init_titlebar(gui->ui);

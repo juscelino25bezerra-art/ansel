@@ -454,13 +454,13 @@ static GtkWidget *_splash_create_logo(int target_size, int scale_factor, gchar *
   // Best effort to find a logo
   GtkWidget *image = gtk_image_new();
   GPtrArray *paths = g_ptr_array_new_with_free_func(g_free);
-  g_ptr_array_add(paths, g_build_filename(datadir, "pixmaps", "scalable", "ansel.svg", NULL));
-  g_ptr_array_add(paths, g_build_filename(sharedir, "icons", "hicolor", "scalable", "apps", "ansel.svg", NULL));
+  g_ptr_array_add(paths, g_build_filename(datadir, "pixmaps", "scalable", "lumivell.svg", NULL));
+  g_ptr_array_add(paths, g_build_filename(sharedir, "icons", "hicolor", "scalable", "apps", "lumivell.svg", NULL));
   const char *sizes[] = { "256x256", "128x128", "64x64", NULL };
   for(guint i = 0; sizes[i]; i++)
   {
-    g_ptr_array_add(paths, g_build_filename(datadir, "pixmaps", sizes[i], "ansel.png", NULL));
-    g_ptr_array_add(paths, g_build_filename(sharedir, "icons", "hicolor", sizes[i], "apps", "ansel.png", NULL));
+    g_ptr_array_add(paths, g_build_filename(datadir, "pixmaps", sizes[i], "lumivell.png", NULL));
+    g_ptr_array_add(paths, g_build_filename(sharedir, "icons", "hicolor", sizes[i], "apps", "lumivell.png", NULL));
   }
 
   gboolean loaded = FALSE;
@@ -479,7 +479,7 @@ static GtkWidget *_splash_create_logo(int target_size, int scale_factor, gchar *
 
   if(!loaded)
   {
-    gtk_image_set_from_icon_name(GTK_IMAGE(image), "ansel", GTK_ICON_SIZE_DIALOG);
+    gtk_image_set_from_icon_name(GTK_IMAGE(image), "lumivell", GTK_ICON_SIZE_DIALOG);
     gtk_image_set_pixel_size(GTK_IMAGE(image), target_size);
   }
 

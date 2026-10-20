@@ -9,7 +9,8 @@
 */
 
 /**
- * "revelar" -- a dark, flat, photo-first theme.
+ * "lumivell" -- the Lumivell identity, shared with the Lumivell Android app:
+ * near-black surfaces, warm off-white text and one amber accent.
  *
  * Layout idea: the classic desktop photo-catalogue look -- near-black chrome,
  * charcoal side panels, flat full-width module headers separated by hairlines,
@@ -26,22 +27,22 @@
   ======================================*/
 
 /* chrome & panels */
-@define-color rv_chrome     #141414;   /* top bar, toolboxes          */
-@define-color rv_panel      #232323;   /* side panels                 */
-@define-color rv_panel_alt  #2a2a2a;   /* module headers              */
-@define-color rv_body       #262626;   /* expanded module body        */
-@define-color rv_line       #161616;   /* hairlines between modules   */
-@define-color rv_center     #1b1b1b;   /* behind the photo            */
+@define-color rv_chrome     #0B0B0C;   /* top bar, toolboxes          */
+@define-color rv_panel      #141416;   /* side panels                 */
+@define-color rv_panel_alt  #1C1C1F;   /* module headers              */
+@define-color rv_body       #17171A;   /* expanded module body        */
+@define-color rv_line       #2E2E33;   /* hairlines between modules   */
+@define-color rv_center     #060607;   /* behind the photo            */
 
 /* text */
-@define-color rv_text       #c4c4c4;
-@define-color rv_text_hi    #f0f0f0;
-@define-color rv_text_dim   #8a8a8a;
-@define-color rv_text_off   #5c5c5c;
+@define-color rv_text       #ECEAE6;
+@define-color rv_text_hi    #FFFFFF;
+@define-color rv_text_dim   #9C9890;
+@define-color rv_text_off   #5E5B56;
 
 /* accent */
-@define-color rv_accent     #3d8ee8;
-@define-color rv_accent_hi  #6aaaf2;
+@define-color rv_accent     #E8B54A;
+@define-color rv_accent_hi  #F3CB72;
 
 /* general */
 @define-color selected_bg_color alpha(@rv_accent, 0.35);
@@ -66,41 +67,41 @@
 @define-color plugin_bg_color @rv_body;
 @define-color section_label @rv_text_dim;
 @define-color plugin_label_color @rv_text;
-@define-color collapsible_bg_color #2e2e2e;
+@define-color collapsible_bg_color #1C1C1F;
 
 /* the shared accent (was orange) */
 @define-color orange_dark @rv_accent;
 @define-color orange_light @rv_accent_hi;
 
 /* sliders: dark track, neutral fill, light value text */
-@define-color bauhaus_bg #1a1a1a;
+@define-color bauhaus_bg #3A3A40;
 @define-color bauhaus_fg @rv_text;
 @define-color bauhaus_border alpha(white, 0.05);
 @define-color bauhaus_indicator_border #101010;
-@define-color bauhaus_fill #4a4a4a;
-@define-color bauhaus_value #d8d8d8;
-@define-color bauhaus_value_text @rv_text_hi;
+@define-color bauhaus_fill @rv_accent;
+@define-color bauhaus_value @rv_accent;
+@define-color bauhaus_value_text @rv_text;
 @define-color bauhaus_bg_hover #3a3a3a;
 @define-color bauhaus_bg_focus #3a3a3a;
 @define-color bauhaus_fg_hover @rv_text_hi;
 @define-color bauhaus_fg_selected @rv_text_hi;
 
 /* buttons & fields */
-@define-color button_bg #303030;
+@define-color button_bg #1C1C1F;
 @define-color button_fg @rv_text;
-@define-color button_border #3a3a3a;
-@define-color button_hover_bg #3c3c3c;
+@define-color button_border @rv_line;
+@define-color button_hover_bg #2A2A2F;
 @define-color button_hover_fg @rv_text_hi;
 
 @define-color field_fg @rv_text;
-@define-color field_active_bg #1a1a1a;
+@define-color field_active_bg #0B0B0C;
 @define-color field_active_fg @rv_text_hi;
 @define-color field_selected_bg alpha(@rv_accent, 0.45);
 @define-color field_selected_fg @rv_text_hi;
-@define-color field_hover_bg #333333;
+@define-color field_hover_bg #2A2A2F;
 @define-color field_hover_fg @rv_text_hi;
 
-@define-color tooltip_bg_color #0e0e0e;
+@define-color tooltip_bg_color #0B0B0C;
 @define-color tooltip_fg_color @rv_text;
 @define-color log_fg_color @rv_text_hi;
 
@@ -114,18 +115,18 @@
 
 /* thumbnails: grey cells that lighten on hover, light on selection */
 @define-color thumbnail_font_color #9a9a9a;
-@define-color thumbnail_bg_color #2c2c2c;
-@define-color thumbnail_selected_bg_color #575757;
-@define-color thumbnail_hover_bg_color #3a3a3a;
+@define-color thumbnail_bg_color #1C1C1F;
+@define-color thumbnail_selected_bg_color #3A3A40;
+@define-color thumbnail_hover_bg_color #2A2A2F;
 @define-color filmstrip_bg_color @rv_chrome;
 
 /* graphs */
-@define-color graph_bg #1d1d1d;
-@define-color graph_exterior #1a1a1a;
+@define-color graph_bg #141416;
+@define-color graph_exterior #0B0B0C;
 @define-color graph_border #101010;
 @define-color graph_fg #d0d0d0;
 @define-color graph_fg_active @rv_text_hi;
-@define-color graph_grid #333333;
+@define-color graph_grid #2E2E33;
 @define-color graph_overlay #3a3a3a;
 @define-color graph_scope_restricted #2a2a2a;
 @define-color inset_histogram alpha(white, 0.35);
@@ -228,7 +229,7 @@ menuitem.menu-active label {
 }
 
 #module-header:hover {
-  background-color: #313131;
+  background-color: #2A2A2F;
 }
 
 .expanded #module-header #iop-panel-label,
@@ -268,12 +269,12 @@ menuitem.menu-active label {
 .dt_section_label,
 #plugins_box .dt_plugin_ui_main .dt_section_label {
   color: @rv_text_dim;
-  border-bottom: 1px solid #3a3a3a;
+  border-bottom: 1px solid @rv_line;
 }
 
 #plugins_box .dt_section_label {
   color: @rv_text_dim;
-  border-bottom-color: #3a3a3a;
+  border-bottom-color: @rv_line;
   margin: 0.9em 0.75em 0.3em;
 }
 
@@ -346,8 +347,8 @@ button,
 entry,
 spinbutton,
 #search-box entry {
-  background-color: #1a1a1a;
-  border: 1px solid #333333;
+  background-color: #0B0B0C;
+  border: 1px solid @rv_line;
   border-radius: 3px;
   color: @rv_text;
 }
@@ -376,7 +377,7 @@ tooltip * {
 }
 
 tooltip {
-  border: 1px solid #333333;
+  border: 1px solid @rv_line;
   border-radius: 4px;
 }
 
@@ -384,8 +385,8 @@ menu,
 .popup,
 popover,
 context-menu {
-  background-color: #1e1e1e;
-  border: 1px solid #333333;
+  background-color: #141416;
+  border: 1px solid @rv_line;
 }
 
 menu menuitem:hover,

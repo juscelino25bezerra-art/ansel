@@ -52,15 +52,15 @@
     <name>accels/mask</name>
     <type>bool</type>
     <default>false</default>
-    <shortdescription>Let the OS mask Ansel shortcuts</shortdescription>
-    <longdescription>Check this if you want your OS to process keyboard shortcuts first, and dispatch only the ones it didn't use to Ansel. Otherwise, Ansel will capture all key strokes as long as it is active, which may prevent system-wide shortcuts from working at all on some OS.</longdescription>
+    <shortdescription>Let the OS mask Lumivell shortcuts</shortdescription>
+    <longdescription>Check this if you want your OS to process keyboard shortcuts first, and dispatch only the ones it didn't use to Lumivell. Otherwise, Lumivell will capture all key strokes as long as it is active, which may prevent system-wide shortcuts from working at all on some OS.</longdescription>
   </dtconfig>
   <dtconfig prefs="storage" section="database">
     <name>database</name>
     <type>string</type>
     <default>library.db</default>
     <shortdescription>database location</shortdescription>
-    <longdescription>filename relative to ~/.config/ansel or starting with a slash (needs a restart).</longdescription>
+    <longdescription>filename relative to ~/.config/lumivell or starting with a slash (needs a restart).</longdescription>
   </dtconfig>
   <dtconfig prefs="storage" section="database">
     <name>database/maintenance_check</name>
@@ -99,7 +99,7 @@
     </type>
     <default>once a week</default>
     <shortdescription>create database snapshot</shortdescription>
-    <longdescription>database snapshots are created right before closing ansel. options allow you to choose how often to make snapshots:\nnever - simply don't do snapshots. that way the only snapshots done are mandatory version-upgrade snapshots\nonce a month - create snapshot if a month has passed since last snapshot\nonce a week - create snapshot if 7 days had passed since last snapshot\nonce a day - create snapshot if over 24h passed since last snapshot\non close - create snapshot every time ansel is closed</longdescription>
+    <longdescription>database snapshots are created right before closing lumivell. options allow you to choose how often to make snapshots:\nnever - simply don't do snapshots. that way the only snapshots done are mandatory version-upgrade snapshots\nonce a month - create snapshot if a month has passed since last snapshot\nonce a week - create snapshot if 7 days had passed since last snapshot\nonce a day - create snapshot if over 24h passed since last snapshot\non close - create snapshot every time lumivell is closed</longdescription>
   </dtconfig>
   <dtconfig prefs="storage" section="database">
     <name>database/keep_snapshots</name>
@@ -175,35 +175,35 @@
     <type min="500">int</type>
     <default>4500</default>
     <shortdescription>Memory headrom for OS/application (MiB)</shortdescription>
-    <longdescription>This is the amount of memory that Ansel will leave to the operating system and other applications</longdescription>
+    <longdescription>This is the amount of memory that Lumivell will leave to the operating system and other applications</longdescription>
   </dtconfig>
   <dtconfig>
     <name>host_memory_limit</name>
     <type>int</type>
     <default>-1</default>
     <shortdescription>Host memory limit (MiB)</shortdescription>
-    <longdescription>If set to -1 or 0, Ansel detects the available RAM on the system. Otherwise, we use this value.</longdescription>
+    <longdescription>If set to -1 or 0, Lumivell detects the available RAM on the system. Otherwise, we use this value.</longdescription>
   </dtconfig>
   <dtconfig prefs="processing" section="cpugpu" restart="true">
     <name>memory_mipmap_cache</name>
     <type min="500">int</type>
     <default>1000</default>
     <shortdescription>Memory reserved for lighttable thumbnail cache (MiB)</shortdescription>
-    <longdescription>This is the amount of memory that Ansel will use to keep lighttable thumbnails quickly accessible when scrolling back</longdescription>
+    <longdescription>This is the amount of memory that Lumivell will use to keep lighttable thumbnails quickly accessible when scrolling back</longdescription>
   </dtconfig>
   <dtconfig>
     <name>memory_pixelpipe_cache</name>
     <type min="500">int</type>
     <default>1000</default>
     <shortdescription>Memory reserved for pixelpipe (modules) cache (MiB)</shortdescription>
-    <longdescription>This is the amount of memory that Ansel will use to keep intermediate module outputs for the pixelpipe</longdescription>
+    <longdescription>This is the amount of memory that Lumivell will use to keep intermediate module outputs for the pixelpipe</longdescription>
   </dtconfig>
   <dtconfig>
     <name>memory_pressure_floor</name>
     <type>int</type>
     <default>0</default>
     <shortdescription>System memory pressure floor (MiB)</shortdescription>
-    <longdescription>When the system-wide available RAM drops below this, Ansel sheds its pixelpipe cache and returns the memory to the OS, regardless of the memory budgets above, to avoid being killed by the system out-of-memory watchdog. 0 = automatic (200 MiB). This is an absolute reserve: what the OS needs to keep breathing does not scale with how much RAM the machine has.</longdescription>
+    <longdescription>When the system-wide available RAM drops below this, Lumivell sheds its pixelpipe cache and returns the memory to the OS, regardless of the memory budgets above, to avoid being killed by the system out-of-memory watchdog. 0 = automatic (200 MiB). This is an absolute reserve: what the OS needs to keep breathing does not scale with how much RAM the machine has.</longdescription>
   </dtconfig>
   <dtconfig prefs="processing" section="cpugpu" restart="true">
     <name>processing/timeout</name>
@@ -224,7 +224,7 @@
     <type>bool</type>
     <default>true</default>
     <shortdescription>enable disk backend for thumbnail cache</shortdescription>
-    <longdescription>if enabled, write thumbnails to disk (.cache/ansel/) when evicted from the memory cache. note that this can take a lot of memory (several gigabytes for 20k images) and will never delete cached thumbnails again. it's safe though to delete these manually, if you want. light table performance will be increased greatly when browsing a lot. to generate all thumbnails of your entire collection offline, run 'ansel-generate-cache'.</longdescription>
+    <longdescription>if enabled, write thumbnails to disk (.cache/lumivell/) when evicted from the memory cache. note that this can take a lot of memory (several gigabytes for 20k images) and will never delete cached thumbnails again. it's safe though to delete these manually, if you want. light table performance will be increased greatly when browsing a lot. to generate all thumbnails of your entire collection offline, run 'ansel-generate-cache'.</longdescription>
   </dtconfig>
   <dtconfig>
     <name>opencl_devid_darkroom</name>
@@ -294,7 +294,7 @@
     <type>bool</type>
     <default>false</default>
     <shortdescription>Send anonymous crash reports</shortdescription>
-    <longdescription>When Ansel crashes, automatically upload the backtrace, your operating system and hardware specs (CPU, RAM, GPU), the Ansel version and crash-free session statistics to the developers (via sentry.io) so the bug can be fixed. No images, file names or personal data are sent. Default off; you are asked once on first launch.</longdescription>
+    <longdescription>When Lumivell crashes, automatically upload the backtrace, your operating system and hardware specs (CPU, RAM, GPU), the Lumivell version and crash-free session statistics to the developers (via sentry.io) so the bug can be fixed. No images, file names or personal data are sent. Default off; you are asked once on first launch.</longdescription>
   </dtconfig>
   <dtconfig prefs="storage" section="privacy">
     <name>telemetry/enabled</name>
@@ -369,7 +369,7 @@
     <type>bool</type>
     <default>false</default>
     <shortdescription>omit hierarchy in simple tag lists</shortdescription>
-    <longdescription>when creating XMP file the hierarchical tags are also added as a simple list of non-hierarchical ones to make them visible to some other programs. when this option is checked ansel will only include their last part and ignore the rest. so 'foo|bar|baz' will only add 'baz'.</longdescription>
+    <longdescription>when creating XMP file the hierarchical tags are also added as a simple list of non-hierarchical ones to make them visible to some other programs. when this option is checked lumivell will only include their last part and ignore the rest. so 'foo|bar|baz' will only add 'baz'.</longdescription>
   </dtconfig>
   <dtconfig dialog="collect">
     <name>plugins/lighttable/tagging/no_uncategorized</name>
@@ -390,35 +390,35 @@
     <type>int</type>
     <default>200</default>
     <shortdescription>GPU vRAM headroom (MiB)</shortdescription>
-    <longdescription>This is the amount of GPU memory that Ansel will leave to other GPU-accelerated applications, OpenGL, X server, etc.</longdescription>
+    <longdescription>This is the amount of GPU memory that Lumivell will leave to other GPU-accelerated applications, OpenGL, X server, etc.</longdescription>
   </dtconfig>
   <dtconfig prefs="processing" section="cpugpu" capability="opencl">
     <name>opencl_library</name>
     <type>string</type>
     <default/>
     <shortdescription>system library with OpenCL runtime</shortdescription>
-    <longdescription>OpenCL runtime library is normally detected automatically by ansel. if your OpenCL runtime is at an unusual place and cannot be detected, enter the full pathname here. leave empty for default behavior.</longdescription>
+    <longdescription>OpenCL runtime library is normally detected automatically by lumivell. if your OpenCL runtime is at an unusual place and cannot be detected, enter the full pathname here. leave empty for default behavior.</longdescription>
   </dtconfig>
   <dtconfig prefs="processing" section="libraw">
     <name>libraw/extensions</name>
     <type>string</type>
     <default>cr3,</default>
     <shortdescription>Raw file extensions to load through Libraw</shortdescription>
-    <longdescription>Force Libraw use to decode the defined coma-separated file extensions. Otherwise, they are loaded through Rawspeed if it supports them, which is better integrated into Ansel. Use this if your camera is not properly supported by Rawspeed.</longdescription>
+    <longdescription>Force Libraw use to decode the defined coma-separated file extensions. Otherwise, they are loaded through Rawspeed if it supports them, which is better integrated into Lumivell. Use this if your camera is not properly supported by Rawspeed.</longdescription>
   </dtconfig>
   <dtconfig prefs="processing" section="libraw">
     <name>libraw/models</name>
     <type>string</type>
     <default></default>
     <shortdescription>Camera models to load through Libraw</shortdescription>
-    <longdescription>Force Libraw use to decode the defined coma-separated camera models, described by the EXIF model field. Otherwise, they are loaded through Rawspeed if it supports them, which is better integrated into Ansel. Use this if your camera is not properly supported by Rawspeed.</longdescription>
+    <longdescription>Force Libraw use to decode the defined coma-separated camera models, described by the EXIF model field. Otherwise, they are loaded through Rawspeed if it supports them, which is better integrated into Lumivell. Use this if your camera is not properly supported by Rawspeed.</longdescription>
   </dtconfig>
   <dtconfig prefs="processing" section="libraw">
     <name>libraw/makers</name>
     <type>string</type>
     <default></default>
     <shortdescription>Camera makers to load through Libraw</shortdescription>
-    <longdescription>Force Libraw use to decode the defined coma-separated camera vendors, described by the EXIF maker field. Otherwise, they are loaded through Rawspeed if it supports them, which is better integrated into Ansel. Use this if your camera is not properly supported by Rawspeed.</longdescription>
+    <longdescription>Force Libraw use to decode the defined coma-separated camera vendors, described by the EXIF maker field. Otherwise, they are loaded through Rawspeed if it supports them, which is better integrated into Lumivell. Use this if your camera is not properly supported by Rawspeed.</longdescription>
   </dtconfig>
   <dtconfig prefs="security" section="general">
     <name>ask_before_remove</name>
@@ -1483,7 +1483,7 @@
     <name>plugins/lighttable/tagging/dttags</name>
     <type>bool</type>
     <default>false</default>
-    <shortdescription>whether to show ansel internal tags</shortdescription>
+    <shortdescription>whether to show lumivell internal tags</shortdescription>
     <longdescription/>
   </dtconfig>
   <dtconfig>
@@ -1729,7 +1729,7 @@
   <dtconfig>
     <name>display/brightness</name>
     <type min="0" max="100">int</type>
-    <default>18</default>
+    <default>6</default>
     <shortdescription>background brightness to show pictures against</shortdescription>
   </dtconfig>
   <dtconfig>
@@ -1981,21 +1981,21 @@
   <dtconfig>
     <name>plugins/imageio/storage/disk/file_directory</name>
     <type>string</type>
-    <default>$(FILE.FOLDER)/ansel_exported/$(FILE.NAME)</default>
+    <default>$(FILE.FOLDER)/lumivell_exportadas/$(FILE.NAME)</default>
     <shortdescription/>
     <longdescription/>
   </dtconfig>
   <dtconfig>
     <name>plugins/imageio/storage/gallery/file_directory</name>
     <type>string</type>
-    <default>$(HOME)/ansel_gallery/img_$(SEQUENCE)</default>
+    <default>$(HOME)/lumivell_galeria/img_$(SEQUENCE)</default>
     <shortdescription/>
     <longdescription/>
   </dtconfig>
   <dtconfig>
     <name>plugins/imageio/storage/gallery/title</name>
     <type>string</type>
-    <default>ansel gallery</default>
+    <default>Galeria Lumivell</default>
     <shortdescription/>
     <longdescription/>
   </dtconfig>

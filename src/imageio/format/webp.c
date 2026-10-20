@@ -110,7 +110,7 @@ const char *get_error_str(int err)
 {
   if (err < 0 || err >= sizeof(EncoderError)/sizeof(EncoderError[0]))
   {
-    return "Unknown error. Consider open an issue to ansel to update the webp error list.";
+    return "Unknown error. Consider open an issue to lumivell to update the webp error list.";
   }
   return EncoderError[err];
 }

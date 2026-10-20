@@ -223,7 +223,7 @@ gchar *dt_loc_init_generic(const char *absolute_value, const char *application_d
 
 void dt_loc_init_user_config_dir(const char *configdir)
 {
-  char *default_config_dir = g_build_filename(g_get_user_config_dir(), "ansel", NULL);
+  char *default_config_dir = g_build_filename(g_get_user_config_dir(), "lumivell", NULL);
   darktable.configdir = dt_loc_init_generic(configdir, NULL, default_config_dir);
   dt_check_opendir("ansel.configdir", darktable.configdir);
   dt_free(default_config_dir);
@@ -242,7 +242,7 @@ gchar *dt_loc_default_user_cache_dir(void)
    * is invalid and must be ignored, and taking one literally would put the cache somewhere that
    * depends on the working directory. */
   const gchar *xdg = g_getenv("XDG_CACHE_HOME");
-  if(!IS_NULL_PTR(xdg) && xdg[0] && g_path_is_absolute(xdg)) return g_build_filename(xdg, "ansel", NULL);
+  if(!IS_NULL_PTR(xdg) && xdg[0] && g_path_is_absolute(xdg)) return g_build_filename(xdg, "lumivell", NULL);
 
 #ifdef _WIN32
   /* NOT g_get_user_cache_dir(): on Windows that is FOLDERID_InternetCache -- the shell folder
@@ -264,13 +264,13 @@ gchar *dt_loc_default_user_cache_dir(void)
    * %LOCALAPPDATA%\cache is also Qt's QStandardPaths::GenericCacheLocation on Windows. */
   const gchar *local_app_data = g_getenv("LOCALAPPDATA");
   if(IS_NULL_PTR(local_app_data) || !local_app_data[0]) local_app_data = g_get_user_data_dir();
-  return g_build_filename(local_app_data, "cache", "ansel", NULL);
+  return g_build_filename(local_app_data, "cache", "lumivell", NULL);
 #else
   /* NOT g_get_user_cache_dir() either: GLib takes XDG_CACHE_HOME literally whenever it is non-empty,
    * relative or not, so the value rejected above would come straight back through it -- and GLib
    * memoises its first answer, so whether it did would depend on who asked first. ~/.cache is what
    * it answers for an unset or empty variable, the only other cases that reach this line. */
-  return g_build_filename(g_get_home_dir(), ".cache", "ansel", NULL);
+  return g_build_filename(g_get_home_dir(), ".cache", "lumivell", NULL);
 #endif
 }
 

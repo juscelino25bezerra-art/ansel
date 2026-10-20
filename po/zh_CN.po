@@ -705,9 +705,9 @@ msgstr "操作系统/应用程序内存头（MiB）"
 
 #: ../build/src/preferences_gen.h:3190
 msgid ""
-"This is the amount of memory that Ansel will leave to the operating system "
+"This is the amount of memory that Lumivell will leave to the operating system "
 "and other applications"
-msgstr "这是 Ansel 将留给操作系统和其他应用程序的内存量。"
+msgstr "这是 Lumivell 将留给操作系统和其他应用程序的内存量。"
 
 #: ../build/src/preferences_gen.h:3212
 msgid "Memory reserved for lighttable thumbnail cache (MiB)"
@@ -715,9 +715,9 @@ msgstr "为灯箱缩略图缓存保留的内存（MiB）"
 
 #: ../build/src/preferences_gen.h:3235
 msgid ""
-"This is the amount of memory that Ansel will use to keep lighttable "
+"This is the amount of memory that Lumivell will use to keep lighttable "
 "thumbnails quickly accessible when scrolling back"
-msgstr "这是 Ansel 用于在向后滚动时快速访问灯箱缩略图的内存量。"
+msgstr "这是 Lumivell 用于在向后滚动时快速访问灯箱缩略图的内存量。"
 
 #: ../build/src/preferences_gen.h:3257
 msgid "Pipe recompute timeout (milliseconds)"
@@ -738,14 +738,14 @@ msgstr "为缩略图缓存启用磁盘后端"
 
 #: ../build/src/preferences_gen.h:3316
 msgid ""
-"if enabled, write thumbnails to disk (.cache/ansel/) when evicted from the "
+"if enabled, write thumbnails to disk (.cache/lumivell/) when evicted from the "
 "memory cache. note that this can take a lot of memory (several gigabytes for "
 "20k images) and will never delete cached thumbnails again. it's safe though "
 "to delete these manually, if you want. light table performance will be "
 "increased greatly when browsing a lot. to generate all thumbnails of your "
 "entire collection offline, run 'ansel-generate-cache'."
 msgstr ""
-"启用后，当缩略图从内存缓冲区移除时将被写入磁盘（.cache/ansel/）。注意这可能会"
+"启用后，当缩略图从内存缓冲区移除时将被写入磁盘（.cache/lumivell/）。注意这可能会"
 "使用大量内存（两万张图片可能占用数 GB）。磁盘上的缩略图不会被自动删除，但需要"
 "时您可以手动删除该目录内的文件。此选项可以大幅提高浏览时的光台性能。您可以通"
 "过“ansel-generate-cache”离线生成整个照片库的缩略图。"
@@ -756,11 +756,11 @@ msgstr "带有 OpenCL 运行时的系统库"
 
 #: ../build/src/preferences_gen.h:3356
 msgid ""
-"OpenCL runtime library is normally detected automatically by ansel. if your "
+"OpenCL runtime library is normally detected automatically by lumivell. if your "
 "OpenCL runtime is at an unusual place and cannot be detected, enter the full "
 "pathname here. leave empty for default behavior."
 msgstr ""
-"Ansel 通常会自动检测 OpenCL 运行时库。如果您的 OpenCL 运行时库位于非常规位置"
+"Lumivell 通常会自动检测 OpenCL 运行时库。如果您的 OpenCL 运行时库位于非常规位置"
 "且无法被检测到，请在此处输入完整路径名。留空则使用默认行为。"
 
 #: ../build/src/preferences_gen.h:3357 ../tools/generate_prefs.xsl:511
@@ -793,11 +793,11 @@ msgstr "需要通过 LibRaw 加载的 RAW 文件扩展名"
 msgid ""
 "Force Libraw use to decode the defined coma-separated file extensions. "
 "Otherwise, they are loaded through Rawspeed if it supports them, which is "
-"better integrated into Ansel. Use this if your camera is not properly "
+"better integrated into Lumivell. Use this if your camera is not properly "
 "supported by Rawspeed."
 msgstr ""
 "强制使用 LibRaw 解码扩展名属于此列表的文件，使用逗号分隔。扩展名不在此列表里"
-"的文件将会使用和 Ansel 集成更好的 Rawspeed 进行解码。如果 Rawspeed 对你的相机"
+"的文件将会使用和 Lumivell 集成更好的 Rawspeed 进行解码。如果 Rawspeed 对你的相机"
 "支持不是很好，请使用此项。"
 
 #: ../build/src/preferences_gen.h:3437
@@ -808,11 +808,11 @@ msgstr "需要通过 LibRaw 加载的相机型号"
 msgid ""
 "Force Libraw use to decode the defined coma-separated camera models, "
 "described by the EXIF model field. Otherwise, they are loaded through "
-"Rawspeed if it supports them, which is better integrated into Ansel. Use "
+"Rawspeed if it supports them, which is better integrated into Lumivell. Use "
 "this if your camera is not properly supported by Rawspeed."
 msgstr ""
 "强制使用 LibRaw 解码 EXIF 型号属于此列表的文件，使用逗号分隔。相机型号不在此"
-"列表里的文件将会使用和 Ansel 集成更好的 Rawspeed 进行解码。如果 Rawspeed 对你"
+"列表里的文件将会使用和 Lumivell 集成更好的 Rawspeed 进行解码。如果 Rawspeed 对你"
 "的相机支持不是很好，请使用此项。"
 
 #: ../build/src/preferences_gen.h:3477
@@ -823,11 +823,11 @@ msgstr "需要通过 LibRaw 加载的相机制造商"
 msgid ""
 "Force Libraw use to decode the defined coma-separated camera vendors, "
 "described by the EXIF maker field. Otherwise, they are loaded through "
-"Rawspeed if it supports them, which is better integrated into Ansel. Use "
+"Rawspeed if it supports them, which is better integrated into Lumivell. Use "
 "this if your camera is not properly supported by Rawspeed."
 msgstr ""
 "强制使用 LibRaw 解码 EXIF 制造商属于此列表的文件，使用逗号分隔。相机制造商不"
-"在此列表里的文件将会使用和 Ansel 集成更好的 Rawspeed 进行解码。如果 Rawspeed "
+"在此列表里的文件将会使用和 Lumivell 集成更好的 Rawspeed 进行解码。如果 Rawspeed "
 "对你的相机支持不是很好，请使用此项。"
 
 #: ../build/src/preferences_gen.h:3523 ../tools/generate_prefs.xsl:329
@@ -961,9 +961,9 @@ msgstr "数据库位置"
 
 #: ../build/src/preferences_gen.h:4107
 msgid ""
-"filename relative to ~/.config/ansel or starting with a slash (needs a "
+"filename relative to ~/.config/lumivell or starting with a slash (needs a "
 "restart)."
-msgstr "文件名相对于 ~/.config/ansel 或以斜杠开头（需要重启）。"
+msgstr "文件名相对于 ~/.config/lumivell 或以斜杠开头（需要重启）。"
 
 #: ../build/src/preferences_gen.h:4129
 msgid "check for database maintenance"
@@ -991,21 +991,21 @@ msgstr "创建数据库快照"
 
 #: ../build/src/preferences_gen.h:4312
 msgid ""
-"database snapshots are created right before closing ansel. options allow you "
+"database snapshots are created right before closing lumivell. options allow you "
 "to choose how often to make snapshots:\n"
 "never - simply don't do snapshots. that way the only snapshots done are "
 "mandatory version-upgrade snapshots\n"
 "once a month - create snapshot if a month has passed since last snapshot\n"
 "once a week - create snapshot if 7 days had passed since last snapshot\n"
 "once a day - create snapshot if over 24h passed since last snapshot\n"
-"on close - create snapshot every time ansel is closed"
+"on close - create snapshot every time lumivell is closed"
 msgstr ""
-"数据库快照会在 Ansel 退出前创建。此选项可以控制快照创建的频率：\n"
+"数据库快照会在 Lumivell 退出前创建。此选项可以控制快照创建的频率：\n"
 "从不 - 不要定期创建快照，只在每次版本更新时强制创建快照。\n"
 "每月 - 距离上次快照超过一个月时创建快照。\n"
 "每周 - 距离上次快照超过 7 天时创建快照。\n"
 "每天 - 距离上次快照超过 24 小时时创建快照。\n"
-"关闭时 - 每次关闭 Ansel 都创建快照。"
+"关闭时 - 每次关闭 Lumivell 都创建快照。"
 
 #: ../build/src/preferences_gen.h:4334
 msgid "how many snapshots to keep"
@@ -1081,8 +1081,8 @@ msgstr ""
 
 #: ../build/src/preferences_gen.h:4570
 msgid ""
-"When Ansel crashes, automatically upload the backtrace, your operating "
-"system and hardware specs (CPU, RAM, GPU), the Ansel version and crash-free "
+"When Lumivell crashes, automatically upload the backtrace, your operating "
+"system and hardware specs (CPU, RAM, GPU), the Lumivell version and crash-free "
 "session statistics to the developers (via sentry.io) so the bug can be "
 "fixed. No images, file names or personal data are sent. Default off; you are "
 "asked once on first launch."
@@ -1123,18 +1123,18 @@ msgstr ""
 "显示正确的值。这不会影响垂直滚动。"
 
 #: ../build/src/preferences_gen.h:4693
-msgid "Let the OS mask Ansel shortcuts"
-msgstr "让操作系统屏蔽 Ansel 快捷键"
+msgid "Let the OS mask Lumivell shortcuts"
+msgstr "让操作系统屏蔽 Lumivell 快捷键"
 
 #: ../build/src/preferences_gen.h:4707
 msgid ""
 "Check this if you want your OS to process keyboard shortcuts first, and "
-"dispatch only the ones it didn't use to Ansel. Otherwise, Ansel will capture "
+"dispatch only the ones it didn't use to Lumivell. Otherwise, Lumivell will capture "
 "all key strokes as long as it is active, which may prevent system-wide "
 "shortcuts from working at all on some OS."
 msgstr ""
-"如果您希望操作系统优先处理键盘快捷键，并将未使用的快捷键发送给 Ansel，请选中"
-"此项。否则，只要 Ansel 处于活动状态，它就会捕获所有按键，这可能会导致某些操作"
+"如果您希望操作系统优先处理键盘快捷键，并将未使用的快捷键发送给 Lumivell，请选中"
+"此项。否则，只要 Lumivell 处于活动状态，它就会捕获所有按键，这可能会导致某些操作"
 "系统上的系统级快捷键完全失效。"
 
 #: ../build/src/preferences_gen.h:4729
@@ -1185,11 +1185,11 @@ msgstr "省略简单标签列表中的层次结构"
 msgid ""
 "when creating XMP file the hierarchical tags are also added as a simple list "
 "of non-hierarchical ones to make them visible to some other programs. when "
-"this option is checked ansel will only include their last part and ignore "
+"this option is checked lumivell will only include their last part and ignore "
 "the rest. so 'foo|bar|baz' will only add 'baz'."
 msgstr ""
 "创建 XMP 文件时，层级标签也会以无结构列表插入，以允许其他程序使用这些标签。当"
-"此选项启用时，Ansel 将只会插入层级标签最后的部分。例如“foo|bar|baz”会"
+"此选项启用时，Lumivell 将只会插入层级标签最后的部分。例如“foo|bar|baz”会"
 "以“baz”添加。"
 
 #: ../build/src/preferences_gen.h:4925
@@ -3590,10 +3590,10 @@ msgstr "graphics;photography;raw;"
 
 #: ../data/photos.ansel.Ansel.appdata.xml.in.h:2
 msgid ""
-"Ansel manages your digital negatives in a database and lets you view them "
+"Lumivell manages your digital negatives in a database and lets you view them "
 "through a lighttable. It also enables you to develop raw images and enhance "
 "them in a darkroom."
-msgstr "使用 Ansel 管理您的电子底片，在光台中浏览照片，在暗室中处理 RAW 图像。"
+msgstr "使用 Lumivell 管理您的电子底片，在光台中浏览照片，在暗室中处理 RAW 图像。"
 
 #: ../data/photos.ansel.Ansel.appdata.xml.in.h:3
 msgid "Virtual light table, showing a collection"
@@ -4535,7 +4535,7 @@ msgstr "[MEMORY CONFIGURATION] 工作线程：%i\n"
 
 #: ../src/darktable.c:2541
 msgid ""
-"CRITICAL WARNING: Ansel will not be able to use the RAM you allocated it.\n"
+"CRITICAL WARNING: Lumivell will not be able to use the RAM you allocated it.\n"
 "Review your memory settings or add more RAM to your system."
 msgstr ""
 
@@ -4543,26 +4543,26 @@ msgstr ""
 #, fuzzy, c-format
 msgid ""
 "\n"
-"  Sorry, Ansel could not be started because the database is locked.\n"
+"  Sorry, Lumivell could not be started because the database is locked.\n"
 "\n"
 "  How to solve this problem?\n"
 "\n"
-"  1 - If another Ansel instance is already running, \n"
+"  1 - If another Lumivell instance is already running, \n"
 "      click \"Quit\" and either use that instance or close it before trying "
-"to start Ansel again. \n"
+"to start Lumivell again. \n"
 "      (process ID <i><b>%d</b></i> created the database lock files)\n"
 "\n"
-"  2 - If you cannot find any running instance of Ansel, try restarting your "
+"  2 - If you cannot find any running instance of Lumivell, try restarting your "
 "session or your computer. \n"
 "      This will close all running programs and should release any database "
 "locks. \n"
 "\n"
 "  3 - If you have already tried the above steps, or you are certain that no "
-"other instances of Ansel are running, \n"
+"other instances of Lumivell are running, \n"
 "      this likely means the previous instance ended unexpectedly. \n"
 "      Click the \"Delete database lock files\" button to remove <i>data.db."
 "lock</i> and <i>library.db.lock</i>. \n"
-"      Ansel will then attempt to load the database again. \n"
+"      Lumivell will then attempt to load the database again. \n"
 "\n"
 "\n"
 "      <i><u>Caution!</u> Do not delete these files without first undertaking "
@@ -4571,19 +4571,19 @@ msgid ""
 "</i>\n"
 msgstr ""
 "\n"
-"  抱歉，Ansel 无法启动（数据库被锁定）。\n"
+"  抱歉，Lumivell 无法启动（数据库被锁定）。\n"
 "\n"
 "  如何解决此问题？\n"
 "\n"
-"  1 - 若另一个 Ansel 实例已在运行，\n"
+"  1 - 若另一个 Lumivell 实例已在运行，\n"
 "      点击取消，并使用该已打开的实例或退出后再尝试启动\n"
 "      （进程号 <i><b>%d</b></i> 正在使用数据库）。\n"
 "\n"
-"  2 - 若您找不到另一个 Ansel 实例，请尝试重新登入或重新启动您的计算机。\n"
+"  2 - 若您找不到另一个 Lumivell 实例，请尝试重新登入或重新启动您的计算机。\n"
 "      这有助于清理所有正在运行的程序，有可能可以正确关闭数据库。\n"
 "\n"
-"  3 - 若此问题依然存在或您确定系统上没有其他正在运行的 Ansel 实例，\n"
-"      上次 Ansel 可能未正确退出。\n"
+"  3 - 若此问题依然存在或您确定系统上没有其他正在运行的 Lumivell 实例，\n"
+"      上次 Lumivell 可能未正确退出。\n"
 "      点击“删除数据锁”按钮以移除 <i>data.db.lock</i> 及 <i>library.db.lock</"
 "i>。\n"
 "\n"
@@ -4595,8 +4595,8 @@ msgstr ""
 #. clang-format on
 #: ../src/common/database.c:2686
 #, fuzzy
-msgid "Error starting Ansel"
-msgstr "Ansel 启动失败"
+msgid "Error starting Lumivell"
+msgstr "Lumivell 启动失败"
 
 #: ../src/common/database.c:2687 ../src/common/database.c:2695
 #: ../src/common/database.c:2723 ../src/gui/actions/file.c:272
@@ -4617,7 +4617,7 @@ msgstr "迭代次数"
 msgid ""
 "\n"
 "<u>Caution!</u> Are you sure you want to delete the database lock files?\n"
-"This action should only be performed if you are certain no other Ansel "
+"This action should only be performed if you are certain no other Lumivell "
 "instances are running.\n"
 msgstr ""
 
@@ -4701,31 +4701,31 @@ msgstr ""
 "是否要继续？若要备份数据库，请现在退出程序。\n"
 
 #: ../src/common/database.c:2911
-msgid "ansel - schema migration"
-msgstr "Ansel - 数据库版本迁移"
+msgid "lumivell - schema migration"
+msgstr "Lumivell - 数据库版本迁移"
 
 #: ../src/common/database.c:2912 ../src/common/database.c:3265
 #: ../src/common/database.c:3283 ../src/common/database.c:3443
 #: ../src/common/database.c:3461
-msgid "close Ansel"
-msgstr "关闭 Ansel"
+msgid "close Lumivell"
+msgstr "关闭 Lumivell"
 
 #: ../src/common/database.c:2912
 msgid "upgrade database"
 msgstr "升级数据库"
 
 #: ../src/common/database.c:3132
-msgid "Ansel - Database is read-only"
-msgstr "Ansel - 数据库为只读"
+msgid "Lumivell - Database is read-only"
+msgstr "Lumivell - 数据库为只读"
 
 #: ../src/common/database.c:3134
-msgid "Close Ansel"
-msgstr "关闭 Ansel"
+msgid "Close Lumivell"
+msgstr "关闭 Lumivell"
 
 #: ../src/common/database.c:3137
 #, c-format
 msgid ""
-"<span weight='bold'>Ansel library database is read-only</span>\n"
+"<span weight='bold'>Lumivell library database is read-only</span>\n"
 "\n"
 "This happens if you don't have permissions to write on the filesystem\n"
 "or if you have restored a write-protected backup snapshot.\n"
@@ -4734,7 +4734,7 @@ msgid ""
 "\n"
 "\t<span style='italic'>%s</span>"
 msgstr ""
-"<span weight='bold'>Ansel 库数据库为只读。</span>\n"
+"<span weight='bold'>Lumivell 库数据库为只读。</span>\n"
 "\n"
 "如果您没有文件系统写入权限，或者您恢复了受写保护的备份快照，就会出现这种情"
 "况。\n"
@@ -4754,8 +4754,8 @@ msgstr ""
 
 #: ../src/common/database.c:3262 ../src/common/database.c:3280
 #: ../src/common/database.c:3440 ../src/common/database.c:3458
-msgid "ansel - error opening database"
-msgstr "Ansel - 打开数据库失败"
+msgid "lumivell - error opening database"
+msgstr "Lumivell - 打开数据库失败"
 
 #: ../src/common/database.c:3267 ../src/common/database.c:3445
 msgid "attempt restore"
@@ -4768,21 +4768,21 @@ msgstr "删除数据库"
 
 #: ../src/common/database.c:3273 ../src/common/database.c:3451
 msgid ""
-"do you want to close Ansel now to manually restore\n"
+"do you want to close Lumivell now to manually restore\n"
 "the database from a backup, attempt an automatic restore\n"
 "from the most recent snapshot or delete the corrupted database\n"
 "and start with a new one?"
 msgstr ""
-"您希望关闭 Ansel 以手动从备份恢复数据库？\n"
+"您希望关闭 Lumivell 以手动从备份恢复数据库？\n"
 "还是尝试自动从最近快照恢复数据库，或者删除损坏的数据库并从头开始？"
 
 #: ../src/common/database.c:3289 ../src/common/database.c:3467
 msgid ""
-"do you want to close Ansel now to manually restore\n"
+"do you want to close Lumivell now to manually restore\n"
 "the database from a backup or delete the corrupted database\n"
 "and start with a new one?"
 msgstr ""
-"您希望现在关闭 Ansel 并手动从备份恢复数据库，\n"
+"您希望现在关闭 Lumivell 并手动从备份恢复数据库，\n"
 "还是删除损坏的数据库重新开始？"
 
 #: ../src/common/database.c:3296 ../src/common/database.c:3472
@@ -4807,12 +4807,12 @@ msgid "click later to be asked on next startup"
 msgstr "点击“以后”下次启动时将再次询问"
 
 #: ../src/common/database.c:3798
-msgid "click later to be asked when closing Ansel"
-msgstr "点击“以后”以在关闭 Ansel 时再次询问。"
+msgid "click later to be asked when closing Lumivell"
+msgstr "点击“以后”以在关闭 Lumivell 时再次询问。"
 
 #: ../src/common/database.c:3802
-msgid "click later to be asked next time when closing Ansel"
-msgstr "点击“以后”以在下次关闭 Ansel 时再次询问。"
+msgid "click later to be asked next time when closing Lumivell"
+msgstr "点击“以后”以在下次关闭 Lumivell 时再次询问。"
 
 #: ../src/common/database.c:3805
 #, c-format
@@ -4834,8 +4834,8 @@ msgstr ""
 "请在核心设置菜单中更改数据库维护选项。"
 
 #: ../src/common/database.c:3815
-msgid "ansel - schema maintenance"
-msgstr "Ansel - 数据库维护"
+msgid "lumivell - schema maintenance"
+msgstr "Lumivell - 数据库维护"
 
 #: ../src/common/database.c:3816
 msgid "later"
@@ -5197,8 +5197,8 @@ msgstr ""
 
 #: ../src/common/http_server.c:111 ../src/common/http_server.c:160
 #, c-format
-msgid "ansel >> %s"
-msgstr "Ansel >> %s"
+msgid "lumivell >> %s"
+msgstr "Lumivell >> %s"
 
 #: ../src/common/http_server.c:113 ../src/common/http_server.c:158
 msgid "<h1>Sorry,</h1><p>something went wrong. Please try again.</p>"
@@ -5207,10 +5207,10 @@ msgstr "<h1>抱歉，</h1><p>似乎发生了错误。请重试。</p>"
 #: ../src/common/http_server.c:118 ../src/common/http_server.c:156
 msgid ""
 "<h1>Thank you,</h1><p>everything should have worked, you can <b>close</b> "
-"your browser now and <b>go back</b> to Ansel.</p>"
+"your browser now and <b>go back</b> to Lumivell.</p>"
 msgstr ""
 "<h1>谢谢，</h1><p>操作已完成。您现在可以<b>关闭</b>浏览器并<b>回到</b> "
-"Ansel。</p>"
+"Lumivell。</p>"
 
 #: ../src/common/image_cache.c:603 ../src/common/image.c:570
 #: ../src/common/image.c:586
@@ -5488,8 +5488,8 @@ msgid "No files to import. Check your selection."
 msgstr "没有可导入的文件。请检查您的已选择目录。"
 
 #: ../src/common/import.c:1052
-msgid "Ansel - Open pictures"
-msgstr "Ansel - 导入图片"
+msgid "Lumivell - Open pictures"
+msgstr "Lumivell - 导入图片"
 
 #: ../src/common/import.c:1053 ../src/develop/blend_gui.c:2380
 #: ../src/develop/masks/masks_gui.c:454 ../src/iop/ashift.c:5344
@@ -5556,7 +5556,7 @@ msgid ""
 "Remove them from the library first, or use the menu `Run → Resynchronize "
 "library and XMP` to update the local database from distant XMP.\n"
 "\n"
-"Ansel indexes images by their filename and parent folder (full path), not by "
+"Lumivell indexes images by their filename and parent folder (full path), not by "
 "their content. Therefore, renaming or moving images on the filesystem, or "
 "changing the mounting point of their external drive will make them look like "
 "new (unknown) images.\n"
@@ -5569,7 +5569,7 @@ msgstr ""
 "新本地数据库，需要先从照片库中移除图片，或者使用“运行”菜单中的“重新同步 XMP "
 "文件与照片库”。\n"
 "\n"
-"Ansel 使用文件名和所在目录（完整路径）来索引图片而不是使用文件内容。因此，重"
+"Lumivell 使用文件名和所在目录（完整路径）来索引图片而不是使用文件内容。因此，重"
 "命名或者在文件系统上移动文件，或者改变了外置磁盘的挂载点将会使文件看起来像新"
 "（未知）图片。\n"
 "\n"
@@ -5776,18 +5776,18 @@ msgid "no images selected to apply rating"
 msgstr "没有选中要应用评级的图片。"
 
 #: ../src/common/sentry.c:104
-msgid "Help us make Ansel more stable?"
+msgid "Help us make Lumivell more stable?"
 msgstr ""
 
 #: ../src/common/sentry.c:108
 msgid ""
-"Ansel can automatically report crashes to its developers so they can be "
+"Lumivell can automatically report crashes to its developers so they can be "
 "fixed.\n"
 "\n"
 "If you agree, we send:\n"
-"  • the crash backtrace (where the program failed) when Ansel crashes,\n"
+"  • the crash backtrace (where the program failed) when Lumivell crashes,\n"
 "  • your operating system, and hardware specs (CPU, RAM, GPU),\n"
-"  • the Ansel version, and crash-free session statistics.\n"
+"  • the Lumivell version, and crash-free session statistics.\n"
 "\n"
 "We never send your images, file names, or any personal data.\n"
 "\n"
@@ -6234,12 +6234,12 @@ msgstr "移除图像…"
 #: ../src/control/jobs/control_jobs.c:1638
 #, c-format
 msgid ""
-"Do you really want to remove %d image from Ansel library ?\n"
+"Do you really want to remove %d image from Lumivell library ?\n"
 "The files will not be deleted on disk."
 msgid_plural ""
-"Do you really want to remove %d images from Ansel library ?\n"
+"Do you really want to remove %d images from Lumivell library ?\n"
 "The files will not be deletetd on disk."
-msgstr[0] "是否要从 Ansel 照片库中移除 %d 张图像？这些文件不会被从磁盘上删除。"
+msgstr[0] "是否要从 Lumivell 照片库中移除 %d 张图像？这些文件不会被从磁盘上删除。"
 
 #: ../src/control/jobs/control_jobs.c:1645
 msgid "Remove image from library ?"
@@ -8028,15 +8028,15 @@ msgstr ""
 #: ../src/develop/pixelpipe_hb.c:1207
 #, fuzzy, c-format
 msgid ""
-"Ansel discovered problems with your OpenCL setup; disabling OpenCL for %s "
+"Lumivell discovered problems with your OpenCL setup; disabling OpenCL for %s "
 "pipeline!"
-msgstr "Ansel 检测到 OpenCL 设置出现问题；OpenCL 已在此次会话中禁用！"
+msgstr "Lumivell 检测到 OpenCL 设置出现问题；OpenCL 已在此次会话中禁用！"
 
 #: ../src/develop/pixelpipe_hb.c:1212
 msgid ""
-"Ansel discovered problems with your OpenCL setup; disabling OpenCL for this "
+"Lumivell discovered problems with your OpenCL setup; disabling OpenCL for this "
 "session!"
-msgstr "Ansel 检测到 OpenCL 设置出现问题；OpenCL 已在此次会话中禁用！"
+msgstr "Lumivell 检测到 OpenCL 设置出现问题；OpenCL 已在此次会话中禁用！"
 
 #: ../src/develop/tiling.c:478 ../src/develop/tiling.c:810
 #, c-format
@@ -8049,7 +8049,7 @@ msgstr "双击以重置。"
 
 #: ../src/dtgtk/preview_window.c:163
 #, c-format
-msgid "Ansel - Preview : %s"
+msgid "Lumivell - Preview : %s"
 msgstr "Ansel- 预览：%s"
 
 #: ../src/dtgtk/thumbnail.c:105 ../src/dtgtk/thumbnail.c:132
@@ -8257,12 +8257,12 @@ msgstr "警告：是否交换边界？\n"
 #, c-format
 msgid ""
 "warning: disk backend for thumbnail cache is disabled (cache_disk_backend)\n"
-"if you want to pre-generate thumbnails and for Ansel to use them, you need "
+"if you want to pre-generate thumbnails and for Lumivell to use them, you need "
 "to enable disk backend for thumbnail cache\n"
 "no thumbnails to be generated, done.\n"
 msgstr ""
 "警告：缩略图磁盘缓存后端处于禁用状态（cache_disk_backend）。\n"
-"若您想要预生成缩略图以供 Ansel 使用，则需要启用缩略图磁盘缓存后端。\n"
+"若您想要预生成缩略图以供 Lumivell 使用，则需要启用缩略图磁盘缓存后端。\n"
 "操作完成，未生成任何缩略图。\n"
 
 #: ../src/generate-cache/main.c:249
@@ -8349,8 +8349,8 @@ msgstr ""
 "例如：`darkroom/controls/sliders`"
 
 #: ../src/gui/accelerators.c:1711
-msgid "Ansel - Keyboard shortcuts"
-msgstr "Ansel - 键盘快捷键"
+msgid "Lumivell - Keyboard shortcuts"
+msgstr "Lumivell - 键盘快捷键"
 
 #. Add tree view columns
 #: ../src/gui/accelerators.c:1757
@@ -8378,12 +8378,12 @@ msgid "Search by keys : "
 msgstr "按关键词搜索："
 
 #: ../src/gui/accelerators.c:2987
-msgid "Ansel - Search accelerators"
-msgstr "Ansel - 搜索加速器"
+msgid "Lumivell - Search accelerators"
+msgstr "Lumivell - 搜索加速器"
 
 #: ../src/gui/gtk.c:458
-msgid "closing Ansel..."
-msgstr "正在关闭 Ansel…"
+msgid "closing Lumivell..."
+msgstr "正在关闭 Lumivell…"
 
 #. font name can only use period as decimal separator
 #. but printf format strings use comma for some locales, so replace comma with period
@@ -8728,12 +8728,12 @@ msgid "$(TAGS) - tags as set in metadata settings"
 msgstr "$(TAGS) - 元数据设置中的标签。"
 
 #: ../src/gui/gtkentry.c:280
-msgid "$(ANSEL.NAME) - Ansel name"
-msgstr "$(ANSEL.NAME) - Ansel 名称"
+msgid "$(ANSEL.NAME) - Lumivell name"
+msgstr "$(ANSEL.NAME) - Lumivell 名称"
 
 #: ../src/gui/gtkentry.c:281
-msgid "$(ANSEL.VERSION) - current Ansel version"
-msgstr "$(ANSEL.VERSION) - 当前 Ansel 版本"
+msgid "$(ANSEL.VERSION) - current Lumivell version"
+msgstr "$(ANSEL.VERSION) - 当前 Lumivell 版本"
 
 #: ../src/gui/guides.c:45
 msgid "grid"
@@ -8953,8 +8953,8 @@ msgid "Enter CSS theme tweaks here"
 msgstr "在此处输入 CSS 以微调主题。"
 
 #: ../src/gui/preferences.c:545
-msgid "Ansel preferences"
-msgstr "Ansel 首选项"
+msgid "Lumivell preferences"
+msgstr "Lumivell 首选项"
 
 #: ../src/gui/preferences.c:689
 msgid "Enable or disable OpenCL processing for this GPU"
@@ -8975,11 +8975,11 @@ msgstr "GPU 显存余量（MiB）"
 #: ../src/gui/preferences.c:722
 #, fuzzy
 msgid "GPU memory reserved for the system and other applications"
-msgstr "这是 Ansel 将留给操作系统和其他应用程序的内存量。"
+msgstr "这是 Lumivell 将留给操作系统和其他应用程序的内存量。"
 
 #: ../src/gui/preferences.c:744
-msgid "Ansel needs to be restarted for settings to take effect"
-msgstr "Ansel 需要重新启动才能使设置生效。"
+msgid "Lumivell needs to be restarted for settings to take effect"
+msgstr "Lumivell 需要重新启动才能使设置生效。"
 
 #. Adding the outer container
 #: ../src/gui/preferences.c:961
@@ -9040,8 +9040,8 @@ msgid "_open"
 msgstr "打开(_O)"
 
 #: ../src/gui/preferences.c:1194
-msgid "Ansel preset files"
-msgstr "Ansel 预设文件"
+msgid "Lumivell preset files"
+msgstr "Lumivell 预设文件"
 
 #: ../src/gui/preferences.c:1199 ../src/gui/actions/edit.c:342
 #: ../src/iop/lut3d.c:1371 ../src/libs/geotagging.c:975
@@ -9631,8 +9631,8 @@ msgid " but not "
 msgstr " 但非 "
 
 #: ../src/gui/actions/file.c:182
-msgid "Ansel - Export images"
-msgstr "Ansel - 导出图片"
+msgid "Lumivell - Export images"
+msgstr "Lumivell - 导出图片"
 
 #: ../src/gui/actions/file.c:216
 msgid "Import..."
@@ -9990,8 +9990,8 @@ msgstr ""
 
 #: ../src/gui/actions/styles.c:138
 #, fuzzy
-msgid "Ansel - Styles"
-msgstr "Ansel 样式文件"
+msgid "Lumivell - Styles"
+msgstr "Lumivell 样式文件"
 
 #: ../src/gui/actions/styles.c:352
 #, fuzzy
@@ -10741,8 +10741,8 @@ msgid "send as email"
 msgstr "作为邮件发送"
 
 #: ../src/imageio/storage/example.c:217
-msgid "images exported from Ansel"
-msgstr "从 Ansel 导出的图像"
+msgid "images exported from Lumivell"
+msgstr "从 Lumivell 导出的图像"
 
 #: ../src/imageio/storage/example.c:270
 msgid "could not launch email client!"
@@ -16305,8 +16305,8 @@ msgid "invalid level in png file %d %d"
 msgstr "png 文件使用了不支持的色阶 %d %d。"
 
 #: ../src/iop/lut3d.c:306
-msgid "this Ansel build is not compatible with compressed clut"
-msgstr "此版本 Ansel 不支持压缩 CLUT。"
+msgid "this Lumivell build is not compatible with compressed clut"
+msgstr "此版本 Lumivell 不支持压缩 CLUT。"
 
 #: ../src/iop/lut3d.c:323 ../src/iop/lut3d.c:572
 #, c-format
@@ -18416,8 +18416,8 @@ msgstr "文件夹"
 
 #: ../src/libs/collect.c:2936
 #, fuzzy
-msgid "Browse and manage the folders known to Ansel"
-msgstr "浏览 Ansel 已知的文件夹的内容。"
+msgid "Browse and manage the folders known to Lumivell"
+msgstr "浏览 Lumivell 已知的文件夹的内容。"
 
 #: ../src/libs/collect.c:2937
 msgid "Browse and manage tags"
@@ -18757,7 +18757,7 @@ msgstr "元数据"
 
 #: ../src/libs/export_metadata.c:326
 msgid "export dt xmp metadata (from metadata editor module)"
-msgstr "从元数据编辑器模块导出 Ansel XML 元数据。"
+msgstr "从元数据编辑器模块导出 Lumivell XML 元数据。"
 
 #: ../src/libs/export_metadata.c:336
 msgid "only embedded"
@@ -18772,8 +18772,8 @@ msgid ""
 "metadata instead"
 msgstr ""
 "默认情况下，通过接口发送图像至远端存储时会一并发送有限的元数据。\n"
-"若希望仅使用图像嵌入的 Ansel XMP 元数据，请勾选此项。\n"
-"若远端存储无法识别 Ansel XMP 元数据，您可以使用计算元数据替代。"
+"若希望仅使用图像嵌入的 Lumivell XMP 元数据，请勾选此项。\n"
+"若远端存储无法识别 Lumivell XMP 元数据，您可以使用计算元数据替代。"
 
 #: ../src/libs/export_metadata.c:343
 msgid "geo tags"
@@ -18830,7 +18830,7 @@ msgid ""
 "export dt development data (recovery purpose in case of loss of database or "
 "xmp file)"
 msgstr ""
-"导出 Ansel 图像修改数据（以便数据库或 XMP 文件丢失时也能恢复图像状态）。"
+"导出 Lumivell 图像修改数据（以便数据库或 XMP 文件丢失时也能恢复图像状态）。"
 
 #: ../src/libs/export_metadata.c:376
 msgid "per metadata settings"
@@ -20391,8 +20391,8 @@ msgid "select style"
 msgstr "选择样式"
 
 #: ../src/libs/styles.c:561
-msgid "Ansel style files"
-msgstr "Ansel 样式文件"
+msgid "Lumivell style files"
+msgstr "Lumivell 样式文件"
 
 #: ../src/libs/styles.c:833
 msgid ""
@@ -20807,7 +20807,7 @@ msgstr "旧系统"
 
 #: ../src/libs/tagging.c:3396
 msgid ""
-"show the tags automatically attached by Ansel (names starting with “Ansel|”)"
+"show the tags automatically attached by Lumivell (names starting with “Ansel|”)"
 msgstr ""
 
 #: ../src/libs/tagging.c:3424 ../src/libs/tagging.c:3428

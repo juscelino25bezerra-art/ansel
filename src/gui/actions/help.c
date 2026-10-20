@@ -37,16 +37,22 @@ static gboolean show_about_dialog(GtkAccelGroup *group, GObject *acceleratable, 
 #ifdef GDK_WINDOWING_QUARTZ
   dt_osx_disallow_fullscreen(dialog);
 #endif
-  gtk_about_dialog_set_program_name(GTK_ABOUT_DIALOG(dialog), PACKAGE_NAME);
+  gtk_about_dialog_set_program_name(GTK_ABOUT_DIALOG(dialog), "Lumivell");
   gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(dialog), darktable_package_version);
   char *copyright = g_strdup_printf(_("Copyright \302\251 darktable authors 2009-2022\nCopyright \302\251 Aur\303\251lien Pierre 2022-%s"), darktable_last_commit_year);
-  gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(dialog), copyright);
+  gchar *full_copyright = g_strdup_printf("%s\nLumivell \302\251 Juscelino Be 2026", copyright);
+  gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(dialog), full_copyright);
+  dt_free(full_copyright);
   dt_free(copyright);
-  gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(dialog),
-                                _("Organize and develop images from digital cameras"));
-  gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(dialog), "https://ansel.photos");
+  // Lumivell is a fork: the GPL asks the original authors to stay credited, which the
+  // copyright lines above and the credit sections below already do; this says it in words.
+  gchar *comments = g_strdup_printf("%s\n\n%s", _("Organize and develop images from digital cameras"),
+                                    _("Based on Ansel by Aurélien Pierre and on darktable."));
+  gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(dialog), comments);
+  dt_free(comments);
+  gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(dialog), "https://github.com/juscelino25bezerra-art/ansel");
   gtk_about_dialog_set_website_label(GTK_ABOUT_DIALOG(dialog), _("Website"));
-  char *icon = g_strdup("ansel");
+  char *icon = g_strdup("lumivell");
   gtk_about_dialog_set_logo_icon_name(GTK_ABOUT_DIALOG(dialog), icon);
   dt_free(icon);
 

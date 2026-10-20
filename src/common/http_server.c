@@ -109,7 +109,7 @@ static void _new_connection(SoupServer *server, SoupMessage *msg, const char *pa
     goto end;
   }
 
-  char *page_title = g_strdup_printf(_("ansel >> %s"), params->id);
+  char *page_title = g_strdup_printf(_("lumivell >> %s"), params->id);
   const char *title = _(params->id);
   const char *body = _("<h1>Sorry,</h1><p>something went wrong. Please try again.</p>");
 
@@ -117,7 +117,7 @@ static void _new_connection(SoupServer *server, SoupMessage *msg, const char *pa
 
   if(res)
     body = _("<h1>Thank you,</h1><p>everything should have worked, you can <b>close</b> your browser now and "
-             "<b>go back</b> to Ansel.</p>");
+             "<b>go back</b> to Lumivell.</p>");
 
   char *resp_body = g_strdup_printf(reply, page_title, res ? 0 : 1, title, body);
   size_t resp_length = strlen(resp_body);
@@ -155,10 +155,10 @@ static void _new_connection(SoupServer *server, SoupServerMessage *msg, gpointer
 
   const char *body = res ? 
     _("<h1>Thank you,</h1><p>everything should have worked, you can <b>close</b> your browser now and "
-      "<b>go back</b> to Ansel.</p>") :
+      "<b>go back</b> to Lumivell.</p>") :
     _("<h1>Sorry,</h1><p>something went wrong. Please try again.</p>");
 
-  char *page_title = g_strdup_printf(_("ansel >> %s"), params->id);
+  char *page_title = g_strdup_printf(_("lumivell >> %s"), params->id);
   char *resp_body = g_strdup_printf(reply, page_title, res ? 0 : 1, _(params->id), body);
   dt_free(page_title);
 
@@ -181,7 +181,7 @@ dt_http_server_t *dt_http_server_create(const int *ports, const int n_ports, con
 
   dt_print(DT_DEBUG_CONTROL, "[http server] using libsoup2\n");
 
-  httpserver = soup_server_new(SOUP_SERVER_SERVER_HEADER, "ansel internal server", NULL);
+  httpserver = soup_server_new(SOUP_SERVER_SERVER_HEADER, "lumivell internal server", NULL);
   if(IS_NULL_PTR(httpserver))
   {
     fprintf(stderr, "error: couldn't create libsoup httpserver\n");
@@ -217,7 +217,7 @@ soup_server_run(httpserver);
   // Libsoup3
   dt_print(DT_DEBUG_CONTROL, "[http server] using libsoup3\n");
 
-  httpserver = soup_server_new("server-header", "ansel internal server", NULL);
+  httpserver = soup_server_new("server-header", "lumivell internal server", NULL);
   if(IS_NULL_PTR(httpserver))
   {
     fprintf(stderr, "error: couldn't create libsoup httpserver\n");

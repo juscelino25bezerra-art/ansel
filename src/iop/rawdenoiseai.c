@@ -1842,7 +1842,7 @@ void gui_init(dt_iop_module_t *self)
   gtk_box_pack_start(GTK_BOX(box_raw), g->custom_model, TRUE, TRUE, 0);
   gtk_widget_set_tooltip_text(g->custom_model,
                               _("use a neural model of your own instead of the shipped ones.\n"
-                                "drop a .anselnn file into your Ansel config directory and it\n"
+                                "drop a .anselnn file into your Lumivell config directory and it\n"
                                 "appears here; the edit records the file NAME, so it keeps\n"
                                 "pointing at the same model as the folder changes."));
   g_signal_connect(G_OBJECT(g->custom_model), "value-changed", G_CALLBACK(_custom_model_callback), self);

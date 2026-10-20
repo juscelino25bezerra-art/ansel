@@ -210,7 +210,7 @@ typedef enum dt_lens_modify_t
  * field running into the sign bit -- and each would corrupt the other half's meaning in a
  * way that only shows up as a wrong correction on someone's photograph. */
 _Static_assert((DT_LENS_MODIFY_ALL_AXES & (int)DT_LENS_MODIFY_ANSEL_MASK) == 0,
-               "the axis space and Ansel's own bits must not overlap");
+               "the axis space and Lumivell's own bits must not overlap");
 _Static_assert((DT_LENS_MODIFY_TCA | DT_LENS_MODIFY_VIGNETTING | DT_LENS_MODIFY_DISTORTION_PACK)
                    == ((DT_LENS_MODIFY_TCA | DT_LENS_MODIFY_VIGNETTING
                         | DT_LENS_MODIFY_DISTORTION_PACK) & DT_LENS_MODIFY_ALL_AXES),
@@ -692,7 +692,7 @@ static void _lens_report_db_failure(const char *path, const ls_db_open_status_t 
        * produced one, so a rebuild that could not run the importer leaves the old file in
        * place and the new binary refuses it. */
       dt_print(DT_DEBUG_ALWAYS,
-               "[lens] `%s' is a lens database of schema v%d, and this Ansel reads v%d. It "
+               "[lens] `%s' is a lens database of schema v%d, and this Lumivell reads v%d. It "
                "is almost certainly left over from an older install: rebuild and reinstall "
                "so the file is replaced, or delete it if it is a stale copy in your "
                "configuration directory.\n",

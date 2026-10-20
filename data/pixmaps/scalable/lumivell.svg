@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Lumivell app icon ("Slider"), same drawing as the Android launcher icon -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="256" height="256">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="27.5" y1="54" x2="61.5" y2="54">
+      <stop offset="0" stop-color="#7C5CFF"/><stop offset="1" stop-color="#FFC857"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="108" height="108" rx="24" fill="#161827"/>
+  <path fill="#FFFFFF" fill-opacity="0.25" d="M30,51.5 H78 A2.5,2.5 0 0 1 78,56.5 H30 A2.5,2.5 0 0 1 30,51.5 Z"/>
+  <path fill="url(#g)" d="M30,51.5 H59 A2.5,2.5 0 0 1 59,56.5 H30 A2.5,2.5 0 0 1 30,51.5 Z"/>
+  <path fill="#FFC857" fill-rule="evenodd" d="M61,44 A10,10 0 1 1 61,64 A10,10 0 1 1 61,44 Z M61,50 A4,4 0 1 0 61,58 A4,4 0 1 0 61,50 Z"/>
+</svg>

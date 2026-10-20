@@ -894,7 +894,7 @@ static SoupSession *_textnotes_soup_session(void)
   if(session) return session;
   session = soup_session_new();
   if(session)
-    g_object_set(session, "timeout", 10, "user-agent", "Ansel", NULL);
+    g_object_set(session, "timeout", 10, "user-agent", "Lumivell", NULL);
   return session;
 }
 

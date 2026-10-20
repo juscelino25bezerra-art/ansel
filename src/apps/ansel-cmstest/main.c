@@ -156,9 +156,9 @@ int main(int argc __attribute__((unused)), char *arg[] __attribute__((unused)))
 #endif // HAVE_COLORD
 
 #ifdef USE_COLORDGTK
-  printf("ansel itself was built with colord support enabled\n");
+  printf("lumivell itself was built with colord support enabled\n");
 #else
-  printf("ansel itself was built without colord support\n");
+  printf("lumivell itself was built without colord support\n");
 #endif // USE_COLORDGTK
 
   printf("\n");

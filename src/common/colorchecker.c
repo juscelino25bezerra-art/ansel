@@ -880,7 +880,7 @@ static gboolean _dt_CGATS_is_supported(const cmsHANDLE *hIT8)
   // for example "IT8.7/1" or "IT8.7/2".
   if(_dt_CGATS_get_type_value(CGATS_type) == CGATS_TYPE_UNKOWN)
   {
-    dt_print(DT_DEBUG_VERBOSE, "[_dt_CGATS_is_supported] type '%s' is not supported by Ansel.\n",
+    dt_print(DT_DEBUG_VERBOSE, "[_dt_CGATS_is_supported] type '%s' is not supported by Lumivell.\n",
              !IS_NULL_PTR(CGATS_type) ? CGATS_type : "(null)");
     return FALSE;
   }
@@ -1378,7 +1378,7 @@ dt_color_checker_t *dt_colorchecker_user_ref_create(const char *color_filename, 
 
   if(!_dt_CGATS_is_supported(&hIT8))
   {
-    fprintf(stderr, "Ansel cannot load the CGATS file '%s'\n", color_filename);
+    fprintf(stderr, "Lumivell cannot load the CGATS file '%s'\n", color_filename);
     ERROR
   }
 

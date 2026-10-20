@@ -38,8 +38,8 @@
 // clang-format off
 // it butchers @@ and ${} :(
 
-#define PACKAGE_NAME "@CMAKE_PROJECT_NAME@"
-#define PACKAGE_BUGREPORT "https://github.com/aurelienpierreeng/ansel/issues"
+#define PACKAGE_NAME "lumivell"
+#define PACKAGE_BUGREPORT "https://github.com/juscelino25bezerra-art/ansel/issues"
 
 // these will be defined in build/bin/version_gen.c
 extern const char darktable_package_version[];

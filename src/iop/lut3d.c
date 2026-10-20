@@ -249,8 +249,8 @@ uint16_t calculate_clut_haldclut(dt_iop_lut3d_params_t *const p, const char *con
   {
     if (png.height == 2)
     {
-      fprintf(stderr, "[lut3d] this Ansel build is not compatible with compressed clut\n");
-      dt_control_log(_("this Ansel build is not compatible with compressed clut"));
+      fprintf(stderr, "[lut3d] this Lumivell build is not compatible with compressed clut\n");
+      dt_control_log(_("this Lumivell build is not compatible with compressed clut"));
     }
     else
     {
@@ -1152,7 +1152,7 @@ static void _warn_gmz_deprecated(const dt_iop_lut3d_params_t *const p)
 
   GtkWidget *dialog = gtk_message_dialog_new(
       GTK_WINDOW(win), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_WARNING, GTK_BUTTONS_CLOSE,
-      _("This edit uses a compressed G'MIC LUT (.gmz), which Ansel no longer supports.\n\n"
+      _("This edit uses a compressed G'MIC LUT (.gmz), which Lumivell no longer supports.\n\n"
         "No LUT is being applied to this image, so it will not look as it did. Convert the LUT "
         "to the .cube format and select it again -- the documentation gives the command.\n\n"
         "%s"),

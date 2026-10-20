@@ -1,3 +1,35 @@
+# Lumivell (desktop)
+
+<img src="data/pixmaps/256x256/lumivell.png" width="96" align="right" alt="">
+
+**Lumivell** é o editor de fotos para desktop da mesma família do app Lumivell para Android:
+biblioteca de fotos, revelação RAW não destrutiva e uma interface escura, plana e
+direta, com o painel de ajustes à direita, o histograma no topo e a filmstrip embaixo.
+
+![Lumivell — Revelação](data/screenshots/lumivell/revelacao.png)
+
+## Instalação (Linux)
+
+- **.deb** (Ubuntu 24.04+, Linux Mint 22+, Debian 13): `sudo apt install ./lumivell_*.deb`
+- **AppImage** (qualquer distribuição): `chmod +x Lumivell-*.AppImage` e execute.
+
+Os pacotes são gerados por `packaging/linux/make-packages.sh` a partir de um build configurado com
+`-DCMAKE_INSTALL_PREFIX=/opt/lumivell`. O programa fica em `/opt/lumivell`, o comando é `lumivell`
+e as configurações ficam em `~/.config/lumivell`, então ele convive com um Ansel ou darktable instalado.
+
+## Créditos e licença
+
+Lumivell é um fork do **[Ansel](https://github.com/aurelienpierreeng/ansel)**, de Aurélien Pierre,
+que por sua vez deriva do **[darktable](https://github.com/darktable-org/darktable)**. Todo o motor de
+revelação, a biblioteca e a maior parte do código vêm desses projetos e de seus colaboradores.
+Lumivell é distribuído, como eles, sob a **GNU GPL v3 ou posterior**.
+
+A documentação do Ansel (<https://ansel.photos/en/doc/>) continua válida para os módulos de revelação.
+
+---
+
+*O README original do Ansel segue abaixo.*
+
 # Ansel
 
 [![CI](https://github.com/aurelienpierreeng/ansel/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/aurelienpierreeng/ansel/actions/workflows/ci.yml)

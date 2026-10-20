@@ -1512,7 +1512,7 @@ void dt_opencl_init(const gboolean exclude_opencl, const gboolean print_statisti
            && !IS_NULL_PTR(cl->dev_priority_export) && !IS_NULL_PTR(cl->dev_priority_thumbnail));
 
     dt_print_nts(DT_DEBUG_OPENCL, "[opencl_init] OpenCL successfully initialized.\n");
-    dt_print_nts(DT_DEBUG_OPENCL, "[opencl_init] here are the internal numbers and names of OpenCL devices available to Ansel:\n");
+    dt_print_nts(DT_DEBUG_OPENCL, "[opencl_init] here are the internal numbers and names of OpenCL devices available to Lumivell:\n");
     for(int i = 0; i < dev; i++) dt_print_nts(DT_DEBUG_OPENCL, "[opencl_init]\t\t%d\t'%s'\n", i, cl->dev[i].name);
   }
   else

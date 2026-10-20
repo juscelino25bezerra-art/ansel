@@ -1638,8 +1638,8 @@ gboolean dt_control_remove_images()
 
     dialog = gtk_message_dialog_new(
         GTK_WINDOW(win), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO,
-        ngettext("Do you really want to remove %d image from Ansel library ?\nThe files will not be deleted on disk.",
-                 "Do you really want to remove %d images from Ansel library ?\nThe files will not be deletetd on disk.", number),
+        ngettext("Do you really want to remove %d image from Lumivell library ?\nThe files will not be deleted on disk.",
+                 "Do you really want to remove %d images from Lumivell library ?\nThe files will not be deletetd on disk.", number),
         number);
 #ifdef GDK_WINDOWING_QUARTZ
     dt_osx_disallow_fullscreen(dialog);

@@ -234,7 +234,7 @@ int main(int argc, char *arg[])
   if(!dt_conf_get_bool("cache_disk_backend"))
   {
     fprintf(stderr, _("warning: disk backend for thumbnail cache is disabled (cache_disk_backend)\nif you want "
-                      "to pre-generate thumbnails and for Ansel to use them, you need to enable disk backend "
+                      "to pre-generate thumbnails and for Lumivell to use them, you need to enable disk backend "
                       "for thumbnail cache\nno thumbnails to be generated, done.\n"));
     dt_cleanup();
     dt_free(m_arg);

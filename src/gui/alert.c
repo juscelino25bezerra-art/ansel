@@ -116,7 +116,7 @@ dt_gui_alert_t *dt_gui_alert_new(const dt_gui_alert_kind_t kind, const char *tit
   // it must show over the one the main window may have left.
   dt_osx_disallow_fullscreen(window);
 #endif
-  gtk_window_set_icon_name(GTK_WINDOW(window), "ansel");
+  gtk_window_set_icon_name(GTK_WINDOW(window), "lumivell");
   gtk_window_set_title(GTK_WINDOW(window), title);
   gtk_window_set_resizable(GTK_WINDOW(window), FALSE);
 

@@ -195,7 +195,7 @@ static gboolean export_files_callback(GtkAccelGroup *group, GObject *acceleratab
   gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_CANCEL);
   gtk_window_set_modal(GTK_WINDOW(dialog), FALSE);
   gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(dt_gui_main_window()));
-  gtk_window_set_title(GTK_WINDOW(dialog), _("Ansel - Export images"));
+  gtk_window_set_title(GTK_WINDOW(dialog), _("Lumivell - Export images"));
   g_signal_connect(G_OBJECT(dialog), "response", G_CALLBACK(_close_export_popup), NULL);
 
   // Ensure the module is expanded
@@ -276,7 +276,7 @@ static void _export_list_save(GtkWidget *dialog, GtkTextBuffer *buffer)
 
   // GtkFileChooserNative uses the platform-native save dialog on Windows and macOS
   GtkFileChooserNative *chooser
-      = gtk_file_chooser_native_new(_("Ansel - Save image list"), GTK_WINDOW(dialog),
+      = gtk_file_chooser_native_new(_("Lumivell - Save image list"), GTK_WINDOW(dialog),
                                     GTK_FILE_CHOOSER_ACTION_SAVE, _("_Save"), _("_Cancel"));
   gtk_file_chooser_set_do_overwrite_confirmation(GTK_FILE_CHOOSER(chooser), TRUE);
   gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(chooser),
@@ -331,7 +331,7 @@ static gboolean export_image_list_callback(GtkAccelGroup *group, GObject *accele
   GList *imgids = dt_selection_get_list(dt_selection_get_global());
   if(IS_NULL_PTR(imgids)) return TRUE;
 
-  dialog = gtk_dialog_new_with_buttons(_("Ansel - Export image list"),
+  dialog = gtk_dialog_new_with_buttons(_("Lumivell - Export image list"),
                                        GTK_WINDOW(dt_gui_main_window()),
                                        GTK_DIALOG_DESTROY_WITH_PARENT,
                                        _("Copy to clipboard"), GTK_RESPONSE_APPLY,

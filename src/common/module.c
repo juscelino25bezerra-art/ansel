@@ -72,7 +72,7 @@ gchar **dt_module_read_manifest(const char *subdir, char *moduledir)
      * writing through offsets that no longer exist. Refusing to load beats guessing. */
     dt_print(DT_DEBUG_ALWAYS, "[dt_module_load_modules] no module manifest at `%s': %s\n"
                               "  No module will be loaded from that directory. This is an\n"
-                              "  incomplete or damaged installation -- reinstall Ansel.\n",
+                              "  incomplete or damaged installation -- reinstall Lumivell.\n",
              manifest_path, error ? error->message : "unknown error");
     if(error) g_error_free(error);
     g_free(manifest_path);

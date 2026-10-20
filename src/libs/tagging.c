@@ -3402,7 +3402,7 @@ void gui_init(dt_lib_module_t *self)
 
   // "show system tags" checkbox: reveal the tags Ansel manages automatically (Ansel|…)
   d->dttags_check = gtk_check_button_new_with_label(_("Show system tags"));
-  gtk_widget_set_tooltip_text(d->dttags_check, _("show the tags automatically attached by Ansel (names starting with “Ansel|”)"));
+  gtk_widget_set_tooltip_text(d->dttags_check, _("show the tags automatically attached by Lumivell (names starting with “Ansel|”)"));
   d->dttags_flag = FALSE;
   g_signal_connect(G_OBJECT(d->dttags_check), "toggled", G_CALLBACK(_dttags_check_toggled), self);
   gtk_box_pack_start(GTK_BOX(self->widget), d->dttags_check, FALSE, TRUE, 0);

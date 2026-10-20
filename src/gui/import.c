@@ -1186,7 +1186,7 @@ static void gui_init(dt_lib_import_t *d)
   _dt_check_basedir();
 
   d->dialog = gtk_dialog_new_with_buttons
-    ( _("Ansel - Open pictures"), NULL, GTK_DIALOG_DESTROY_WITH_PARENT,
+    ( _("Lumivell - Open pictures"), NULL, GTK_DIALOG_DESTROY_WITH_PARENT,
       _("Cancel"), GTK_RESPONSE_CANCEL,
       _("Import"), GTK_RESPONSE_ACCEPT,
       NULL);
@@ -1293,7 +1293,7 @@ static void gui_init(dt_lib_import_t *d)
       _("Images already in the library will not be imported again, selected or not. "
         "Remove them from the library first, or use the menu "
         "`Run \342\206\222 Resynchronize library and XMP` to update the local database from distant XMP.\n\n"
-        "Ansel indexes images by their filename and parent folder (full path), "
+        "Lumivell indexes images by their filename and parent folder (full path), "
         "not by their content. Therefore, renaming or moving images on the filesystem, "
         "or changing the mounting point of their external drive will make them "
         "look like new (unknown) images.\n\n"
