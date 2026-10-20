@@ -36,6 +36,10 @@ trap 'rm -rf "$WORK"' EXIT
 echo "==> staging install (${GIT_DESC})"
 DESTDIR="$WORK/deb" cmake --install "$BUILD_DIR" > "$WORK/install.log"
 
+# release packages ship without debug info
+find "$WORK/deb/usr" -type f \( -perm -u+x -o -name '*.so*' \) -exec sh -c \
+  'file -b "$1" | grep -q ELF && strip --strip-unneeded "$1"' _ {} \;
+
 # ---------------------------------------------------------------------------
 # .deb
 # ---------------------------------------------------------------------------
@@ -86,7 +90,7 @@ fi
 
 echo "==> building AppImage"
 APPDIR="$WORK/AppDir"
-DESTDIR="$APPDIR" cmake --install "$BUILD_DIR" > /dev/null
+cp -a "$WORK/deb" "$APPDIR" && rm -rf "$APPDIR/DEBIAN"
 
 # lensfun database, if the host has one
 if [ -d /usr/share/lensfun ]; then
@@ -106,13 +110,15 @@ export NO_STRIP=1
 
 LIBDIRS=()
 for d in "$APPDIR/usr/lib/x86_64-linux-gnu/ansel" "$APPDIR/usr/lib/ansel"; do
-  [ -d "$d" ] && LIBDIRS+=(--library "$(find "$d" -maxdepth 1 -name 'libansel*.so*' | head -1)")
+  [ -d "$d" ] || continue
+  lib=$(find "$d" "$(dirname "$d")" -maxdepth 1 -name 'libansel*.so*' | head -1)
+  if [ -n "$lib" ]; then LIBDIRS+=(--library "$lib"); fi
 done
 
 EXECS=()
 for e in "$APPDIR"/usr/bin/*; do
   [ "$(basename "$e")" = ansel ] && continue
-  file -b "$e" | grep -q ELF && EXECS+=(--executable "$e")
+  if file -b "$e" | grep -q ELF; then EXECS+=(--executable "$e"); fi
 done
 
 # IOP plugins are dlopen()ed, let linuxdeploy collect their deps too

@@ -84,9 +84,10 @@ typedef enum dt_modulesgroups_tabs_t
 
 typedef enum dt_modulesgroups_basic_sections_t 
 {
-  TAB_BASIC_COLOR = 0,
-  TAB_BASIC_FILM = 1,
-  TAB_BASIC_TONES = 2,
+  /* display order of the basic tab: tones first, like a classic "basic" panel */
+  TAB_BASIC_TONES = 0,
+  TAB_BASIC_COLOR = 1,
+  TAB_BASIC_FILM = 2,
   TAB_BASIC_LAST
 } dt_modulesgroups_basic_sections_t;
 

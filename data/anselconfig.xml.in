@@ -1729,7 +1729,7 @@
   <dtconfig>
     <name>display/brightness</name>
     <type min="0" max="100">int</type>
-    <default>50</default>
+    <default>18</default>
     <shortdescription>background brightness to show pictures against</shortdescription>
   </dtconfig>
   <dtconfig>

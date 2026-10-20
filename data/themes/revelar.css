@@ -318,12 +318,15 @@ menuitem.menu-active label {
 
 #modules-tabs notebook tab:checked {
   background-color: transparent;
+  border: none;
   border-bottom: 2px solid @rv_accent;
+  margin-bottom: 0;
 }
 
 #modules-tabs notebook tab:checked label,
 #modules-tabs notebook tab:checked label.dt_modulegroups_tab_label {
   color: @rv_text_hi;
+  font-weight: 500;
 }
 
 notebook tab:checked label {
