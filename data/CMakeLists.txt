@@ -385,3 +385,10 @@ endif()
 # data file Ansel ships.
 install(FILES "${LENSES_SCHEMA}" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/ansel
         RENAME lenses-schema.sql COMPONENT DTApplication)
+
+#
+# Install the interface fonts shipped with Lumivell (Inter, JetBrains Mono; SIL OFL 1.1).
+# The application registers this folder with Fontconfig at startup (see darktable.c).
+#
+file(GLOB UI_FONT_FILES "fonts/*.otf" "fonts/*.ttf" "fonts/LICENSE-*.txt")
+install(FILES ${UI_FONT_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/ansel/fonts COMPONENT DTApplication)

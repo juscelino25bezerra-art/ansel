@@ -33,6 +33,7 @@
 @define-color rv_body       #17171A;   /* expanded module body        */
 @define-color rv_line       #2E2E33;   /* hairlines between modules   */
 @define-color rv_center     #060607;   /* behind the photo            */
+@define-color rv_selected   #2A2A2F;   /* selected item, active pill  */
 
 /* text */
 @define-color rv_text       #ECEAE6;
@@ -76,11 +77,12 @@
 /* sliders: dark track, neutral fill, light value text */
 @define-color bauhaus_bg #3A3A40;
 @define-color bauhaus_fg @rv_text;
-@define-color bauhaus_border alpha(white, 0.05);
+@define-color bauhaus_border transparent;
 @define-color bauhaus_indicator_border #101010;
 @define-color bauhaus_fill @rv_accent;
 @define-color bauhaus_value @rv_accent;
-@define-color bauhaus_value_text @rv_text;
+@define-color bauhaus_value_text @rv_accent;          /* a value the user changed */
+@define-color bauhaus_value_text_default @rv_text_dim; /* a value left at its default */
 @define-color bauhaus_bg_hover #3a3a3a;
 @define-color bauhaus_bg_focus #3a3a3a;
 @define-color bauhaus_fg_hover @rv_text_hi;
@@ -133,20 +135,43 @@
 
 
 /*======================================
-  2. TYPOGRAPHY
+  2. TYPOGRAPHY -- Inter for the interface, JetBrains Mono for numbers
+  (both shipped in <datadir>/fonts and registered at startup)
   ======================================*/
+
+*,
+.dt_section_label,
+.quickfilter-label,
+treeview header label,
+treeview *:selected:not(check),
+notebook tabs,
+#modules-tabs,
+#blending-header,
+tooltip label,
+.active_menu_item * {
+  font-family: "Inter", "Roboto", "Segoe UI", "SF Pro Text", "Cantarell", sans-serif;
+  font-stretch: normal;
+}
 
 * {
   font-weight: 400;
 }
 
+.dt_monospace {
+  font-family: "JetBrains Mono", "Roboto Mono", monospace;
+}
+
 #iop-panel-label,
 #lib-panel-label {
-  font-family: "Roboto", "Segoe UI", "SF Pro Text", "Ubuntu", "Cantarell", sans-serif;
+  font-family: "Inter", "Roboto", sans-serif;
   font-stretch: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1em;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
+}
+
+menubar menuitem label {
+  font-weight: 500;
 }
 
 
@@ -162,18 +187,27 @@
   box-shadow: none;
 }
 
-#top-first-line {
-  background-color: @rv_chrome;
-  border-bottom: 1px solid #000000;
-}
-
+#top-first-line,
 #top-second-line {
   background-color: @rv_chrome;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid @rv_panel_alt;
+}
+
+#top-first-line {
+  padding: 4px 6px;
+}
+
+#menu-bar menuitem {
+  border-radius: 8px;
+  padding: 4px 10px;
 }
 
 #menu-bar menuitem label {
   color: @rv_text_dim;
+}
+
+#menu-bar menuitem:hover {
+  background-color: @rv_panel_alt;
 }
 
 #menu-bar menuitem:hover label,
@@ -182,61 +216,90 @@ menuitem.menu-active label {
   color: @rv_text_hi;
 }
 
-#left  { border-right: 1px solid #000000; }
-#right { border-left:  1px solid #000000; }
+#left  { border-right: 1px solid @rv_panel_alt; }
+#right { border-left:  1px solid @rv_panel_alt; }
+
+#left,
+#right,
+#plugins_box,
+#right scrolledwindow,
+#left scrolledwindow {
+  background-color: @rv_panel;
+}
 
 .dt-module-toolbox {
   background-color: @rv_chrome;
+  padding: 6px 8px;
 }
 
 
 /*======================================
-  4. PANELS & MODULES -- flat, full width
+  4. PANELS & MODULES -- sections, not boxes
   ======================================*/
 
 .module-groups-container {
-  padding: 0;
+  padding: 0 0.9em;
 }
 
-.dt_iop_module.dt_module_frame {
-  margin: 0;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid @rv_line;
-}
-
+.dt_iop_module.dt_module_frame,
 .dt_iop_module.dt_module_focus,
 .dt_iop_module.dt_module_frame:focus {
   margin: 0;
   border: none;
-  border-left: 2px solid @rv_accent;
-  border-bottom: 1px solid @rv_line;
+  border-radius: 0;
+  border-top: 1px solid #222226;
 }
 
 #module-header,
 .dt_iop_module #module-header,
 .dt_iop_module.expanded #module-header,
-.expanded #module-header {
-  border-radius: 0;
-  border: none;
-  background-color: @rv_panel_alt;
-  padding: 0.55em 0.75em;
-}
-
+.expanded #module-header,
 .dt_lib_module #module-header,
 .dt_lib_module:first-child #module-header {
-  border-top: 1px solid @rv_line;
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+  padding: 0.7em 0.15em;
+}
+
+.dt_lib_module {
+  border-top: 1px solid #222226;
+  margin: 0 0.9em;
 }
 
 #module-header:hover {
-  background-color: #2A2A2F;
+  background-color: transparent;
+}
+
+#module-header:hover #iop-panel-label,
+#module-header:hover #lib-panel-label {
+  color: @rv_text_hi;
+}
+
+#iop-panel-label,
+#lib-panel-label {
+  color: @rv_text;
 }
 
 .expanded #module-header #iop-panel-label,
-.expanded #module-header #lib-panel-label,
+.expanded #module-header #lib-panel-label {
+  color: @rv_text_hi;
+}
+
+/* the focused module says so with the accent on its name, not with a frame */
 .dt_module_focus #iop-panel-label,
 .dt_module_frame:focus #iop-panel-label {
+  color: @rv_accent;
+}
+
+#module-header .dt_module_btn {
+  color: @rv_text_off;
+  border-radius: 8px;
+}
+
+#module-header .dt_module_btn:hover {
   color: @rv_text_hi;
+  background-color: @rv_panel_alt;
 }
 
 #module-header .dt_module_btn.dt_iop_enable_button {
@@ -244,19 +307,19 @@ menuitem.menu-active label {
 }
 
 #module-header .dt_iop_enable_button:checked {
-  color: @rv_text;
+  color: @rv_accent;
 }
 
 #module-header .dt_iop_enable_button:hover,
 #module-header .dt_iop_enable_button:active,
 #module-header .dt_iop_enable_button:selected,
 #module-header .dt_iop_enable_button.dt_iop_enable_forced_on {
-  color: @rv_text_hi;
+  color: @rv_accent_hi;
 }
 
 .dt_plugin_ui_main {
-  padding: 0.75em 0.9em;
-  background-color: @rv_body;
+  padding: 0.2em 0.15em 0.9em;
+  background-color: transparent;
 }
 
 #bauhaus-slider,
@@ -264,18 +327,21 @@ menuitem.menu-active label {
   background-color: transparent;
 }
 
-/* section labels ("tones", "color"...) read as quiet group titles */
+/* group titles inside the basic tab ("tones", "color"...) */
 #pref_section,
 .dt_section_label,
 #plugins_box .dt_plugin_ui_main .dt_section_label {
   color: @rv_text_dim;
-  border-bottom: 1px solid @rv_line;
+  border-bottom: none;
+  font-size: 0.85em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
 #plugins_box .dt_section_label {
   color: @rv_text_dim;
-  border-bottom-color: @rv_line;
-  margin: 0.9em 0.75em 0.3em;
+  border-bottom: none;
+  margin: 1.1em 0.9em 0.4em;
 }
 
 #collapsible,
@@ -283,29 +349,40 @@ menuitem.menu-active label {
 .dt_section_expander,
 .dt_section_expander label {
   background-color: @collapsible_bg_color;
+  border-radius: 10px;
 }
 
 
 /*======================================
-  5. MODULE TABS -- text tabs, underline on the active one
+  5. MODULE TABS -- a segmented pill, like the mode switcher
   ======================================*/
 
 #modules-tabs notebook header,
 #modules-tabs notebook header tabs {
   background-color: @rv_panel;
-  border-bottom: 1px solid @rv_line;
+  border: none;
+}
+
+#modules-tabs notebook header {
+  margin: 0.6em 0.9em 0.4em;
+  padding: 3px;
+  border: 1px solid #222226;
+  border-radius: 999px;
 }
 
 #modules-tabs notebook tab {
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid transparent;
-  border-radius: 0;
+  border-radius: 999px;
+  margin: 0;
+  padding: 0 0.2em;
 }
 
 #modules-tabs notebook tab label,
 #modules-tabs notebook tab label.dt_modulegroups_tab_label {
   color: @rv_text_dim;
+  border: none;
+  font-weight: 500;
 }
 
 #modules-tabs notebook tab:hover {
@@ -318,10 +395,9 @@ menuitem.menu-active label {
 }
 
 #modules-tabs notebook tab:checked {
-  background-color: transparent;
+  background-color: @rv_selected;
   border: none;
-  border-bottom: 2px solid @rv_accent;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 #modules-tabs notebook tab:checked label,
@@ -330,26 +406,56 @@ menuitem.menu-active label {
   font-weight: 500;
 }
 
+notebook tab label {
+  border-bottom-color: transparent;
+}
+
 notebook tab:checked label {
   color: @rv_text_hi;
+  border-bottom-color: @rv_accent;
 }
 
 
 /*======================================
-  6. CONTROLS
+  6. CONTROLS -- pills
   ======================================*/
 
 button,
 .dt_module_btn {
-  border-radius: 3px;
+  border-radius: 8px;
+}
+
+button.text-button,
+dialog button,
+.dialog-action-box button {
+  border: 1px solid @rv_line;
+  border-radius: 999px;
+  padding: 4px 14px;
+  background-color: transparent;
+}
+
+button.text-button:hover,
+dialog button:hover {
+  background-color: @rv_panel_alt;
+}
+
+button.suggested-action {
+  background-color: @rv_accent;
+  border-color: @rv_accent;
+}
+
+button.suggested-action label {
+  color: #1A1408;
+  font-weight: 600;
 }
 
 entry,
 spinbutton,
 #search-box entry {
-  background-color: #0B0B0C;
+  background-color: @rv_panel;
   border: 1px solid @rv_line;
-  border-radius: 3px;
+  border-radius: 999px;
+  padding: 2px 12px;
   color: @rv_text;
 }
 
@@ -358,8 +464,15 @@ entry:focus,
   border-color: @rv_accent;
 }
 
+textview,
+textview text {
+  border-radius: 10px;
+}
+
 scrollbar slider {
-  border-radius: 6px;
+  border-radius: 999px;
+  min-width: 0.35em;
+  min-height: 0.35em;
 }
 
 scale highlight {
@@ -368,6 +481,11 @@ scale highlight {
 
 progressbar progress {
   background-color: @rv_accent;
+  border-radius: 999px;
+}
+
+progressbar trough {
+  border-radius: 999px;
 }
 
 tooltip,
@@ -378,42 +496,94 @@ tooltip * {
 
 tooltip {
   border: 1px solid @rv_line;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 menu,
 .popup,
 popover,
 context-menu {
-  background-color: #141416;
+  background-color: @rv_panel;
   border: 1px solid @rv_line;
+  border-radius: 12px;
+}
+
+menu menuitem {
+  border-radius: 6px;
 }
 
 menu menuitem:hover,
 popover modelbutton:hover {
-  background-color: alpha(@rv_accent, 0.35);
+  background-color: @rv_panel_alt;
+}
+
+menu menuitem:hover label {
+  color: @rv_text_hi;
+}
+
+/* the histogram sits in a card */
+#main-histogram {
+  background-color: @rv_chrome;
+  border: 1px solid #222226;
+  border-radius: 12px;
+  margin: 0.6em 0.9em 0.2em;
 }
 
 
 /*======================================
-  7. THUMBNAILS & FILMSTRIP
+  7. THUMBNAILS & FILMSTRIP -- rounded cards
   ======================================*/
 
-.dt_thumbtable,
-#thumbtable-filmstrip {
-  background-color: @rv_center;
+.dt_thumbtable {
+  background-color: @rv_chrome;
 }
 
 #thumbtable-filmstrip {
   background-color: @rv_chrome;
+  border-top: 1px solid @rv_panel_alt;
+}
+
+.thumb-main {
+  margin: 7px;
+}
+
+.thumb-background {
+  background-color: @rv_panel;
+  border: 4px solid @rv_panel;
+  border-radius: 10px;
+}
+
+#thumbtable-filmstrip .thumb-main {
+  margin: 4px;
+}
+
+#thumbtable-filmstrip .thumb-background {
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+
+.thumb-main:hover .thumb-background {
+  background-color: @rv_panel_alt;
+  border-color: @rv_panel_alt;
 }
 
 .thumb-main:selected .thumb-background,
-.thumb-main:active .thumb-background,
-#thumbtable-filmstrip .thumb-main:selected .thumb-background {
-  background-color: @thumbnail_selected_bg_color;
+.thumb-main:active .thumb-background {
+  background-color: @rv_selected;
+  border-color: @rv_accent;
+}
+
+#thumbtable-filmstrip .thumb-main:selected .thumb-background,
+#thumbtable-filmstrip .thumb-main:active .thumb-background {
+  background-color: transparent;
+  border-color: @rv_accent;
+}
+
+#thumbtable-filmstrip .thumb-main:selected {
+  border-top: none;
 }
 
 #thumbtable-filmstrip .thumb-main:selected .thumb-cursor {
-  border-color: @rv_text_hi;
+  opacity: 0;
 }

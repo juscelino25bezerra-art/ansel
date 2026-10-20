@@ -275,7 +275,8 @@ struct dt_bauhaus_t
 
   // colors for sliders and comboboxes
   GdkRGBA color_fg, color_fg_insensitive, color_bg, color_border, indicator_border, color_fill,
-      color_value, color_value_insensitive, color_value_text, color_value_text_insensitive;
+      color_value, color_value_insensitive, color_value_text, color_value_text_insensitive,
+      color_value_text_default; // value text of a slider resting at its default value
 
   // colors for graphs
   GdkRGBA graph_bg, graph_exterior, graph_border, graph_fg, graph_grid, graph_fg_active, graph_overlay,

@@ -1422,6 +1422,20 @@ int dt_init(int argc, char *argv[], const gboolean init_gui, const gboolean load
   if(init_gui)
   {
     g_log_set_writer_func(_gtk_log_writer_filter, NULL, NULL);
+#if !defined(_WIN32) && !defined(__APPLE__)
+    // Lumivell ships its own interface fonts (Inter and JetBrains Mono, both OFL) in
+    // <datadir>/fonts, so the interface looks the same whatever the system has installed.
+    // Registered with Fontconfig before GTK and Pango build their font map.
+    {
+      char fontdatadir[DT_PATH_MAX] = { 0 };
+      dt_loc_get_datadir(fontdatadir, sizeof(fontdatadir));
+      gchar *fontdir = g_build_filename(fontdatadir, "fonts", NULL);
+      if(g_file_test(fontdir, G_FILE_TEST_IS_DIR)
+         && !FcConfigAppFontAddDir(NULL, (const FcChar8 *)fontdir))
+        dt_print(DT_DEBUG_ALWAYS, "[fonts] could not register the bundled fonts in %s\n", fontdir);
+      dt_free(fontdir);
+    }
+#endif
     gtk_init(&argc, &argv);
 
     darktable.themes = NULL;

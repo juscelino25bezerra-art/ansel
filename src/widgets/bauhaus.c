@@ -670,6 +670,12 @@ typedef enum _bh_halign_t
  * @param height Pointer where text spanning height will be returned in Cairo units. Can be NULL.
  * @param ignore_pseudo_classes Disregard styling done in pseudo-classes and use the normal style.
  */
+/* Numbers (slider values) are drawn in a monospaced face so they do not jitter while
+ * they change. Set around the value's show_pango_text() call only; bauhaus draws on the
+ * GUI thread alone, so a file-level override is enough. */
+#define DT_BAUHAUS_VALUE_FONT_FAMILY "JetBrains Mono,Roboto Mono,monospace"
+static const char *_bh_family_override = NULL;
+
 static void show_pango_text(struct dt_bauhaus_widget_t *w,
                             GtkStyleContext *context,
                             cairo_t *cr,
@@ -700,6 +706,7 @@ static void show_pango_text(struct dt_bauhaus_widget_t *w,
     pango_font_description_set_family(resolved, pango_font_description_get_family(css_font));
     pango_font_description_free(css_font);
   }
+  if(_bh_family_override) pango_font_description_set_family(resolved, _bh_family_override);
 
   // --- Propagate GTK's font rendering settings to the Cairo context ---
   //
@@ -1154,6 +1161,10 @@ void dt_bauhaus_load_theme(dt_bauhaus_t *bauhaus)
     bauhaus->color_value_text = bauhaus->color_value;
   if(!gtk_style_context_lookup_color(ctx, "bauhaus_value_text_insensitive", &bauhaus->color_value_text_insensitive))
     bauhaus->color_value_text_insensitive = bauhaus->color_value_insensitive;
+  // A theme may tell a slider left at its default from one the user moved: the default
+  // value is drawn in this color, a changed one in bauhaus_value_text.
+  if(!gtk_style_context_lookup_color(ctx, "bauhaus_value_text_default", &bauhaus->color_value_text_default))
+    bauhaus->color_value_text_default = bauhaus->color_value_text;
 
   gtk_style_context_lookup_color(ctx, "graph_bg", &bauhaus->graph_bg);
   gtk_style_context_lookup_color(ctx, "graph_exterior", &bauhaus->graph_exterior);
@@ -1223,9 +1234,9 @@ void dt_bauhaus_load_theme(dt_bauhaus_t *bauhaus)
   bauhaus->line_height = pango_height / PANGO_SCALE;
   bauhaus->quad_width = bauhaus->line_height;
 
-  bauhaus->baseline_size = 5; // absolute size in Cairo unit
+  bauhaus->baseline_size = 3; // absolute size in Cairo unit: a thin track
   bauhaus->border_width = 1; // absolute size in Cairo unit
-  bauhaus->marker_size = pango_height / PANGO_SCALE * 0.6;
+  bauhaus->marker_size = pango_height / PANGO_SCALE * 0.68;
 }
 
 dt_bauhaus_t * dt_bauhaus_init()
@@ -2215,7 +2226,10 @@ static void dt_bauhaus_draw_indicator(struct dt_bauhaus_widget_t *w, float pos, 
 
   if(!has_colored_background && d->fill_feedback)
   {
-    // Plain indicator (regular sliders)
+    // Plain indicator (regular sliders): a round thumb with a soft dark ring under it
+    cairo_arc(cr, 0, 0.5, size / 2. + 1.5, 0, M_PI * 2);
+    cairo_set_source_rgba(cr, 0., 0., 0., 0.45);
+    cairo_fill(cr);
     cairo_arc(cr, 0, 0, size / 2., 0, M_PI * 2);
     set_color(cr, w->bauhaus->color_fg);
     cairo_set_line_width(cr, 0);
@@ -2293,9 +2307,16 @@ static void dt_bauhaus_draw_baseline(struct dt_bauhaus_widget_t *w, cairo_t *cr,
   // stays at `width` (flush with the right-aligned numeric value) instead of
   // retreating by |x_origin| and letting the value overhang the baseline.
   const double baseline_width = width - x_origin;
-  // Make sure we use integer coordinates to limit anti-aliasing blur
-  cairo_rectangle(cr, round(x_origin), round(baseline_top), 
-                      round(baseline_width), round(baseline_height));
+  // Make sure we use integer coordinates to limit anti-aliasing blur.
+  // The track has round ends.
+  {
+    const double bx = round(x_origin), by = round(baseline_top);
+    const double bw = round(baseline_width), bh = round(baseline_height), r = bh / 2.;
+    cairo_new_sub_path(cr);
+    cairo_arc(cr, bx + bw - r, by + r, r, -M_PI / 2., M_PI / 2.);
+    cairo_arc(cr, bx + r, by + r, r, M_PI / 2., 3. * M_PI / 2.);
+    cairo_close_path(cr);
+  }
 
   cairo_pattern_t *gradient = NULL;
   if(has_colored_background && is_sensitive)
@@ -2854,7 +2875,8 @@ static gboolean _widget_draw(GtkWidget *widget, cairo_t *crf)
                                       .y = 0.,
                                       .width = available_width - label_width - INNER_PADDING,
                                       .height = inner_height };
-      set_color(cr, *value_text_color);
+      // a choice reads like regular text; the accent is kept for slider values the user changed
+      set_color(cr, *text_color);
       show_pango_text(w, context, cr, &bounding_value, text, BH_ALIGN_RIGHT, BH_ALIGN_MIDDLE, combo_ellipsis, NULL,
                       NULL, NULL, state);
 
@@ -2888,14 +2910,20 @@ static gboolean _widget_draw(GtkWidget *widget, cairo_t *crf)
         dt_bauhaus_draw_indicator(w, w->data.slider.pos, cr, available_width);
         cairo_restore(cr);
 
-        char *text = dt_bauhaus_slider_get_text(widget, dt_bauhaus_slider_get(widget));
+        const float value = dt_bauhaus_slider_get(widget);
+        char *text = dt_bauhaus_slider_get_text(widget, value);
         GdkRectangle bounding_value = { .x = 0.,
                                         .y = 0.,
                                         .width = text_width,
                                         .height = w->bauhaus->line_height };
-        set_color(cr, *value_text_color);
+        // a value the user changed stands out; one left at its default stays quiet
+        const float defval = w->data.slider.defpos;
+        const gboolean at_default = fabsf(value - defval) <= 1e-6f * fmaxf(1.f, fabsf(defval));
+        set_color(cr, at_default ? w->bauhaus->color_value_text_default : *value_text_color);
+        _bh_family_override = DT_BAUHAUS_VALUE_FONT_FAMILY;
         show_pango_text(w, context, cr, &bounding_value, text, BH_ALIGN_RIGHT, BH_ALIGN_MIDDLE,
                         PANGO_ELLIPSIZE_NONE, NULL, &value_width, NULL, state);
+        _bh_family_override = NULL;
         dt_free(text);
       }
 
