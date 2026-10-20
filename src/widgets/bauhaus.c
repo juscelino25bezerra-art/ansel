@@ -2412,12 +2412,20 @@ static void dt_bauhaus_draw_baseline(struct dt_bauhaus_widget_t *w, cairo_t *cr,
   // a zero in periodic stuff has not much meaning so we skip it.
   if(d->hard_max != 360.0f && is_sensitive)
   {
-    set_color(cr, w->bauhaus->color_fg);
-
-    // If we are to put the 0 reference on the "left", this time we need to account for
-    // actual leftmost resting position of the indicator, not the starting point of the baseline.
-    cairo_arc(cr, origin, baseline_top + w->bauhaus->marker_size, w->bauhaus->border_width / 2., 0, 2 * M_PI);
-    cairo_fill(cr);
+    // A thin vertical tick across the track marks the 0 reference. Skipped when it sits on
+    // either end, where the rounded cap already says where the scale starts.
+    if(origin > 0.f && origin < width)
+    {
+      set_color(cr, w->bauhaus->color_fg);
+      const double tick = 1.;
+      const double overhang = 2.;
+      cairo_rectangle(cr, round(origin) - tick / 2., round(baseline_top) - overhang,
+                      tick, round(baseline_height) + 2. * overhang);
+      cairo_save(cr);
+      cairo_clip(cr);
+      cairo_paint_with_alpha(cr, 0.55);
+      cairo_restore(cr);
+    }
   }
 
   cairo_restore(cr);

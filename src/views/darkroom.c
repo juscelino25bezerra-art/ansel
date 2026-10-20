@@ -123,6 +123,7 @@
 #include "libs/colorpicker.h"
 #include "libs/lib.h"
 #include "views/dev_backbuf.h"
+#include "views/darkroom_rails.h"
 #include "views/dev_toolbox.h"
 #include "views/view.h"
 #include "views/view_api.h"
@@ -2252,6 +2253,7 @@ void enter(dt_view_t *self)
     gtk_widget_show(_floatbar.box);
     _floatbar_refresh();
   }
+  dt_darkroom_rails_enter(dev, self);
 
   /* connect signal for filmstrip image activate */
   DT_DEBUG_CONTROL_SIGNAL_CONNECT(dt_control_signal_get_global(), DT_SIGNAL_VIEWMANAGER_THUMBTABLE_ACTIVATE,
@@ -2272,6 +2274,7 @@ void leave(dt_view_t *self)
 {
   dt_develop_t *dev = (dt_develop_t *)self->data;
   if(_floatbar.box) gtk_widget_hide(_floatbar.box);
+  dt_darkroom_rails_leave();
   if(!IS_NULL_PTR(_autoset_manager) && !IS_NULL_PTR(_autoset_manager->input_wait))
     dt_dev_pixelpipe_cache_wait_cleanup((dt_dev_pixelpipe_cache_wait_t *)_autoset_manager->input_wait,
                                         "darkroom-leave-autoset");

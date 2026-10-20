@@ -1883,7 +1883,7 @@ msgstr ""
 "Acima (anexar) — o original é a base; em conflitos, o que chega (origem) "
 "prevalece."
 
-#: src/gui/actions/display.c:485
+#: src/gui/actions/display.c:488
 msgid "Absolute colorimetric"
 msgstr "Colorimétrico absoluto"
 
@@ -1971,19 +1971,19 @@ msgstr "Já está em '%s'"
 msgid "Always ask"
 msgstr "Sempre perguntar"
 
-#: src/gui/actions/display.c:517
+#: src/gui/actions/display.c:520
 msgid "Always hide"
 msgstr "Sempre ocultar"
 
-#: src/gui/actions/display.c:529
+#: src/gui/actions/display.c:532
 msgid "Always process the RAW"
 msgstr "Sempre processar o RAW"
 
-#: src/gui/actions/display.c:523
+#: src/gui/actions/display.c:526
 msgid "Always show"
 msgstr "Sempre mostrar"
 
-#: src/gui/actions/display.c:533
+#: src/gui/actions/display.c:536
 msgid "Always use embedded JPG"
 msgstr "Sempre usar o JPG incorporado"
 
@@ -2092,7 +2092,7 @@ msgstr "Ansel v0.1 para entrada JPEG/não RAW"
 msgid "Ansel v0.1 for RAW input (default)"
 msgstr "Ansel v0.1 para entrada RAW (padrão)"
 
-#: src/gui/actions/edit.c:554 src/gui/actions/styles.c:416
+#: src/gui/actions/edit.c:564 src/gui/actions/styles.c:416
 msgid "Append"
 msgstr "Anexar"
 
@@ -2168,7 +2168,7 @@ msgstr "Perguntar sempre"
 msgid "Ask merge settings before apply"
 msgstr "Perguntar configurações de mesclagem antes de aplicar"
 
-#: src/gui/actions/edit.c:571
+#: src/gui/actions/edit.c:581
 msgid "Ask merge settings before paste"
 msgstr "Perguntar configurações de mesclagem antes de colar"
 
@@ -2209,7 +2209,7 @@ msgstr "Estilo automático"
 msgid "Automatic cropping failed. Keeping previous margins."
 msgstr "O recorte automático falhou. Mantendo as margens anteriores."
 
-#: src/views/darkroom.c:215
+#: src/views/darkroom.c:216
 msgid "Autoset is running on selected modules"
 msgstr "O ajuste automático está em execução nos módulos selecionados"
 
@@ -2225,7 +2225,7 @@ msgid "B"
 msgstr "B"
 
 #: build/src/iop/introspection_crystgrain.c:203 src/iop/channelmixerrgb.c:5662
-#: src/libs/essentials.c:292
+#: src/libs/essentials.c:509
 msgid "B&W"
 msgstr "P&B"
 
@@ -2705,15 +2705,15 @@ msgstr ""
 "Marque para ativar a visualização global de apresentação de slides. (requer "
 "reinício)"
 
-#: src/views/darkroom.c:2018
+#: src/views/darkroom.c:2019
 msgid "Checkerboard color 1"
 msgstr "Cor 1 do quadriculado"
 
-#: src/views/darkroom.c:2035
+#: src/views/darkroom.c:2036
 msgid "Checkerboard color 2"
 msgstr "Cor 2 do quadriculado"
 
-#: src/views/darkroom.c:2053
+#: src/views/darkroom.c:2054
 msgid "Checkerboard size"
 msgstr "Tamanho do quadriculado"
 
@@ -2739,7 +2739,7 @@ msgstr ""
 "A largura e a altura especificadas definem o retângulo\n"
 "em que a imagem será encaixada proporcionalmente.\n"
 
-#: src/views/darkroom.c:1984
+#: src/views/darkroom.c:1985
 msgid ""
 "Choose at what size the main preview is rendered.\n"
 "Full resolution renders the pipeline at the raw original resolution.\n"
@@ -2753,7 +2753,7 @@ msgstr ""
 "Em escala renderiza na resolução da tela e é o melhor equilíbrio.\n"
 "A precisão no nível do pixel só é garantida com zoom de 100%."
 
-#: src/views/darkroom.c:2003
+#: src/views/darkroom.c:2004
 #, c-format
 msgid ""
 "Choose how finely brush and polygon masks are drawn in the darkroom.\n"
@@ -2862,7 +2862,7 @@ msgstr "Fechando o Lumivell..."
 msgid "Coarseness"
 msgstr "Aspereza"
 
-#: src/gui/actions/display.c:536
+#: src/gui/actions/display.c:539
 msgid "Collapse grouped images"
 msgstr "Recolher imagens agrupadas"
 
@@ -2871,7 +2871,7 @@ msgid "Collections"
 msgstr "Coleções"
 
 #: build/src/iop/introspection_retouch.c:475 src/iop/drawlayer.c:2935
-#: src/libs/essentials.c:305
+#: src/libs/essentials.c:522
 msgid "Color"
 msgstr "Cor"
 
@@ -2894,7 +2894,7 @@ msgstr "Rótulos de cor"
 msgid "Color labels removed for %i image(s)"
 msgstr "Etiquetas de cor removidas de %i imagem(ns)"
 
-#: src/libs/histogram.c:3125
+#: src/libs/histogram.c:3237
 msgid "Color picker"
 msgstr "Seletor de cor"
 
@@ -2925,7 +2925,7 @@ msgstr "Concluído"
 msgid "Compositing"
 msgstr "Composição"
 
-#: src/gui/actions/edit.c:585
+#: src/gui/actions/edit.c:595
 msgid "Compress history"
 msgstr "Compactar histórico"
 
@@ -2974,19 +2974,19 @@ msgstr "Copiar imagens remotas localmente"
 msgid "Copy files on disk..."
 msgstr "Copiar arquivos no disco..."
 
-#: src/gui/actions/edit.c:531
+#: src/gui/actions/edit.c:541
 msgid "Copy history (all)"
 msgstr "Copiar histórico (tudo)"
 
-#: src/gui/actions/edit.c:533
+#: src/gui/actions/edit.c:543
 msgid "Copy history (parts)..."
 msgstr "Copiar histórico (partes)..."
 
-#: src/gui/actions/edit.c:202 src/gui/actions/edit.c:229
+#: src/gui/actions/edit.c:212 src/gui/actions/edit.c:239
 msgid "Copy is allowed only with exactly one image selected"
 msgstr "Copiar só é permitido com exatamente uma imagem selecionada"
 
-#: src/gui/actions/edit.c:568 src/gui/actions/styles.c:430
+#: src/gui/actions/edit.c:578 src/gui/actions/styles.c:430
 msgid "Copy module order"
 msgstr "Copiar ordem dos módulos"
 
@@ -3016,7 +3016,7 @@ msgstr ""
 msgid "Corrupted file"
 msgstr "Arquivo corrompido"
 
-#: src/views/darkroom.c:1234
+#: src/views/darkroom.c:1235
 msgid "Could not load the image source data."
 msgstr "Não foi possível carregar os dados de origem da imagem."
 
@@ -3041,7 +3041,7 @@ msgstr ""
 "Não foi possível colar: os módulos colados exigem uma ordem de pipeline que "
 "conflita com a ordem atual dos módulos desta imagem."
 
-#: src/views/darkroom.c:1238
+#: src/views/darkroom.c:1239
 msgid "Could not read image information from the database."
 msgstr "Não foi possível ler as informações da imagem no banco de dados."
 
@@ -3062,7 +3062,7 @@ msgstr "Criar um HDR mesclado"
 msgid "Create drawing layer"
 msgstr "Criar camada de desenho"
 
-#: src/gui/actions/edit.c:579
+#: src/gui/actions/edit.c:589
 msgid "Create new history"
 msgstr "Criar novo histórico"
 
@@ -3074,7 +3074,7 @@ msgstr "Criar novo estilo..."
 msgid "Create unique filename"
 msgstr "Criar nome de arquivo único"
 
-#: src/gui/actions/edit.c:456
+#: src/gui/actions/edit.c:466
 msgid "Creating new historys needs selected images to work"
 msgstr "Criar novos históricos requer imagens selecionadas"
 
@@ -3199,7 +3199,7 @@ msgid "DWAB"
 msgstr "DWAB"
 
 #: build/src/preferences_gen.h:2569 src/develop/imageop.c:580
-#: src/views/darkroom.c:226
+#: src/views/darkroom.c:227
 msgid "Darkroom"
 msgstr "Sala escura"
 
@@ -3215,8 +3215,8 @@ msgstr "Renderização da sala escura"
 #: src/libs/modulegroups.c:1082 src/libs/modulegroups.c:1084
 #: src/libs/modulegroups.c:1088 src/libs/modulegroups.c:1090
 #: src/libs/modulegroups.c:1093 src/libs/modulegroups.c:1095
-#: src/views/darkroom.c:1876 src/views/darkroom.c:1878
-#: src/views/darkroom.c:1881
+#: src/views/darkroom.c:1877 src/views/darkroom.c:1879
+#: src/views/darkroom.c:1882
 msgid "Darkroom/Actions"
 msgstr "Darkroom/Actions"
 
@@ -3237,14 +3237,14 @@ msgstr "Darkroom/Controls/Sliders"
 msgid "Darkroom/Filmstrip"
 msgstr "Darkroom/Filmstrip"
 
-#: src/views/darkroom.c:1886 src/views/darkroom.c:1891
-#: src/views/darkroom.c:1896 src/views/darkroom.c:1901
-#: src/views/darkroom.c:1906 src/views/darkroom.c:1911
-#: src/views/darkroom.c:1916 src/views/darkroom.c:1921
-#: src/views/darkroom.c:1926 src/views/darkroom.c:1931
-#: src/views/darkroom.c:1936 src/views/darkroom.c:1941
-#: src/views/darkroom.c:1946 src/views/darkroom.c:1951
-#: src/views/darkroom.c:1956 src/views/darkroom.c:1959
+#: src/views/darkroom.c:1887 src/views/darkroom.c:1892
+#: src/views/darkroom.c:1897 src/views/darkroom.c:1902
+#: src/views/darkroom.c:1907 src/views/darkroom.c:1912
+#: src/views/darkroom.c:1917 src/views/darkroom.c:1922
+#: src/views/darkroom.c:1927 src/views/darkroom.c:1932
+#: src/views/darkroom.c:1937 src/views/darkroom.c:1942
+#: src/views/darkroom.c:1947 src/views/darkroom.c:1952
+#: src/views/darkroom.c:1957 src/views/darkroom.c:1960
 msgid "Darkroom/Main image"
 msgstr "Darkroom/Main image"
 
@@ -3257,8 +3257,8 @@ msgstr "Darkroom/Modules"
 msgid "Darkroom/Modules/Instances"
 msgstr "Darkroom/Modules/Instances"
 
-#: src/views/darkroom.c:1971 src/views/darkroom.c:2075
-#: src/views/darkroom.c:2097 src/views/darkroom.c:2101
+#: src/views/darkroom.c:1972 src/views/darkroom.c:2076
+#: src/views/darkroom.c:2098 src/views/darkroom.c:2102
 msgid "Darkroom/Toolbox"
 msgstr "Darkroom/Toolbox"
 
@@ -3336,7 +3336,7 @@ msgstr "Excluir do disco"
 msgid "Delete group"
 msgstr "Excluir grupo"
 
-#: src/gui/actions/edit.c:588
+#: src/gui/actions/edit.c:598
 msgid "Delete history"
 msgstr "Excluir histórico"
 
@@ -3472,7 +3472,7 @@ msgstr "Desativar"
 msgid "Disable thumbnail preview in import popup"
 msgstr "Desativar miniaturas na janela de importação"
 
-#: src/gui/actions/edit.c:563
+#: src/gui/actions/edit.c:573
 msgid ""
 "Discard the current history and replace it entirely with the copied history."
 msgstr ""
@@ -3482,7 +3482,7 @@ msgstr ""
 msgid "Discard the current history and replace it entirely with the style."
 msgstr "Descarta o histórico atual e o substitui inteiramente pelo estilo."
 
-#: src/libs/histogram.c:3046
+#: src/libs/histogram.c:3057
 msgid "Display"
 msgstr "Exibição"
 
@@ -3502,7 +3502,7 @@ msgstr "RGB da tela"
 msgid "Display masks"
 msgstr "Exibir máscaras"
 
-#: src/libs/histogram.c:3224
+#: src/libs/histogram.c:3336
 msgid "Display samples on image"
 msgstr "Exibir amostras na imagem"
 
@@ -3595,12 +3595,12 @@ msgstr "Arraste e solte módulos na coluna “Destino” para reordenar o pipeli
 msgid "Drag to resize"
 msgstr "Arraste para redimensionar"
 
-#: src/gui/window_manager.c:431 src/gui/window_manager.c:462
-#: src/gui/window_manager.c:522
+#: src/gui/window_manager.c:469 src/gui/window_manager.c:500
+#: src/gui/window_manager.c:574
 msgid "Drag to resize panel"
 msgstr "Arraste para redimensionar o painel"
 
-#: src/libs/histogram.c:3117
+#: src/libs/histogram.c:3229
 msgid "Drag to resize the scope vertically"
 msgstr "Arraste para redimensionar o gráfico verticalmente"
 
@@ -3628,7 +3628,7 @@ msgstr "Máscara desenhada"
 msgid "Duplicate"
 msgstr "Duplicar"
 
-#: src/gui/actions/edit.c:582
+#: src/gui/actions/edit.c:592
 msgid "Duplicate existing history"
 msgstr "Duplicar histórico existente"
 
@@ -3640,7 +3640,7 @@ msgstr "Duplicar forma"
 msgid "Duplicates"
 msgstr "Duplicatas"
 
-#: src/gui/actions/edit.c:434
+#: src/gui/actions/edit.c:444
 msgid "Duplication needs selected images to work"
 msgstr "Duplicar requer imagens selecionadas"
 
@@ -3980,7 +3980,7 @@ msgstr "Falha ao gravar o arquivo auxiliar da camada de desenho."
 msgid "Fall-off"
 msgstr "Atenuação"
 
-#: src/views/darkroom.c:2002
+#: src/views/darkroom.c:2003
 msgid "Fast drawn mask rasterization"
 msgstr "Rasterização rápida de máscaras desenhadas"
 
@@ -4021,11 +4021,11 @@ msgstr "Preencher"
 msgid "Fill mode"
 msgstr "Modo de preenchimento"
 
-#: src/gui/actions/display.c:508
+#: src/gui/actions/display.c:511
 msgid "Filmstrip"
 msgstr "Filmstrip"
 
-#: src/libs/histogram.c:3030
+#: src/libs/histogram.c:3041
 msgid "Final display"
 msgstr "Exibição final"
 
@@ -4039,7 +4039,7 @@ msgid "Finishing drawing"
 msgstr "Finalizando o desenho"
 
 #: src/libs/navigation.c:420 src/libs/tools/lighttable.c:259
-#: src/views/darkroom.c:1815
+#: src/views/darkroom.c:1816
 msgid "Fit"
 msgstr "Ajustar"
 
@@ -4103,7 +4103,7 @@ msgstr "Opções de indicação de recorte (foco)"
 msgid "Focus gamut checking options"
 msgstr "Opções de verificação de gama (foco)"
 
-#: src/views/darkroom.c:2102
+#: src/views/darkroom.c:2103
 msgid "Focus guide lines options"
 msgstr "Opções de linhas-guia (foco)"
 
@@ -4251,7 +4251,7 @@ msgstr "emulação de Fuji Provia"
 msgid "Fuji Velvia emulation"
 msgstr "emulação de Fuji Velvia"
 
-#: src/gui/actions/display.c:543
+#: src/gui/actions/display.c:546
 msgid "Full screen"
 msgstr "Tela cheia"
 
@@ -4297,11 +4297,11 @@ msgstr "Gaussiano"
 msgid "Geometry"
 msgstr "Geometria"
 
-#: src/views/darkroom.c:1881
+#: src/views/darkroom.c:1882
 msgid "Give focus to the main image"
 msgstr "Colocar o foco na imagem principal"
 
-#: src/gui/actions/display.c:546
+#: src/gui/actions/display.c:549
 msgid "Global/Actions"
 msgstr "Global/Actions"
 
@@ -4313,7 +4313,7 @@ msgstr "Global/Menu/File"
 msgid "Go back"
 msgstr "Voltar"
 
-#: src/gui/window_manager.c:834
+#: src/gui/window_manager.c:926
 msgid "Go back to lighttable"
 msgstr "Voltar para a mesa de luz"
 
@@ -4386,7 +4386,7 @@ msgstr "HLG Rec2020"
 msgid "HLG Rec2020 RGB"
 msgstr "RGB HLG Rec2020"
 
-#: src/iop/colorbalance.c:1600 src/libs/histogram.c:148 src/libs/ioporder.c:242
+#: src/iop/colorbalance.c:1600 src/libs/histogram.c:149 src/libs/ioporder.c:242
 msgid "HSL"
 msgstr "HSL"
 
@@ -4403,7 +4403,7 @@ msgstr "configuração de base HSL"
 msgid "HSL lightness"
 msgstr "luminosidade HSV"
 
-#: src/libs/histogram.c:148
+#: src/libs/histogram.c:149
 msgid "HSV"
 msgstr "HSV"
 
@@ -4443,7 +4443,7 @@ msgctxt "preferences"
 msgid "Hex"
 msgstr "Hex"
 
-#: src/libs/histogram.c:3051
+#: src/libs/histogram.c:3062
 msgid "Histogram"
 msgstr "Histograma"
 
@@ -4455,7 +4455,7 @@ msgstr "Relatório de mesclagem do histórico"
 msgid "History of changes"
 msgstr "Histórico de alterações"
 
-#: src/gui/actions/edit.c:545 src/gui/actions/styles.c:407
+#: src/gui/actions/edit.c:555 src/gui/actions/styles.c:407
 msgid "History pasting mode"
 msgstr "Modo de colagem do histórico"
 
@@ -4521,8 +4521,8 @@ msgstr "ID da imagem"
 msgid "Image cache — %u items"
 msgstr "Cache de imagens — %u itens"
 
-#: src/views/darkroom.c:1234 src/views/darkroom.c:1237
-#: src/views/darkroom.c:1241
+#: src/views/darkroom.c:1235 src/views/darkroom.c:1238
+#: src/views/darkroom.c:1242
 msgid "Image could not be opened"
 msgstr "Não foi possível abrir a imagem"
 
@@ -4796,7 +4796,7 @@ msgstr ""
 msgid "Keep unused shape"
 msgstr "Manter forma não usada"
 
-#: src/gui/actions/edit.c:594
+#: src/gui/actions/edit.c:604
 msgid "Keyboard shortcuts..."
 msgstr "Atalhos de teclado..."
 
@@ -4847,7 +4847,7 @@ msgstr ""
 "h: \tN/A\n"
 "c: \tN/A"
 
-#: src/libs/histogram.c:148 src/libs/ioporder.c:240
+#: src/libs/histogram.c:149 src/libs/ioporder.c:240
 msgid "LCh"
 msgstr "LCh"
 
@@ -4884,7 +4884,7 @@ msgstr ""
 
 #: src/colorprofiles/colorspaces.c:1909 src/colorprofiles/colorspaces.c:2055
 #: src/develop/blend.c:2357 src/develop/blend_gui.c:2985
-#: src/libs/histogram.c:148 src/libs/histogram.c:2718
+#: src/libs/histogram.c:149 src/libs/histogram.c:2729
 msgid "Lab"
 msgstr "Lab"
 
@@ -4944,7 +4944,7 @@ msgstr "O nome da camada está vazio."
 msgid "Layer sensitivity"
 msgstr "Sensibilidade da camada"
 
-#: src/gui/actions/display.c:502
+#: src/gui/actions/display.c:505
 msgid "Left"
 msgstr "Esquerda"
 
@@ -4964,7 +4964,7 @@ msgstr "Lente : "
 msgid "Let the OS mask Lumivell shortcuts"
 msgstr "Deixar o sistema mascarar os atalhos do Lumivell"
 
-#: src/gui/window_manager.c:729 src/libs/collect.c:379
+#: src/gui/window_manager.c:791 src/libs/collect.c:379
 msgid "Library"
 msgstr "Biblioteca"
 
@@ -5010,11 +5010,11 @@ msgid ""
 msgstr ""
 "Lista todos os módulos ativos, na ordem inversa de aplicação no pipeline."
 
-#: src/libs/histogram.c:3216
+#: src/libs/histogram.c:3328
 msgid "Live samples"
 msgstr "Amostras ao vivo"
 
-#: src/gui/actions/edit.c:576
+#: src/gui/actions/edit.c:586
 msgid "Load history from XMP..."
 msgstr "Carregar histórico do XMP..."
 
@@ -5098,11 +5098,11 @@ msgstr "Markesteijn 3-passos + VNG"
 msgid "Mask opacity"
 msgstr "Opacidade da máscara"
 
-#: src/views/darkroom.c:2015
+#: src/views/darkroom.c:2016
 msgid "Mask preview settings"
 msgstr "Configurações de pré-visualização da máscara"
 
-#: src/libs/blending.c:65
+#: src/libs/blending.c:65 src/views/darkroom_rails.c:278
 msgid "Masking & Blending"
 msgstr "Máscaras e mesclagem"
 
@@ -5168,7 +5168,7 @@ msgstr "O módulo falhou"
 msgid "Module groups"
 msgstr "Grupos de módulos"
 
-#: src/views/darkroom.c:1710
+#: src/views/darkroom.c:1711
 msgid "Module instances to autoset"
 msgstr "Instâncias de módulos para ajuste automático"
 
@@ -5213,11 +5213,11 @@ msgstr "Módulos para reparar e reconstruir pixels ruidosos ou ausentes."
 msgid "Modules using this %s"
 msgstr "Módulos que usam esta %s"
 
-#: src/gui/actions/display.c:481
+#: src/gui/actions/display.c:484
 msgid "Monitor color intent"
 msgstr "Intenção de cor do monitor"
 
-#: src/gui/actions/display.c:460
+#: src/gui/actions/display.c:463
 msgid "Monitor color profile"
 msgstr "Perfil de cor do monitor"
 
@@ -5247,15 +5247,15 @@ msgid "Move Up"
 msgstr "Mover para cima"
 
 #: src/develop/masks/masks_gui.c:1055 src/gui/dtgtk/thumbtable.c:2138
-#: src/libs/shape_manager.c:1793 src/views/darkroom.c:1901
+#: src/libs/shape_manager.c:1793 src/views/darkroom.c:1902
 msgid "Move down"
 msgstr "Mover para baixo"
 
-#: src/views/darkroom.c:1906
+#: src/views/darkroom.c:1907
 msgid "Move down (coarse step)"
 msgstr "Mover para baixo (passo grande)"
 
-#: src/views/darkroom.c:1911
+#: src/views/darkroom.c:1912
 msgid "Move down (fine step)"
 msgstr "Mover para baixo (passo fino)"
 
@@ -5263,40 +5263,40 @@ msgstr "Mover para baixo (passo fino)"
 msgid "Move files on disk..."
 msgstr "Mover arquivos no disco..."
 
-#: src/gui/dtgtk/thumbtable.c:2142 src/views/darkroom.c:1916
+#: src/gui/dtgtk/thumbtable.c:2142 src/views/darkroom.c:1917
 msgid "Move left"
 msgstr "Mover para a esquerda"
 
-#: src/views/darkroom.c:1921
+#: src/views/darkroom.c:1922
 msgid "Move left (coarse step)"
 msgstr "Mover para a esquerda (passo grande)"
 
-#: src/views/darkroom.c:1926
+#: src/views/darkroom.c:1927
 msgid "Move left (fine step)"
 msgstr "Mover para a esquerda (passo fino)"
 
-#: src/gui/dtgtk/thumbtable.c:2146 src/views/darkroom.c:1931
+#: src/gui/dtgtk/thumbtable.c:2146 src/views/darkroom.c:1932
 msgid "Move right"
 msgstr "Mover para a direita"
 
-#: src/views/darkroom.c:1936
+#: src/views/darkroom.c:1937
 msgid "Move right (coarse step)"
 msgstr "Mover para a direita (passo grande)"
 
-#: src/views/darkroom.c:1941
+#: src/views/darkroom.c:1942
 msgid "Move right (fine step)"
 msgstr "Mover para a direita (passo fino)"
 
 #: src/develop/masks/masks_gui.c:1053 src/gui/dtgtk/thumbtable.c:2134
-#: src/libs/shape_manager.c:1790 src/views/darkroom.c:1886
+#: src/libs/shape_manager.c:1790 src/views/darkroom.c:1887
 msgid "Move up"
 msgstr "Mover para cima"
 
-#: src/views/darkroom.c:1891
+#: src/views/darkroom.c:1892
 msgid "Move up (coarse step)"
 msgstr "Mover para cima (passo grande)"
 
-#: src/views/darkroom.c:1896
+#: src/views/darkroom.c:1897
 msgid "Move up (fine step)"
 msgstr "Mover para cima (passo fino)"
 
@@ -5356,7 +5356,7 @@ msgstr "Nenhuma imagem importada!"
 msgid "No image is displayed."
 msgstr "Nenhuma imagem exibida."
 
-#: src/views/darkroom.c:1336
+#: src/views/darkroom.c:1337
 msgid "No image to open !"
 msgstr "Nenhuma imagem para abrir !"
 
@@ -5392,7 +5392,7 @@ msgstr "Nenhum estilo disponível"
 msgid "Node"
 msgstr "Nó"
 
-#: src/gui/actions/edit.c:565 src/gui/actions/styles.c:427
+#: src/gui/actions/edit.c:575 src/gui/actions/styles.c:427
 msgid "Nodes pasting mode"
 msgstr "Modo de colagem dos nós"
 
@@ -5578,7 +5578,7 @@ msgstr "Sem RAM"
 msgid "Output"
 msgstr "Saída"
 
-#: src/libs/histogram.c:3030
+#: src/libs/histogram.c:3041
 msgid "Output color profile"
 msgstr "Perfil de cor de saída"
 
@@ -5654,15 +5654,15 @@ msgstr "PXR24"
 msgid "Paint mode"
 msgstr "Modo de pintura"
 
-#: src/gui/actions/display.c:495 src/gui/actions/doc_screenshot.c:986
+#: src/gui/actions/display.c:498 src/gui/actions/doc_screenshot.c:986
 msgid "Panels"
 msgstr "Painéis"
 
-#: src/libs/histogram.c:3052
+#: src/libs/histogram.c:3063
 msgid "Parade (horizontal)"
 msgstr "Parade (horizontal)"
 
-#: src/libs/histogram.c:3052
+#: src/libs/histogram.c:3063
 msgid "Parade (vertical)"
 msgstr "Parade (vertical)"
 
@@ -5674,7 +5674,7 @@ msgstr "Paramétrica"
 msgid "Parametric mask"
 msgstr "Máscara paramétrica"
 
-#: src/gui/actions/edit.c:557
+#: src/gui/actions/edit.c:567
 msgid ""
 "Paste copied history AFTER the current history.\n"
 "COPIED EDITS are applied afterwards and win conflicts."
@@ -5682,7 +5682,7 @@ msgstr ""
 "Cola o histórico copiado DEPOIS do histórico atual.\n"
 "As EDIÇÕES COPIADAS são aplicadas por último e prevalecem nos conflitos."
 
-#: src/gui/actions/edit.c:551
+#: src/gui/actions/edit.c:561
 msgid ""
 "Paste copied history BEFORE the current history.\n"
 "CURRENT EDITS are applied afterwards and win conflicts."
@@ -5694,23 +5694,23 @@ msgstr ""
 msgid "Paste cut shapes to current scale"
 msgstr "Colar formas recortadas na escala atual"
 
-#: src/gui/actions/edit.c:535
+#: src/gui/actions/edit.c:545
 msgid "Paste history (all)"
 msgstr "Colar histórico (tudo)"
 
-#: src/gui/actions/edit.c:297
+#: src/gui/actions/edit.c:307
 msgid "Paste history (parts) — merge settings"
 msgstr "Colar histórico (partes) — configurações de mesclagem"
 
-#: src/gui/actions/edit.c:538
+#: src/gui/actions/edit.c:548
 msgid "Paste history (parts)..."
 msgstr "Colar histórico (partes)..."
 
-#: src/gui/actions/edit.c:266
+#: src/gui/actions/edit.c:276
 msgid "Paste history — merge settings"
 msgstr "Colar histórico — configurações de mesclagem"
 
-#: src/gui/actions/edit.c:260 src/gui/actions/edit.c:291
+#: src/gui/actions/edit.c:270 src/gui/actions/edit.c:301
 msgid "Paste needs selected images to work"
 msgstr "Colar requer imagens selecionadas"
 
@@ -5718,7 +5718,7 @@ msgstr "Colar requer imagens selecionadas"
 msgid "Pattern result"
 msgstr "Resultado do padrão"
 
-#: src/gui/actions/display.c:484
+#: src/gui/actions/display.c:487
 msgid "Perceptual"
 msgstr "Perceptual"
 
@@ -5843,7 +5843,7 @@ msgstr ""
 "Valores negativos desbotam os realces com matiz e luminância constantes.\n"
 "Zero é uma mistura igual das duas estratégias."
 
-#: src/gui/actions/edit.c:593
+#: src/gui/actions/edit.c:603
 msgid "Preferences..."
 msgstr "Preferências..."
 
@@ -5891,7 +5891,7 @@ msgstr "Pré-carregando cache (até Full HD 1080p) para a coleção atual"
 msgid "Preloading cache for current collection"
 msgstr "Pré-carregando cache para a coleção atual"
 
-#: src/gui/actions/edit.c:548 src/gui/actions/styles.c:410
+#: src/gui/actions/edit.c:558 src/gui/actions/styles.c:410
 msgid "Prepend"
 msgstr "Prefixar"
 
@@ -6017,8 +6017,8 @@ msgstr "RCD"
 msgid "RCD + VNG4"
 msgstr "RCD + VNG4"
 
-#: build/src/iop/introspection_denoiseprofile.c:410 src/libs/histogram.c:148
-#: src/libs/histogram.c:2717 src/libs/ioporder.c:234
+#: build/src/iop/introspection_denoiseprofile.c:410 src/libs/histogram.c:149
+#: src/libs/histogram.c:2728 src/libs/ioporder.c:234
 msgid "RGB"
 msgstr "RGB"
 
@@ -6149,7 +6149,7 @@ msgstr "Classificações"
 msgid "Raw file extensions to load through Libraw"
 msgstr "Extensões raw a carregar pelo Libraw"
 
-#: src/libs/histogram.c:3030
+#: src/libs/histogram.c:3041
 msgid "Raw image"
 msgstr "Imagem raw"
 
@@ -6190,7 +6190,7 @@ msgstr "Coleções recentes"
 msgid "Record"
 msgstr "Gravar"
 
-#: src/gui/actions/edit.c:527
+#: src/gui/actions/edit.c:537 src/gui/window_manager.c:897
 msgid "Redo"
 msgstr "Refazer"
 
@@ -6214,11 +6214,11 @@ msgstr ""
 "cujas propriedades foram alteradas\n"
 "e não correspondem mais aos filtros atuais."
 
-#: src/gui/actions/image.c:280 src/views/darkroom.c:1842
+#: src/gui/actions/image.c:280 src/views/darkroom.c:1843
 msgid "Reject"
 msgstr "Rejeitar"
 
-#: src/gui/actions/display.c:484
+#: src/gui/actions/display.c:487
 msgid "Relative colorimetric"
 msgstr "Colorimétrico relativo"
 
@@ -6274,7 +6274,7 @@ msgstr "Renomear"
 msgid "Rename drawing layer"
 msgstr "Renomear camada de desenho"
 
-#: src/views/darkroom.c:1983
+#: src/views/darkroom.c:1984
 msgid "Rendering size"
 msgstr "Tamanho de renderização"
 
@@ -6282,7 +6282,7 @@ msgstr "Tamanho de renderização"
 msgid "Repair"
 msgstr "Reparar"
 
-#: src/gui/actions/edit.c:560 src/gui/actions/styles.c:422
+#: src/gui/actions/edit.c:570 src/gui/actions/styles.c:422
 msgid "Replace"
 msgstr "Substituir"
 
@@ -6302,7 +6302,7 @@ msgstr "Redefinir orientação"
 msgid "Reset round node"
 msgstr "Redefinir nó arredondado"
 
-#: src/libs/histogram.c:3233
+#: src/libs/histogram.c:3345
 msgid "Restrict scope to selection"
 msgstr "Restringir gráfico à seleção"
 
@@ -6314,7 +6314,7 @@ msgstr "Restringe a visualização atual apenas às imagens selecionadas"
 msgid "Restrict to selection"
 msgstr "Restringir à seleção"
 
-#: src/libs/histogram.c:2053
+#: src/libs/histogram.c:2063
 msgid "Restricted"
 msgstr "Restrito"
 
@@ -6338,7 +6338,7 @@ msgstr "Tentar novamente"
 msgid "Reuse an existing mask"
 msgstr "Reutilizar uma máscara existente"
 
-#: src/gui/actions/display.c:505
+#: src/gui/actions/display.c:508
 msgid "Right"
 msgstr "Direita"
 
@@ -6360,7 +6360,7 @@ msgstr "Rotação"
 msgid "Rotation: %3.2f°"
 msgstr "Rotação: %3.2f°"
 
-#: src/views/darkroom.c:216 src/views/darkroom.c:2114
+#: src/views/darkroom.c:217 src/views/darkroom.c:2115
 msgid ""
 "Run autoset on selected modules\n"
 "Right click for options"
@@ -6435,7 +6435,7 @@ msgstr "Distância de amostragem"
 msgid "Sans %s"
 msgstr "Sans %s"
 
-#: src/gui/actions/display.c:484
+#: src/gui/actions/display.c:487
 msgctxt "rendering intent"
 msgid "Saturation"
 msgstr "Saturação"
@@ -6484,7 +6484,7 @@ msgstr "Pesquisar uma pasta..."
 msgid "Search a picture"
 msgstr "Pesquisar uma foto"
 
-#: src/gui/actions/help.c:261 src/gui/window_manager.c:825
+#: src/gui/actions/help.c:261 src/gui/window_manager.c:917
 msgid "Search actions..."
 msgstr "Pesquisar ações..."
 
@@ -6536,7 +6536,7 @@ msgstr "Selecionar tudo"
 msgid "Select all filters"
 msgstr "Selecionar todos os filtros"
 
-#: src/views/darkroom.c:2029 src/views/darkroom.c:2043
+#: src/views/darkroom.c:2030 src/views/darkroom.c:2044
 msgid "Select color of the checkerboard from a swatch"
 msgstr "Selecionar a cor do quadriculado em uma amostra"
 
@@ -6662,7 +6662,7 @@ msgstr "Atalho"
 msgid "Shot:"
 msgstr "Disparo:"
 
-#: src/views/darkroom.c:2058
+#: src/views/darkroom.c:2059
 msgid "Show a greyscaled mask image"
 msgstr "Mostrar a máscara em tons de cinza"
 
@@ -6682,15 +6682,15 @@ msgstr ""
 msgid "Show and edit shapes on the current scale"
 msgstr "Mostrar e editar formas na escala atual"
 
-#: src/libs/histogram.c:3026
+#: src/libs/histogram.c:3037
 msgid "Show data from"
 msgstr "Mostrar dados de"
 
-#: src/gui/actions/display.c:538
+#: src/gui/actions/display.c:541
 msgid "Show group borders"
 msgstr "Mostrar bordas dos grupos"
 
-#: src/gui/actions/display.c:520
+#: src/gui/actions/display.c:523
 msgid "Show on hover"
 msgstr "Mostrar ao passar o cursor"
 
@@ -6698,11 +6698,11 @@ msgstr "Mostrar ao passar o cursor"
 msgid "Show system tags"
 msgstr "Mostrar etiquetas do sistema"
 
-#: src/views/darkroom.c:2076
+#: src/views/darkroom.c:2077
 msgid "Show the pipeline node graph"
 msgstr "Mostrar o grafo de nós do pipeline"
 
-#: src/views/darkroom.c:2103 src/views/dev_toolbox.c:224
+#: src/views/darkroom.c:2104 src/views/dev_toolbox.c:224
 msgid "Shows the options popover"
 msgstr "Mostra o menu de opções"
 
@@ -6890,7 +6890,7 @@ msgid "Studio capture: could not load the image in the viewer."
 msgstr ""
 "Captura em estúdio: não foi possível carregar a imagem no visualizador."
 
-#: src/libs/studio_style.c:596
+#: src/libs/studio_style.c:596 src/views/darkroom_rails.c:279
 msgid "Styles"
 msgstr "Estilos"
 
@@ -6899,11 +6899,11 @@ msgstr "Estilos"
 msgid "Switch to %s node"
 msgstr "Mudar para nó %s"
 
-#: src/views/darkroom.c:1877
+#: src/views/darkroom.c:1878
 msgid "Switch to the next picture"
 msgstr "Ir para a próxima foto"
 
-#: src/views/darkroom.c:1879
+#: src/views/darkroom.c:1880
 msgid "Switch to the previous picture"
 msgstr "Ir para a foto anterior"
 
@@ -7044,7 +7044,7 @@ msgstr ""
 msgid "The current in-memory layer has been written to the sidecar TIFF."
 msgstr "A camada atual em memória foi gravada no TIFF auxiliar."
 
-#: src/views/darkroom.c:1315
+#: src/views/darkroom.c:1316
 msgid ""
 "The current selection contains more than one image, which is ambiguous.\n"
 "Select exactly one image to enter the darkroom."
@@ -7193,7 +7193,7 @@ msgstr "O arquivo auxiliar não foi salvo."
 msgid "The target widget of the action does not exist anymore"
 msgstr "O widget alvo da ação não existe mais"
 
-#: src/views/darkroom.c:1321
+#: src/views/darkroom.c:1322
 msgid ""
 "There is no image selected.\n"
 "Select exactly one image to enter the darkroom."
@@ -7322,11 +7322,11 @@ msgstr "Miniatura"
 msgid "Thumbnail display"
 msgstr "Exibição das miniaturas"
 
-#: src/gui/actions/display.c:514
+#: src/gui/actions/display.c:517
 msgid "Thumbnail overlays"
 msgstr "Sobreposições das miniaturas"
 
-#: src/gui/actions/display.c:527
+#: src/gui/actions/display.c:530
 msgid "Thumbnail source"
 msgstr "Origem das miniaturas"
 
@@ -7364,7 +7364,7 @@ msgstr ""
 msgid "Toggle ISO 12646 color assessment conditions"
 msgstr "Alternar condições de avaliação de cor ISO 12646"
 
-#: src/gui/actions/display.c:546
+#: src/gui/actions/display.c:549
 msgid "Toggle all panels visibility"
 msgstr "Alternar a visibilidade de todos os painéis"
 
@@ -7444,7 +7444,7 @@ msgstr "Alternar filtro de imagens sem classificação (0 estrela)"
 msgid "Toggle gamut checking"
 msgstr "Alternar verificação de gama"
 
-#: src/views/darkroom.c:2098
+#: src/views/darkroom.c:2099
 msgid "Toggle guide lines"
 msgstr "Alternar linhas-guia"
 
@@ -7468,7 +7468,7 @@ msgstr "Alternar a miniatura atual na seleção"
 msgid "Tool modules"
 msgstr "Módulos de ferramentas"
 
-#: src/gui/actions/display.c:499
+#: src/gui/actions/display.c:502
 msgid "Top"
 msgstr "Topo"
 
@@ -7506,13 +7506,13 @@ msgstr "Árvore"
 msgid "Trigger the action"
 msgstr "Disparar a ação"
 
-#: src/gui/actions/display.c:546 src/gui/actions/menu.c:389
+#: src/gui/actions/display.c:549 src/gui/actions/menu.c:389
 #: src/libs/modulegroups.c:1083 src/libs/modulegroups.c:1086
 #: src/libs/modulegroups.c:1089 src/libs/modulegroups.c:1091
 #: src/libs/modulegroups.c:1094 src/libs/modulegroups.c:1096
 #: src/libs/tools/lighttable.c:305 src/libs/tools/lighttable.c:307
-#: src/views/darkroom.c:1877 src/views/darkroom.c:1879
-#: src/views/darkroom.c:2077 src/views/darkroom.c:2099
+#: src/views/darkroom.c:1878 src/views/darkroom.c:1880
+#: src/views/darkroom.c:2078 src/views/darkroom.c:2100
 #: src/views/dev_toolbox.c:221
 msgid "Triggers the action"
 msgstr "Dispara a ação"
@@ -7551,7 +7551,7 @@ msgstr "Tipo do algoritmo de desfoque"
 msgid "U0V0"
 msgstr "U0V0"
 
-#: src/gui/actions/edit.c:525
+#: src/gui/actions/edit.c:535 src/gui/window_manager.c:906
 msgid "Undo"
 msgstr "Desfazer"
 
@@ -7596,7 +7596,7 @@ msgstr "Atualizar para a versão nightly mais recente"
 msgid "Use OpenCL (GPU computing)"
 msgstr "Usar OpenCL (processamento na GPU)"
 
-#: src/gui/actions/display.c:531
+#: src/gui/actions/display.c:534
 msgid "Use embedded JPG if unedited"
 msgstr "Usar o JPG incorporado se não editada"
 
@@ -7628,7 +7628,7 @@ msgstr "VNG4"
 msgid "Validate result (in editing mode)"
 msgstr "Validar resultado (no modo de edição)"
 
-#: src/libs/histogram.c:3052
+#: src/libs/histogram.c:3063
 msgid "Vectorscope"
 msgstr "Vectorscópio"
 
@@ -7652,15 +7652,15 @@ msgstr "Aguardando o fim da rasterização da camada..."
 msgid "Warps: "
 msgstr "Distorções: "
 
-#: src/libs/histogram.c:3051
+#: src/libs/histogram.c:3062
 msgid "Waveform (horizontal)"
 msgstr "Forma de onda (horizontal)"
 
-#: src/libs/histogram.c:3051
+#: src/libs/histogram.c:3062
 msgid "Waveform (vertical)"
 msgstr "Forma de onda (vertical)"
 
-#: src/views/darkroom.c:1241
+#: src/views/darkroom.c:1242
 msgid "We could not load the image."
 msgstr "Não foi possível carregar a imagem."
 
@@ -7760,7 +7760,7 @@ msgstr ""
 msgid "XMP"
 msgstr "XMP"
 
-#: src/gui/actions/edit.c:371
+#: src/gui/actions/edit.c:381
 msgid "XMP sidecar files"
 msgstr "arquivos auxiliares XMP"
 
@@ -7828,7 +7828,7 @@ msgstr "ZIPS"
 msgid "Zoom"
 msgstr "Zoom"
 
-#: src/views/darkroom.c:1946
+#: src/views/darkroom.c:1947
 msgid "Zoom in"
 msgstr "Aumentar zoom"
 
@@ -7836,7 +7836,7 @@ msgstr "Aumentar zoom"
 msgid "Zoom in the thumbtable grid"
 msgstr "Aumentar o zoom da grade de miniaturas"
 
-#: src/views/darkroom.c:1951
+#: src/views/darkroom.c:1952
 msgid "Zoom out"
 msgstr "Diminuir zoom"
 
@@ -7844,19 +7844,19 @@ msgstr "Diminuir zoom"
 msgid "Zoom out the thumbtable grid"
 msgstr "Diminuir o zoom da grade de miniaturas"
 
-#: src/views/darkroom.c:1959
+#: src/views/darkroom.c:1960
 msgid "Zoom to 100%"
 msgstr "Zoom em 100%"
 
-#: src/views/darkroom.c:1956
+#: src/views/darkroom.c:1957
 msgid "Zoom to fit"
 msgstr "Zoom para caber"
 
-#: src/views/darkroom.c:1819 src/views/darkroom.c:1961
+#: src/views/darkroom.c:1820 src/views/darkroom.c:1962
 msgid "Zooms the main image to 100%"
 msgstr "Ajusta o zoom da imagem principal para 100%"
 
-#: src/views/darkroom.c:1816 src/views/darkroom.c:1958
+#: src/views/darkroom.c:1817 src/views/darkroom.c:1959
 msgid "Zooms the main image to fit the window"
 msgstr "Ajusta o zoom da imagem principal para caber na janela"
 
@@ -7919,7 +7919,7 @@ msgstr "_Aceitar"
 msgid "_Apply"
 msgstr "_Aplicar"
 
-#: src/gui/window_manager.c:760
+#: src/gui/window_manager.c:832
 msgid "_Ateliers"
 msgstr "A_teliês"
 
@@ -7940,23 +7940,23 @@ msgstr "_Fechar"
 msgid "_Continue"
 msgstr "_Continuar"
 
-#: src/gui/window_manager.c:760
+#: src/gui/window_manager.c:832
 msgid "_Display"
 msgstr "Exi_bir"
 
-#: src/gui/window_manager.c:760
+#: src/gui/window_manager.c:832
 msgid "_Edit"
 msgstr "_Editar"
 
-#: src/gui/window_manager.c:760
+#: src/gui/window_manager.c:832
 msgid "_File"
 msgstr "_Arquivo"
 
-#: src/gui/window_manager.c:760
+#: src/gui/window_manager.c:832
 msgid "_Help"
 msgstr "Aj_uda"
 
-#: src/gui/window_manager.c:760
+#: src/gui/window_manager.c:832
 msgid "_Image"
 msgstr "_Imagem"
 
@@ -7968,7 +7968,7 @@ msgstr "_OK"
 msgid "_Revert"
 msgstr "_Reverter"
 
-#: src/gui/window_manager.c:760
+#: src/gui/window_manager.c:832
 msgid "_Run"
 msgstr "E_xecutar"
 
@@ -7976,11 +7976,11 @@ msgstr "E_xecutar"
 msgid "_Save"
 msgstr "_Salvar"
 
-#: src/gui/window_manager.c:760
+#: src/gui/window_manager.c:832
 msgid "_Selection"
 msgstr "_Seleção"
 
-#: src/gui/window_manager.c:760
+#: src/gui/window_manager.c:832
 msgid "_Styles"
 msgstr "E_stilos"
 
@@ -7997,7 +7997,7 @@ msgid "_Watermark"
 msgstr "_Marca d'água"
 
 #: src/apps/ansel-chart/main.c:522 src/control/jobs/control_jobs.c:1771
-#: src/control/jobs/control_jobs.c:1833 src/gui/actions/edit.c:339
+#: src/control/jobs/control_jobs.c:1833 src/gui/actions/edit.c:349
 #: src/gui/hist_dialog.c:190 src/gui/lut_viewer.c:1215
 #: src/gui/preferences.c:1227 src/gui/preferences.c:1266 src/gui/presets.c:332
 #: src/gui/presets.c:407 src/gui/styles_dialog.c:429
@@ -8036,7 +8036,7 @@ msgstr "correção de _lente"
 msgid "_ok"
 msgstr "_ok"
 
-#: src/gui/actions/edit.c:339 src/gui/preferences.c:1227
+#: src/gui/actions/edit.c:349 src/gui/preferences.c:1227
 #: src/libs/collect.c:1935 src/libs/geotagging.c:985 src/libs/styles.c:559
 msgid "_open"
 msgstr "_abrir"
@@ -8586,7 +8586,7 @@ msgctxt "preferences"
 msgid "all"
 msgstr "todos"
 
-#: src/gui/actions/edit.c:376 src/gui/preferences.c:1241 src/iop/lut3d.c:1099
+#: src/gui/actions/edit.c:386 src/gui/preferences.c:1241 src/iop/lut3d.c:1099
 #: src/libs/geotagging.c:1001 src/libs/styles.c:573
 msgid "all files"
 msgstr "todos arquivos"
@@ -9101,7 +9101,7 @@ msgctxt "preferences"
 msgid "auto"
 msgstr "automático"
 
-#: src/views/darkroom.c:2010
+#: src/views/darkroom.c:2011
 msgid "auto (default)"
 msgstr "automático (padrão)"
 
@@ -10504,7 +10504,7 @@ msgid "coarseness"
 msgstr "granularidade"
 
 #: build/src/iop/introspection_crystgrain.c:204 src/gui/presets.c:97
-#: src/iop/watermark.c:1201 src/libs/histogram.c:2742
+#: src/iop/watermark.c:1201 src/libs/histogram.c:2753
 #: src/libs/modulegroups.c:390
 msgid "color"
 msgstr "cor"
@@ -13303,7 +13303,7 @@ msgstr "erro ao obter perfil de saída para imagem %d"
 msgid "error loading directory `%s'"
 msgstr "erro carregando pasta `%s'"
 
-#: src/gui/actions/edit.c:386
+#: src/gui/actions/edit.c:396
 #, c-format
 msgid "error loading file '%s'"
 msgstr "erro carregando arquivo '%s'"
@@ -14253,7 +14253,7 @@ msgstr "gama completo"
 msgid "full path"
 msgstr "caminho completo"
 
-#: src/views/darkroom.c:1991
+#: src/views/darkroom.c:1992
 msgid "full resolution (slow)"
 msgstr "resolução total (lento)"
 
@@ -14969,7 +14969,7 @@ msgstr ""
 msgid "hot pixels"
 msgstr "pixels quentes"
 
-#: src/libs/histogram.c:2900
+#: src/libs/histogram.c:2911
 msgid ""
 "hover to highlight sample on canvas,\n"
 "click to lock sample,\n"
@@ -16813,7 +16813,7 @@ msgstr "mestre"
 msgid "match greens"
 msgstr "coincidir verdes"
 
-#: src/libs/histogram.c:150
+#: src/libs/histogram.c:151
 msgid "max"
 msgstr "máx"
 
@@ -16895,7 +16895,7 @@ msgstr ""
 "limite máximo para largura da saída.\n"
 "clique com o botão do meio para redefinir como 0."
 
-#: src/libs/histogram.c:150
+#: src/libs/histogram.c:151
 msgid "mean"
 msgstr "média"
 
@@ -17086,7 +17086,7 @@ msgstr "faixa de meios-tons"
 msgid "midtones"
 msgstr "meios-tons"
 
-#: src/libs/histogram.c:150
+#: src/libs/histogram.c:151
 msgid "min"
 msgstr "mín"
 
@@ -17456,7 +17456,7 @@ msgstr "neutralizar cores"
 msgid "neutralize colors from patches"
 msgstr "neutralizar cores dos patches"
 
-#: src/views/darkroom.c:2011
+#: src/views/darkroom.c:2012
 msgid "never"
 msgstr "nunca"
 
@@ -17734,7 +17734,7 @@ msgstr "não-raw"
 #: src/database/collection_query.c:1375 src/gui/guides.c:740
 #: src/iop/basecurve.c:1573 src/iop/channelmixerrgb.c:5738
 #: src/iop/clipping.c:2012 src/iop/clipping.c:2203 src/iop/clipping.c:2218
-#: src/iop/retouch.c:547 src/libs/export.c:959 src/libs/histogram.c:148
+#: src/iop/retouch.c:547 src/libs/export.c:959 src/libs/histogram.c:149
 #: src/libs/ioporder.c:246 src/libs/print_settings.c:2641
 msgid "none"
 msgstr "nenhum"
@@ -18225,7 +18225,7 @@ msgstr "abrir arquivo GPX"
 msgid "open documentation"
 msgstr "abrir documentação"
 
-#: src/gui/actions/edit.c:338
+#: src/gui/actions/edit.c:348
 msgid "open sidecar file"
 msgstr "abrir arquivo auxiliar"
 
@@ -20171,7 +20171,7 @@ msgstr ""
 "escala a distância da primária vermelha até o branco da base atual do misturador.\n"
 "-100% colapsa-a no branco, +100% dobra-a."
 
-#: src/views/darkroom.c:1992
+#: src/views/darkroom.c:1993
 msgid "scaled (default)"
 msgstr "em escala (padrão)"
 
@@ -20221,7 +20221,7 @@ msgstr "temperatura do iluminante da cena"
 msgid "scene-referred default"
 msgstr "padrão relativo à cena"
 
-#: src/libs/histogram.c:644
+#: src/libs/histogram.c:652
 msgid "scopes"
 msgstr "histograma"
 
@@ -20515,11 +20515,11 @@ msgstr "seleciona o tom de cor"
 msgid "select watermark color"
 msgstr "seleciona cor da marca d'água"
 
-#: src/libs/histogram.c:3165
+#: src/libs/histogram.c:3277
 msgid "select which color mode to use"
 msgstr "selecionar que modo de cor usar"
 
-#: src/libs/histogram.c:3157
+#: src/libs/histogram.c:3269
 msgid "select which statistic to show"
 msgstr "selecionar que estatística mostrar"
 
@@ -20712,6 +20712,7 @@ msgstr "definindo data/hora em %d imagens"
 
 #: src/iop/temperature.c:1557 src/iop/temperature.c:1571
 #: src/iop/temperature.c:1577 src/iop/temperature.c:1591
+#: src/libs/essentials.c:221
 msgid "settings"
 msgstr "configurações"
 
@@ -20957,7 +20958,7 @@ msgid "show the attached tags as a flat list or as a hierarchical tree"
 msgstr ""
 "mostra as etiquetas anexadas como lista simples ou como árvore hierárquica"
 
-#: src/views/darkroom.c:2070
+#: src/views/darkroom.c:2071
 msgid "show the pipeline node graph"
 msgstr "mostrar o grafo de nós do pipeline"
 
@@ -21892,7 +21893,7 @@ msgstr "verde-azulado"
 #: build/src/iop/introspection_splittoningrgb.c:199
 #: build/src/iop/introspection_splittoningrgb.c:203
 #: src/iop/channelmixerrgb.c:5280 src/iop/splittoningrgb.c:1512
-#: src/iop/temperature.c:1613 src/libs/essentials.c:95
+#: src/iop/temperature.c:1613 src/libs/essentials.c:103
 msgid "temperature"
 msgstr "temperatura"
 
@@ -22545,7 +22546,7 @@ msgstr "diferença de tempo"
 msgid "time offset"
 msgstr "intervalo de tempo"
 
-#: src/iop/temperature.c:1619 src/libs/essentials.c:97
+#: src/iop/temperature.c:1619 src/libs/essentials.c:105
 msgid "tint"
 msgstr "tonalidade"
 
@@ -22586,7 +22587,7 @@ msgstr ""
 "alterna verificação de gama\n"
 "clique-direito para opções"
 
-#: src/views/darkroom.c:2085
+#: src/views/darkroom.c:2086
 msgid ""
 "toggle guide lines\n"
 "right click for guides options"
@@ -22816,7 +22817,7 @@ msgstr ""
 msgid "try to use trash when deleting images"
 msgstr "tentar enviar arquivos para a lixeira quando apagar arquivos de imagem"
 
-#: src/libs/histogram.c:3173
+#: src/libs/histogram.c:3285
 msgid ""
 "turn on color picker\n"
 "ctrl+click or right-click to select an area"
@@ -23931,139 +23932,170 @@ msgstr "Mesa de Luz, mostrando uma coleção"
 msgid "Based on Ansel by Aurélien Pierre and on darktable."
 msgstr "Baseado no Ansel, de Aurélien Pierre, e no darktable."
 
-#: src/views/darkroom.c:1830
+#: src/views/darkroom.c:1831
 #, c-format
 msgid "%d star"
 msgid_plural "%d stars"
 msgstr[0] "%d estrela"
 msgstr[1] "%d estrelas"
 
-#: src/gui/window_manager.c:730
+#: src/gui/window_manager.c:792
 msgid "Develop"
 msgstr "Revelar"
 
-#: src/gui/window_manager.c:732
+#: src/gui/window_manager.c:794
 msgid "Develop the selected picture"
 msgstr "Revelar a foto selecionada"
 
-#: src/gui/window_manager.c:816
+#: src/gui/window_manager.c:888
 msgid "Export"
 msgstr "Exportar"
 
-#: src/gui/window_manager.c:819
+#: src/gui/window_manager.c:891
 msgid "Export the selected pictures"
 msgstr "Exportar as fotos selecionadas"
 
-#: src/gui/window_manager.c:731
+#: src/gui/window_manager.c:793
 msgid "Organize, rate and select your pictures"
 msgstr "Organize, classifique e escolha suas fotos"
 
-#: src/libs/essentials.c:93
+#: src/libs/essentials.c:101
 msgid "Blacks"
 msgstr "Pretos"
 
-#: src/libs/essentials.c:85
+#: src/libs/essentials.c:93
 msgid "Contrast"
 msgstr "Contraste"
 
-#: src/libs/essentials.c:122
+#: src/libs/essentials.c:143
 msgid "Essentials"
 msgstr "Essenciais"
 
-#: src/libs/essentials.c:83
+#: src/libs/essentials.c:91
 msgid "Exposure"
 msgstr "Exposição"
 
-#: src/libs/essentials.c:87
+#: src/libs/essentials.c:95
 msgid "Highlights"
 msgstr "Realces"
 
-#: src/libs/essentials.c:305
+#: src/libs/essentials.c:521
 msgid "Light"
 msgstr "Luz"
 
-#: src/libs/essentials.c:101
+#: src/libs/essentials.c:109
 msgid "Saturation"
 msgstr "Saturação"
 
-#: src/libs/essentials.c:89
+#: src/libs/essentials.c:97
 msgid "Shadows"
 msgstr "Sombras"
 
-#: src/libs/essentials.c:95
+#: src/libs/essentials.c:103
 msgid "Temperature"
 msgstr "Temperatura"
 
-#: src/libs/essentials.c:97
+#: src/libs/essentials.c:105
 msgid "Tint"
 msgstr "Matiz"
 
-#: src/libs/essentials.c:99
+#: src/libs/essentials.c:107
 msgid "Vibrance"
 msgstr "Vibração"
 
-#: src/libs/essentials.c:91
+#: src/libs/essentials.c:99
 msgid "Whites"
 msgstr "Brancos"
 
-#: src/libs/essentials.c:88
+#: src/libs/essentials.c:96
 msgid "brighten or darken the bright areas (tone equalizer, -2 EV band)"
 msgstr ""
 "clareia ou escurece as áreas claras (equalizador de tons, faixa de -2 EV)"
 
-#: src/libs/essentials.c:92
+#: src/libs/essentials.c:100
 msgid "brighten or darken the brightest tones (tone equalizer, -1 EV band)"
 msgstr ""
 "clareia ou escurece os tons mais claros (equalizador de tons, faixa de -1 EV)"
 
-#: src/libs/essentials.c:90
+#: src/libs/essentials.c:98
 msgid "brighten or darken the dark areas (tone equalizer, -5 EV band)"
 msgstr ""
 "clareia ou escurece as áreas escuras (equalizador de tons, faixa de -5 EV)"
 
-#: src/libs/essentials.c:94
+#: src/libs/essentials.c:102
 msgid "brighten or darken the darkest tones (tone equalizer, -6 EV band)"
 msgstr ""
 "clareia ou escurece os tons mais escuros (equalizador de tons, faixa de -6 "
 "EV)"
 
-#: src/libs/essentials.c:84
+#: src/libs/essentials.c:92
 msgid "brightness of the whole picture, in EV (exposure module)"
 msgstr "brilho da foto inteira, em EV (módulo de exposição)"
 
-#: src/libs/essentials.c:96
+#: src/libs/essentials.c:104
 msgid "make the picture warmer or cooler (white balance)"
 msgstr "deixa a foto mais quente ou mais fria (balanço de branco)"
 
-#: src/libs/essentials.c:86
+#: src/libs/essentials.c:94
 msgid ""
 "separation between darks and lights around middle gray (color balance rgb)"
 msgstr ""
 "separação entre escuros e claros em torno do cinza médio (balanço de cor RGB)"
 
-#: src/libs/essentials.c:98
+#: src/libs/essentials.c:106
 msgid "shift colors between magenta and green (white balance)"
 msgstr "desloca as cores entre magenta e verde (balanço de branco)"
 
-#: src/libs/essentials.c:102
+#: src/libs/essentials.c:110
 msgid "strengthen or mute all colors (color balance rgb)"
 msgstr "reforça ou suaviza todas as cores (balanço de cor RGB)"
 
-#: src/libs/essentials.c:100
+#: src/libs/essentials.c:108
 msgid "strengthen the least saturated colors first (color balance rgb)"
 msgstr "reforça primeiro as cores menos saturadas (balanço de cor RGB)"
 
-#: src/libs/essentials.c:289
+#: src/libs/essentials.c:506
 msgid "Auto"
 msgstr "Auto"
 
-#: src/libs/essentials.c:293
+#: src/libs/essentials.c:510
 msgid "black and white: remove all chroma (color balance rgb)"
 msgstr "preto e branco: remove todo o croma (balanço de cor RGB)"
 
-#: src/libs/essentials.c:290
+#: src/libs/essentials.c:507
 msgid "let each module adjust itself to the picture"
 msgstr "deixa cada módulo se ajustar sozinho à foto"
+
+#: src/libs/essentials.c:244
+#, c-format
+msgid "%d adjustment"
+msgid_plural "%d adjustments"
+msgstr[0] "%d ajuste"
+msgstr[1] "%d ajustes"
+
+#: src/libs/essentials.c:501 src/views/darkroom_rails.c:275
+msgid "Adjust"
+msgstr "Ajustar"
+
+#: src/views/darkroom_rails.c:276
+msgid "Crop and straighten"
+msgstr "Cortar e endireitar"
+
+#: src/views/darkroom_rails.c:277
+msgid "Retouch"
+msgstr "Retoque"
+
+#: src/libs/essentials.c:526
+msgid "White balance"
+msgstr "Balanço de branco"
+
+#: src/libs/essentials.c:514
+msgid "reset the light and color sliders to their defaults"
+msgstr "redefinir os controles de luz e cor para o padrão"
+
+#: src/libs/essentials.c:527
+msgid "white balance setting (white balance module)"
+msgstr "configuração do balanço de branco (módulo balanço de branco)"
 
 #~ msgctxt "preferences"
 #~ msgid "libsecret"

@@ -108,6 +108,9 @@ typedef struct dt_ui_t
 
   /* Header/title bar */
   struct dt_header_t *header;
+
+  /* icon rails outside the left and right panels, empty and hidden unless a view fills them */
+  GtkWidget *rails[2];
 } dt_ui_t;
 
 gchar *panels_get_view_path(char *suffix);
@@ -121,6 +124,21 @@ gboolean dt_ui_panel_ancestor(dt_ui_t *ui, const dt_ui_panel_t p, GtkWidget *w);
 // Hide it in lighttable mode.
 GtkWidget *dt_ui_center(dt_ui_t *ui);
 GtkWidget *dt_ui_center_base(dt_ui_t *ui);
+
+/**
+ * @brief The icon rail outside a side panel: a vertical box a view fills with buttons.
+ *
+ * @details A rail is shown only while it is enabled (dt_ui_rail_set_enabled(), typically from
+ * the view's enter()/leave()) AND its panel is shown, so collapsing a panel takes its rail too.
+ * @param right FALSE for the rail left of the left panel, TRUE for the one right of the right panel.
+ */
+GtkWidget *dt_ui_rail(dt_ui_t *ui, gboolean right);
+void dt_ui_rail_set_enabled(dt_ui_t *ui, gboolean right, gboolean enabled);
+/** Re-apply rail visibility after a panel was shown or hidden. */
+void dt_ui_rail_sync(dt_ui_t *ui);
+
+/** Pop up one of the global menubar's menus (dt_menus_t index) under a widget. */
+void dt_ui_popup_global_menu(dt_ui_t *ui, int index, GtkWidget *anchor);
 GtkWidget *dt_ui_log_msg(dt_ui_t *ui);
 GtkWidget *dt_ui_toast_msg(dt_ui_t *ui);
 GtkWidget *dt_ui_main_window(dt_ui_t *ui);

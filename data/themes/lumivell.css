@@ -521,12 +521,23 @@ menu menuitem:hover label {
   color: @rv_text_hi;
 }
 
-/* the histogram sits in a card */
-#main-histogram {
+/* the histogram and its footer sit in a card */
+#histogram-card {
   background-color: @rv_chrome;
   border: 1px solid #222226;
   border-radius: 12px;
-  margin: 0.6em 0.9em 0.2em;
+  margin: 0 0.9em 0.2em;
+  padding: 8px 8px 6px;
+}
+
+#histogram-footer {
+  margin-top: 6px;
+  padding: 0 4px;
+}
+
+#histogram-footer label {
+  color: @rv_text_dim;
+  font-size: 0.85em;
 }
 
 
@@ -639,17 +650,6 @@ menu menuitem:hover label {
   color: @rv_text_hi;
 }
 
-#search-button {
-  border: none;
-  border-radius: 10px;
-  padding: 6px;
-  background-color: transparent;
-}
-
-#search-button:hover {
-  background-color: @rv_panel_alt;
-}
-
 #export-button {
   margin: 0 8px;
   padding: 5px 18px;
@@ -724,21 +724,27 @@ menu menuitem:hover label {
 
 
 /*======================================
-  10. ESSENTIALS PANEL (Light & Color)
+  10. ADJUST PANEL (header, Light & Color)
   ======================================*/
 
-#essentials {
-  padding: 0 0 0.6em;
+#panel-header {
+  padding: 12px 0.9em 10px;
 }
 
-#essentials-actions {
-  margin: 0.2em 0 0.6em;
+#panel-title {
+  color: @rv_text_hi;
+  font-size: 1.15em;
+  font-weight: 600;
+}
+
+#essentials {
+  padding: 0 0.9em 0.6em;
 }
 
 #essentials-actions button {
   min-height: 0;
-  margin-right: 6px;
-  padding: 3px 14px;
+  margin-left: 6px;
+  padding: 3px 12px;
   border: 1px solid @rv_line;
   border-radius: 999px;
   background-color: transparent;
@@ -763,7 +769,102 @@ menu menuitem:hover label {
   color: @rv_chrome;
 }
 
-#essentials .dt_section_label {
-  margin: 0.9em 0 0.2em;
+#essentials-actions #essentials-reset {
+  min-width: 16px;
+  min-height: 16px;
+  padding: 5px;
+  border: none;
+  border-radius: 8px;
   color: @rv_text_dim;
+}
+
+#essentials-actions #essentials-reset:hover {
+  color: @rv_text_hi;
+  background-color: @rv_panel_alt;
+}
+
+.essentials-section {
+  border-top: 1px solid @rv_line;
+  padding-top: 4px;
+  margin-top: 6px;
+}
+
+.essentials-section-header {
+  min-height: 30px;
+}
+
+.essentials-section-arrow {
+  min-width: 16px;
+  min-height: 16px;
+  margin-right: 6px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: @rv_text_dim;
+}
+
+.essentials-section-title {
+  color: @rv_text_hi;
+  font-weight: 600;
+}
+
+.essentials-section-count {
+  color: @rv_accent;
+  font-size: 0.85em;
+}
+
+.essentials-section-body {
+  padding-bottom: 4px;
+}
+
+
+/*======================================
+  11. ICON RAILS AND TOP BAR ICONS
+  ======================================*/
+
+.icon-rail {
+  min-width: 52px;
+  padding-top: 12px;
+  background-color: @rv_chrome;
+}
+
+#rail-left { border-right: 1px solid @rv_panel_alt; }
+#rail-right { border-left: 1px solid @rv_panel_alt; }
+
+.icon-rail .rail-button {
+  min-width: 20px;
+  min-height: 20px;
+  margin: 3px 6px;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+  color: @rv_text_dim;
+}
+
+.icon-rail .rail-button:hover {
+  color: @rv_text_hi;
+  background-color: @rv_panel_alt;
+}
+
+.icon-rail .rail-button.active {
+  color: @rv_accent;
+  background-color: alpha(@rv_accent, 0.14);
+}
+
+.topbar-icon,
+#search-button {
+  min-width: 18px;
+  min-height: 18px;
+  margin: 0 1px;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+  color: @rv_text;
+}
+
+.topbar-icon:hover,
+#search-button:hover {
+  background-color: @rv_panel_alt;
 }

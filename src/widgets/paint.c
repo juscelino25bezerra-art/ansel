@@ -3740,3 +3740,174 @@ void dtgtk_liquify_cairo_paint_curve_tool(cairo_t *cr, const gint x, const gint 
 // vim: shiftwidth=2 expandtab tabstop=2 cindent
 // kate: tab-indents: off; indent-width 2; replace-tabs on; indent-mode cstyle; remove-trailing-spaces modified;
 // clang-format on
+
+/* -- line icons from SVG path data ------------------------------------------------------------- */
+
+/* Read one number of an SVG path. Locale-independent (g_ascii_strtod): the GUI runs under locales
+ * whose decimal separator is a comma. Sets *ok to FALSE when there is no number to read. */
+static double _svg_number(const char **p, gboolean *ok)
+{
+  while(**p && (g_ascii_isspace(**p) || **p == ',')) (*p)++;
+  gchar *end = NULL;
+  const double v = g_ascii_strtod(*p, &end);
+  if(end == NULL || end == *p)
+  {
+    *ok = FALSE;
+    return 0.;
+  }
+  *p = end;
+  return v;
+}
+
+/* Arc flags are a single 0 or 1, and minified paths write them with no separator ("a1 1 0 01 2 2"). */
+static int _svg_flag(const char **p, gboolean *ok)
+{
+  while(**p && (g_ascii_isspace(**p) || **p == ',')) (*p)++;
+  if(**p != '0' && **p != '1')
+  {
+    *ok = FALSE;
+    return 0;
+  }
+  return *(*p)++ - '0';
+}
+
+/* SVG elliptical arc, endpoint parameterization (SVG 1.1 appendix F.6.5) converted to cairo's
+ * center parameterization. */
+static void _svg_arc(cairo_t *cr, const double x1, const double y1, double rx, double ry,
+                     const double phi_deg, const int large, const int sweep, const double x2, const double y2)
+{
+  if(rx == 0. || ry == 0.)
+  {
+    cairo_line_to(cr, x2, y2);
+    return;
+  }
+  rx = fabs(rx);
+  ry = fabs(ry);
+  const double phi = phi_deg * M_PI / 180., c = cos(phi), s = sin(phi);
+  const double dx = (x1 - x2) / 2., dy = (y1 - y2) / 2.;
+  const double x1p = c * dx + s * dy, y1p = -s * dx + c * dy;
+  const double lambda = (x1p * x1p) / (rx * rx) + (y1p * y1p) / (ry * ry);
+  if(lambda > 1.)
+  {
+    rx *= sqrt(lambda);
+    ry *= sqrt(lambda);
+  }
+  const double num = rx * rx * ry * ry - rx * rx * y1p * y1p - ry * ry * x1p * x1p;
+  const double den = rx * rx * y1p * y1p + ry * ry * x1p * x1p;
+  double coef = den > 0. ? sqrt(fmax(0., num / den)) : 0.;
+  if(large == sweep) coef = -coef;
+  const double cxp = coef * rx * y1p / ry, cyp = -coef * ry * x1p / rx;
+  const double cx = c * cxp - s * cyp + (x1 + x2) / 2., cy = s * cxp + c * cyp + (y1 + y2) / 2.;
+  const double t1 = atan2((y1p - cyp) / ry, (x1p - cxp) / rx);
+  const double t2 = atan2((-y1p - cyp) / ry, (-x1p - cxp) / rx);
+
+  // the path is not part of the graphics state: save/restore only scopes the transform
+  cairo_save(cr);
+  cairo_translate(cr, cx, cy);
+  cairo_rotate(cr, phi);
+  cairo_scale(cr, rx, ry);
+  if(sweep)
+    cairo_arc(cr, 0., 0., 1., t1, t2);
+  else
+    cairo_arc_negative(cr, 0., 0., 1., t1, t2);
+  cairo_restore(cr);
+}
+
+void dtgtk_cairo_paint_line_icon(cairo_t *cr, gint x, gint y, gint w, gint h, gint flags, void *data)
+{
+  const char *p = (const char *)data;
+  if(p == NULL) return;
+
+  PREAMBLE(1, 1, 0, 0)
+  cairo_scale(cr, 1. / 24., 1. / 24.);
+  cairo_set_line_join(cr, CAIRO_LINE_JOIN_ROUND);
+  cairo_set_line_width(cr, 1.75);
+
+  double cx = 0., cy = 0., sx = 0., sy = 0.;
+  char cmd = 0;
+  gboolean ok = TRUE;
+  while(ok && *p)
+  {
+    while(*p && (g_ascii_isspace(*p) || *p == ',')) p++;
+    if(!*p) break;
+    if(g_ascii_isalpha(*p))
+      cmd = *p++;
+    else if(!cmd)
+      break;
+
+    const gboolean rel = g_ascii_islower(cmd);
+    const double ox = rel ? cx : 0., oy = rel ? cy : 0.;
+    switch(g_ascii_toupper(cmd))
+    {
+      case 'M':
+      {
+        const double a = _svg_number(&p, &ok) + ox, b = _svg_number(&p, &ok) + oy;
+        if(!ok) break;
+        cairo_move_to(cr, a, b);
+        cx = sx = a;
+        cy = sy = b;
+        cmd = rel ? 'l' : 'L'; // further pairs are implicit line-tos
+        break;
+      }
+      case 'L':
+      {
+        const double a = _svg_number(&p, &ok) + ox, b = _svg_number(&p, &ok) + oy;
+        if(!ok) break;
+        cairo_line_to(cr, a, b);
+        cx = a;
+        cy = b;
+        break;
+      }
+      case 'H':
+      {
+        const double a = _svg_number(&p, &ok) + ox;
+        if(!ok) break;
+        cairo_line_to(cr, a, cy);
+        cx = a;
+        break;
+      }
+      case 'V':
+      {
+        const double b = _svg_number(&p, &ok) + oy;
+        if(!ok) break;
+        cairo_line_to(cr, cx, b);
+        cy = b;
+        break;
+      }
+      case 'C':
+      {
+        const double x1 = _svg_number(&p, &ok) + ox, y1 = _svg_number(&p, &ok) + oy;
+        const double x2 = _svg_number(&p, &ok) + ox, y2 = _svg_number(&p, &ok) + oy;
+        const double x3 = _svg_number(&p, &ok) + ox, y3 = _svg_number(&p, &ok) + oy;
+        if(!ok) break;
+        cairo_curve_to(cr, x1, y1, x2, y2, x3, y3);
+        cx = x3;
+        cy = y3;
+        break;
+      }
+      case 'A':
+      {
+        const double rx = _svg_number(&p, &ok), ry = _svg_number(&p, &ok), rot = _svg_number(&p, &ok);
+        const int large = _svg_flag(&p, &ok), sweep = _svg_flag(&p, &ok);
+        const double a = _svg_number(&p, &ok) + ox, b = _svg_number(&p, &ok) + oy;
+        if(!ok) break;
+        _svg_arc(cr, cx, cy, rx, ry, rot, large, sweep, a, b);
+        cx = a;
+        cy = b;
+        break;
+      }
+      case 'Z':
+        cairo_close_path(cr);
+        cx = sx;
+        cy = sy;
+        cmd = 0; // a command letter must follow
+        break;
+      default:
+        ok = FALSE; // unsupported command: draw what was read so far
+        break;
+    }
+  }
+  cairo_stroke(cr);
+
+  FINISH
+}

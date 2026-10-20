@@ -163,6 +163,16 @@ static gboolean redo_callback(GtkAccelGroup *group, GObject *acceleratable, guin
   return TRUE;
 }
 
+void dt_gui_undo(void)
+{
+  undo_callback(NULL, NULL, 0, 0, NULL);
+}
+
+void dt_gui_redo(void)
+{
+  redo_callback(NULL, NULL, 0, 0, NULL);
+}
+
 static gboolean compress_history_callback(GtkAccelGroup *group, GObject *acceleratable, guint keyval, GdkModifierType mods, gpointer user_data)
 {
   GList *imgs = dt_act_on_get_images();

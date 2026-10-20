@@ -269,6 +269,7 @@ FILE(GLOB SOURCE_FILES
   "libs/lib.c"
   "views/view.c"
   "views/dev_toolbox.c"
+  "views/darkroom_rails.c"
   "views/dev_backbuf.c"
   )
 FILE(GLOB HEADER_FILES "*.h" "common/*.h" "common/solvers/*.h" "external/OpenCL/CL/*.h" "control/*.h" "iop/*.h" "iop/highlights/*.h" "libs/*.h" "views/*.h")

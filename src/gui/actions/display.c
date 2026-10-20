@@ -158,6 +158,9 @@ void dt_ui_panel_show(dt_ui_t *ui, const dt_ui_panel_t p, gboolean show, gboolea
     if(over_panel) gtk_widget_hide(over_panel);
   }
 
+  // a side's icon rail goes with its panel
+  if(p == DT_UI_PANEL_LEFT || p == DT_UI_PANEL_RIGHT) dt_ui_rail_sync(ui);
+
   if(write)
   {
     gchar *key;

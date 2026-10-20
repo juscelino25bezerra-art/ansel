@@ -380,6 +380,35 @@ void dtgtk_liquify_cairo_paint_line_tool(cairo_t *cr, const gint x, const gint y
 void dtgtk_liquify_cairo_paint_curve_tool(cairo_t *cr, const gint x, const gint y, const gint w, const gint h,
                                              const gint flags, void *data);
 
+/**
+ * @brief Paint a line icon from SVG path data drawn in a 24x24 box.
+ *
+ * @details `data` is the path string (a `const char *` that must outlive the widget, usually
+ * one of the DTGTK_LINE_ICON_* literals below). Supports M L H V C A Z and their relative
+ * forms; numbers are parsed locale-independently. Stroked with round caps and joins in the
+ * current source color, so it follows the widget's CSS color like every other dtgtk icon.
+ */
+void dtgtk_cairo_paint_line_icon(cairo_t *cr, gint x, gint y, gint w, gint h, gint flags, void *data);
+
+// Lumivell's line icons, as path data for dtgtk_cairo_paint_line_icon()
+#define DTGTK_LINE_ICON_SEARCH "M11 4a7 7 0 1 0 0 14a7 7 0 1 0 0-14M21 21l-4.3-4.3"
+#define DTGTK_LINE_ICON_UNDO "M9 14 4 9l5-5M4 9h10.5a5.5 5.5 0 0 1 0 11H11"
+#define DTGTK_LINE_ICON_REDO "m15 14 5-5-5-5M20 9H9.5a5.5 5.5 0 0 0 0 11H13"
+#define DTGTK_LINE_ICON_RESET "M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"
+#define DTGTK_LINE_ICON_ADJUST "M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0M14 4v4M8 10v4M16 16v4"
+#define DTGTK_LINE_ICON_CROP "M6 2v14a2 2 0 0 0 2 2h14M18 22V8a2 2 0 0 0-2-2H2"
+#define DTGTK_LINE_ICON_HEAL "M10.5 20.5 3.5 13.5a2.1 2.1 0 0 1 0-3l7-7a2.1 2.1 0 0 1 3 0l7 7a2.1 2.1 0 0 1 0 3l-7 7a2.1 2.1 0 0 1-3 0zM9 12h.01M12 9h.01M15 12h.01M12 15h.01"
+#define DTGTK_LINE_ICON_MASK "M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M12 3v18M12 8h6M12 12h9M12 16h6"
+#define DTGTK_LINE_ICON_PRESETS "M12 2 2 7l10 5 10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+#define DTGTK_LINE_ICON_NAVIGATOR "M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM9 9h5a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1z"
+#define DTGTK_LINE_ICON_HISTORY "M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M12 7v5l3 2"
+#define DTGTK_LINE_ICON_SNAPSHOTS "M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3zM12 10a3 3 0 1 0 0 6a3 3 0 1 0 0-6"
+#define DTGTK_LINE_ICON_INFO "M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M12 16v-5M12 8h.01"
+#define DTGTK_LINE_ICON_DUPLICATES "M9 9h10a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2zM4 15V5a2 2 0 0 1 2-2h10"
+#define DTGTK_LINE_ICON_NOTES "M5 3h10l4 4v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM7 10h8M7 14h8M7 18h5"
+#define DTGTK_LINE_ICON_BLEND "M9 4a6 6 0 1 0 0 12a6 6 0 1 0 0-12M15 8a6 6 0 1 0 0 12a6 6 0 1 0 0-12"
+#define DTGTK_LINE_ICON_PANEL "M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM9 4v16"
+
 #ifdef __cplusplus
 }
 #endif

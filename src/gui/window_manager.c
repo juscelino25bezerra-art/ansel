@@ -34,6 +34,8 @@
 #include "gui/dtgtk/thumbtable.h"
 #include "widgets/accelerators.h"
 #include "widgets/widget_style.h"
+#include "widgets/button.h"
+#include "widgets/paint.h"
 #include "control/signal.h"
 
 #define WINDOW_DEBUG 0
@@ -126,6 +128,42 @@ GtkWidget *dt_ui_center(dt_ui_t *ui)
 GtkWidget *dt_ui_center_base(dt_ui_t *ui)
 {
   return ui->center_base;
+}
+
+GtkWidget *dt_ui_rail(dt_ui_t *ui, gboolean right)
+{
+  return ui->rails[right ? 1 : 0];
+}
+
+void dt_ui_rail_sync(dt_ui_t *ui)
+{
+  for(int k = 0; k < 2; k++)
+  {
+    GtkWidget *rail = ui->rails[k];
+    if(IS_NULL_PTR(rail)) continue;
+    GtkWidget *panel = ui->panels[k ? DT_UI_PANEL_RIGHT : DT_UI_PANEL_LEFT];
+    const gboolean enabled = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(rail), "rail-enabled"));
+    gtk_widget_set_visible(rail, enabled && panel && gtk_widget_get_visible(panel));
+  }
+}
+
+void dt_ui_rail_set_enabled(dt_ui_t *ui, gboolean right, gboolean enabled)
+{
+  GtkWidget *rail = ui->rails[right ? 1 : 0];
+  if(IS_NULL_PTR(rail)) return;
+  g_object_set_data(G_OBJECT(rail), "rail-enabled", GINT_TO_POINTER(enabled ? 1 : 0));
+  dt_ui_rail_sync(ui);
+}
+
+void dt_ui_popup_global_menu(dt_ui_t *ui, int index, GtkWidget *anchor)
+{
+  if(IS_NULL_PTR(ui->header) || index < 0 || index >= DT_MENU_LAST) return;
+  GtkWidget *menu = ui->header->menus[index];
+  if(IS_NULL_PTR(menu)) return;
+  // the menubar refreshes its entries (sensitivity, check marks) when a top item opens
+  update_menu_entries(NULL, &ui->header->item_lists[index]);
+  // the menu stays attached to the menubar: popping it up elsewhere borrows it
+  gtk_menu_popup_at_widget(GTK_MENU(menu), anchor, GDK_GRAVITY_NORTH_WEST, GDK_GRAVITY_NORTH_EAST, NULL);
 }
 
 GtkWidget *dt_ui_log_msg(dt_ui_t *ui)
@@ -468,8 +506,22 @@ static void _ui_init_panel_right(dt_ui_t *ui, GtkWidget *container)
 
   /* add top,center,bottom*/
   container = widget;
-  ui->containers[DT_UI_CONTAINER_PANEL_RIGHT_TOP] = _ui_init_panel_container_top(container);
   ui->containers[DT_UI_CONTAINER_PANEL_RIGHT_CENTER] = _ui_init_panel_container_center(container, TRUE);
+  // Lumivell: the right panel's top (scopes, Essentials, module tabs) scrolls with the modules, as
+  // one column. Without this, the fixed top grows with the Essentials and leaves the module list
+  // a sliver on smaller screens.
+  {
+    GtkWidget *plugins = ui->containers[DT_UI_CONTAINER_PANEL_RIGHT_CENTER];
+    GtkWidget *viewport = gtk_widget_get_parent(plugins);
+    GtkWidget *column = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+    gtk_widget_set_name(column, "right-column");
+    g_object_ref(plugins);
+    gtk_container_remove(GTK_CONTAINER(viewport), plugins);
+    ui->containers[DT_UI_CONTAINER_PANEL_RIGHT_TOP] = _ui_init_panel_container_top(column);
+    gtk_box_pack_start(GTK_BOX(column), plugins, TRUE, TRUE, 0);
+    g_object_unref(plugins);
+    gtk_container_add(GTK_CONTAINER(viewport), column);
+  }
   ui->containers[DT_UI_CONTAINER_PANEL_RIGHT_BOTTOM] = _ui_init_panel_container_bottom(container);
 
   /* lets show all widgets */
@@ -546,6 +598,16 @@ void dt_ui_init_main_table(GtkWidget *parent, dt_ui_t *ui)
   _ui_init_panel_bottom(ui, container);
   _ui_init_panel_left(ui, container);
   _ui_init_panel_right(ui, container);
+
+  /* icon rails, outermost columns: hidden until a view enables them */
+  for(int k = 0; k < 2; k++)
+  {
+    GtkWidget *rail = ui->rails[k] = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+    gtk_widget_set_name(rail, k ? "rail-right" : "rail-left");
+    dt_gui_add_class(rail, "icon-rail");
+    gtk_widget_set_no_show_all(rail, TRUE);
+    gtk_grid_attach(GTK_GRID(container), rail, k ? 4 : 0, 1, 1, 2);
+  }
 
   /* initialize the main drawing widget (center) */
   widget = gtk_box_new(GTK_ORIENTATION_VERTICAL, DT_GUI_BOX_SPACING);
@@ -747,6 +809,16 @@ static void _export_button_clicked(GtkWidget *w, gpointer data)
   dt_gui_open_export_dialog();
 }
 
+static void _undo_button_clicked(GtkWidget *w, gpointer data)
+{
+  dt_gui_undo();
+}
+
+static void _redo_button_clicked(GtkWidget *w, gpointer data)
+{
+  dt_gui_redo();
+}
+
 void dt_ui_init_global_menu(dt_ui_t *ui)
 {
   /* if user_pref != merge menubar in titlebar */
@@ -821,7 +893,27 @@ void dt_ui_init_global_menu(dt_ui_t *ui)
   dt_ui_titlebar_pack_end(ui, export_button);
   gtk_widget_show(export_button);
 
-  GtkWidget *search_button = gtk_button_new_from_icon_name("edit-find", GTK_ICON_SIZE_SMALL_TOOLBAR);
+  GtkWidget *redo_button = dtgtk_button_new(dtgtk_cairo_paint_line_icon, 0, DTGTK_LINE_ICON_REDO);
+  gtk_widget_set_tooltip_text(redo_button, _("Redo"));
+  gtk_widget_set_valign(redo_button, GTK_ALIGN_CENTER);
+  dt_gui_add_class(redo_button, "topbar-icon");
+  gtk_widget_set_size_request(redo_button, DT_PIXEL_APPLY_DPI(32), DT_PIXEL_APPLY_DPI(32));
+  g_signal_connect(G_OBJECT(redo_button), "clicked", G_CALLBACK(_redo_button_clicked), NULL);
+  dt_ui_titlebar_pack_end(ui, redo_button);
+  gtk_widget_show(redo_button);
+
+  GtkWidget *undo_button = dtgtk_button_new(dtgtk_cairo_paint_line_icon, 0, DTGTK_LINE_ICON_UNDO);
+  gtk_widget_set_tooltip_text(undo_button, _("Undo"));
+  gtk_widget_set_valign(undo_button, GTK_ALIGN_CENTER);
+  dt_gui_add_class(undo_button, "topbar-icon");
+  gtk_widget_set_size_request(undo_button, DT_PIXEL_APPLY_DPI(32), DT_PIXEL_APPLY_DPI(32));
+  g_signal_connect(G_OBJECT(undo_button), "clicked", G_CALLBACK(_undo_button_clicked), NULL);
+  dt_ui_titlebar_pack_end(ui, undo_button);
+  gtk_widget_show(undo_button);
+
+  GtkWidget *search_button = dtgtk_button_new(dtgtk_cairo_paint_line_icon, 0, DTGTK_LINE_ICON_SEARCH);
+  dt_gui_add_class(search_button, "topbar-icon");
+  gtk_widget_set_size_request(search_button, DT_PIXEL_APPLY_DPI(32), DT_PIXEL_APPLY_DPI(32));
   gtk_widget_set_tooltip_text(search_button, _("Search actions..."));
   gtk_widget_set_valign(search_button, GTK_ALIGN_CENTER);
   gtk_widget_set_name(search_button, "search-button");

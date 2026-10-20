@@ -65,6 +65,7 @@
 #include "common/image.h"
 #include "imageio/imageio_core.h"
 #include "develop/iop_profile.h"
+#include "colorprofiles/colorspaces.h"
 #include "common/logging.h"
 #include "system/macros.h"
 #include "math/math.h"
@@ -104,8 +105,8 @@
 #define DT_LIB_HISTOGRAM_SCOPE_SMOOTH_TONE_PASSES 4
 #define DT_LIB_HISTOGRAM_SCOPE_SMOOTH_FORCE (256 * 0.33)
 #define DT_LIB_HISTOGRAM_SCOPE_RESTRICTED_LABEL_OPERATOR CAIRO_OPERATOR_ADD
-#define DT_LIB_HISTOGRAM_SCOPE_DEFAULT_HEIGHT 250
-#define DT_LIB_HISTOGRAM_SCOPE_MIN_HEIGHT 120
+#define DT_LIB_HISTOGRAM_SCOPE_DEFAULT_HEIGHT 140 // Lumivell: a compact card; drag the grip to enlarge
+#define DT_LIB_HISTOGRAM_SCOPE_MIN_HEIGHT 90
 #define DT_LIB_HISTOGRAM_SCOPE_MAX_HEIGHT 500
 #define DT_LIB_HISTOGRAM_SCOPE_HANDLE_HEIGHT 8
 #define DT_LIB_HISTOGRAM_SCOPE_HEIGHT_CONF "plugin/darkroom/histogram/scope_height"
@@ -180,6 +181,13 @@ typedef struct dt_lib_histogram_t
   dt_dev_pixelpipe_cache_wait_t module_wait;
 
   dt_gui_collapsible_section_t cs;
+
+  // Lumivell: a header row the darkroom's Essentials fill (title and actions), and a footer under
+  // the scope naming what it shows: file format, image size, output color space
+  GtkWidget *panel_header;
+  GtkWidget *footer_format;
+  GtkWidget *footer_size;
+  GtkWidget *footer_profile;
 
 } dt_lib_histogram_t;
 
@@ -658,7 +666,8 @@ uint32_t container(dt_lib_module_t *self)
 
 int expandable(dt_lib_module_t *self)
 {
-  return 1;
+  // always shown, as a card at the top of the panel: no header to fold it away
+  return 0;
 }
 
 int position()
@@ -669,6 +678,7 @@ int position()
 static void _update_picker_output(dt_lib_module_t *self);
 static void _update_sample_label(dt_lib_module_t *self, dt_colorpicker_sample_t *sample);
 static void _update_everything(dt_lib_module_t *self);
+static void _update_footer(dt_lib_module_t *self);
 
 
 void _backbuf_int_to_op(const int value, dt_lib_histogram_t *d)
@@ -2441,6 +2451,7 @@ void view_enter(struct dt_lib_module_t *self, struct dt_view_t *old_view, struct
 {
   dt_lib_histogram_t *d = self->data;
   _reset_cache(d);
+  _update_footer(self);
 
   DT_DEBUG_CONTROL_SIGNAL_CONNECT(dt_control_signal_get_global(), DT_SIGNAL_HISTORY_RESYNC,
                                   G_CALLBACK(_preview_history_resync_callback), NULL);
@@ -3069,6 +3080,73 @@ void set_preferences(void *menu, dt_lib_module_t *self)
   gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi_display);
 }
 
+/* The output color space set in the output color profile module (base instance), for the footer.
+ * Read on the GUI thread, which owns module params. */
+static gchar *_footer_profile_name(dt_develop_t *dev)
+{
+  for(const GList *l = dev->iop; l; l = g_list_next(l))
+  {
+    const dt_iop_module_t *m = (const dt_iop_module_t *)l->data;
+    if(m->multi_priority != 0 || strcmp(m->op, "colorout") || IS_NULL_PTR(m->params)
+       || IS_NULL_PTR(m->so) || IS_NULL_PTR(m->so->get_f))
+      continue;
+    const dt_introspection_field_t *ft = m->so->get_f("type");
+    const dt_introspection_field_t *ff = m->so->get_f("filename");
+    if(IS_NULL_PTR(ft) || IS_NULL_PTR(ff)) break;
+    const dt_colorspaces_color_profile_type_t type
+        = *(const dt_colorspaces_color_profile_type_t *)((const uint8_t *)m->params + ft->header.offset);
+    const char *filename = (const char *)m->params + ff->header.offset;
+    const char *name = dt_colorspaces_get_name(type, filename);
+    if(IS_NULL_PTR(name) || !name[0]) break;
+    // "sRGB (web-safe)" -> "sRGB": the footer has room for the name only
+    const char *paren = strstr(name, " (");
+    return paren ? g_strndup(name, paren - name) : g_strdup(name);
+  }
+  return g_strdup("");
+}
+
+static void _update_footer(dt_lib_module_t *self)
+{
+  dt_lib_histogram_t *d = (dt_lib_histogram_t *)self->data;
+  dt_develop_t *dev = dt_dev_get_global();
+  if(IS_NULL_PTR(d) || IS_NULL_PTR(d->footer_format) || IS_NULL_PTR(dev)) return;
+
+  const dt_image_t *img = &dev->image_storage;
+  if(img->id <= 0)
+  {
+    gtk_label_set_text(GTK_LABEL(d->footer_format), "");
+    gtk_label_set_text(GTK_LABEL(d->footer_size), "");
+    gtk_label_set_text(GTK_LABEL(d->footer_profile), "");
+    return;
+  }
+
+  gchar *format = NULL;
+  if(dt_image_is_raw(img))
+    format = g_strdup("RAW");
+  else
+  {
+    const char *ext = strrchr(img->filename, '.');
+    format = g_ascii_strup(ext ? ext + 1 : "", -1);
+  }
+  gtk_label_set_text(GTK_LABEL(d->footer_format), format);
+  dt_free(format);
+
+  gchar *size = (img->width > 0 && img->height > 0)
+      ? g_strdup_printf("%d \u00d7 %d", img->width, img->height)
+      : g_strdup("");
+  gtk_label_set_text(GTK_LABEL(d->footer_size), size);
+  dt_free(size);
+
+  gchar *profile = _footer_profile_name(dev);
+  gtk_label_set_text(GTK_LABEL(d->footer_profile), profile);
+  dt_free(profile);
+}
+
+static void _footer_develop_changed(gpointer instance, gpointer user_data)
+{
+  _update_footer((dt_lib_module_t *)user_data);
+}
+
 void gui_init(dt_lib_module_t *self)
 {
   dt_develop_t *const dev = dt_dev_get_global();
@@ -3097,9 +3175,43 @@ void gui_init(dt_lib_module_t *self)
 
   // The grip floats on the scope's bottom edge (overlay) so it takes no layout space and leaves no
   // margin-like gap; invisible until hovered.
+  // Lumivell: header row, filled by the Essentials in the darkroom (empty and hidden elsewhere)
+  d->panel_header = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_widget_set_name(d->panel_header, "panel-header");
+  gtk_widget_set_no_show_all(d->panel_header, TRUE);
+  gtk_box_pack_start(GTK_BOX(self->widget), d->panel_header, FALSE, FALSE, 0);
+  g_object_set_data(G_OBJECT(dt_gui_main_window()), "lumivell-panel-header", d->panel_header);
+
+  // the scope and its footer make one card
+  GtkWidget *card = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+  gtk_widget_set_name(card, "histogram-card");
+
   GtkWidget *scope_overlay = gtk_overlay_new();
   gtk_container_add(GTK_CONTAINER(scope_overlay), d->scope_draw);
-  gtk_box_pack_start(GTK_BOX(self->widget), scope_overlay, FALSE, FALSE, 0);
+  gtk_box_pack_start(GTK_BOX(card), scope_overlay, FALSE, FALSE, 0);
+
+  GtkWidget *footer = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_widget_set_name(footer, "histogram-footer");
+  dt_gui_add_class(footer, "dt_monospace");
+  d->footer_format = gtk_label_new("");
+  d->footer_size = gtk_label_new("");
+  d->footer_profile = gtk_label_new("");
+  gtk_label_set_ellipsize(GTK_LABEL(d->footer_profile), PANGO_ELLIPSIZE_END);
+  gtk_widget_set_halign(d->footer_format, GTK_ALIGN_START);
+  gtk_widget_set_halign(d->footer_profile, GTK_ALIGN_END);
+  gtk_box_pack_start(GTK_BOX(footer), d->footer_format, TRUE, TRUE, 0);
+  gtk_box_set_center_widget(GTK_BOX(footer), d->footer_size);
+  gtk_box_pack_end(GTK_BOX(footer), d->footer_profile, TRUE, TRUE, 0);
+  gtk_box_pack_start(GTK_BOX(card), footer, FALSE, FALSE, 0);
+
+  gtk_box_pack_start(GTK_BOX(self->widget), card, FALSE, FALSE, 0);
+
+  DT_DEBUG_CONTROL_SIGNAL_CONNECT(dt_control_signal_get_global(), DT_SIGNAL_DEVELOP_IMAGE_CHANGED,
+                                  G_CALLBACK(_footer_develop_changed), self);
+  DT_DEBUG_CONTROL_SIGNAL_CONNECT(dt_control_signal_get_global(), DT_SIGNAL_DEVELOP_HISTORY_CHANGE,
+                                  G_CALLBACK(_footer_develop_changed), self);
+  DT_DEBUG_CONTROL_SIGNAL_CONNECT(dt_control_signal_get_global(), DT_SIGNAL_DEVELOP_INITIALIZE,
+                                  G_CALLBACK(_footer_develop_changed), self);
 
   /**
    * @userdoc
@@ -3246,6 +3358,9 @@ void gui_cleanup(dt_lib_module_t *self)
   dt_develop_t *const dev = dt_dev_get_global();
   if(IS_NULL_PTR(self->data)) return;
   dt_lib_histogram_t *d = self->data;
+  DT_DEBUG_CONTROL_SIGNAL_DISCONNECT(dt_control_signal_get_global(), G_CALLBACK(_footer_develop_changed), self);
+  if(dt_gui_main_window())
+    g_object_set_data(G_OBJECT(dt_gui_main_window()), "lumivell-panel-header", NULL);
   dt_dev_pixelpipe_cache_wait_cleanup(&d->scope_wait, "histogram-gui-cleanup-scope");
   dt_dev_pixelpipe_cache_wait_cleanup(&d->picker_wait, "histogram-gui-cleanup-picker");
   dt_dev_pixelpipe_cache_wait_cleanup(&d->module_wait, "histogram-gui-cleanup-module");

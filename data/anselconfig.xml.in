@@ -2357,8 +2357,8 @@
   </dtconfig>
   <dtconfig>
     <name>plugin/darkroom/histogram/scope_height</name>
-    <type min="120" max="3000">int</type>
-    <default>250</default>
+    <type min="90" max="3000">int</type>
+    <default>140</default>
     <shortdescription>Height of the scope display</shortdescription>
     <longdescription />
   </dtconfig>
