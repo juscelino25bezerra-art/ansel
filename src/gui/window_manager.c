@@ -747,20 +747,58 @@ typedef struct dt_ui_mode_switcher_t
 {
   GtkWidget *library;
   GtkWidget *develop;
+  GtkWidget *compare;
   gboolean syncing;
+  // "Compare" is a mode of the darkroom, owned by the compare module (libs/compare.c), which
+  // registers its handler here: core code cannot call into a lib module directly.
+  dt_ui_compare_handler_t compare_handler;
+  gboolean compare_active;  // as reported by the compare module
+  gboolean compare_pending; // asked from another view: enter it once the darkroom is open
 } dt_ui_mode_switcher_t;
 
-static dt_ui_mode_switcher_t _mode_switcher = { NULL, NULL, FALSE };
+static dt_ui_mode_switcher_t _mode_switcher = { 0 };
+
+static gboolean _in_darkroom(void)
+{
+  const dt_view_t *view = dt_view_manager_get_current_view(dt_view_manager_get_global());
+  return view && !g_strcmp0(view->module_name, "darkroom");
+}
 
 static void _mode_switcher_sync(void)
 {
   if(IS_NULL_PTR(_mode_switcher.library) || IS_NULL_PTR(_mode_switcher.develop)) return;
   const dt_view_t *view = dt_view_manager_get_current_view(dt_view_manager_get_global());
   const char *name = view ? view->module_name : "";
+  const gboolean comparing = _mode_switcher.compare_active && !g_strcmp0(name, "darkroom");
   _mode_switcher.syncing = TRUE;
   gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(_mode_switcher.library), !g_strcmp0(name, "lighttable"));
-  gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(_mode_switcher.develop), !g_strcmp0(name, "darkroom"));
+  gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(_mode_switcher.develop),
+                               !g_strcmp0(name, "darkroom") && !comparing);
+  if(_mode_switcher.compare)
+  {
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(_mode_switcher.compare), comparing);
+    gtk_widget_set_sensitive(_mode_switcher.compare, !IS_NULL_PTR(_mode_switcher.compare_handler));
+  }
   _mode_switcher.syncing = FALSE;
+}
+
+void dt_ui_set_compare_handler(dt_ui_compare_handler_t handler)
+{
+  _mode_switcher.compare_handler = handler;
+  _mode_switcher_sync();
+}
+
+void dt_ui_set_compare_active(gboolean active)
+{
+  _mode_switcher.compare_active = active;
+  _mode_switcher_sync();
+}
+
+gboolean dt_ui_take_compare_pending(void)
+{
+  const gboolean pending = _mode_switcher.compare_pending;
+  _mode_switcher.compare_pending = FALSE;
+  return pending;
 }
 
 static void _mode_switcher_view_changed(gpointer instance, gpointer old_view, gpointer new_view, gpointer user_data)
@@ -773,8 +811,30 @@ static void _mode_switcher_toggled(GtkToggleButton *button, gpointer user_data)
   if(_mode_switcher.syncing) return;
   const char *target = (const char *)user_data;
   const dt_view_t *view = dt_view_manager_get_current_view(dt_view_manager_get_global());
+  const gboolean active = gtk_toggle_button_get_active(button);
+
+  if(!g_strcmp0(target, "compare"))
+  {
+    if(_mode_switcher.compare_handler)
+    {
+      if(active && !_in_darkroom())
+      {
+        // compare what is being developed: open the darkroom first, the module enters on arrival
+        _mode_switcher.compare_pending = TRUE;
+        dt_ctl_switch_mode_to("darkroom");
+        if(!_in_darkroom()) _mode_switcher.compare_pending = FALSE; // refused (no picture)
+      }
+      else
+        _mode_switcher.compare_handler(active);
+    }
+  }
+  else if(!g_strcmp0(target, "darkroom") && active && _in_darkroom() && _mode_switcher.compare_active)
+  {
+    // "Develop" while comparing: back to editing, same picture
+    if(_mode_switcher.compare_handler) _mode_switcher.compare_handler(FALSE);
+  }
   // clicking the mode we are already in does nothing (dt_ctl_switch_mode_to() would leave it)
-  if(gtk_toggle_button_get_active(button) && !(view && !g_strcmp0(view->module_name, target)))
+  else if(active && !(view && !g_strcmp0(view->module_name, target)))
     dt_ctl_switch_mode_to(target);
   // the switch may be refused (no picture to develop): always show the real state
   _mode_switcher_sync();
@@ -790,12 +850,17 @@ static GtkWidget *_mode_switcher_new(void)
 
   _mode_switcher.library = gtk_toggle_button_new_with_label(_("Library"));
   _mode_switcher.develop = gtk_toggle_button_new_with_label(_("Develop"));
+  _mode_switcher.compare = gtk_toggle_button_new_with_label(_("Compare"));
   gtk_widget_set_tooltip_text(_mode_switcher.library, _("Organize, rate and select your pictures"));
   gtk_widget_set_tooltip_text(_mode_switcher.develop, _("Develop the selected picture"));
+  gtk_widget_set_tooltip_text(_mode_switcher.compare,
+                              _("Compare the picture before and after its edits, or with any step of its history"));
   g_signal_connect(G_OBJECT(_mode_switcher.library), "toggled", G_CALLBACK(_mode_switcher_toggled), "lighttable");
   g_signal_connect(G_OBJECT(_mode_switcher.develop), "toggled", G_CALLBACK(_mode_switcher_toggled), "darkroom");
+  g_signal_connect(G_OBJECT(_mode_switcher.compare), "toggled", G_CALLBACK(_mode_switcher_toggled), "compare");
   gtk_box_pack_start(GTK_BOX(box), _mode_switcher.library, FALSE, FALSE, 0);
   gtk_box_pack_start(GTK_BOX(box), _mode_switcher.develop, FALSE, FALSE, 0);
+  gtk_box_pack_start(GTK_BOX(box), _mode_switcher.compare, FALSE, FALSE, 0);
 
   DT_DEBUG_CONTROL_SIGNAL_CONNECT(dt_control_signal_get_global(), DT_SIGNAL_VIEWMANAGER_VIEW_CHANGED,
                                   G_CALLBACK(_mode_switcher_view_changed), NULL);

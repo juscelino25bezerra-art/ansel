@@ -8,7 +8,7 @@ add_definitions(-include libs/lib_api.h)
 
 
 # The modules
-set(MODULES export styles tagging collect metadata metadata_view navigation histogram history snapshots modulegroups backgroundjobs shape_manager blending duplicate ioporder textnotes studio_style studio_import essentials)
+set(MODULES export styles tagging collect metadata metadata_view navigation histogram history snapshots modulegroups backgroundjobs shape_manager blending duplicate ioporder textnotes studio_style studio_import essentials compare)
 
 # The tools
 set(MODULES ${MODULES} filter)
@@ -36,6 +36,7 @@ add_library(textnotes MODULE "textnotes.c")
 add_library(studio_style MODULE "studio_style.c")
 add_library(studio_import MODULE "studio_import.c")
 add_library(essentials MODULE "essentials.c")
+add_library(compare MODULE "compare.c")
 
 # tools
 add_library(filter MODULE "tools/filter.c")

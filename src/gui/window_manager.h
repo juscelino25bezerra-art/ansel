@@ -137,6 +137,20 @@ void dt_ui_rail_set_enabled(dt_ui_t *ui, gboolean right, gboolean enabled);
 /** Re-apply rail visibility after a panel was shown or hidden. */
 void dt_ui_rail_sync(dt_ui_t *ui);
 
+/**
+ * @brief The "Compare" mode of the mode switcher.
+ *
+ * @details Compare is a mode of the darkroom implemented by a lib module (libs/compare.c). The
+ * module registers a handler that enters (TRUE) or leaves (FALSE) the mode, and reports its state
+ * back with dt_ui_set_compare_active() so the switcher shows it. When Compare is asked from
+ * another view, the switcher opens the darkroom and leaves a pending request the module takes on
+ * arrival with dt_ui_take_compare_pending().
+ */
+typedef void (*dt_ui_compare_handler_t)(gboolean active);
+void dt_ui_set_compare_handler(dt_ui_compare_handler_t handler);
+void dt_ui_set_compare_active(gboolean active);
+gboolean dt_ui_take_compare_pending(void);
+
 /** Pop up one of the global menubar's menus (dt_menus_t index) under a widget. */
 void dt_ui_popup_global_menu(dt_ui_t *ui, int index, GtkWidget *anchor);
 GtkWidget *dt_ui_log_msg(dt_ui_t *ui);

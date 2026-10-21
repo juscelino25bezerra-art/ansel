@@ -1845,6 +1845,8 @@ static void _floatbar_create(dt_develop_t *dev)
   gtk_box_pack_start(GTK_BOX(_floatbar.box), _floatbar.reject, FALSE, FALSE, 0);
 
   gtk_overlay_add_overlay(GTK_OVERLAY(dt_ui_center_base(dt_gui_get_ui())), _floatbar.box);
+  // the compare mode (libs/compare.c) hides it while it shows its own controls
+  g_object_set_data(G_OBJECT(dt_gui_main_window()), "lumivell-floatbar", _floatbar.box);
   gtk_widget_show_all(_floatbar.box);
   gtk_widget_set_no_show_all(_floatbar.box, TRUE);
   gtk_widget_hide(_floatbar.box);

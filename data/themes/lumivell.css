@@ -876,3 +876,103 @@ menu menuitem:hover label {
 #search-button:hover {
   background-color: @rv_panel_alt;
 }
+
+
+/*======================================
+  12. COMPARE (before / after)
+  ======================================*/
+
+#compare-toolbar {
+  margin-top: 12px;
+  padding: 6px;
+  border-radius: 999px;
+  background-color: alpha(@rv_chrome, 0.92);
+  border: 1px solid @rv_panel_alt;
+}
+
+#compare-modes {
+  padding: 3px;
+  border-radius: 999px;
+  background-color: @rv_panel;
+  border: 1px solid @rv_line;
+}
+
+#compare-modes button {
+  min-height: 0;
+  padding: 5px 16px;
+  border: none;
+  border-radius: 999px;
+  background-color: transparent;
+}
+
+#compare-modes button label {
+  color: @rv_text_dim;
+  font-weight: 500;
+}
+
+#compare-modes button:checked {
+  background-color: @rv_selected;
+}
+
+#compare-modes button:checked label {
+  color: @rv_text_hi;
+}
+
+#compare-split {
+  margin: 0 6px 0 16px;
+}
+
+#compare-done {
+  min-height: 0;
+  margin-left: 12px;
+  padding: 5px 16px;
+  border: 1px solid @rv_line;
+  border-radius: 999px;
+  background-color: transparent;
+}
+
+#compare-done label {
+  color: @rv_text;
+  font-weight: 500;
+}
+
+#compare-done:hover {
+  background-color: @rv_panel_alt;
+}
+
+#compare-history {
+  padding: 10px 16px;
+  background-color: alpha(@rv_chrome, 0.94);
+  border-top: 1px solid @rv_panel_alt;
+}
+
+#compare-with {
+  margin-right: 14px;
+  color: @rv_text_dim;
+}
+
+#compare-chips button.compare-chip {
+  min-height: 0;
+  margin-right: 8px;
+  padding: 5px 14px;
+  border: 1px solid @rv_line;
+  border-radius: 999px;
+  background-color: @rv_panel;
+}
+
+#compare-chips button.compare-chip label {
+  color: @rv_text;
+}
+
+#compare-chips button.compare-chip:hover {
+  background-color: @rv_panel_alt;
+}
+
+#compare-chips button.compare-chip.active {
+  border-color: @rv_accent;
+  background-color: alpha(@rv_accent, 0.12);
+}
+
+#compare-chips button.compare-chip.active label {
+  color: @rv_accent;
+}

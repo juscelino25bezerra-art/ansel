@@ -592,7 +592,7 @@ msgstr ""
 msgid "%3.2f (dpi:%d)"
 msgstr ""
 
-#: src/libs/essentials.c:244
+#: src/libs/essentials.c:247
 #, c-format
 msgid "%d adjustment"
 msgid_plural "%d adjustments"
@@ -1770,7 +1770,7 @@ msgstr ""
 msgid "Add to library"
 msgstr ""
 
-#: src/libs/essentials.c:501 src/views/darkroom_rails.c:275
+#: src/libs/essentials.c:549 src/views/darkroom_rails.c:275
 msgid "Adjust"
 msgstr ""
 
@@ -1794,6 +1794,10 @@ msgstr ""
 
 #: src/common/color_vocabulary.c:94
 msgid "African-american"
+msgstr ""
+
+#: src/libs/compare.c:515 src/libs/compare.c:526 src/libs/compare.c:552
+msgid "After"
 msgstr ""
 
 #: src/libs/modulegroups.c:1030
@@ -1953,7 +1957,7 @@ msgstr ""
 msgid "Attach to the group"
 msgstr ""
 
-#: src/libs/essentials.c:506
+#: src/libs/essentials.c:554
 msgid "Auto"
 msgstr ""
 
@@ -1989,7 +1993,7 @@ msgid "B"
 msgstr ""
 
 #: build/src/iop/introspection_crystgrain.c:203 src/iop/channelmixerrgb.c:5662
-#: src/libs/essentials.c:509
+#: src/libs/essentials.c:557
 msgid "B&W"
 msgstr ""
 
@@ -2109,6 +2113,10 @@ msgstr ""
 msgid "BRG (for testing)"
 msgstr ""
 
+#: src/libs/compare.c:727
+msgid "Back to editing"
+msgstr ""
+
 #: src/iop/drawlayer.c:3065
 msgid "Background"
 msgstr ""
@@ -2157,6 +2165,18 @@ msgid ""
 "dual demosaicers double processing time."
 msgstr ""
 
+#: src/libs/compare.c:504
+msgid "Before"
+msgstr ""
+
+#: src/libs/compare.c:705
+msgid "Before and after on each side of a divider you drag"
+msgstr ""
+
+#: src/libs/compare.c:701
+msgid "Before left, after right"
+msgstr ""
+
 #: src/gui/develop/history_merge_gui.c:1692
 msgid ""
 "Below (prepend) — incoming (source) is the base ; on conflicts, the original"
@@ -2167,7 +2187,7 @@ msgstr ""
 msgid "Bilateral"
 msgstr ""
 
-#: src/libs/essentials.c:101
+#: src/libs/essentials.c:103
 msgid "Blacks"
 msgstr ""
 
@@ -2448,15 +2468,15 @@ msgstr ""
 msgid "Check to enable the global slideshow view. (needs a restart)"
 msgstr ""
 
-#: src/views/darkroom.c:2019
+#: src/views/darkroom.c:2021
 msgid "Checkerboard color 1"
 msgstr ""
 
-#: src/views/darkroom.c:2036
+#: src/views/darkroom.c:2038
 msgid "Checkerboard color 2"
 msgstr ""
 
-#: src/views/darkroom.c:2054
+#: src/views/darkroom.c:2056
 msgid "Checkerboard size"
 msgstr ""
 
@@ -2479,7 +2499,7 @@ msgid ""
 "in which the image will be proportionnaly fitted.\n"
 msgstr ""
 
-#: src/views/darkroom.c:1985
+#: src/views/darkroom.c:1987
 msgid ""
 "Choose at what size the main preview is rendered.\n"
 "Full resolution renders the pipeline at the raw original resolution.\n"
@@ -2488,7 +2508,7 @@ msgid ""
 "Pixel-level accuracy is guaranteed only when zoomed-in at 100%."
 msgstr ""
 
-#: src/views/darkroom.c:2004
+#: src/views/darkroom.c:2006
 #, c-format
 msgid ""
 "Choose how finely brush and polygon masks are drawn in the darkroom.\n"
@@ -2593,7 +2613,7 @@ msgid "Collections"
 msgstr ""
 
 #: build/src/iop/introspection_retouch.c:475 src/iop/drawlayer.c:2935
-#: src/libs/essentials.c:522
+#: src/libs/essentials.c:572
 msgid "Color"
 msgstr ""
 
@@ -2639,6 +2659,20 @@ msgstr ""
 msgid "Combine drawn & parametric"
 msgstr ""
 
+#: src/gui/window_manager.c:853 src/libs/compare.c:109
+msgid "Compare"
+msgstr ""
+
+#: src/gui/window_manager.c:857
+msgid ""
+"Compare the picture before and after its edits, or with any step of its "
+"history"
+msgstr ""
+
+#: src/libs/compare.c:738
+msgid "Compare with"
+msgstr ""
+
 #: src/iop/channelmixerrgb.c:5395 src/iop/splittoningrgb.c:1521
 msgid "Complete"
 msgstr ""
@@ -2675,7 +2709,7 @@ msgstr ""
 msgid "Contours"
 msgstr ""
 
-#: src/libs/essentials.c:93
+#: src/libs/essentials.c:95
 msgid "Contrast"
 msgstr ""
 
@@ -2935,8 +2969,8 @@ msgstr ""
 #: src/libs/modulegroups.c:1082 src/libs/modulegroups.c:1084
 #: src/libs/modulegroups.c:1088 src/libs/modulegroups.c:1090
 #: src/libs/modulegroups.c:1093 src/libs/modulegroups.c:1095
-#: src/views/darkroom.c:1877 src/views/darkroom.c:1879
-#: src/views/darkroom.c:1882
+#: src/views/darkroom.c:1879 src/views/darkroom.c:1881
+#: src/views/darkroom.c:1884
 msgid "Darkroom/Actions"
 msgstr ""
 
@@ -2957,14 +2991,14 @@ msgstr ""
 msgid "Darkroom/Filmstrip"
 msgstr ""
 
-#: src/views/darkroom.c:1887 src/views/darkroom.c:1892
-#: src/views/darkroom.c:1897 src/views/darkroom.c:1902
-#: src/views/darkroom.c:1907 src/views/darkroom.c:1912
-#: src/views/darkroom.c:1917 src/views/darkroom.c:1922
-#: src/views/darkroom.c:1927 src/views/darkroom.c:1932
-#: src/views/darkroom.c:1937 src/views/darkroom.c:1942
-#: src/views/darkroom.c:1947 src/views/darkroom.c:1952
-#: src/views/darkroom.c:1957 src/views/darkroom.c:1960
+#: src/views/darkroom.c:1889 src/views/darkroom.c:1894
+#: src/views/darkroom.c:1899 src/views/darkroom.c:1904
+#: src/views/darkroom.c:1909 src/views/darkroom.c:1914
+#: src/views/darkroom.c:1919 src/views/darkroom.c:1924
+#: src/views/darkroom.c:1929 src/views/darkroom.c:1934
+#: src/views/darkroom.c:1939 src/views/darkroom.c:1944
+#: src/views/darkroom.c:1949 src/views/darkroom.c:1954
+#: src/views/darkroom.c:1959 src/views/darkroom.c:1962
 msgid "Darkroom/Main image"
 msgstr ""
 
@@ -2977,8 +3011,8 @@ msgstr ""
 msgid "Darkroom/Modules/Instances"
 msgstr ""
 
-#: src/views/darkroom.c:1972 src/views/darkroom.c:2076
-#: src/views/darkroom.c:2098 src/views/darkroom.c:2102
+#: src/views/darkroom.c:1974 src/views/darkroom.c:2078
+#: src/views/darkroom.c:2100 src/views/darkroom.c:2104
 msgid "Darkroom/Toolbox"
 msgstr ""
 
@@ -3169,11 +3203,11 @@ msgstr ""
 msgid "Detection in progress... (%i raw files found so far)"
 msgstr ""
 
-#: src/gui/window_manager.c:792
+#: src/gui/window_manager.c:852
 msgid "Develop"
 msgstr ""
 
-#: src/gui/window_manager.c:794
+#: src/gui/window_manager.c:855
 msgid "Develop the selected picture"
 msgstr ""
 
@@ -3520,7 +3554,7 @@ msgstr ""
 msgid "Error: No color data available for the selected chart."
 msgstr ""
 
-#: src/libs/essentials.c:143
+#: src/libs/essentials.c:146
 msgid "Essentials"
 msgstr ""
 
@@ -3563,7 +3597,7 @@ msgid ""
 "already exists"
 msgstr ""
 
-#: src/gui/window_manager.c:888
+#: src/gui/window_manager.c:953
 msgid "Export"
 msgstr ""
 
@@ -3584,7 +3618,7 @@ msgstr ""
 msgid "Export image list..."
 msgstr ""
 
-#: src/gui/window_manager.c:891
+#: src/gui/window_manager.c:956
 msgid "Export the selected pictures"
 msgstr ""
 
@@ -3596,7 +3630,7 @@ msgstr ""
 msgid "Export:"
 msgstr ""
 
-#: src/libs/essentials.c:91
+#: src/libs/essentials.c:93
 msgid "Exposure"
 msgstr ""
 
@@ -3693,7 +3727,7 @@ msgstr ""
 msgid "Fall-off"
 msgstr ""
 
-#: src/views/darkroom.c:2003
+#: src/views/darkroom.c:2005
 msgid "Fast drawn mask rasterization"
 msgstr ""
 
@@ -3816,7 +3850,7 @@ msgstr ""
 msgid "Focus gamut checking options"
 msgstr ""
 
-#: src/views/darkroom.c:2103
+#: src/views/darkroom.c:2105
 msgid "Focus guide lines options"
 msgstr ""
 
@@ -3994,7 +4028,7 @@ msgstr ""
 msgid "Geometry"
 msgstr ""
 
-#: src/views/darkroom.c:1882
+#: src/views/darkroom.c:1884
 msgid "Give focus to the main image"
 msgstr ""
 
@@ -4010,7 +4044,7 @@ msgstr ""
 msgid "Go back"
 msgstr ""
 
-#: src/gui/window_manager.c:926
+#: src/gui/window_manager.c:991
 msgid "Go back to lighttable"
 msgstr ""
 
@@ -4141,7 +4175,7 @@ msgctxt "preferences"
 msgid "Hex"
 msgstr ""
 
-#: src/libs/essentials.c:95
+#: src/libs/essentials.c:97
 msgid "Highlights"
 msgstr ""
 
@@ -4610,6 +4644,10 @@ msgstr ""
 msgid "Layer sensitivity"
 msgstr ""
 
+#: src/libs/compare.c:729
+msgid "Leave the comparison (Escape)"
+msgstr ""
+
 #: src/gui/actions/display.c:505
 msgid "Left"
 msgstr ""
@@ -4630,11 +4668,11 @@ msgstr ""
 msgid "Let the OS mask Lumivell shortcuts"
 msgstr ""
 
-#: src/gui/window_manager.c:791 src/libs/collect.c:379
+#: src/gui/window_manager.c:851 src/libs/collect.c:379
 msgid "Library"
 msgstr ""
 
-#: src/libs/essentials.c:521
+#: src/libs/essentials.c:571
 msgid "Light"
 msgstr ""
 
@@ -4840,7 +4878,7 @@ msgstr ""
 msgid "Mask opacity"
 msgstr ""
 
-#: src/views/darkroom.c:2016
+#: src/views/darkroom.c:2018
 msgid "Mask preview settings"
 msgstr ""
 
@@ -4979,15 +5017,15 @@ msgid "Move Up"
 msgstr ""
 
 #: src/develop/masks/masks_gui.c:1055 src/gui/dtgtk/thumbtable.c:2138
-#: src/libs/shape_manager.c:1793 src/views/darkroom.c:1902
+#: src/libs/shape_manager.c:1793 src/views/darkroom.c:1904
 msgid "Move down"
 msgstr ""
 
-#: src/views/darkroom.c:1907
+#: src/views/darkroom.c:1909
 msgid "Move down (coarse step)"
 msgstr ""
 
-#: src/views/darkroom.c:1912
+#: src/views/darkroom.c:1914
 msgid "Move down (fine step)"
 msgstr ""
 
@@ -4995,40 +5033,40 @@ msgstr ""
 msgid "Move files on disk..."
 msgstr ""
 
-#: src/gui/dtgtk/thumbtable.c:2142 src/views/darkroom.c:1917
+#: src/gui/dtgtk/thumbtable.c:2142 src/views/darkroom.c:1919
 msgid "Move left"
 msgstr ""
 
-#: src/views/darkroom.c:1922
+#: src/views/darkroom.c:1924
 msgid "Move left (coarse step)"
 msgstr ""
 
-#: src/views/darkroom.c:1927
+#: src/views/darkroom.c:1929
 msgid "Move left (fine step)"
 msgstr ""
 
-#: src/gui/dtgtk/thumbtable.c:2146 src/views/darkroom.c:1932
+#: src/gui/dtgtk/thumbtable.c:2146 src/views/darkroom.c:1934
 msgid "Move right"
 msgstr ""
 
-#: src/views/darkroom.c:1937
+#: src/views/darkroom.c:1939
 msgid "Move right (coarse step)"
 msgstr ""
 
-#: src/views/darkroom.c:1942
+#: src/views/darkroom.c:1944
 msgid "Move right (fine step)"
 msgstr ""
 
 #: src/develop/masks/masks_gui.c:1053 src/gui/dtgtk/thumbtable.c:2134
-#: src/libs/shape_manager.c:1790 src/views/darkroom.c:1887
+#: src/libs/shape_manager.c:1790 src/views/darkroom.c:1889
 msgid "Move up"
 msgstr ""
 
-#: src/views/darkroom.c:1892
+#: src/views/darkroom.c:1894
 msgid "Move up (coarse step)"
 msgstr ""
 
-#: src/views/darkroom.c:1897
+#: src/views/darkroom.c:1899
 msgid "Move up (fine step)"
 msgstr ""
 
@@ -5195,6 +5233,10 @@ msgid ""
 "builds and distribution packages never check."
 msgstr ""
 
+#: src/libs/compare.c:710
+msgid "One at a time: press \\ or click the picture to swap"
+msgstr ""
+
 #: src/gui/actions/help.c:253
 msgid "Online documentation"
 msgstr ""
@@ -5268,12 +5310,16 @@ msgstr ""
 msgid "Organize and develop images from digital cameras"
 msgstr ""
 
-#: src/gui/window_manager.c:793
+#: src/gui/window_manager.c:854
 msgid "Organize, rate and select your pictures"
 msgstr ""
 
 #: src/gui/import.c:1751
 msgid "Origin path"
+msgstr ""
+
+#: src/libs/compare.c:220
+msgid "Original"
 msgstr ""
 
 #: src/gui/develop/history_merge_gui.c:1363
@@ -5882,7 +5928,7 @@ msgstr ""
 msgid "Record"
 msgstr ""
 
-#: src/gui/actions/edit.c:537 src/gui/window_manager.c:897
+#: src/gui/actions/edit.c:537 src/gui/window_manager.c:962
 msgid "Redo"
 msgstr ""
 
@@ -5963,7 +6009,7 @@ msgstr ""
 msgid "Rename drawing layer"
 msgstr ""
 
-#: src/views/darkroom.c:1984
+#: src/views/darkroom.c:1986
 msgid "Rendering size"
 msgstr ""
 
@@ -6053,7 +6099,7 @@ msgstr ""
 msgid "Rotation: %3.2f°"
 msgstr ""
 
-#: src/views/darkroom.c:217 src/views/darkroom.c:2115
+#: src/views/darkroom.c:217 src/views/darkroom.c:2117
 msgid ""
 "Run autoset on selected modules\n"
 "Right click for options"
@@ -6123,7 +6169,7 @@ msgstr ""
 msgid "Sans %s"
 msgstr ""
 
-#: src/libs/essentials.c:109
+#: src/libs/essentials.c:111
 msgid "Saturation"
 msgstr ""
 
@@ -6176,7 +6222,7 @@ msgstr ""
 msgid "Search a picture"
 msgstr ""
 
-#: src/gui/actions/help.c:261 src/gui/window_manager.c:917
+#: src/gui/actions/help.c:261 src/gui/window_manager.c:982
 msgid "Search actions..."
 msgstr ""
 
@@ -6226,7 +6272,7 @@ msgstr ""
 msgid "Select all filters"
 msgstr ""
 
-#: src/views/darkroom.c:2030 src/views/darkroom.c:2044
+#: src/views/darkroom.c:2032 src/views/darkroom.c:2046
 msgid "Select color of the checkerboard from a swatch"
 msgstr ""
 
@@ -6300,7 +6346,7 @@ msgstr ""
 msgid "Set the opacity on the selected shape"
 msgstr ""
 
-#: src/libs/essentials.c:97
+#: src/libs/essentials.c:99
 msgid "Shadows"
 msgstr ""
 
@@ -6342,7 +6388,7 @@ msgstr ""
 msgid "Shot:"
 msgstr ""
 
-#: src/views/darkroom.c:2059
+#: src/views/darkroom.c:2061
 msgid "Show a greyscaled mask image"
 msgstr ""
 
@@ -6376,12 +6422,16 @@ msgstr ""
 msgid "Show system tags"
 msgstr ""
 
-#: src/views/darkroom.c:2077
+#: src/views/darkroom.c:2079
 msgid "Show the pipeline node graph"
 msgstr ""
 
-#: src/views/darkroom.c:2104 src/views/dev_toolbox.c:224
+#: src/views/darkroom.c:2106 src/views/dev_toolbox.c:224
 msgid "Shows the options popover"
+msgstr ""
+
+#: src/libs/compare.c:701
+msgid "Side by side"
 msgstr ""
 
 #: src/control/jobs/control_jobs.c:332
@@ -6483,6 +6533,14 @@ msgstr ""
 msgid "Speed up"
 msgstr ""
 
+#: src/libs/compare.c:705
+msgid "Split"
+msgstr ""
+
+#: src/libs/compare.c:716
+msgid "Split position"
+msgstr ""
+
 #: src/iop/drawlayer.c:3025
 msgid "Sprinkle size"
 msgstr ""
@@ -6519,6 +6577,10 @@ msgstr ""
 #: src/libs/studio_import.c:112
 #, c-format
 msgid "Status: Monitoring `%s`"
+msgstr ""
+
+#: src/libs/compare.c:504
+msgid "Step"
 msgstr ""
 
 #: src/views/slideshow.c:668
@@ -6565,11 +6627,11 @@ msgstr ""
 msgid "Switch to %s node"
 msgstr ""
 
-#: src/views/darkroom.c:1878
+#: src/views/darkroom.c:1880
 msgid "Switch to the next picture"
 msgstr ""
 
-#: src/views/darkroom.c:1880
+#: src/views/darkroom.c:1882
 msgid "Switch to the previous picture"
 msgstr ""
 
@@ -6654,7 +6716,7 @@ msgstr ""
 msgid "Technics"
 msgstr ""
 
-#: src/libs/essentials.c:103
+#: src/libs/essentials.c:105
 msgid "Temperature"
 msgstr ""
 
@@ -6963,7 +7025,7 @@ msgid ""
 "module change."
 msgstr ""
 
-#: src/libs/essentials.c:105
+#: src/libs/essentials.c:107
 msgid "Tint"
 msgstr ""
 
@@ -6975,6 +7037,10 @@ msgstr ""
 
 #: src/views/dev_toolbox.c:186
 msgid "Toggle ISO 12646 color assessment conditions"
+msgstr ""
+
+#: src/libs/compare.c:709
+msgid "Toggle \\"
 msgstr ""
 
 #: src/gui/actions/display.c:549
@@ -7057,7 +7123,7 @@ msgstr ""
 msgid "Toggle gamut checking"
 msgstr ""
 
-#: src/views/darkroom.c:2099
+#: src/views/darkroom.c:2101
 msgid "Toggle guide lines"
 msgstr ""
 
@@ -7119,8 +7185,8 @@ msgstr ""
 #: src/libs/modulegroups.c:1089 src/libs/modulegroups.c:1091
 #: src/libs/modulegroups.c:1094 src/libs/modulegroups.c:1096
 #: src/libs/tools/lighttable.c:305 src/libs/tools/lighttable.c:307
-#: src/views/darkroom.c:1878 src/views/darkroom.c:1880
-#: src/views/darkroom.c:2078 src/views/darkroom.c:2100
+#: src/views/darkroom.c:1880 src/views/darkroom.c:1882
+#: src/views/darkroom.c:2080 src/views/darkroom.c:2102
 #: src/views/dev_toolbox.c:221
 msgid "Triggers the action"
 msgstr ""
@@ -7151,7 +7217,7 @@ msgstr ""
 msgid "U0V0"
 msgstr ""
 
-#: src/gui/actions/edit.c:535 src/gui/window_manager.c:906
+#: src/gui/actions/edit.c:535 src/gui/window_manager.c:971
 msgid "Undo"
 msgstr ""
 
@@ -7232,7 +7298,7 @@ msgstr ""
 msgid "Vectorscope"
 msgstr ""
 
-#: src/libs/essentials.c:107
+#: src/libs/essentials.c:109
 msgid "Vibrance"
 msgstr ""
 
@@ -7311,7 +7377,7 @@ msgstr ""
 msgid "Where should source edits be placed relative to destination ones?"
 msgstr ""
 
-#: src/libs/essentials.c:526
+#: src/libs/essentials.c:576
 msgid "White balance"
 msgstr ""
 
@@ -7319,7 +7385,7 @@ msgstr ""
 msgid "White-preserving"
 msgstr ""
 
-#: src/libs/essentials.c:99
+#: src/libs/essentials.c:101
 msgid "Whites"
 msgstr ""
 
@@ -7416,7 +7482,7 @@ msgstr ""
 msgid "Zoom"
 msgstr ""
 
-#: src/views/darkroom.c:1947
+#: src/views/darkroom.c:1949
 msgid "Zoom in"
 msgstr ""
 
@@ -7424,7 +7490,7 @@ msgstr ""
 msgid "Zoom in the thumbtable grid"
 msgstr ""
 
-#: src/views/darkroom.c:1952
+#: src/views/darkroom.c:1954
 msgid "Zoom out"
 msgstr ""
 
@@ -7432,19 +7498,19 @@ msgstr ""
 msgid "Zoom out the thumbtable grid"
 msgstr ""
 
-#: src/views/darkroom.c:1960
+#: src/views/darkroom.c:1962
 msgid "Zoom to 100%"
 msgstr ""
 
-#: src/views/darkroom.c:1957
+#: src/views/darkroom.c:1959
 msgid "Zoom to fit"
 msgstr ""
 
-#: src/views/darkroom.c:1820 src/views/darkroom.c:1962
+#: src/views/darkroom.c:1820 src/views/darkroom.c:1964
 msgid "Zooms the main image to 100%"
 msgstr ""
 
-#: src/views/darkroom.c:1817 src/views/darkroom.c:1959
+#: src/views/darkroom.c:1817 src/views/darkroom.c:1961
 msgid "Zooms the main image to fit the window"
 msgstr ""
 
@@ -7505,7 +7571,7 @@ msgstr ""
 msgid "_Apply"
 msgstr ""
 
-#: src/gui/window_manager.c:832
+#: src/gui/window_manager.c:897
 msgid "_Ateliers"
 msgstr ""
 
@@ -7526,23 +7592,23 @@ msgstr ""
 msgid "_Continue"
 msgstr ""
 
-#: src/gui/window_manager.c:832
+#: src/gui/window_manager.c:897
 msgid "_Display"
 msgstr ""
 
-#: src/gui/window_manager.c:832
+#: src/gui/window_manager.c:897
 msgid "_Edit"
 msgstr ""
 
-#: src/gui/window_manager.c:832
+#: src/gui/window_manager.c:897
 msgid "_File"
 msgstr ""
 
-#: src/gui/window_manager.c:832
+#: src/gui/window_manager.c:897
 msgid "_Help"
 msgstr ""
 
-#: src/gui/window_manager.c:832
+#: src/gui/window_manager.c:897
 msgid "_Image"
 msgstr ""
 
@@ -7554,7 +7620,7 @@ msgstr ""
 msgid "_Revert"
 msgstr ""
 
-#: src/gui/window_manager.c:832
+#: src/gui/window_manager.c:897
 msgid "_Run"
 msgstr ""
 
@@ -7562,11 +7628,11 @@ msgstr ""
 msgid "_Save"
 msgstr ""
 
-#: src/gui/window_manager.c:832
+#: src/gui/window_manager.c:897
 msgid "_Selection"
 msgstr ""
 
-#: src/gui/window_manager.c:832
+#: src/gui/window_manager.c:897
 msgid "_Styles"
 msgstr ""
 
@@ -8562,7 +8628,7 @@ msgctxt "preferences"
 msgid "auto"
 msgstr ""
 
-#: src/views/darkroom.c:2011
+#: src/views/darkroom.c:2013
 msgid "auto (default)"
 msgstr ""
 
@@ -8917,7 +8983,7 @@ msgstr ""
 msgid "black and white film"
 msgstr ""
 
-#: src/libs/essentials.c:510
+#: src/libs/essentials.c:558
 msgid "black and white: remove all chroma (color balance rgb)"
 msgstr ""
 
@@ -9159,19 +9225,19 @@ msgstr ""
 msgid "brighten only"
 msgstr ""
 
-#: src/libs/essentials.c:96
+#: src/libs/essentials.c:98
 msgid "brighten or darken the bright areas (tone equalizer, -2 EV band)"
 msgstr ""
 
-#: src/libs/essentials.c:100
+#: src/libs/essentials.c:102
 msgid "brighten or darken the brightest tones (tone equalizer, -1 EV band)"
 msgstr ""
 
-#: src/libs/essentials.c:98
+#: src/libs/essentials.c:100
 msgid "brighten or darken the dark areas (tone equalizer, -5 EV band)"
 msgstr ""
 
-#: src/libs/essentials.c:102
+#: src/libs/essentials.c:104
 msgid "brighten or darken the darkest tones (tone equalizer, -6 EV band)"
 msgstr ""
 
@@ -9198,7 +9264,7 @@ msgstr ""
 msgid "brightness of film material"
 msgstr ""
 
-#: src/libs/essentials.c:92
+#: src/libs/essentials.c:94
 msgid "brightness of the whole picture, in EV (exposure module)"
 msgstr ""
 
@@ -13344,7 +13410,7 @@ msgstr ""
 msgid "full path"
 msgstr ""
 
-#: src/views/darkroom.c:1992
+#: src/views/darkroom.c:1994
 msgid "full resolution (slow)"
 msgstr ""
 
@@ -14985,7 +15051,7 @@ msgstr ""
 msgid "lens shift only"
 msgstr ""
 
-#: src/libs/essentials.c:507
+#: src/libs/essentials.c:555
 msgid "let each module adjust itself to the picture"
 msgstr ""
 
@@ -15583,7 +15649,7 @@ msgstr ""
 msgid "make effect stronger or weaker"
 msgstr ""
 
-#: src/libs/essentials.c:104
+#: src/libs/essentials.c:106
 msgid "make the picture warmer or cooler (white balance)"
 msgstr ""
 
@@ -16372,7 +16438,7 @@ msgstr ""
 msgid "neutralize colors from patches"
 msgstr ""
 
-#: src/views/darkroom.c:2012
+#: src/views/darkroom.c:2014
 msgid "never"
 msgstr ""
 
@@ -18483,7 +18549,7 @@ msgid ""
 "ctrl+click to reapply any automatic presets"
 msgstr ""
 
-#: src/libs/essentials.c:514
+#: src/libs/essentials.c:564
 msgid "reset the light and color sliders to their defaults"
 msgstr ""
 
@@ -18935,7 +19001,7 @@ msgid ""
 "-100% collapses it onto the white, +100% doubles it."
 msgstr ""
 
-#: src/views/darkroom.c:1993
+#: src/views/darkroom.c:1995
 msgid "scaled (default)"
 msgstr ""
 
@@ -19288,7 +19354,7 @@ msgid ""
 "supports it"
 msgstr ""
 
-#: src/libs/essentials.c:94
+#: src/libs/essentials.c:96
 msgid ""
 "separation between darks and lights around middle gray (color balance rgb)"
 msgstr ""
@@ -19428,7 +19494,7 @@ msgstr ""
 
 #: src/iop/temperature.c:1557 src/iop/temperature.c:1571
 #: src/iop/temperature.c:1577 src/iop/temperature.c:1591
-#: src/libs/essentials.c:221
+#: src/libs/essentials.c:224
 msgid "settings"
 msgstr ""
 
@@ -19588,7 +19654,7 @@ msgstr ""
 msgid "shear the image along one diagonal"
 msgstr ""
 
-#: src/libs/essentials.c:106
+#: src/libs/essentials.c:108
 msgid "shift colors between magenta and green (white balance)"
 msgstr ""
 
@@ -19656,7 +19722,7 @@ msgstr ""
 msgid "show the attached tags as a flat list or as a hierarchical tree"
 msgstr ""
 
-#: src/views/darkroom.c:2071
+#: src/views/darkroom.c:2073
 msgid "show the pipeline node graph"
 msgstr ""
 
@@ -20225,11 +20291,11 @@ msgstr ""
 msgid "strength of the sharpen"
 msgstr ""
 
-#: src/libs/essentials.c:110
+#: src/libs/essentials.c:112
 msgid "strengthen or mute all colors (color balance rgb)"
 msgstr ""
 
-#: src/libs/essentials.c:108
+#: src/libs/essentials.c:110
 msgid "strengthen the least saturated colors first (color balance rgb)"
 msgstr ""
 
@@ -20536,7 +20602,7 @@ msgstr ""
 #: build/src/iop/introspection_splittoningrgb.c:199
 #: build/src/iop/introspection_splittoningrgb.c:203
 #: src/iop/channelmixerrgb.c:5280 src/iop/splittoningrgb.c:1512
-#: src/iop/temperature.c:1613 src/libs/essentials.c:103
+#: src/iop/temperature.c:1613 src/libs/essentials.c:105
 msgid "temperature"
 msgstr ""
 
@@ -21100,7 +21166,7 @@ msgstr ""
 msgid "time offset"
 msgstr ""
 
-#: src/iop/temperature.c:1619 src/libs/essentials.c:105
+#: src/iop/temperature.c:1619 src/libs/essentials.c:107
 msgid "tint"
 msgstr ""
 
@@ -21137,7 +21203,7 @@ msgid ""
 "right click for profile options"
 msgstr ""
 
-#: src/views/darkroom.c:2086
+#: src/views/darkroom.c:2088
 msgid ""
 "toggle guide lines\n"
 "right click for guides options"
@@ -21415,7 +21481,8 @@ msgid "uniform"
 msgstr ""
 
 #: src/common/image.h:323 src/gui/lut_viewer.c:1251 src/iop/highlights.c:663
-#: src/iop/lens.c:2876 src/libs/history.c:323 src/libs/snapshots.c:631
+#: src/iop/lens.c:2876 src/libs/compare.c:214 src/libs/history.c:323
+#: src/libs/snapshots.c:631
 msgid "unknown"
 msgstr ""
 
@@ -22079,7 +22146,7 @@ msgstr ""
 msgid "white balance disabled for camera"
 msgstr ""
 
-#: src/libs/essentials.c:527
+#: src/libs/essentials.c:577
 msgid "white balance setting (white balance module)"
 msgstr ""
 
