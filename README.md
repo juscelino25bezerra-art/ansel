@@ -10,12 +10,35 @@ direta, com o painel de ajustes à direita, o histograma no topo e a filmstrip e
 
 ## Instalação (Linux)
 
-- **.deb** (Ubuntu 24.04+, Linux Mint 22+, Debian 13): `sudo apt install ./lumivell_*.deb`
-- **AppImage** (qualquer distribuição): `chmod +x Lumivell-*.AppImage` e execute.
+Baixe a versão mais recente na página **[Releases](../../releases)**:
 
-Os pacotes são gerados por `packaging/linux/make-packages.sh` a partir de um build configurado com
-`-DCMAKE_INSTALL_PREFIX=/opt/lumivell`. O programa fica em `/opt/lumivell`, o comando é `lumivell`
-e as configurações ficam em `~/.config/lumivell`, então ele convive com um Ansel ou darktable instalado.
+- **.deb** (Ubuntu 22.04+, Linux Mint 21+, Debian 12+): `sudo apt install ./lumivell_*.deb`
+- **AppImage** (qualquer distribuição): `chmod +x Lumivell-*.AppImage` e execute.
+- **Flatpak**: `flatpak install --user Lumivell-*.flatpak` e depois `flatpak run photos.lumivell.Lumivell`.
+
+O programa fica em `/opt/lumivell` (no .deb), o comando é `lumivell` e as configurações ficam em
+`~/.config/lumivell`, então ele convive com um Ansel ou darktable instalado.
+
+## Gerar uma versão
+
+Os pacotes são compilados pelo GitHub Actions (`.github/workflows/release.yml`):
+
+- **Publicar uma versão**: crie e envie uma tag `vX.Y.Z` (por exemplo `git tag v0.2.0 && git push origin v0.2.0`).
+  O GitHub compila o .deb, o AppImage e o Flatpak e publica os três numa release com esse nome.
+- **Testar sem publicar**: aba *Actions* → *Linux packages* → *Run workflow*. Os pacotes ficam nos
+  artefatos da execução por 30 dias.
+
+Para compilar localmente:
+
+```sh
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/lumivell -DBINARY_PACKAGE_BUILD=ON
+cmake --build build
+packaging/linux/make-packages.sh build dist     # .deb (e AppImage, com as ferramentas em tools/appimage)
+packaging/flatpak/build-flatpak.sh              # Flatpak
+```
+
+O Lumivell não envia relatórios de falha nem estatísticas de uso: as duas funções herdadas do Ansel
+(`USE_SENTRY`, `USE_TELEMETRY`) vêm desligadas.
 
 ## Créditos e licença
 

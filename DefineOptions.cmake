@@ -24,8 +24,10 @@ option(BUILD_MSYS2_INSTALL "Build an MSYS2 version of the install, aka for Windo
 option(BUILD_NOISE_TOOLS "Build tools for generating noise profiles." OFF)
 option(BUILD_CURVE_TOOLS "Build tools for generating base and tone curves." OFF)
 option(USE_ICU "Enable ICU - International Components for Unicode." ON)
-option(USE_SENTRY "Enable opt-in sentry.io crash reporting." ON)
-option(USE_TELEMETRY "Enable opt-in PostHog usage analytics." ON)
+# Lumivell: both OFF. The DSN and the PostHog key below are Ansel's: a Lumivell build with them
+# on would report its crashes and usage to the Ansel project, which has nothing to do with it.
+option(USE_SENTRY "Enable opt-in sentry.io crash reporting." OFF)
+option(USE_TELEMETRY "Enable opt-in PostHog usage analytics." OFF)
 option(FORCE_COLORED_OUTPUT "Always produce ANSI-colored output (GNU/Clang only)." ON)
 set(SENTRY_DSN "https://2909ae9ae26fdf4eabf25fbf56fa3f9b@o4511598642200576.ingest.de.sentry.io/4511598693253200" CACHE STRING "Sentry.io DSN used for crash reporting. Set empty to disable uploads.")
 set(POSTHOG_HOST "https://eu.i.posthog.com" CACHE STRING "PostHog ingestion host (EU region by default).")

@@ -1,14 +1,14 @@
 {
-    "app-id": "photos.ansel.Ansel",
+    "app-id": "photos.lumivell.Lumivell",
     "runtime": "org.gnome.Platform",
     "runtime-version": "49",
     "sdk": "org.gnome.Sdk",
-    "command": "ansel",
+    "command": "lumivell",
     "separate-locales": false,
     "build-options": {
         "libdir": "/app/lib"
     },
-    "rename-icon": "ansel",
+    "rename-icon": "lumivell",
     "copy-icon": true,
     "finish-args": [
         "--share=ipc",
@@ -17,7 +17,6 @@
         "--socket=fallback-x11",
         "--filesystem=host",
         "--talk-name=org.freedesktop.secrets",
-        "--metadata=X-DConf=migrate-path=/org/ansel/Ansel/",
         "--system-talk-name=org.freedesktop.ColorManager",
         "--talk-name=org.gtk.vfs.*",
         "--filesystem=xdg-run/gvfs",
@@ -344,13 +343,15 @@
             ]
         },
         {
-            "name": "ansel",
+            "name": "lumivell",
             "buildsystem": "cmake-ninja",
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
                 "-DBINARY_PACKAGE_BUILD=1",
-                "-DBUILD_CHANNEL=nightly",
-                "-DTESTBUILD_OPENCL_PROGRAMS=OFF"
+                "-DTESTBUILD_OPENCL_PROGRAMS=OFF",
+                "-DBUILD_CHANNEL=package-flatpak",
+                "-DUSE_SENTRY=OFF",
+                "-DUSE_TELEMETRY=OFF"
             ],
             "builddir": true,
             "sources": [

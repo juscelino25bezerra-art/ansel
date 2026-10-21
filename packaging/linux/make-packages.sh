@@ -98,7 +98,7 @@ Architecture: $ARCH
 Installed-Size: $INSTALLED_KB
 Depends: $DEPS, iso-codes, liblensfun-data-v1 | liblensfun-data
 Maintainer: Juscelino Be <noreply@github.com>
-Homepage: https://github.com/juscelino25bezerra-art/ansel
+Homepage: https://github.com/juscelino25bezerra-art/Lumivell_Linux
 Description: photo editor and catalogue for the desktop
  Lumivell organizes your photos in a library and develops RAW files
  non-destructively, with dark flat panels and a catalogue-first workflow.
@@ -147,6 +147,25 @@ cp "$ROOT/usr/share/metainfo/$APP_ID.appdata.xml" "$APPDIR/usr/share/metainfo/"
 # lensfun database, if the host has one
 if [ -d /usr/share/lensfun ]; then
   cp -a /usr/share/lensfun "$APPDIR/usr/share/"
+fi
+
+# What GTK needs at run time and a bare host may lack, as the Ansel AppImage ships it:
+# the Adwaita icon theme (symbolic icons), compiled GSettings schemas, the MIME database
+# and the gdk-pixbuf loaders.
+if [ -d /usr/share/icons/Adwaita ]; then
+  mkdir -p "$APPDIR/usr/share/icons"
+  cp -a /usr/share/icons/Adwaita "$APPDIR/usr/share/icons/"
+fi
+if [ -d /usr/share/glib-2.0/schemas ]; then
+  mkdir -p "$APPDIR/usr/share/glib-2.0"
+  cp -a /usr/share/glib-2.0/schemas "$APPDIR/usr/share/glib-2.0/"
+  glib-compile-schemas "$APPDIR/usr/share/glib-2.0/schemas" || true
+fi
+[ -d /usr/share/mime ] && cp -a /usr/share/mime "$APPDIR/usr/share/"
+PIXBUF_LOADERS=$(ls -d /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders 2>/dev/null || true)
+if [ -n "$PIXBUF_LOADERS" ]; then
+  mkdir -p "$APPDIR/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders"
+  cp -a "$PIXBUF_LOADERS"/. "$APPDIR/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders/"
 fi
 
 PLUGINS=(--plugin gtk)

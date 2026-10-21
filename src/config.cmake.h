@@ -39,7 +39,7 @@
 // it butchers @@ and ${} :(
 
 #define PACKAGE_NAME "lumivell"
-#define PACKAGE_BUGREPORT "https://github.com/juscelino25bezerra-art/ansel/issues"
+#define PACKAGE_BUGREPORT "https://github.com/juscelino25bezerra-art/Lumivell_Linux/issues"
 
 // these will be defined in build/bin/version_gen.c
 extern const char darktable_package_version[];

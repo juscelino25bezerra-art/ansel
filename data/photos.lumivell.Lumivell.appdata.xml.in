@@ -50,7 +50,7 @@
   <provides>
     <binary>lumivell</binary>
   </provides>
-  <url type="homepage">https://github.com/juscelino25bezerra-art/ansel</url>
-  <url type="bugtracker">https://github.com/juscelino25bezerra-art/ansel/issues</url>
+  <url type="homepage">https://github.com/juscelino25bezerra-art/Lumivell_Linux</url>
+  <url type="bugtracker">https://github.com/juscelino25bezerra-art/Lumivell_Linux/issues</url>
   <url type="help">https://ansel.photos/en/support/</url>
 </component>

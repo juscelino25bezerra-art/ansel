@@ -34,7 +34,7 @@ set -euo pipefail
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 ROOT_DIR=$(cd "${SCRIPT_DIR}/../.." && pwd)
 
-LOCAL_MANIFEST=${LOCAL_MANIFEST:-"${SCRIPT_DIR}/photos.ansel.Ansel.json"}
+LOCAL_MANIFEST=${LOCAL_MANIFEST:-"${SCRIPT_DIR}/photos.lumivell.Lumivell.json"}
 
 # The app id is read from the manifest rather than hardcoded here. It has to
 # agree with the id in data/photos.ansel.Ansel.appdata.xml.in and with the name
@@ -43,7 +43,7 @@ LOCAL_MANIFEST=${LOCAL_MANIFEST:-"${SCRIPT_DIR}/photos.ansel.Ansel.json"}
 APP_ID=${APP_ID:-"$(jq -r '.["app-id"]' "${LOCAL_MANIFEST}")"}
 SOURCE_DIR=${SOURCE_DIR:-"${ROOT_DIR}"}
 VERSION=${VERSION:-"$(sh "${ROOT_DIR}/tools/get_git_version_string.sh")"}
-BUNDLE_NAME=${BUNDLE_NAME:-"Ansel-${VERSION}-x86_64.flatpak"}
+BUNDLE_NAME=${BUNDLE_NAME:-"Lumivell-${VERSION}-x86_64.flatpak"}
 
 BUILD_DIR=${BUILD_DIR:-"${ROOT_DIR}/build/flatpak"}
 # The manifest is built into a directory of its own, holding a copy of
@@ -71,7 +71,7 @@ cp -a "${SCRIPT_DIR}/." "${MANIFEST_DIR}/"
 # used verbatim.
 jq --arg source_dir "${SOURCE_DIR}" \
    '.modules |= map(
-      if (type == "object") and (.name == "ansel") then
+      if (type == "object") and (.name == "lumivell") then
         .sources = [{"type": "dir", "path": $source_dir}]
       else
         .
@@ -82,7 +82,7 @@ jq --arg source_dir "${SOURCE_DIR}" \
 if ! jq -e --arg source_dir "${SOURCE_DIR}" \
   'any(.modules[];
        (type == "object")
-       and (.name == "ansel")
+       and (.name == "lumivell")
        and ((.sources // []) | any(.type == "dir" and .path == $source_dir)))' \
   "${MANIFEST_PATH}" >/dev/null; then
   echo "ERROR: no local source module found after patching manifest." >&2

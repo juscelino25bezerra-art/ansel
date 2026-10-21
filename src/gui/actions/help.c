@@ -50,7 +50,7 @@ static gboolean show_about_dialog(GtkAccelGroup *group, GObject *acceleratable, 
                                     _("Based on Ansel by Aurélien Pierre and on darktable."));
   gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(dialog), comments);
   dt_free(comments);
-  gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(dialog), "https://github.com/juscelino25bezerra-art/ansel");
+  gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(dialog), "https://github.com/juscelino25bezerra-art/Lumivell_Linux");
   gtk_about_dialog_set_website_label(GTK_ABOUT_DIALOG(dialog), _("Website"));
   char *icon = g_strdup("lumivell");
   gtk_about_dialog_set_logo_icon_name(GTK_ABOUT_DIALOG(dialog), icon);
