@@ -803,6 +803,8 @@ gboolean dt_ui_take_compare_pending(void)
 
 static void _mode_switcher_view_changed(gpointer instance, gpointer old_view, gpointer new_view, gpointer user_data)
 {
+  // a pending Compare only survives arriving in the darkroom
+  if(!_in_darkroom()) _mode_switcher.compare_pending = FALSE;
   _mode_switcher_sync();
 }
 
@@ -820,9 +822,9 @@ static void _mode_switcher_toggled(GtkToggleButton *button, gpointer user_data)
       if(active && !_in_darkroom())
       {
         // compare what is being developed: open the darkroom first, the module enters on arrival
+        // the switch may complete later; a refusal clears the request (view_changed below)
         _mode_switcher.compare_pending = TRUE;
         dt_ctl_switch_mode_to("darkroom");
-        if(!_in_darkroom()) _mode_switcher.compare_pending = FALSE; // refused (no picture)
       }
       else
         _mode_switcher.compare_handler(active);
