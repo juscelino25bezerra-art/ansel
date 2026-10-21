@@ -536,6 +536,11 @@ void gui_init(dt_lib_module_t *self)
 
   self->widget = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
   gtk_widget_set_name(self->widget, "essentials");
+  // Bauhaus widgets set hexpand, and GTK propagates it up to the side panel, which the window
+  // grid then widens at the expense of the image while a section is open (and the panel can no
+  // longer be resized). Setting it explicitly stops the propagation, as imageop_gui.c does for
+  // module bodies.
+  gtk_widget_set_hexpand(self->widget, FALSE);
 
   // header: title, Auto, B&W, reset
   d->header = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
